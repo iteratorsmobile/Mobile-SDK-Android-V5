@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
 import dji.sdk.keyvalue.value.common.CameraLensType;
 import dji.sdk.keyvalue.value.common.ComponentIndexType;
 import dji.v5.ux.R;
@@ -78,5 +79,13 @@ public class FocalZoomWidget extends ConstraintLayoutWidget<Object> implements I
 
     private boolean showZoomView(CameraLensType lensType) {
         return lensType == CameraLensType.CAMERA_LENS_ZOOM || lensType == CameraLensType.CAMERA_LENS_THERMAL;
+    }
+
+    public void onUpLevel() {
+        focalZoomWidgetView.upLevel();
+    }
+
+    public void onDownLevel() {
+        focalZoomWidgetView.downLevel();
     }
 }
