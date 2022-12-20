@@ -5,10 +5,12 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
+import androidx.navigation.Navigation
 import dji.sampleV5.modulecommon.models.MSDKCommonOperateVm
 import dji.sampleV5.modulecommon.util.DJIToastUtil
 import dji.sampleV5.modulecommon.views.MSDKInfoFragment
 import dji.v5.utils.common.ToastUtils
+import kotlinx.android.synthetic.main.activity_testing_tools.*
 
 /**
  * Class Description
@@ -23,6 +25,7 @@ abstract class TestingToolsActivity : AppCompatActivity() {
     protected val msdkCommonOperateVm: MSDKCommonOperateVm by viewModels()
 
     private val testToolsVM: TestToolsVM by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_testing_tools)
@@ -45,10 +48,8 @@ abstract class TestingToolsActivity : AppCompatActivity() {
             }
         }
 
-        supportFragmentManager.commit {
-            replace(R.id.main_info_fragment_container, MSDKInfoFragment())
-        }
-        
+        loadTitleView()
+
         DJIToastUtil.dJIToastLD = testToolsVM.djiToastResult
         testToolsVM.djiToastResult.observe(this) { result ->
             result?.msg?.let {
@@ -56,12 +57,32 @@ abstract class TestingToolsActivity : AppCompatActivity() {
             }
         }
 
+        msdkCommonOperateVm.mainPageInfoList.observe(this) { list ->
+            list.iterator().forEach {
+                addDestination(it.vavGraphId)
+            }
+        }
+
         loadPages()
+    }
+
+    /**
+     * 本activity的NavController，都是基于nav_host_fragment_container的
+     */
+    private fun addDestination(id: Int) {
+        val v = Navigation.findNavController(nav_host_fragment_container).navInflater.inflate(id)
+        Navigation.findNavController(nav_host_fragment_container).graph.addAll(v)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        DJIToastUtil.dJIToastLD=null
+        DJIToastUtil.dJIToastLD = null
+    }
+
+    open fun loadTitleView() {
+        supportFragmentManager.commit {
+            replace(R.id.main_info_fragment_container, MSDKInfoFragment())
+        }
     }
 
     abstract fun loadPages()

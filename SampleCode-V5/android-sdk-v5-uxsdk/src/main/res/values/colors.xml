@@ -40,6 +40,7 @@
     <color name="uxsdk_black_10_percent">#1A000000</color>
 
     <color name="uxsdk_white">#FFFFFF</color>
+    <color name="uxsdk_white_95_percent">#F2FFFFFF</color>
     <color name="uxsdk_white_85_percent">#D9FFFFFF</color>
     <color name="uxsdk_white_80_percent">#CCFFFFFF</color>
     <color name="uxsdk_white_75_percent">#C0FFFFFF</color>
@@ -54,6 +55,7 @@
     <color name="uxsdk_white_20_percent">#33FFFFFF</color>
     <color name="uxsdk_white_10_percent">#1AFFFFFF</color>
     <color name="uxsdk_white_0_percent">#00FFFFFF</color>
+
 
     <color name="uxsdk_gray_material_300">#E0E0E0</color>
     <color name="uxsdk_gray_100">#FF888888</color>
@@ -100,6 +102,8 @@
     <color name="uxsdk_yellow_500">#ffcc00</color>
 
     <color name="uxsdk_green_in_dark">#FF00EE8B</color>
+    <color name="uxsdk_green_in_dark_045">#7300EE8B</color>
+    <color name="uxsdk_green_in_dark_050">#8000EE8B</color>
     <color name="uxsdk_green">#ff3fc14d</color>
     <color name="uxsdk_green_material_400">#61BD17</color>
     <color name="uxsdk_green_material_400_transparent">#0061BD17</color>
@@ -144,7 +148,10 @@
     <color name="uxsdk_fpv_text_background">#991c2831</color>
     <color name="uxsdk_fpv_popover_content_background_color">#F2141414</color>
     <color name="uxsdk_fpv_popover_title_background_color">#F21F1F1F</color>
-    <color name="uxsdk_danger_in_dark">#E41F29</color>
+    <color name="uxsdk_red_in_dark">#E41F29</color>
+    <color name="uxsdk_red_in_dark_050">#80F5222D</color>
+    <color name="uxsdk_orange_in_dark">#FFEE8815</color>
+    <color name="uxsdk_orange_in_dark_050">#FFEE8815</color>
     <color name="uxsdk_fpv_live_view_btn_color">#991F1F1F</color>
     <color name="uxsdk_fpv_live_view_btn_press_color">#CC1F1F1F</color>
     <color name="uxsdk_fpv_live_view_btn_color_indark">#393939</color>
@@ -163,6 +170,7 @@
     <color name="uxsdk_light_gray">#B3FFFFFF</color>
     <color name="uxsdk_dark_gray">#80000000</color>
 
+    <!--hsi-->
     <color name="uxsdk_pfd_main_color">#99FFAA</color>
     <color name="uxsdk_pfd_hsi_main_color">#CC99FFAA</color>
     <color name="uxsdk_pfd_hsi_radar_main_color">#99009919</color>
@@ -174,6 +182,9 @@
     <color name="uxsdk_pfd_hsi_avoidance_color">#CCFFDF80</color>
     <color name="uxsdk_pfd_hsi_radar_avoidance_color">#99997302</color>
     <color name="uxsdk_pfd_hsi_perception_disabled_stroke_color">#4CFF0000</color>
+
+
+
 
     <color name="uxsdk_gimbal_mark_1">#00CFFF</color>
     <color name="uxsdk_gimbal_mark_2">#FFDB05</color>
@@ -229,6 +240,19 @@
     <color name="uxsdk_dic_color_c27_yellow">#ff9d00</color>
     <color name="uxsdk_dic_color_c13_red">#e70102</color>
 
+    <color name="uxsdk_dic_color_c18_divider">#b4b4b4</color>
+    <color name="uxsdk_dic_color_c20_divider">#34b4b4b4</color>
+    <color name="uxsdk_dic_color_c5_deepGray">#9b9b9b</color>
+    <color name="uxsdk_dic_color_c6_gray">#d8d8d8</color>
+    <color name="uxsdk_dic_color_c7_lightGray">#f2f2f2</color>
+    <color name="uxsdk_dic_color_c8_white">#ffffff</color>
+    <color name="uxsdk_dic_color_c24_white_Transparent6">#99ffffff</color>
+    <color name="uxsdk_dic_color_c24_white_Transparent7">#B2ffffff</color>
+    <color name="uxsdk_dic_color_c30_default_shadow">#88757575</color>
+    <color name="uxsdk_dic_color_c31">#585858</color>
+    <color name="uxsdk_dic_color_c32">#4a4a4a</color>
+    <color name="uxsdk_dic_color_c33">#26000000</color>
+
     <color name="uxsdk_dic_color_c0_transparent">#00000000</color>
     <color name="uxsdk_dic_color_c1_primary">#273035</color>
     <color name="uxsdk_dic_color_c2_primaryDark">#1b272f</color>
@@ -244,7 +268,7 @@
 
 
     <!-- 错误提示 -->
-    <color name="uxsdk_tips_danger_in_dark">@color/uxsdk_danger_in_dark</color>
+    <color name="uxsdk_tips_danger_in_dark">@color/uxsdk_red_in_dark</color>
     <!-- 警告提示-->
     <color name="uxsdk_tips_caution_in_dark">@color/uxsdk_zone_warning_enhanced</color>
     <!-- 成功提示-->
@@ -257,4 +281,15 @@
     <color name="uxsdk_zoom_slider_background_shadow">#33000000</color>
     <color name="uxsdk_zoom_slider_dot_color">#4DFFFFFF</color>
     <color name="uxsdk_zoom_slider_color">#1FA3F6</color>
+
+    <color name="uxsdk_message_info">#FF1FA3F6</color>    <!-- 普通消息 -->
+    <color name="uxsdk_message_error">#FFE70102</color>   <!-- 错误消息 -->
+    <color name="uxsdk_common_divider">#FFD8D8D8</color>  <!-- 分割线颜色 -->
+
+
+    <!--hsi -->
+    <color name="uxsdk_yellow_in_light">#FFFFCC00</color>
+    <color name="uxsdk_yellow_in_light_040">#68FFCC00</color>
+    <color name="uxsdk_yellow_in_light_050">#80FFCC00</color>
+    <color name="uxsdk_yellow_in_dark">#FFFFD707</color>
 </resources>

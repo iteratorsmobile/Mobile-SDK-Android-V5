@@ -6,10 +6,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import dji.v5.manager.aircraft.rtk.RTKCenter
+import dji.v5.utils.common.LogUtils
 import dji.v5.ux.R
 import dji.v5.ux.accessory.RTKEnabledWidgetModel
 import dji.v5.ux.core.base.DJISDKModel
 import dji.v5.ux.core.base.SchedulerProvider
+import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.base.widget.FrameLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.extension.getString
@@ -25,32 +27,33 @@ import dji.v5.ux.core.popover.PopoverHelper
  */
 class GpsSignalWidget @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0,
-) : FrameLayoutWidget<Boolean>(context, attrs, defStyleAttr) {
+) : ConstraintLayoutWidget<Boolean>(context, attrs, defStyleAttr) {
     private val ivRtkIcon: ImageView = findViewById(R.id.iv_rtk_icon)
     private val ivSatelliteIcon: ImageView = findViewById(R.id.iv_satellite_icon)
     private val tvSatelliteCount: TextView = findViewById(R.id.tv_satellite_count)
     private var rtkOverView: GpsSignalWidgetModel.RtkOverview = GpsSignalWidgetModel.RtkOverview()
-    private val rootView:ConstraintLayout=findViewById(R.id.root_view)
+    private val rootView: ConstraintLayout = findViewById(R.id.root_view)
 
     private val rtkEnabledWidgetModel by lazy {
         RTKEnabledWidgetModel(
             DJISDKModel.getInstance(),
-            ObservableInMemoryKeyedStore.getInstance())
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
+
     private val popover by lazy {
         PopoverHelper.showPopover(rootView, GpsSignalPopoverView(context))
     }
 
-
     private val gpsSignalWidgetModel by lazy {
         GpsSignalWidgetModel(
             DJISDKModel.getInstance(),
-            ObservableInMemoryKeyedStore.getInstance(), RTKCenter.getInstance())
+            ObservableInMemoryKeyedStore.getInstance(), RTKCenter.getInstance()
+        )
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_fpv_top_bar_widget_gps_signal, this)
-
     }
 
     init {
@@ -61,14 +64,12 @@ class GpsSignalWidget @JvmOverloads constructor(
         }
     }
 
-
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (!isInEditMode) {
             gpsSignalWidgetModel.setup()
             rtkEnabledWidgetModel.setup()
         }
-
     }
 
     override fun onDetachedFromWindow() {
@@ -79,15 +80,23 @@ class GpsSignalWidget @JvmOverloads constructor(
         super.onDetachedFromWindow()
     }
 
-
     override fun reactToModelChanges() {
 
         addReaction(gpsSignalWidgetModel.rtkOverview.observeOn(SchedulerProvider.ui()).subscribe {
             rtkOverView = it
             updateRtkIcon(it)
         })
+
         addReaction(gpsSignalWidgetModel.gpsSatelliteCount.observeOn(SchedulerProvider.ui()).subscribe {
+            if (!rtkOverView.rtkHealthy) {
+                LogUtils.d(logTag, "rtk is  not healthy,use gpsSatelliteCount")
+                tvSatelliteCount.text = it.toString()
+            }
+        })
+
+        addReaction(gpsSignalWidgetModel.rtkSatelliteCount.observeOn(SchedulerProvider.ui()).subscribe {
             if (rtkOverView.rtkHealthy) {
+                LogUtils.d(logTag, "rtk is healthy,use rtkSatelliteCount")
                 tvSatelliteCount.text = it.toString()
             }
         })
@@ -95,13 +104,7 @@ class GpsSignalWidget @JvmOverloads constructor(
             ivSatelliteIcon.setColorFilter(getTintColor(it))
             tvSatelliteCount.setTextColor(getTintColor(it))
         })
-
     }
-
-    override fun getIdealDimensionRatioString(): String? {
-        return getString(R.string.uxsdk_widget_rtk_enabled_ratio)
-    }
-
 
     private fun updateRtkIcon(overview: GpsSignalWidgetModel.RtkOverview) {
         ivRtkIcon.visibility = if (overview.connected) VISIBLE else GONE
