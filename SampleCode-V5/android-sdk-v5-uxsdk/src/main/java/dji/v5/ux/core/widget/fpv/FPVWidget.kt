@@ -339,7 +339,13 @@ open class FPVWidget @JvmOverloads constructor(
         } else if (videoDecoder?.decoderStatus == DecoderState.PAUSED) {
             videoDecoder?.onResume()
         }
-        LogUtils.i(logTag, "surfaceChanged", videoChannelType, videoDecoder?.videoWidth, videoDecoder?.videoHeight)
+        LogUtils.i(
+            logTag,
+            "surfaceChanged",
+            videoChannelType,
+            videoDecoder?.videoWidth,
+            videoDecoder?.videoHeight
+        )
     }
 
     override fun surfaceDestroyed(holder: SurfaceHolder?) {
@@ -385,11 +391,11 @@ open class FPVWidget @JvmOverloads constructor(
         widgetModel.streamSourceListener = listener
     }
 
-    fun setSurfaceViewZOrderOnTop(onTop:Boolean){
+    fun setSurfaceViewZOrderOnTop(onTop: Boolean) {
         fpvSurfaceView.setZOrderOnTop(onTop)
     }
 
-    fun setSurfaceViewZOrderMediaOverlay(isMediaOverlay:Boolean){
+    fun setSurfaceViewZOrderMediaOverlay(isMediaOverlay: Boolean) {
         fpvSurfaceView.setZOrderMediaOverlay(isMediaOverlay)
     }
 
@@ -435,7 +441,7 @@ open class FPVWidget @JvmOverloads constructor(
     }
 
     private fun updateCameraSide(cameraSide: String) {
-        cameraSideTextView.visibility = View.VISIBLE
+        cameraSideTextView.visibility = if (isCameraSourceSideVisible) View.VISIBLE else View.GONE
         cameraSideTextView.text = cameraSide
     }
 
@@ -469,7 +475,8 @@ open class FPVWidget @JvmOverloads constructor(
 
     private fun updateGridLineVisibility() {
         gridLineView.visibility = if (isGridLinesEnabled
-            && widgetModel.streamSource?.physicalDevicePosition == PhysicalDevicePosition.NOSE) View.VISIBLE else View.GONE
+            && widgetModel.streamSource?.physicalDevicePosition == PhysicalDevicePosition.NOSE
+        ) View.VISIBLE else View.GONE
     }
     //endregion
 
@@ -507,10 +514,16 @@ open class FPVWidget @JvmOverloads constructor(
                     isCenterPointEnabled = it
                 }
             }
-            typedArray.getBooleanAndUse(R.styleable.FPVWidget_uxsdk_sourceCameraNameVisibility, true) {
+            typedArray.getBooleanAndUse(
+                R.styleable.FPVWidget_uxsdk_sourceCameraNameVisibility,
+                true
+            ) {
                 isCameraSourceNameVisible = it
             }
-            typedArray.getBooleanAndUse(R.styleable.FPVWidget_uxsdk_sourceCameraSideVisibility, true) {
+            typedArray.getBooleanAndUse(
+                R.styleable.FPVWidget_uxsdk_sourceCameraSideVisibility,
+                true
+            ) {
                 isCameraSourceSideVisible = it
             }
             typedArray.getResourceIdAndUse(R.styleable.FPVWidget_uxsdk_cameraNameTextAppearance) {
