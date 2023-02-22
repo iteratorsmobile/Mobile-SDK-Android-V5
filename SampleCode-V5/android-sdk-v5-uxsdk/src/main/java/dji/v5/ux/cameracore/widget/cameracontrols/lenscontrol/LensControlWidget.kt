@@ -1,9 +1,9 @@
 package dji.v5.ux.cameracore.widget.cameracontrols.lenscontrol
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.Button
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
@@ -15,7 +15,6 @@ import dji.v5.ux.core.base.SchedulerProvider.ui
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import kotlinx.android.synthetic.main.uxsdk_camera_lens_control_widget.view.*
-import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * Class Description
@@ -25,6 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger
  *
  * Copyright (c) 2021, DJI All Rights Reserved.
  */
+@SuppressLint("CheckResult")
 open class LensControlWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -41,17 +41,20 @@ open class LensControlWidget @JvmOverloads constructor(
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         View.inflate(context, R.layout.uxsdk_camera_lens_control_widget, this)
+        widgetStateDataProcessor.offer(ModelState.Visible)
     }
 
     override fun reactToModelChanges() {
-        addReaction(widgetModel.properCameraVideoStreamSourceRangeProcessor.toFlowable().observeOn(ui()).subscribe {
-            updateBtnView()
-        })
-        addReaction(widgetModel.cameraVideoStreamSourceProcessor.toFlowable().observeOn(ui()).subscribe {
-            updateBtnView()
-        })
+        addReaction(
+            widgetModel.properCameraVideoStreamSourceRangeProcessor.toFlowable().observeOn(ui())
+                .subscribe {
+                    updateBtnView()
+                })
+        addReaction(
+            widgetModel.cameraVideoStreamSourceProcessor.toFlowable().observeOn(ui()).subscribe {
+                updateBtnView()
+            })
         first_len_btn.setOnClickListener(this)
-        second_len_btn.setOnClickListener(this)
     }
 
     override fun onAttachedToWindow() {
@@ -74,9 +77,7 @@ open class LensControlWidget @JvmOverloads constructor(
 
     override fun onClick(v: View?) {
         if (v == first_len_btn) {
-            dealLensBtnClicked(firstBtnSource)
-        } else if (v == second_len_btn) {
-            dealLensBtnClicked(secondBtnSource)
+            dealLensBtnClicked()
         }
     }
 
@@ -91,11 +92,12 @@ open class LensControlWidget @JvmOverloads constructor(
         widgetModel.updateCameraSource(cameraIndex, lensType)
     }
 
-    private fun dealLensBtnClicked(source: CameraVideoStreamSourceType) {
-        if (source == widgetModel.cameraVideoStreamSourceProcessor.value) {
-            return
+    private fun dealLensBtnClicked() {
+        val newSource = when (widgetModel.cameraVideoStreamSourceProcessor.value) {
+            firstBtnSource -> secondBtnSource
+            else -> firstBtnSource
         }
-        addDisposable(widgetModel.setCameraVideoStreamSource(source).observeOn(ui()).subscribe())
+        addDisposable(widgetModel.setCameraVideoStreamSource(newSource).observeOn(ui()).subscribe())
     }
 
     private fun updateBtnView() {
@@ -103,29 +105,31 @@ open class LensControlWidget @JvmOverloads constructor(
         //单源
         if (videoSourceRange.size <= 1) {
             this.visibility = GONE
+            widgetStateDataProcessor.offer(ModelState.Gone)
             return
         }
         //双源
         if (videoSourceRange.size == 2) {
-            updateBtnText(first_len_btn, getProperVideoSource(videoSourceRange,widgetModel.cameraVideoStreamSourceProcessor.value).also {
-                firstBtnSource = it
-            })
-            second_len_btn.visibility = GONE
+            updateBtnText(
+                first_len_btn,
+                getProperVideoSource(
+                    videoSourceRange,
+                    widgetModel.cameraVideoStreamSourceProcessor.value
+                ).also {
+                    firstBtnSource = it
+                })
             return
         }
         //超过2个源
-        second_len_btn.visibility = visibility
         this.visibility = VISIBLE
+        widgetStateDataProcessor.offer(ModelState.Visible)
         updateBtnText(first_len_btn, getProperVideoSource(videoSourceRange, secondBtnSource).also {
             firstBtnSource = it
         })
-        updateBtnText(second_len_btn, getProperVideoSource(videoSourceRange, firstBtnSource).also {
-            secondBtnSource = it
-        })
     }
 
-    private fun updateBtnText(button: Button, source: CameraVideoStreamSourceType) {
-        button.text = when (source) {
+    private fun updateBtnText(view: View, source: CameraVideoStreamSourceType) {
+        view.tag = when (source) {
             CameraVideoStreamSourceType.WIDE_CAMERA -> StringUtils.getResStr(R.string.uxsdk_lens_type_wide)
             CameraVideoStreamSourceType.ZOOM_CAMERA -> StringUtils.getResStr(R.string.uxsdk_lens_type_zoom)
             CameraVideoStreamSourceType.INFRARED_CAMERA -> StringUtils.getResStr(R.string.uxsdk_lens_type_ir)
@@ -135,14 +139,20 @@ open class LensControlWidget @JvmOverloads constructor(
         }
     }
 
-    private fun getProperVideoSource(range: List<CameraVideoStreamSourceType>, exceptSource: CameraVideoStreamSourceType): CameraVideoStreamSourceType {
+    private fun getProperVideoSource(
+        range: List<CameraVideoStreamSourceType>,
+        exceptSource: CameraVideoStreamSourceType
+    ): CameraVideoStreamSourceType {
         for (source in range) {
             if (source != widgetModel.cameraVideoStreamSourceProcessor.value && source != exceptSource) {
                 return source
             }
         }
-        return exceptSource;
+        return exceptSource
     }
 
-    sealed class ModelState
+    sealed class ModelState {
+        object Visible : ModelState()
+        object Gone : ModelState()
+    }
 }
