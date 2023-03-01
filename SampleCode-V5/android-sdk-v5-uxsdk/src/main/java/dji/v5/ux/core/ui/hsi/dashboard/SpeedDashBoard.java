@@ -1,5 +1,7 @@
 package dji.v5.ux.core.ui.hsi.dashboard;
 
+import static dji.v5.common.utils.UnitUtils.UNIT_METRIC;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -122,11 +124,11 @@ public class SpeedDashBoard extends ScrollableAttributeDashBoard {
 
     @Override
     protected String getAttributeUnit() {
-        return UnitUtils.getSpeedUnit();
+        return getContext().getString(R.string.uxsdk_unit_meter_per_second);
     }
 
     @Override
     protected float getDisplayValue(float value) {
-        return UnitUtils.transFormSpeedIntoDifferentUnit(value);
+        return value; //default should be m/s
     }
 }

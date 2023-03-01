@@ -974,12 +974,12 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
 
     @Override
     protected String getAttributeUnit() {
-        return UnitUtils.getUintStrByLength(UnitUtils.isMetricUnits() ? UnitUtils.UnitType.METRIC : UnitUtils.UnitType.IMPERIAL);
+        return getContext().getString(R.string.uxsdk_unit_meters);
     }
 
     @Override
     protected float getDisplayValue(float value) {
-        return UnitUtils.getValueFromMetricByLength(value, UnitUtils.isMetricUnits() ? UnitUtils.UnitType.METRIC : UnitUtils.UnitType.IMPERIAL);
+        return value; //default should be meters
     }
 
     @Override
