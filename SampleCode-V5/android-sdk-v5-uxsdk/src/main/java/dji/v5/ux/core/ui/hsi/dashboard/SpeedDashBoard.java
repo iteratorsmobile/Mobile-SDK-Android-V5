@@ -1,7 +1,5 @@
 package dji.v5.ux.core.ui.hsi.dashboard;
 
-import static dji.v5.common.utils.UnitUtils.UNIT_METRIC;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
@@ -12,7 +10,6 @@ import androidx.core.content.ContextCompat;
 
 import dji.v5.ux.R;
 import dji.v5.ux.core.base.SchedulerProvider;
-import dji.v5.common.utils.UnitUtils;
 import dji.v5.ux.core.widget.hsi.SpeedDisplayModel;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 

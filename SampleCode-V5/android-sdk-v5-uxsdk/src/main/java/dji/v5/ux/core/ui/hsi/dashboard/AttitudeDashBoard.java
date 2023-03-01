@@ -20,7 +20,6 @@ import dji.v5.manager.aircraft.perception.data.ObstacleData;
 import dji.v5.manager.aircraft.perception.radar.RadarInformation;
 import dji.v5.utils.common.LogUtils;
 import dji.v5.ux.R;
-import dji.v5.common.utils.UnitUtils;
 import dji.v5.ux.core.ui.hsi.config.IOmniAbility;
 import dji.v5.utils.common.AndUtil;
 import dji.v5.ux.core.util.DrawUtils;
