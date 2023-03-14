@@ -92,12 +92,16 @@ open class LensControlWidget @JvmOverloads constructor(
         widgetModel.updateCameraSource(cameraIndex, lensType)
     }
 
+    fun setStreamSource(source: CameraVideoStreamSourceType) {
+        addDisposable(widgetModel.setCameraVideoStreamSource(source).observeOn(ui()).subscribe())
+    }
+
     private fun dealLensBtnClicked() {
         val newSource = when (widgetModel.cameraVideoStreamSourceProcessor.value) {
             firstBtnSource -> secondBtnSource
             else -> firstBtnSource
         }
-        addDisposable(widgetModel.setCameraVideoStreamSource(newSource).observeOn(ui()).subscribe())
+        setStreamSource(newSource)
     }
 
     private fun updateBtnView() {
