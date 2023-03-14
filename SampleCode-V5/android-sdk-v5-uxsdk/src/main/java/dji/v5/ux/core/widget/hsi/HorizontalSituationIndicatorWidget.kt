@@ -43,6 +43,10 @@ open class HorizontalSituationIndicatorWidget @JvmOverloads constructor(
         pfd_hsi_gimbal_pitch_display.visibility = if (isEnable) VISIBLE else GONE
     }
 
+    fun updateLaserPointDistance(distanceString: String) {
+        pfd_hsi_laser_distance.text = distanceString
+    }
+
     sealed class ModelState
 
     override fun getCameraIndex(): ComponentIndexType {

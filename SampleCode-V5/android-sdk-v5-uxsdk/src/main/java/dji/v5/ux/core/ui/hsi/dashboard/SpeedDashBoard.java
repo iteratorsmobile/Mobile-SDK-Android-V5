@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat;
 
 import dji.v5.ux.R;
 import dji.v5.ux.core.base.SchedulerProvider;
-import dji.v5.common.utils.UnitUtils;
 import dji.v5.ux.core.widget.hsi.SpeedDisplayModel;
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 
@@ -122,11 +121,11 @@ public class SpeedDashBoard extends ScrollableAttributeDashBoard {
 
     @Override
     protected String getAttributeUnit() {
-        return UnitUtils.getSpeedUnit();
+        return getContext().getString(R.string.uxsdk_unit_meter_per_second);
     }
 
     @Override
     protected float getDisplayValue(float value) {
-        return UnitUtils.transFormSpeedIntoDifferentUnit(value);
+        return value; //default should be m/s
     }
 }

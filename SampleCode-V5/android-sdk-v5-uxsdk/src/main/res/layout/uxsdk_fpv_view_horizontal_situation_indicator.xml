@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/uxsdk_350_dp"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
@@ -28,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/uxsdk_116_dp"
         android:layout_marginTop="@dimen/uxsdk_5_dp"
-        android:layout_marginBottom="@dimen/uxsdk_5_dp"
+        android:layout_marginBottom="0dp"
         app:uxsdk_hsi_aircraft_indicator_size="@dimen/uxsdk_12_dp"
         app:uxsdk_hsi_degree_indicator_height="@dimen/uxsdk_10_dp"
         app:uxsdk_hsi_degree_indicator_text_height="@dimen/uxsdk_13_dp"
@@ -77,4 +78,16 @@
         android:layout_marginStart="@dimen/uxsdk_50_dp"
         android:layout_toEndOf="@id/anchor"
         android:paddingTop="@dimen/uxsdk_13_dp" />
+
+    <TextView
+        android:id="@+id/pfd_hsi_laser_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pfd_hsi_view"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/uxsdk_green_in_dark"
+        android:textSize="@dimen/uxsdk_11_dp"
+        android:textStyle="bold"
+        tools:text="230 m" />
+
 </RelativeLayout>
