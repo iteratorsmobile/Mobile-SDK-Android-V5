@@ -518,7 +518,7 @@ public class FocalZoomWidgetView extends ViewWidget implements ICameraIndex {
         reviseValueAndShow(curValue);
     }
 
-    private void upLevel() {
+    void upLevel() {
         int level = 1;
         if (mCurrentScreenFocalMultiTimes == mHighLevelValue) {
             level++;
@@ -526,7 +526,7 @@ public class FocalZoomWidgetView extends ViewWidget implements ICameraIndex {
         setLevel(mCurrentLevel + level, 0);
     }
 
-    private void downLevel() {
+    void downLevel() {
         int level = 1;
         if (mCurrentScreenFocalMultiTimes == mLowLevelValue) {
             level++;

@@ -20,7 +20,6 @@ import dji.v5.manager.aircraft.perception.data.ObstacleData;
 import dji.v5.manager.aircraft.perception.radar.RadarInformation;
 import dji.v5.utils.common.LogUtils;
 import dji.v5.ux.R;
-import dji.v5.common.utils.UnitUtils;
 import dji.v5.ux.core.ui.hsi.config.IOmniAbility;
 import dji.v5.utils.common.AndUtil;
 import dji.v5.ux.core.util.DrawUtils;
@@ -974,12 +973,12 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
 
     @Override
     protected String getAttributeUnit() {
-        return UnitUtils.getUintStrByLength(UnitUtils.isMetricUnits() ? UnitUtils.UnitType.METRIC : UnitUtils.UnitType.IMPERIAL);
+        return getContext().getString(R.string.uxsdk_unit_meters);
     }
 
     @Override
     protected float getDisplayValue(float value) {
-        return UnitUtils.getValueFromMetricByLength(value, UnitUtils.isMetricUnits() ? UnitUtils.UnitType.METRIC : UnitUtils.UnitType.IMPERIAL);
+        return value; //default should be meters
     }
 
     @Override

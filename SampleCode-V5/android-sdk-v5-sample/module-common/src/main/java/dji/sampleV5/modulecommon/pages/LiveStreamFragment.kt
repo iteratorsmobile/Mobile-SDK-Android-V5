@@ -431,12 +431,12 @@ class LiveStreamFragment:DJIFragment(), View.OnClickListener,SurfaceHolder.Callb
         val etAgoraUid = agoraConfigView.findViewById<EditText>(R.id.et_livestream_agora_uid)
 
         val agoraConfig = liveStreamVM.getAgoraSettings()
-        if (!TextUtils.isEmpty(agoraConfig) && agoraConfig.length > 0) {
+//        if (!TextUtils.isEmpty(agoraConfig) && agoraConfig.length > 0) {
             val configs = agoraConfig.trim().split("^_^")
-            etAgoraChannelId.setText(configs[0].toCharArray(), 0, configs[0].length)
-            etAgoraToken.setText(configs[1].toCharArray(), 0, configs[1].length)
-            etAgoraUid.setText(configs[2].toCharArray(), 0, configs[2].length)
-        }
+            etAgoraChannelId.setText("TestSasha2110")
+            etAgoraToken.setText("007eJxTYJi5qOtc5iG/N7selKd82Cn53jKpaO+1G5P6GT2j/UMYlxxTYDC2SE42MEo2MjBIMTAxT0pONDM2Njc1MDNNMTQ3SjMx/pcalFwfyMgQWDebmZEBAkF8XoaQ1OKS4MTijEQjQ0MDBgYAGhcjUg==")
+            etAgoraUid.setText("0")
+//        }
 
         configDialog = this@LiveStreamFragment.requireContext()?.let {
             AlertDialog.Builder(it, R.style.Base_ThemeOverlay_AppCompat_Dialog_Alert)
