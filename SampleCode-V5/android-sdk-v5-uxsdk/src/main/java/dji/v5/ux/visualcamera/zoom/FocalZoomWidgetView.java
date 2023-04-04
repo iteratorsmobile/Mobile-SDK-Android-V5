@@ -406,7 +406,7 @@ public class FocalZoomWidgetView extends ViewWidget implements ICameraIndex {
 
     public void performZoom(float step) {
         mFinalTouchTime = SystemClock.uptimeMillis();
-        pushFocalLength(mCurrentScreenFocalMultiTimes + step);
+        reviseValueAndShow(mCurrentScreenFocalMultiTimes + step);
     }
 
     @Override
