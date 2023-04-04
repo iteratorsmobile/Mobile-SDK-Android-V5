@@ -17,6 +17,7 @@ import java.math.BigDecimal;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import dji.sdk.keyvalue.utils.CameraUtil;
 import dji.sdk.keyvalue.value.common.CameraLensType;
 import dji.sdk.keyvalue.value.common.ComponentIndexType;
@@ -401,6 +402,11 @@ public class FocalZoomWidgetView extends ViewWidget implements ICameraIndex {
         } else {
             canvas.drawBitmap(mMinusBitmap, null, minusDestRect, mSymbolBitmapPaint);
         }
+    }
+
+    public void performZoom(float step) {
+        mFinalTouchTime = SystemClock.uptimeMillis();
+        pushFocalLength(mCurrentScreenFocalMultiTimes + step);
     }
 
     @Override
