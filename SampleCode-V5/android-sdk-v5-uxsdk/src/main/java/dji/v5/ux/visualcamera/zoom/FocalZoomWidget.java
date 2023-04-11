@@ -85,4 +85,8 @@ public class FocalZoomWidget extends ConstraintLayoutWidget<Object> implements I
     public void onDownLevel() {
         focalZoomWidgetView.downLevel();
     }
+
+    public void performZoom(float step) {
+        focalZoomWidgetView.performZoom(step);
+    }
 }
