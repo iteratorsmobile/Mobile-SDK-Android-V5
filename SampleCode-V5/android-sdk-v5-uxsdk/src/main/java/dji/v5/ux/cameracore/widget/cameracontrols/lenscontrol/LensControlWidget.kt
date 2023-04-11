@@ -112,6 +112,7 @@ open class LensControlWidget @JvmOverloads constructor(
             widgetStateDataProcessor.offer(ModelState.Gone)
             return
         }
+        first_len_btn.visibility = VISIBLE
         //双源
         if (videoSourceRange.size == 2) {
             updateBtnText(
