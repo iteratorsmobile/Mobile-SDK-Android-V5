@@ -77,7 +77,7 @@ open class SystemStatusWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : ConstraintLayoutWidget<ModelState>(context, attrs, defStyleAttr){
+) : ConstraintLayoutWidget<ModelState>(context, attrs, defStyleAttr), View.OnClickListener{
     //region Fields
     private val systemStatusTextView: TextView = findViewById(R.id.textview_system_status)
     private val systemStatusBackgroundImageView: ImageView = findViewById(R.id.imageview_system_status_background)
@@ -158,6 +158,7 @@ open class SystemStatusWidget @JvmOverloads constructor(
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         if (!isInEditMode) {
+            setOnClickListener(this)
             widgetModel.setup()
         }
     }
@@ -447,6 +448,10 @@ open class SystemStatusWidget @JvmOverloads constructor(
                 return values.find { it.value == value } ?: COLOR
             }
         }
+    }
+
+    override fun onClick(v: View?) {
+        uiUpdateStateProcessor.onNext(UIState.WidgetClicked)
     }
     //endregion
 }
