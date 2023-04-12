@@ -18,29 +18,4 @@
         app:srcCompat="@drawable/uxsdk_ic_camera_lens"
         app:tint="@color/uxsdk_white"
         tools:ignore="ContentDescription" />
-
-    <!--    <Button-->
-    <!--        android:id="@+id/first_len_btn"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:text="first"-->
-    <!--        android:textColor="@color/uxsdk_black"-->
-    <!--        android:textSize="@dimen/uxsdk_text_size_normal_medium"-->
-    <!--        app:layout_constraintBottom_toTopOf="@id/second_len_btn"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <!--    <Button-->
-    <!--        android:id="@+id/second_len_btn"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@id/first_len_btn"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        android:text="second"-->
-    <!--        android:textColor="@color/uxsdk_black"-->
-    <!--        android:textSize="@dimen/uxsdk_text_size_normal_medium" />-->
-
 </merge>

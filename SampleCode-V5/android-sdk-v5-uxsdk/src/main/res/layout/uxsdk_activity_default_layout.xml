@@ -177,13 +177,12 @@
 
         <dji.v5.ux.visualcamera.zoom.FocalZoomWidget
             android:id="@+id/widget_focal_zoom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="42dp"
+            android:layout_height="0dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/widget_map"
             app:layout_constraintEnd_toStartOf="@id/widget_camera_controls"
-            app:layout_constraintTop_toBottomOf="@+id/widget_focus_exposure_switch"
-            app:layout_constraintVertical_bias="0.05" />
+            app:layout_constraintTop_toBottomOf="@+id/widget_focus_exposure_switch" />
 
         <dji.v5.ux.cameracore.widget.cameracontrols.exposuresettings.ExposureSettingsPanel
             android:id="@+id/panel_camera_controls_exposure_settings"

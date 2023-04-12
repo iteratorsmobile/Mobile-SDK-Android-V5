@@ -6,6 +6,7 @@ import android.graphics.YuvImage
 import android.media.MediaCodecInfo
 import android.media.MediaFormat
 import android.os.*
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
@@ -470,6 +471,7 @@ class VideoChannelFragment : DJIFragment(), View.OnClickListener, SurfaceHolder.
     }
 
     override fun onReceive(mediaFormat: MediaFormat?, data: ByteArray?, width: Int, height: Int) {
+        Log.i("onReceive", "media format = $mediaFormat; ${data?.size}; ${width}; $height")
         if (++count == 30) {
             count = 0
             data?.let {

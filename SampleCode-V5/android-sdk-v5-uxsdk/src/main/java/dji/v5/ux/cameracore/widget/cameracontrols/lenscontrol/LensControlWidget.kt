@@ -97,11 +97,17 @@ open class LensControlWidget @JvmOverloads constructor(
     }
 
     fun dealLensBtnClicked() {
-        val newSource = when (widgetModel.cameraVideoStreamSourceProcessor.value) {
-            firstBtnSource -> secondBtnSource
-            else -> firstBtnSource
+        try {
+            val videoSourceRange = widgetModel.properCameraVideoStreamSourceRangeProcessor.value
+            val indexOfCurrent =
+                videoSourceRange.indexOf(widgetModel.cameraVideoStreamSourceProcessor.value)
+            val nextIndex =
+                if (indexOfCurrent == videoSourceRange.size - 1) 0 else indexOfCurrent + 1
+            setStreamSource(videoSourceRange[nextIndex])
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
-        setStreamSource(newSource)
+
     }
 
     private fun updateBtnView() {

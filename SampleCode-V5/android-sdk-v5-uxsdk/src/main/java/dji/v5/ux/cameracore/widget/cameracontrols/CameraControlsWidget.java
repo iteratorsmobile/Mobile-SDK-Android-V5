@@ -70,7 +70,7 @@ public class CameraControlsWidget extends ConstraintLayoutWidget<Object> impleme
     @Override
     protected void initView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         inflate(context, R.layout.uxsdk_widget_camera_controls, this);
-        setBackgroundResource(R.drawable.uxsdk_background_black_rectangle);
+//        setBackgroundResource(R.drawable.uxsdk_background_black_rectangle);
         cameraCaptureWidget = findViewById(R.id.widget_camera_control_camera_capture);
         photoVideoSwitchWidget = findViewById(R.id.widget_camera_control_photo_video_switch);
         exposureSettingsIndicatorWidget = findViewById(R.id.widget_camera_control_camera_exposure_settings);
