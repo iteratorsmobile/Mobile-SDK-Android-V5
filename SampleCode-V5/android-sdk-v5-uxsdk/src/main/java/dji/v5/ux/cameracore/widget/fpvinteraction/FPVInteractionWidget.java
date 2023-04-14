@@ -176,7 +176,7 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
             if (isAeLocked) {
                 exposureMeterView.setVisibility(View.GONE);
             } else if (controlMode == ControlMode.SPOT_METER) {
-                exposureMeterView.setVisibility(View.VISIBLE);
+//                exposureMeterView.setVisibility(View.VISIBLE);
             }
             focusTargetView.setVisibility(GONE);
         } else {
