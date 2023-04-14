@@ -28,6 +28,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
@@ -41,6 +42,7 @@ import androidx.annotation.FloatRange;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import dji.sdk.keyvalue.value.common.CameraLensType;
 import dji.sdk.keyvalue.value.common.ComponentIndexType;
 import dji.sdk.keyvalue.value.common.PhysicalSource;
@@ -56,16 +58,17 @@ import dji.v5.ux.core.util.RxUtil;
 import dji.v5.ux.core.util.SettingDefinitions;
 import dji.v5.ux.core.util.SettingDefinitions.ControlMode;
 import dji.v5.ux.core.util.SettingDefinitions.GimbalIndex;
+import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Flowable;
 import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
  * This widget allows the user to interact with the FPVWidget.
- * <p>
- * When this widget is tapped, an icon will appear and the camera will either focus or perform spot
- * metering at the tapped area, depending on the current {@link ControlMode}.
- * <p>
- * When the widget is long pressed then dragged, the gimbal controls will appear and the aircraft's
+ * * <p>
+ * * When this widget is tapped, an icon will appear and the camera will either focus or perform spot
+ * * metering at the tapped area, depending on the current {@link ControlMode}.
+ * * <p>
+ * * When the widget is long pressed then dragged, the gimbal controls will appear and the aircraft's
  * gimbal will move. The speed at which the gimbal moves is based on the drag distance.
  */
 public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements View.OnTouchListener, ICameraIndex, IGimbalIndex {
@@ -310,22 +313,24 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
             redraw();
         }
     }
-    //endregion
 
+    //endregion
     //region Helpers
     private void updateTarget(ControlMode controlMode, boolean isAeLocked, float targetX, float targetY) {
         if (controlMode == ControlMode.SPOT_METER || controlMode == ControlMode.CENTER_METER) {
+            Log.i("FPVInteraction", "isInBounds = " + isInBounds());
             if (spotMeteringEnabled && isInBounds() && !isAeLocked) {
                 final ControlMode newControlMode = exposureMeterView.clickEvent(controlMode, absTargetX, absTargetY, viewWidth, viewHeight);
                 addDisposable(widgetModel.setControlMode(newControlMode)
                         .observeOn(SchedulerProvider.ui())
                         .subscribe(() -> {
+                            Log.i("FPVInteraction", "set control mode done to " + newControlMode.name());
                             //do nothing
-                        }, RxUtil.logErrorConsumer(TAG, "updateTarget: ")));
+                        }, RxUtil.logErrorConsumer(TAG, "set control error")));
                 addDisposable(widgetModel.updateMetering(targetX, targetY)
                         .observeOn(SchedulerProvider.ui())
                         .subscribe(() -> {
-                            // do nothing
+                            Log.i("FPVInteraction", "updateMetering to " + targetX + "; " + targetY);
                         }, throwable -> onExposureMeterSetFail(newControlMode)));
             }
         } else if (touchFocusEnabled && isInBounds()) {
@@ -333,7 +338,7 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
             addDisposable(widgetModel.updateFocusTarget(targetX, targetY)
                     .observeOn(SchedulerProvider.ui())
                     .subscribe(() -> {
-                        //do nothing
+                        Log.i("FPVInteraction", "updateFocusTarget to " + targetX + "; " + targetY);
                     }, throwable -> onFocusTargetSetFail()));
         }
     }
@@ -346,6 +351,7 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
     }
 
     private void onExposureMeterSetFail(ControlMode controlMode) {
+        Log.i("FPVInteraction", "onExposureMeterSetFail");
         if (oldAbsTargetX > 0 && oldAbsTargetY > 0) {
             addDisposable(widgetModel
                     .setControlMode(exposureMeterView.clickEvent(controlMode,
@@ -361,6 +367,7 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
     }
 
     private void onFocusTargetSetFail() {
+        Log.i("FPVInteraction", "onFocusTargetSetFail");
         if (oldAbsTargetX > 0 && oldAbsTargetY > 0) {
             focusTargetView.clickEvent(oldAbsTargetX, oldAbsTargetY);
         }

@@ -29,9 +29,9 @@
 
     <dji.v5.ux.cameracore.widget.fpvinteraction.FocusTargetView
         android:id="@+id/view_focus_target"
-        android:layout_gravity="center"
         android:layout_width="@dimen/uxsdk_48_dp"
-        android:layout_height="@dimen/uxsdk_48_dp" />
+        android:layout_height="@dimen/uxsdk_48_dp"
+        android:layout_gravity="center" />
 
     <dji.v5.ux.cameracore.widget.fpvinteraction.GimbalControlView
         android:id="@+id/view_gimbal_control"
@@ -40,8 +40,9 @@
 
     <dji.v5.ux.cameracore.widget.fpvinteraction.ExposureMeteringWidget
         android:id="@+id/view_exposure_meter"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
 </FrameLayout>

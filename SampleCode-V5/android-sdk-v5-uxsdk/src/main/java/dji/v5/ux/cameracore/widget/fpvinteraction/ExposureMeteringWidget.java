@@ -25,9 +25,15 @@ package dji.v5.ux.cameracore.widget.fpvinteraction;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import java.util.concurrent.TimeUnit;
+
 import dji.v5.ux.R;
 import dji.v5.ux.core.base.DJISDKModel;
 import dji.v5.ux.core.base.SchedulerProvider;
@@ -36,6 +42,8 @@ import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore;
 import dji.v5.ux.core.ui.VerticalSeekBar;
 import dji.v5.ux.core.ui.exposure.ExposeVSeekBar;
 import dji.v5.ux.core.util.SettingDefinitions.ControlMode;
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.disposables.Disposable;
 
 /**
  * Displays a metering target on the screen.
@@ -56,6 +64,7 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> {
     private float centerMeterScaleY = DEFAULT_CENTER_METER_SCALE_Y;
     private ExposureMeteringWidgetModel widgetModel;
     private ExposeVSeekBar mExposeVSeekBar;
+    private ImageView openSliderButton;
 
     public ExposureMeteringWidget(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -81,14 +90,11 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> {
 
     @Override
     protected void reactToModelChanges() {
-        addReaction(widgetModel.compensationRangeProcessor.toFlowable()
-                .observeOn(SchedulerProvider.computation())
-                .subscribeOn(SchedulerProvider.ui())
-                .subscribe(range -> {
-                    if (range != null && range.size() > 0) {
-                        mExposeVSeekBar.setMax(range.size() - 1);
-                    }
-                }));
+        addReaction(widgetModel.compensationRangeProcessor.toFlowable().observeOn(SchedulerProvider.computation()).subscribeOn(SchedulerProvider.ui()).subscribe(range -> {
+            if (range != null && range.size() > 0) {
+                mExposeVSeekBar.setMax(range.size() - 1);
+            }
+        }));
     }
 
     @Nullable
@@ -113,30 +119,65 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> {
         super.onDetachedFromWindow();
     }
 
+    private Disposable hideExposureDisposable = null;
+
+    private void scheduleHide() {
+        unscheduleHide();
+        hideExposureDisposable = Completable.timer(1500, TimeUnit.MILLISECONDS, SchedulerProvider.ui()).subscribe(() -> {
+            mExposeVSeekBar.setShowSeekBar(false);
+            mExposeVSeekBar.drawThumb = false;
+            openSliderButton.setVisibility(View.VISIBLE);
+            setVisibility(View.GONE);
+
+            mExposeVSeekBar.invalidate();
+            invalidate();
+        });
+    }
+
+    private void unscheduleHide() {
+        if (hideExposureDisposable != null && !hideExposureDisposable.isDisposed()) {
+            hideExposureDisposable.dispose();
+        }
+        hideExposureDisposable = null;
+    }
 
     public void initSeekBar() {
+        openSliderButton = findViewById(R.id.exposure_open_slider_button);
+        openSliderButton.setOnClickListener(v -> {
+            if (!mExposeVSeekBar.isShowSeekBar()) {
+                mExposeVSeekBar.setShowSeekBar(true);
+                mExposeVSeekBar.drawThumb = true;
+                openSliderButton.setVisibility(View.GONE);
+            }
+            scheduleHide();
+            mExposeVSeekBar.invalidate();
+            invalidate();
+        });
+
         mExposeVSeekBar = findViewById(R.id.expose_level_seekbar);
         mExposeVSeekBar.setMax(100);
-        mExposeVSeekBar.setShowSeekBar(true);
+
+        mExposeVSeekBar.setShowSeekBar(false);
+        mExposeVSeekBar.drawThumb = false;
         mExposeVSeekBar.setOnChangeListener(new VerticalSeekBar.OnVSBChangeListener() {
             @Override
             public void onProgressChanged(VerticalSeekBar bar, int value, boolean fromUser) {
                 invalidate();
-                addDisposable(widgetModel.setEV(value)
-                        .observeOn(SchedulerProvider.ui())
-                        .subscribe(() -> {
-                            // do nothing
-                        }));
+                addDisposable(widgetModel.setEV(value).observeOn(SchedulerProvider.ui()).subscribe(() -> {
+                    // do nothing
+                }));
             }
 
             @Override
             public void onStartTrackingTouch(VerticalSeekBar bar) {
                 showProgressBar();
+                unscheduleHide();
             }
 
             @Override
             public void onStopTrackingTouch(VerticalSeekBar bar) {
                 hideProgressBar();
+                scheduleHide();
             }
         });
     }
@@ -159,8 +200,8 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> {
      * @param parentHeight The height of the parent view.
      * @return The next ControlMode.
      */
-    public ControlMode clickEvent(@NonNull ControlMode controlMode, float x, float y,
-                                  float parentWidth, float parentHeight) {
+    public ControlMode clickEvent(@NonNull ControlMode controlMode, float x, float y, float parentWidth, float parentHeight) {
+        setVisibility(View.VISIBLE);
         switch (controlMode) {
             case CENTER_METER:
             case SPOT_METER:
@@ -173,6 +214,7 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> {
             default:
                 break;
         }
+        scheduleHide();
         return ControlMode.SPOT_METER;
     }
 

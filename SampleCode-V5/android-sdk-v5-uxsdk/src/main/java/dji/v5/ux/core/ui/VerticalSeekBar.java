@@ -52,6 +52,9 @@ public class VerticalSeekBar extends View {
     protected Drawable mProgressDrawable = null;
     protected int mProgressWidth = 0;
     protected Drawable mThumb = null;
+
+    public boolean drawThumb = true;
+
     protected int mMax = 1;
     protected int mProgress = 0;
     protected int mSecondaryProgress = 0;
@@ -438,7 +441,7 @@ public class VerticalSeekBar extends View {
             canvas.restore();
         }
 
-        if (null != mThumb) {
+        if (null != mThumb && drawThumb) {
             canvas.save();
             canvas.translate(getPaddingLeft(), getPaddingTop());
             mThumb.draw(canvas);
