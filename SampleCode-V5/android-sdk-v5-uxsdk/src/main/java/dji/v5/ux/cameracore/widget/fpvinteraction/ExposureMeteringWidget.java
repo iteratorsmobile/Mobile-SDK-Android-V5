@@ -25,15 +25,14 @@ package dji.v5.ux.cameracore.widget.fpvinteraction;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import java.util.concurrent.TimeUnit;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import dji.sdk.keyvalue.value.camera.CameraExposureCompensation;
 import dji.sdk.keyvalue.value.common.CameraLensType;
@@ -49,6 +48,8 @@ import dji.v5.ux.core.ui.exposure.ExposeVSeekBar;
 import dji.v5.ux.core.util.SettingDefinitions.ControlMode;
 import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.kotlin.Flowables;
+import kotlin.collections.CollectionsKt;
 
 /**
  * Displays a metering target on the screen.
