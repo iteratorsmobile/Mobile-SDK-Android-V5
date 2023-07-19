@@ -44,6 +44,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/back_button"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="8dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/uxsdk_ic_back_arrow"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/select_station_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/uxsdk_rtk_setting_menu_type_rtk_station_selected"
+                android:textColor="@color/uxsdk_white"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/back_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/back_button"
+                app:layout_constraintTop_toTopOf="@id/back_button" />
+
             <dji.v5.ux.accessory.RTKEnabledWidget
                 android:id="@+id/widget_rtk_enabled"
                 android:layout_width="match_parent"
@@ -53,6 +81,15 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <dji.v5.ux.accessory.RTKKeepStatusWidget
+                android:id="@+id/widget_rtk_keep_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/widget_rtk_enabled" />
+
             <dji.v5.ux.accessory.RTKTypeSwitchWidget
                 android:id="@+id/widget_rtk_type_switch"
                 android:layout_width="match_parent"
@@ -61,7 +98,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/widget_rtk_enabled" />
+                app:layout_constraintTop_toBottomOf="@+id/widget_rtk_keep_status" />
 
             <dji.v5.ux.accessory.RTKSatelliteStatusWidget
                 android:id="@+id/widget_rtk_satellite_status"
@@ -72,6 +109,16 @@
                 android:layout_marginEnd="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/widget_rtk_type_switch" />
+
+            <dji.v5.ux.accessory.RTKStationConnectWidget
+                android:id="@+id/widget_rtk_station_connect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/back_button" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

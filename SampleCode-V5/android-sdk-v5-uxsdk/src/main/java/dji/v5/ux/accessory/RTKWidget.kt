@@ -29,6 +29,7 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
@@ -42,6 +43,7 @@ import dji.v5.ux.core.base.SchedulerProvider
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.extension.*
+import org.w3c.dom.Text
 
 private const val TAG = "RTKWidget"
 
@@ -55,7 +57,7 @@ open class RTKWidget @JvmOverloads constructor(
 ) : ConstraintLayoutWidget<RTKWidget.ModelState>(context, attrs, defStyleAttr) {
     //region Fields
     private val rtkDialogSeparator: View = findViewById(R.id.rtk_dialog_separator)
-
+    private var lastRTKEnableValue = false
     private val widgetModel by lazy {
         RTKWidgetModel(
             DJISDKModel.getInstance(),
@@ -73,7 +75,8 @@ open class RTKWidget @JvmOverloads constructor(
      * Get the RTK Satellite Status Widget so it can be customized.
      */
     @get:JvmName("getRTKSatelliteStatusWidget")
-    val rtkSatelliteStatusWidget: RTKSatelliteStatusWidget = findViewById(R.id.widget_rtk_satellite_status)
+    val rtkSatelliteStatusWidget: RTKSatelliteStatusWidget =
+        findViewById(R.id.widget_rtk_satellite_status)
 
     /**
      * Get the RTK Type Switch Widget so it can be customized.
@@ -81,8 +84,14 @@ open class RTKWidget @JvmOverloads constructor(
     @get:JvmName("getRTKTypeSwitchWidget")
     val rtkTypeSwitchWidget: RTKTypeSwitchWidget = findViewById(R.id.widget_rtk_type_switch)
 
+    @get:JvmName("getRTKKeepStatusWidget")
+    val rtkKeepStatus: RTKKeepStatusWidget = findViewById(R.id.widget_rtk_keep_status)
 
+    @get:JvmName("getRTKStationConnectWidget")
+    val rtkStationConnect: RTKStationConnectWidget = findViewById(R.id.widget_rtk_station_connect)
 
+    private val backButton: ImageView = findViewById(R.id.back_button)
+    private val stationConnectTitle: TextView = findViewById(R.id.select_station_title)
 
     /**
      * The color for the separator line views
@@ -117,6 +126,7 @@ open class RTKWidget @JvmOverloads constructor(
 
         if (!isInEditMode) {
             widgetModel.setup()
+            initViews()
             LogUtils.i(TAG, "widgetModel.setup()")
 
         }
@@ -132,19 +142,49 @@ open class RTKWidget @JvmOverloads constructor(
     override fun reactToModelChanges() {
         addReaction(widgetModel.rtkEnabled
             .observeOn(SchedulerProvider.ui())
-            .subscribe { rtkEnabled: Boolean -> updateUIForRTKEnabled(rtkEnabled) })
+            .subscribe { rtkEnabled: Boolean ->
+                lastRTKEnableValue = rtkEnabled
+                updateUIForRTKEnabled(rtkEnabled)
+            })
     }
 
+    private fun initViews() {
+        backButton.setOnClickListener {
+            rtkStationConnect.hide()
+            backButton.hide()
+            stationConnectTitle.hide()
+            rtkEnabledWidget.show()
 
+            updateUIForRTKEnabled(lastRTKEnableValue)
+        }
+
+        rtkSatelliteStatusWidget.setRTKConnectListener(object :
+            RTKSatelliteStatusWidget.RTKStationListener {
+            override fun showConnectView() {
+                rtkStationConnect.show()
+                backButton.show()
+                stationConnectTitle.show()
+
+                rtkEnabledWidget.hide()
+                rtkKeepStatus.hide()
+                rtkTypeSwitchWidget.hide()
+                rtkSatelliteStatusWidget.hide()
+            }
+        })
+    }
 
     //region Reactions to model
     private fun updateUIForRTKEnabled(rtkEnabled: Boolean) {
-        if (rtkEnabled) {
-            rtkSatelliteStatusWidget.show()
-            rtkTypeSwitchWidget.show()
-        } else {
-            rtkSatelliteStatusWidget.hide()
-            rtkTypeSwitchWidget.hide()
+        if (rtkStationConnect.visibility != View.VISIBLE) {
+            if (rtkEnabled) {
+                rtkKeepStatus.show()
+                rtkSatelliteStatusWidget.show()
+                rtkTypeSwitchWidget.show()
+            } else {
+                rtkKeepStatus.hide()
+                rtkSatelliteStatusWidget.hide()
+                rtkTypeSwitchWidget.hide()
+            }
         }
     }
     //endregion
@@ -154,7 +194,6 @@ open class RTKWidget @JvmOverloads constructor(
     override fun getIdealDimensionRatioString(): String {
         return resources.getString(R.string.uxsdk_widget_rtk_ratio)
     }
-
 
 
     //Initialize all customizable attributes

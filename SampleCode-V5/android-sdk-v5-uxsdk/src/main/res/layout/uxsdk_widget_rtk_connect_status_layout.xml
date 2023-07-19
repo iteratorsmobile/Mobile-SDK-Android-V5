@@ -87,21 +87,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_rtk_signal_searching" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/contentBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="cl_rtk_has_found,cl_rtk_not_found" />
 
     <Button
         android:id="@+id/bt_rtk_signal_search_again"
         android:layout_width="match_parent"
         android:layout_height="@dimen/uxsdk_30_dp"
-        android:layout_marginBottom="@dimen/uxsdk_12_dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/uxsdk_bg_white_radius"
         android:gravity="center"
         android:text="@string/uxsdk_rtk_signal_search_again"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contentBarrier" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
