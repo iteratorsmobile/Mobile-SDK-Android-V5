@@ -56,7 +56,6 @@ class RTKWidgetModel(
         @JvmName("getRTKEnabled")
         get() = rtkEnabledProcessor.toFlowable()
 
-
     //region Lifecycle
     override fun inSetup() {
         val rtkEnabledKey: DJIKey<Boolean> = KeyTools.createKey(RtkMobileStationKey.KeyRTKEnable)

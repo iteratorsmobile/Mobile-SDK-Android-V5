@@ -52,7 +52,8 @@ class RTKStationConnectWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : ConstraintLayoutWidget<Boolean>(context, attrs, defStyleAttr), RtkStationScanAdapter.OnItemClickListener, View.OnClickListener {
+) : ConstraintLayoutWidget<Boolean>(context, attrs, defStyleAttr),
+    RtkStationScanAdapter.OnItemClickListener, View.OnClickListener {
     private var rtkStationScanAdapter: RtkStationScanAdapter
     private val stationList = ArrayList<DJIRTKBaseStationConnectInfo>()
     private val searchBt: Button = findViewById(R.id.bt_rtk_signal_search_again)
@@ -123,10 +124,21 @@ class RTKStationConnectWidget @JvmOverloads constructor(
             }
         }
         //点击范围为description部分
-        spannableStringBuilder.setSpan(clickableSpan, reason.length, spannableStringBuilder.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableStringBuilder.setSpan(
+            clickableSpan,
+            reason.length,
+            spannableStringBuilder.length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
         //设置可点击部分的字体颜色
-        val foregroundColorSpan = ForegroundColorSpan(resources.getColor(R.color.uxsdk_blue_highlight))
-        spannableStringBuilder.setSpan(foregroundColorSpan, reason.length + 1, spannableStringBuilder.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        val foregroundColorSpan =
+            ForegroundColorSpan(resources.getColor(R.color.uxsdk_blue_highlight))
+        spannableStringBuilder.setSpan(
+            foregroundColorSpan,
+            reason.length + 1,
+            spannableStringBuilder.length,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
         //设置为超链接方式
         checkReasonTv.movementMethod = LinkMovementMethod.getInstance()
         checkReasonTv.text = spannableStringBuilder
@@ -149,9 +161,10 @@ class RTKStationConnectWidget @JvmOverloads constructor(
     }
 
     override fun reactToModelChanges() {
-        addReaction(widgetModel.connectedRTKStationInfo.observeOn(SchedulerProvider.ui()).subscribe {
-            handleReconnectedStationInfo(it)
-        })
+        addReaction(
+            widgetModel.connectedRTKStationInfo.observeOn(SchedulerProvider.ui()).subscribe {
+                handleReconnectedStationInfo(it)
+            })
         addReaction(widgetModel.isMotorOn.subscribe {
             isMotorOn = it
         })
@@ -213,24 +226,30 @@ class RTKStationConnectWidget @JvmOverloads constructor(
                 } else {
                     searchIv.setImageResource(R.drawable.uxsdk_ic_refresh)
                 }
+                searchBt.show()
             }
+
             RTKStationConnetState.DISCONNECTED -> {
                 stationHasNotFoundView.hide()
                 stationScanningView.show()
                 searchIv.setImageResource(R.drawable.uxsdk_ic_refresh)
+                searchBt.show()
                 Toast.makeText(context, "Station has disconnected", Toast.LENGTH_SHORT).show()
             }
+
             RTKStationConnetState.SCANNING -> {
                 stationHasNotFoundView.hide()
                 stationScanningView.show()
+                searchBt.hide()
                 searchIv.setImageResource(R.drawable.uxsdk_rotate_progress_circle)
                 LogUtils.i(TAG, "scan rtk ing...")
-
             }
+
             RTKStationConnetState.CONNECTED -> {
                 LogUtils.i(TAG, "rtk has connected")
                 stationHasNotFoundView.hide()
                 stationScanningView.show()
+                searchBt.show()
                 searchIv.setImageResource(R.drawable.uxsdk_ic_refresh)
                 //将连接成功的基站放在列表首页
                 if (stationList.remove(selectedRTKStationConnectInfo)) {
@@ -239,9 +258,11 @@ class RTKStationConnectWidget @JvmOverloads constructor(
                 rtkStationScanAdapter.notifyDataSetChanged()
 
             }
+
             else -> {
                 stationHasNotFoundView.hide()
                 stationScanningView.show()
+                searchBt.show()
                 searchIv.setImageResource(R.drawable.uxsdk_ic_refresh)
             }
         }
@@ -268,7 +289,9 @@ class RTKStationConnectWidget @JvmOverloads constructor(
     /**
      * 选中某个基站,注意这里selectedRTKStationConnectInfo不能初始化为null
      */
-    private var selectedRTKStationConnectInfo: DJIRTKBaseStationConnectInfo = DJIRTKBaseStationConnectInfo()
+    private var selectedRTKStationConnectInfo: DJIRTKBaseStationConnectInfo =
+        DJIRTKBaseStationConnectInfo()
+
     override fun onItemClick(view: View?, position: Int) {
         selectedRTKStationConnectInfo = stationList[position]
         LogUtils.i(TAG, "click and connecting rtk:$selectedRTKStationConnectInfo")
@@ -293,14 +316,24 @@ class RTKStationConnectWidget @JvmOverloads constructor(
 
     private fun startConnectStation(selectedRTKStationConnectInfo: DJIRTKBaseStationConnectInfo) {
         selectedRTKStationConnectInfo.run {
-            addDisposable(widgetModel.startConnectToRTKStation(baseStationId).observeOn(SchedulerProvider.ui()).subscribe({
-                LogUtils.i(TAG, "$rtkStationName connect success")
-            }, {
-                //连接失败，恢复未连接状态
-                selectedRTKStationConnectInfo.refresh(RTKStationConnetState.IDLE)
-                Toast.makeText(context, StringUtils.getResStr(R.string.uxsdk_rtk_base_station_connect_fail), Toast.LENGTH_SHORT).show()
-                LogUtils.e(TAG, "${selectedRTKStationConnectInfo.rtkStationName}connect fail！！！")
-            }))
+            addDisposable(
+                widgetModel.startConnectToRTKStation(baseStationId)
+                    .observeOn(SchedulerProvider.ui()).subscribe({
+                        LogUtils.i(TAG, "$rtkStationName connect success")
+                    }, {
+                        //连接失败，恢复未连接状态
+                        selectedRTKStationConnectInfo.refresh(RTKStationConnetState.IDLE)
+                        Toast.makeText(
+                            context,
+                            StringUtils.getResStr(R.string.uxsdk_rtk_base_station_connect_fail),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        LogUtils.e(
+                            TAG,
+                            "${selectedRTKStationConnectInfo.rtkStationName}connect fail！！！"
+                        )
+                    })
+            )
         }
     }
 
@@ -312,16 +345,22 @@ class RTKStationConnectWidget @JvmOverloads constructor(
         stationList.clear()
         rtkStationScanAdapter.notifyDataSetChanged()
         //发送命令开始扫描
-        addDisposable(widgetModel.startSearchStationRTK().observeOn(SchedulerProvider.ui()).subscribe({
-            stationHasNotFoundView.hide()
-            stationScanningView.show()
-        }, {
-            stationHasNotFoundView.show()
-            stationScanningView.hide()
-            Toast.makeText(context, StringUtils.getResStr(R.string.uxsdk_rtk_base_station_search_false_and_try_again), Toast.LENGTH_SHORT).show()
-            LogUtils.e(TAG, "startSearchStationRTK fail:${it.localizedMessage}")
+        addDisposable(
+            widgetModel.startSearchStationRTK().observeOn(SchedulerProvider.ui()).subscribe({
+                stationHasNotFoundView.hide()
+                stationScanningView.show()
+            }, {
+                stationHasNotFoundView.show()
+                stationScanningView.hide()
+                Toast.makeText(
+                    context,
+                    StringUtils.getResStr(R.string.uxsdk_rtk_base_station_search_false_and_try_again),
+                    Toast.LENGTH_SHORT
+                ).show()
+                LogUtils.e(TAG, "startSearchStationRTK fail:${it.localizedMessage}")
 
-        }))
+            })
+        )
         //某些情况下不会返回状态，需要手动更新状态
         updateConnectStatus(RTKStationConnetState.SCANNING)
     }
@@ -382,7 +421,12 @@ class RTKStationConnectWidget @JvmOverloads constructor(
             //第一次连接过基站后，再次重启飞机或者重启App固件会帮忙自动连接基站。这里就是为了构建自动重连的基站信息
             if (selectedRTKStationConnectInfo.baseStationId == 0) {
                 LogUtils.i(TAG, "RTK Station has reconnected and remove scanHandler message")
-                selectedRTKStationConnectInfo = DJIRTKBaseStationConnectInfo(stationId, signalLevel, stationName, RTKStationConnetState.CONNECTED)
+                selectedRTKStationConnectInfo = DJIRTKBaseStationConnectInfo(
+                    stationId,
+                    signalLevel,
+                    stationName,
+                    RTKStationConnetState.CONNECTED
+                )
                 scanHandler.removeCallbacksAndMessages(null)
                 updateConnectStatus(RTKStationConnetState.CONNECTED)
                 handleStationRTKList(arrayListOf(selectedRTKStationConnectInfo))

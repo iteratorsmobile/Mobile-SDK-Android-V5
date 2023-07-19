@@ -7,12 +7,14 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.annotation.ColorInt
 import androidx.annotation.Dimension
 import androidx.annotation.StyleRes
 import androidx.core.content.res.use
 import androidx.fragment.app.FragmentTransaction
+import com.mapbox.mapboxsdk.plugins.annotation.Line
 import dji.sdk.keyvalue.value.rtkbasestation.RTKReferenceStationSource
 import dji.sdk.keyvalue.value.rtkbasestation.RTKServiceState
 import dji.sdk.keyvalue.value.rtkmobilestation.GNSSType
@@ -53,6 +55,7 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
     //region Fields
     private val rtkStatusTitleTextView: TextView = findViewById(R.id.textview_rtk_status_title)
     private val rtkStatusTextView: TextView = findViewById(R.id.textview_rtk_status)
+    private val rtkStatusLayout: LinearLayout = findViewById(R.id.status_layout)
     private val baseStationConnectImageView: ImageView = findViewById(R.id.imageview_connect_arrow)
     private val tableBackgroundImageView: ImageView = findViewById(R.id.imageview_table_background)
     private val antenna1TitleTextView: TextView = findViewById(R.id.textview_ant1_title)
@@ -495,7 +498,7 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
     }
 
     private fun initListener() {
-        baseStationConnectImageView.setOnClickListener {
+        rtkStatusLayout.setOnClickListener {
             rtkStationListener?.showConnectView()
         }
     }
