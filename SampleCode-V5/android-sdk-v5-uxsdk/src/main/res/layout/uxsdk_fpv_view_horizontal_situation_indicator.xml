@@ -27,7 +27,7 @@
     <dji.v5.ux.core.ui.hsi.HSIView
         android:id="@+id/pfd_hsi_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/uxsdk_116_dp"
+        android:layout_height="80dp"
         android:layout_marginTop="@dimen/uxsdk_5_dp"
         android:layout_marginBottom="0dp"
         app:uxsdk_hsi_aircraft_indicator_size="@dimen/uxsdk_12_dp"
@@ -36,6 +36,7 @@
         app:uxsdk_hsi_degree_indicator_text_size="@dimen/uxsdk_11_dp"
         app:uxsdk_hsi_gimbal_indicator_max_scope="10dp"
         app:uxsdk_hsi_heading_line_width="1.2dp"
+        app:uxsdk_hsi_compass_margin="0dp"
         app:uxsdk_hsi_marker_indicator_text_max_width="@dimen/uxsdk_108_dp"
         app:uxsdk_hsi_marker_indicator_text_size="@dimen/uxsdk_10_dp"
         app:uxsdk_hsi_marker_margin_horizontal="@dimen/uxsdk_5_dp"

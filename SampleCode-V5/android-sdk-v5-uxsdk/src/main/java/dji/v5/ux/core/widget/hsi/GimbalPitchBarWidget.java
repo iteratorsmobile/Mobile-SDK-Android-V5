@@ -23,6 +23,7 @@ import dji.v5.ux.R;
 import dji.v5.ux.core.base.DJISDKModel;
 import dji.v5.ux.core.base.ICameraIndex;
 import dji.v5.ux.core.base.widget.FrameLayoutWidget;
+import dji.v5.ux.core.base.widget.ViewWidget;
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore;
 import dji.v5.ux.core.ui.hsi.dashboard.FpvStrokeConfig;
 import dji.v5.ux.core.util.FontUtils;
@@ -35,7 +36,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
  *
  * 注意：GimbalPitchBarWidget必须关联到相机，所以只能使用在主界面，比如DefaultLayoutActivity中
  */
-public class GimbalPitchBarWidget extends FrameLayoutWidget<Boolean> implements ICameraIndex {
+public class GimbalPitchBarWidget extends ViewWidget implements ICameraIndex {
     protected int mMinValue = -120;
     protected int mMaxValue = 120;
     protected int mValue = 0;

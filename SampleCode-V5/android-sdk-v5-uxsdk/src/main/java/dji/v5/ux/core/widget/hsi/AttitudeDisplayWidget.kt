@@ -2,6 +2,7 @@ package dji.v5.ux.core.widget.hsi
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import kotlin.jvm.JvmOverloads
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.ui.hsi.dashboard.AttitudeDashBoard
@@ -73,7 +74,8 @@ open class AttitudeDisplayWidget @JvmOverloads constructor(context: Context?, at
             val lon = if (mDroneLocation != null) mDroneLocation!!.longitude else Double.NaN
             val aslValue = GpsUtils.egm96Altitude(mHomePointAltitude + mAltitude, lat, lon)
             val value = UnitUtils.getValueFromMetricByLength(aslValue.toFloat(),
-                if (UnitUtils.isMetricUnits()) UnitUtils.UnitType.METRIC else UnitUtils.UnitType.IMPERIAL)
+                UnitUtils.UnitType.METRIC)
+            Log.i("ALTITUDETEST", "lat = " + lat + " long = " + lon + "home alt = " + mHomePointAltitude + "alt = " + mAltitude + "asl = " + aslValue + " value = " + value)
             emitter.onNext(value)
             emitter.onComplete()
         }.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe { aValue: Any? ->

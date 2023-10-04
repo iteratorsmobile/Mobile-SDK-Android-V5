@@ -72,14 +72,15 @@ object RTKStartServiceHelper {
             }
 
         }
-        RxUtil.addListener(KeyTools.createKey(RtkMobileStationKey.KeyIsRTKDongleConnect), this).subscribe {
-            if (rtkDongleConnection != it) {
-                LogUtils.i(TAG, "rtkDongleConnection=$it")
-                rtkDongleConnection = it
-                updateData()
-            }
+        RxUtil.addListener(KeyTools.createKey(RtkMobileStationKey.KeyIsRTKDongleConnect), this)
+            .subscribe {
+                if (rtkDongleConnection != it) {
+                    LogUtils.i(TAG, "rtkDongleConnection=$it")
+                    rtkDongleConnection = it
+                    updateData()
+                }
 
-        }
+            }
 
         RxUtil.addListener(KeyTools.createKey(FlightControllerKey.KeyConnection), this).subscribe {
             if (fcConnected != it) {
@@ -97,6 +98,7 @@ object RTKStartServiceHelper {
             ProductType.DJI_MAVIC_3_ENTERPRISE_SERIES ->
                 // 外接RTK的判断RTK Dongle连接状态
                 rtkDongleConnection && fcConnected
+
             else ->
                 // 其他行业飞机内置RTK的飞机都是true
                 fcConnected
@@ -127,6 +129,7 @@ object RTKStartServiceHelper {
             RTKReferenceStationSource.BASE_STATION -> {
                 LogUtils.i(TAG, "D-RTK2 固件底层已实现自动重连，不需要外部手动重连")
             }
+
             else -> {
                 LogUtils.e(TAG, "UnKnown rtkSource:$rtkSource")
             }
@@ -136,10 +139,14 @@ object RTKStartServiceHelper {
 
     @Synchronized
     private fun startCMCCRtkService() {
-        val rtkNetworkCoordinateSystem = RTKUtil.getNetRTKCoordinateSystem(RTKReferenceStationSource.NTRIP_NETWORK_SERVICE)
+        val rtkNetworkCoordinateSystem =
+            RTKUtil.getNetRTKCoordinateSystem(RTKReferenceStationSource.NTRIP_NETWORK_SERVICE)
         setStartRTKState(true)
         isHasStartRTK.set(false)
-        LogUtils.i(TAG, "startCMCCRtkService,rtkNetworkCoordinateSystem=$rtkNetworkCoordinateSystem")
+        LogUtils.i(
+            TAG,
+            "startCMCCRtkService,rtkNetworkCoordinateSystem=$rtkNetworkCoordinateSystem"
+        )
         if (rtkNetworkCoordinateSystem == null) {
             setStartRTKState(false)
             LogUtils.e(TAG, "getCMCCRtk CoordinateSystem == null，startCMCCRtkService finish！")
@@ -149,22 +156,31 @@ object RTKStartServiceHelper {
             LogUtils.i(TAG, "startCMCCRtkService,coordinateName=$rtkNetworkCoordinateSystem")
             cmccRtkManager.stopNetworkRTKService(object : CommonCallbacks.CompletionCallback {
                 override fun onSuccess() {
-                    cmccRtkManager.startNetworkRTKService(rtkNetworkCoordinateSystem, object : CommonCallbacks.CompletionCallback {
-                        override fun onSuccess() {
-                            LogUtils.i(TAG, "startCMCCRtkService success")
-                            setStartRTKState(false)
-                            isHasStartRTK.set(true)
-                        }
+                    cmccRtkManager.startNetworkRTKService(
+                        rtkNetworkCoordinateSystem,
+                        object : CommonCallbacks.CompletionCallback {
+                            override fun onSuccess() {
+                                LogUtils.i(TAG, "startCMCCRtkService success")
+                                setStartRTKState(false)
+                                isHasStartRTK.set(true)
+                            }
 
-                        override fun onFailure(error: IDJIError) {
-                            LogUtils.e(TAG, "startCMCCRtkService fail:rtkNetworkCoordinateSystem=$rtkNetworkCoordinateSystem,error=$error")
-                            setStartRTKState(false)
-                            isHasStartRTK.set(false)
-                            ToastUtils.showToast(StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_setting_fail))
+                            override fun onFailure(error: IDJIError) {
+                                LogUtils.e(
+                                    TAG,
+                                    "startCMCCRtkService fail:rtkNetworkCoordinateSystem=$rtkNetworkCoordinateSystem,error=$error"
+                                )
+                                setStartRTKState(false)
+                                isHasStartRTK.set(false)
+                                try {
+                                    ToastUtils.showToast(StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_setting_fail))
+                                } catch (e: Exception) {
 
-                        }
+                                }
 
-                    })
+                            }
+
+                        })
                 }
 
                 override fun onFailure(error: IDJIError) {
@@ -185,8 +201,9 @@ object RTKStartServiceHelper {
      */
     @Synchronized
     private fun startQxRtkService() {
-        var rtkNetworkCoordinateSystem = RTKUtil.getNetRTKCoordinateSystem(RTKReferenceStationSource.QX_NETWORK_SERVICE)
-        LogUtils.i(TAG,"startQxRtkService rtkNetworkCoordinateSystem=$rtkNetworkCoordinateSystem")
+        var rtkNetworkCoordinateSystem =
+            RTKUtil.getNetRTKCoordinateSystem(RTKReferenceStationSource.QX_NETWORK_SERVICE)
+        LogUtils.i(TAG, "startQxRtkService rtkNetworkCoordinateSystem=$rtkNetworkCoordinateSystem")
         if (rtkNetworkCoordinateSystem != null) {
             startQxRtkService(rtkNetworkCoordinateSystem)
         } else {
@@ -209,23 +226,28 @@ object RTKStartServiceHelper {
 
         qxRTKManager.stopNetworkRTKService(object : CommonCallbacks.CompletionCallback {
             override fun onSuccess() {
-                qxRTKManager.startNetworkRTKService(coordinateSystem, object : CommonCallbacks.CompletionCallback {
-                    override fun onSuccess() {
-                        LogUtils.i(TAG, "startQxRtkService success")
-                        setStartRTKState(false)
-                        isHasStartRTK.set(true)
+                qxRTKManager.startNetworkRTKService(
+                    coordinateSystem,
+                    object : CommonCallbacks.CompletionCallback {
+                        override fun onSuccess() {
+                            LogUtils.i(TAG, "startQxRtkService success")
+                            setStartRTKState(false)
+                            isHasStartRTK.set(true)
 
-                    }
+                        }
 
-                    override fun onFailure(error: IDJIError) {
-                        LogUtils.e(TAG, "startQxRtkService fail:$error")
-                        ToastUtils.showToast(StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_setting_fail))
-                        setStartRTKState(false)
-                        isHasStartRTK.set(false)
+                        override fun onFailure(error: IDJIError) {
+                            LogUtils.e(TAG, "startQxRtkService fail:$error")
+                            try {
+                                ToastUtils.showToast(StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_setting_fail))
+                            } catch (e: Exception) {
+                            }
+                            setStartRTKState(false)
+                            isHasStartRTK.set(false)
 
 
-                    }
-                })
+                        }
+                    })
             }
 
             override fun onFailure(error: IDJIError) {
@@ -251,7 +273,10 @@ object RTKStartServiceHelper {
         val rtkCustomNetworkSetting: RTKCustomNetworkSetting? = RTKUtil.getRtkCustomNetworkSetting()
         if (rtkCustomNetworkSetting == null) {
             setStartRTKState(false)
-            LogUtils.e(TAG, "get rtkCustomNetworkSetting == null，startRtkCustomNetworkService finish！")
+            LogUtils.e(
+                TAG,
+                "get rtkCustomNetworkSetting == null，startRtkCustomNetworkService finish！"
+            )
             return
         }
         rtkCustomNetworkSetting.let {
@@ -259,7 +284,8 @@ object RTKStartServiceHelper {
             customManager.stopNetworkRTKService(object : CommonCallbacks.CompletionCallback {
                 override fun onSuccess() {
                     customManager.customNetworkRTKSettings = it
-                    customManager.startNetworkRTKService(object : CommonCallbacks.CompletionCallback {
+                    customManager.startNetworkRTKService(object :
+                        CommonCallbacks.CompletionCallback {
                         override fun onSuccess() {
                             LogUtils.i(TAG, "startRtkCustomNetworkService success")
                             setStartRTKState(false)
@@ -277,7 +303,10 @@ object RTKStartServiceHelper {
                             } else {
                                 StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_setting_fail)
                             }
-                            ToastUtils.showToast(errorTip)
+                            try {
+                                ToastUtils.showToast(errorTip)
+                            } catch (e: Exception) {
+                            }
                         }
 
                     })
@@ -325,6 +354,7 @@ object RTKStartServiceHelper {
             RTKReferenceStationSource.CUSTOM_NETWORK_SERVICE,
             RTKReferenceStationSource.NTRIP_NETWORK_SERVICE,
             -> true
+
             else -> false
         }
     }

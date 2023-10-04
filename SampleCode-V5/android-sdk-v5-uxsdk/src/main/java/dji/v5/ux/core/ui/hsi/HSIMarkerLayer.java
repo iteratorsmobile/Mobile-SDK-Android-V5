@@ -1027,6 +1027,7 @@ public class HSIMarkerLayer implements HSIContract.HSILayer {
         String unit;
         String extra = "";
         boolean hasDecimals = false;
+        boolean isMetric = true;
         if (!UnitUtils.isMetricUnits()) {
             value = UnitUtils.getValueFromMetricByLength(value, UnitUtils.UnitType.IMPERIAL);
             unit = UnitUtils.getUintStrByLength(UnitUtils.UnitType.IMPERIAL);
