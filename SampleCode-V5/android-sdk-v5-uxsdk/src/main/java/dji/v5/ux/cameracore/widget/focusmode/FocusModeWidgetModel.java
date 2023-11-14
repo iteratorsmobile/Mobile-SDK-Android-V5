@@ -23,6 +23,8 @@
 
 package dji.v5.ux.cameracore.widget.focusmode;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import dji.sdk.keyvalue.key.CameraKey;
@@ -90,6 +92,7 @@ public class FocusModeWidgetModel extends WidgetModel implements ICameraIndex {
 
     @Override
     protected void inSetup() {
+        Log.i("setControlMode", "FocusMode init camera " + cameraIndex.name() + "lens = " + lensType.name());
         bindDataProcessor(KeyTools.createCameraKey(CameraKey.KeyCameraFocusMode,cameraIndex, lensType), focusModeDataProcessor);
         bindDataProcessor(KeyTools.createCameraKey(CameraKey.KeyIsAFCSupported,cameraIndex, lensType), isAFCSupportedProcessor);
         UXKey afcEnabledKey = UXKeys.create(GlobalPreferenceKeys.AFC_ENABLED);
@@ -219,6 +222,7 @@ public class FocusModeWidgetModel extends WidgetModel implements ICameraIndex {
 
         switch (focusMode) {
             case AF:
+                Log.i("setControlMode", "FocusMode AF");
                 preferencesManager.setControlMode(SettingDefinitions.ControlMode.AUTO_FOCUS);
                 addDisposable(keyedStore.setValue(controlModeKey, SettingDefinitions.ControlMode.AUTO_FOCUS)
                         .subscribe(() -> {
@@ -226,6 +230,7 @@ public class FocusModeWidgetModel extends WidgetModel implements ICameraIndex {
                         }, RxUtil.logErrorConsumer(tag, "setControlModeAutoFocus: ")));
                 break;
             case AFC:
+                Log.i("setControlMode", "FocusMode AFC");
                 preferencesManager.setControlMode(SettingDefinitions.ControlMode.AUTO_FOCUS_CONTINUE);
                 addDisposable(keyedStore.setValue(controlModeKey, SettingDefinitions.ControlMode.AUTO_FOCUS_CONTINUE)
                         .subscribe(() -> {
@@ -233,6 +238,7 @@ public class FocusModeWidgetModel extends WidgetModel implements ICameraIndex {
                         }, RxUtil.logErrorConsumer(tag, "setControlModeAutoFocusContinuous: ")));
                 break;
             case MANUAL:
+                Log.i("setControlMode", "FocusMode MANUAL");
                 preferencesManager.setControlMode(SettingDefinitions.ControlMode.MANUAL_FOCUS);
                 addDisposable(keyedStore.setValue(controlModeKey, SettingDefinitions.ControlMode.MANUAL_FOCUS)
                         .subscribe(() -> {

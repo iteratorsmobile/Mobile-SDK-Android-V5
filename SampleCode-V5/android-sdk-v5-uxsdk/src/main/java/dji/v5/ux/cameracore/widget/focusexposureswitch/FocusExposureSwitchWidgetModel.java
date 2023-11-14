@@ -23,6 +23,8 @@
 
 package dji.v5.ux.cameracore.widget.focusexposureswitch;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -84,6 +86,7 @@ public class FocusExposureSwitchWidgetModel extends WidgetModel implements ICame
 
     @Override
     protected void inSetup() {
+        Log.i("setControlMode", "Switch init camera " + cameraIndex.name() + "lens = " + lensType.name());
         bindDataProcessor(KeyTools.createCameraKey(CameraKey.KeyCameraFocusMode, cameraIndex, lensType), focusModeDataProcessor);
         bindDataProcessor(KeyTools.createCameraKey(CameraKey.KeyCameraMeteringMode, cameraIndex, lensType), meteringModeDataProcessor);
 
@@ -185,6 +188,7 @@ public class FocusExposureSwitchWidgetModel extends WidgetModel implements ICame
         if (djiSdkModel.getCacheValue(KeyTools.createCameraKey(CameraKey.KeyCameraMeteringMode, cameraIndex, lensType)) == CameraMeteringMode.REGION) {
             return Completable.fromAction(() -> {
                 preferencesManager.setControlMode(ControlMode.SPOT_METER);
+                Log.i("setControlMode", "Switch set SPOT_METER");
                 addDisposable(uxKeyManager.setValue(controlModeKey, ControlMode.SPOT_METER)
                         .subscribe(() -> {
                             //do nothing
@@ -194,6 +198,7 @@ public class FocusExposureSwitchWidgetModel extends WidgetModel implements ICame
         return djiSdkModel.setValue(KeyTools.createCameraKey(CameraKey.KeyCameraMeteringMode, cameraIndex, lensType), CameraMeteringMode.REGION)
                 .doOnComplete(
                         () -> {
+                            Log.i("setControlMode", "Switch set SPOT_METER");
                             preferencesManager.setControlMode(ControlMode.SPOT_METER);
                             addDisposable(uxKeyManager.setValue(controlModeKey, ControlMode.SPOT_METER)
                                     .subscribe(() -> {
@@ -213,12 +218,15 @@ public class FocusExposureSwitchWidgetModel extends WidgetModel implements ICame
         }
         LogUtils.d(tag, "In setFocusMode ControlModeKey Value Type " + controlModeKey.getValueType());
         if (focusModeDataProcessor.getValue() == CameraFocusMode.MANUAL) {
+            Log.i("setControlMode", "Switch set MANUAL_FOCUS");
             preferencesManager.setControlMode(ControlMode.MANUAL_FOCUS);
             return uxKeyManager.setValue(controlModeKey, ControlMode.MANUAL_FOCUS);
         } else if (focusModeDataProcessor.getValue() == CameraFocusMode.AFC) {
+            Log.i("setControlMode", "Switch set AFC");
             preferencesManager.setControlMode(ControlMode.AUTO_FOCUS_CONTINUE);
             return uxKeyManager.setValue(controlModeKey, ControlMode.AUTO_FOCUS_CONTINUE);
         } else {
+            Log.i("setControlMode", "Switch set AF");
             preferencesManager.setControlMode(ControlMode.AUTO_FOCUS);
             return uxKeyManager.setValue(controlModeKey, ControlMode.AUTO_FOCUS);
         }

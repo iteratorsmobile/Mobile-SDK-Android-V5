@@ -172,6 +172,7 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
     }
 
     private void updateViewVisibility(ControlMode controlMode, boolean isAeLocked) {
+        Log.i("setControlMode", "FPVInteraction get " + controlMode.name() + "ae locked = " + isAeLocked);
         if (controlMode == ControlMode.SPOT_METER || controlMode == ControlMode.CENTER_METER) {
             if (isAeLocked) {
                 exposureMeterView.setVisibility(View.GONE);

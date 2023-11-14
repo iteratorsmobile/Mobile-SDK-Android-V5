@@ -25,6 +25,7 @@ package dji.v5.ux.cameracore.widget.fpvinteraction;
 
 import android.graphics.Point;
 import android.graphics.PointF;
+import android.util.Log;
 
 import androidx.annotation.FloatRange;
 import androidx.annotation.NonNull;
@@ -185,6 +186,7 @@ public class FPVInteractionWidgetModel extends WidgetModel implements ICameraInd
     @NonNull
     public Completable setControlMode(@NonNull SettingDefinitions.ControlMode controlMode) {
         if (preferencesManager != null) {
+            Log.i("setControlMode", "FPVInteraction " + controlMode.name());
             preferencesManager.setControlMode(controlMode);
         }
         return keyedStore.setValue(controlModeKey, controlMode);

@@ -24,6 +24,7 @@
 package dji.v5.ux.sample.showcase.defaultlayout;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -154,6 +155,7 @@ public class DefaultLayoutActivity extends AppCompatActivity {
         initClickListener();
         MediaDataCenter.getInstance().getVideoStreamManager().addStreamSourcesListener(sources -> runOnUiThread(() -> updateFPVWidgetSource(sources)));
         primaryFpvWidget.setOnFPVStreamSourceListener((devicePosition, lensType) -> {
+            Log.i(TAG, "setOnFPVStreamSourceListener " + devicePosition.name() + " ; " + lensType.name());
             cameraSourceProcessor.onNext(new CameraSource(devicePosition, lensType));
         });
 
