@@ -205,6 +205,7 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
             override fun onSuccess() {
                 lastSelectedRTKTypeIndex = position
                 rtkTypeCell.isEnabled = true
+                updateRTKView(rtkSource)
             }
 
             override fun onFailure(error: IDJIError) {
@@ -221,10 +222,10 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
     }
 
 
-    private fun updateRTKView() {
+    private fun updateRTKView(selected: RTKReferenceStationSource? = null) {
         val rtkSwitchDec = StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_switch_des_info)
         var rtkSwitchDecDetail = ""
-        when (currentRTKSource) {
+        when (if (currentRTKSource != RTKReferenceStationSource.UNKNOWN) currentRTKSource else selected) {
             RTKReferenceStationSource.BASE_STATION -> {
                 customSetting.hide()
                 coordinateSystemCell.hide()
