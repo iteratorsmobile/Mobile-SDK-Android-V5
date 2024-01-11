@@ -110,7 +110,6 @@ open class RTKWidget @JvmOverloads constructor(
     //region Constructor
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_widget_rtk, this)
-        setBackgroundResource(R.drawable.uxsdk_background_black_rectangle)
     }
 
     init {
@@ -188,7 +187,6 @@ open class RTKWidget @JvmOverloads constructor(
         }
     }
     //endregion
-
 
     //region Customization
     override fun getIdealDimensionRatioString(): String {

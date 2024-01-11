@@ -51,15 +51,15 @@ import dji.v5.ux.core.panel.listitem.travelmode.TravelModeListItemWidgetModel.Tr
  *
  */
 open class TravelModeListItemWidget @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : ListItemLabelButtonWidget<ModelState>(
-        context,
-        attrs,
-        defStyleAttr,
-        WidgetType.BUTTON,
-        R.style.UXSDKTravelModeListItem
+    context,
+    attrs,
+    defStyleAttr,
+    WidgetType.BUTTON,
+    R.style.UXSDKTravelModeListItem
 ) {
 
     //region Fields
@@ -106,8 +106,9 @@ open class TravelModeListItemWidget @JvmOverloads constructor(
 
     private val widgetModel: TravelModeListItemWidgetModel by lazy {
         TravelModeListItemWidgetModel(
-                DJISDKModel.getInstance(),
-                ObservableInMemoryKeyedStore.getInstance())
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
     //endregion
 
@@ -121,11 +122,11 @@ open class TravelModeListItemWidget @JvmOverloads constructor(
     //region Lifecycle
     override fun reactToModelChanges() {
         addReaction(widgetModel.travelModeState
-                .observeOn(SchedulerProvider.ui())
-                .subscribe { this.updateUI(it) })
+            .observeOn(SchedulerProvider.ui())
+            .subscribe { this.updateUI(it) })
         addReaction(widgetModel.productConnection
-                .observeOn(SchedulerProvider.ui())
-                .subscribe { widgetStateDataProcessor.onNext(ProductConnected(it)) })
+            .observeOn(SchedulerProvider.ui())
+            .subscribe { widgetStateDataProcessor.onNext(ProductConnected(it)) })
 
     }
 
@@ -158,11 +159,13 @@ open class TravelModeListItemWidget @JvmOverloads constructor(
                 listItemTitleIcon = travelModeInactiveIcon
                 listItemButtonText = getString(R.string.uxsdk_string_default_value)
             }
+
             TravelModeState.Active -> {
                 isEnabled = true
                 listItemTitleIcon = travelModeActiveIcon
                 listItemButtonText = exitTravelModeButtonString
             }
+
             TravelModeState.Inactive -> {
                 isEnabled = true
                 listItemTitleIcon = travelModeInactiveIcon
@@ -177,19 +180,21 @@ open class TravelModeListItemWidget @JvmOverloads constructor(
     //region Helpers
     private fun checkAndToggleTravelMode() {
         addDisposable(widgetModel.travelModeState.firstOrError()
-                .observeOn(SchedulerProvider.ui())
-                .subscribe({
-                    when (it) {
-                        TravelModeState.Inactive -> {
-                            showEnterTravelModeConfirmationDialog()
-                        }
-                        TravelModeState.Active -> {
-                            exitTravelMode()
-                        }
-
-                        else -> {}
+            .observeOn(SchedulerProvider.ui())
+            .subscribe({
+                when (it) {
+                    TravelModeState.Inactive -> {
+                        showEnterTravelModeConfirmationDialog()
                     }
-                }, { }))
+
+                    TravelModeState.Active -> {
+                        exitTravelMode()
+                    }
+
+                    else -> {}
+                }
+            }, { })
+        )
     }
 
     private fun showEnterTravelModeConfirmationDialog() {
@@ -205,34 +210,41 @@ open class TravelModeListItemWidget @JvmOverloads constructor(
         val dialogDismissListener = DialogInterface.OnDismissListener {
             uiUpdateStateProcessor.onNext(DialogDismissed(EnterTravelModeConfirmation))
         }
-        showConfirmationDialog(title = getString(R.string.uxsdk_list_item_travel_mode),
-                icon = confirmationDialogIcon,
-                dialogTheme = dialogTheme,
-                message = getString(R.string.uxsdk_travel_mode_enter_confirmation),
-                dialogClickListener = dialogListener,
-                dialogDismissListener = dialogDismissListener)
+        showConfirmationDialog(
+            title = getString(R.string.uxsdk_list_item_travel_mode),
+            icon = confirmationDialogIcon,
+            dialogTheme = dialogTheme,
+            message = getString(R.string.uxsdk_travel_mode_enter_confirmation),
+            dialogClickListener = dialogListener,
+            dialogDismissListener = dialogDismissListener
+        )
         uiUpdateStateProcessor.onNext(DialogDisplayed(EnterTravelModeConfirmation))
     }
 
     private fun exitTravelMode() {
         addDisposable(widgetModel.exitTravelMode()
-                .observeOn(SchedulerProvider.ui())
-                .subscribe(
-                        { },
-                        { error ->
-                            if (error is UXSDKError) {
-                                val dialogDismissListener = DialogInterface.OnDismissListener {
-                                    uiUpdateStateProcessor.onNext(DialogDismissed(ExitTravelModeError))
-                                }
-                                showAlertDialog(title = getString(R.string.uxsdk_list_item_travel_mode),
-                                        icon = errorDialogIcon,
-                                        dialogTheme = dialogTheme,
-                                        message = getString(R.string.uxsdk_exit_travel_mode_failed, error.djiError.description()),
-                                        dialogDismissListener = dialogDismissListener)
-                                uiUpdateStateProcessor.onNext(DialogDisplayed(ExitTravelModeError))
-                            }
+            .observeOn(SchedulerProvider.ui())
+            .subscribe(
+                { },
+                { error ->
+                    if (error is UXSDKError) {
+                        val dialogDismissListener = DialogInterface.OnDismissListener {
+                            uiUpdateStateProcessor.onNext(DialogDismissed(ExitTravelModeError))
                         }
-                ))
+                        showAlertDialog(
+                            title = getString(R.string.uxsdk_list_item_travel_mode),
+                            icon = errorDialogIcon,
+                            dialogTheme = dialogTheme,
+                            message = getString(
+                                R.string.uxsdk_exit_travel_mode_failed,
+                                error.djiError.description()
+                            ),
+                            dialogDismissListener = dialogDismissListener
+                        )
+                        uiUpdateStateProcessor.onNext(DialogDisplayed(ExitTravelModeError))
+                    }
+                }
+            ))
 
     }
 
@@ -242,29 +254,36 @@ open class TravelModeListItemWidget @JvmOverloads constructor(
             uiUpdateStateProcessor.onNext(DialogDismissed(dialogType))
         }
         addDisposable(widgetModel.enterTravelMode()
-                .observeOn(SchedulerProvider.ui())
-                .subscribe(
-                        {
-                            dialogType = EnterTravelModeSuccess
-                            showAlertDialog(title = getString(R.string.uxsdk_list_item_travel_mode),
-                                    icon = successDialogIcon,
-                                    dialogTheme = dialogTheme,
-                                    message = getString(R.string.uxsdk_enter_travel_mode_success),
-                                    dialogDismissListener = dialogDismissListener)
-                            uiUpdateStateProcessor.onNext(DialogDisplayed(dialogType))
-                        },
-                        { error ->
-                            if (error is UXSDKError) {
-                                dialogType = EnterTravelModeError
-                                showAlertDialog(title = getString(R.string.uxsdk_list_item_travel_mode),
-                                        icon = errorDialogIcon,
-                                        dialogTheme = dialogTheme,
-                                        message = getString(R.string.uxsdk_enter_travel_mode_failed, error.djiError.description()),
-                                        dialogDismissListener = dialogDismissListener)
-                                uiUpdateStateProcessor.onNext(DialogDisplayed(dialogType))
-                            }
-                        }
-                ))
+            .observeOn(SchedulerProvider.ui())
+            .subscribe(
+                {
+                    dialogType = EnterTravelModeSuccess
+                    showAlertDialog(
+                        title = getString(R.string.uxsdk_list_item_travel_mode),
+                        icon = successDialogIcon,
+                        dialogTheme = dialogTheme,
+                        message = getString(R.string.uxsdk_enter_travel_mode_success),
+                        dialogDismissListener = dialogDismissListener
+                    )
+                    uiUpdateStateProcessor.onNext(DialogDisplayed(dialogType))
+                },
+                { error ->
+                    if (error is UXSDKError) {
+                        dialogType = EnterTravelModeError
+                        showAlertDialog(
+                            title = getString(R.string.uxsdk_list_item_travel_mode),
+                            icon = errorDialogIcon,
+                            dialogTheme = dialogTheme,
+                            message = getString(
+                                R.string.uxsdk_enter_travel_mode_failed,
+                                error.djiError.description()
+                            ),
+                            dialogDismissListener = dialogDismissListener
+                        )
+                        uiUpdateStateProcessor.onNext(DialogDisplayed(dialogType))
+                    }
+                }
+            ))
 
     }
 
@@ -276,37 +295,46 @@ open class TravelModeListItemWidget @JvmOverloads constructor(
 
 
     override val widgetSizeDescription: WidgetSizeDescription =
-            WidgetSizeDescription(WidgetSizeDescription.SizeType.OTHER,
-                    widthDimension = WidgetSizeDescription.Dimension.EXPAND,
-                    heightDimension = WidgetSizeDescription.Dimension.WRAP)
+        WidgetSizeDescription(
+            WidgetSizeDescription.SizeType.OTHER,
+            widthDimension = WidgetSizeDescription.Dimension.EXPAND,
+            heightDimension = WidgetSizeDescription.Dimension.WRAP
+        )
 
 
     @SuppressLint("Recycle")
     private fun initAttributes(context: Context, attrs: AttributeSet?) {
-        context.obtainStyledAttributes(attrs, R.styleable.TravelModeListItemWidget, 0, defaultStyle).use { typedArray ->
-            typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_travel_mode_active_icon) {
-                travelModeActiveIcon = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_travel_mode_inactive_icon) {
-                travelModeInactiveIcon = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_confirmation_dialog_icon) {
-                confirmationDialogIcon = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_error_dialog_icon) {
-                errorDialogIcon = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_success_dialog_icon) {
-                successDialogIcon = it
-            }
+        context.obtainStyledAttributes(attrs, R.styleable.TravelModeListItemWidget, 0, defaultStyle)
+            .use { typedArray ->
+                typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_travel_mode_active_icon) {
+                    travelModeActiveIcon = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_travel_mode_inactive_icon) {
+                    travelModeInactiveIcon = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_confirmation_dialog_icon) {
+                    confirmationDialogIcon = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_error_dialog_icon) {
+                    errorDialogIcon = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_success_dialog_icon) {
+                    successDialogIcon = it
+                }
 
-            enterTravelModeButtonString = typedArray.getString(R.styleable.TravelModeListItemWidget_uxsdk_enter_travel_mode_button_string, enterTravelModeButtonString)
-            exitTravelModeButtonString = typedArray.getString(R.styleable.TravelModeListItemWidget_uxsdk_exit_travel_mode_button_string, exitTravelModeButtonString)
-            typedArray.getResourceIdAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_dialog_theme) {
-                dialogTheme = it
-            }
+                enterTravelModeButtonString = typedArray.getString(
+                    R.styleable.TravelModeListItemWidget_uxsdk_enter_travel_mode_button_string,
+                    enterTravelModeButtonString
+                )
+                exitTravelModeButtonString = typedArray.getString(
+                    R.styleable.TravelModeListItemWidget_uxsdk_exit_travel_mode_button_string,
+                    exitTravelModeButtonString
+                )
+                typedArray.getResourceIdAndUse(R.styleable.TravelModeListItemWidget_uxsdk_list_item_dialog_theme) {
+                    dialogTheme = it
+                }
 
-        }
+            }
     }
 
     //endregion

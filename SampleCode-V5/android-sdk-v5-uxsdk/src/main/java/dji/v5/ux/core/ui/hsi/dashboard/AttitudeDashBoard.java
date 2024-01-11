@@ -892,15 +892,12 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
     private int drawBarrierIndicator(Canvas canvas, int orientation, int restArea, float ratio, float[] canvasOffsetY) {
         float barrierDistance = orientation == UPWARD ? getUpwardBarrierDistance() : getDownVisionDistance();
         float barrierAvoidanceDistance = orientation == UPWARD ? mUserSetUpBarrierAvoidanceDistance : mUserSetDownBarrierAvoidanceDistance;
-        Log.d(TAG, "orientation=" + orientation + ",barrierDistance=" + barrierDistance + ",barrierAvoidanceDistance=" + barrierAvoidanceDistance);
 
         float barrierValue = mBarrierDistanceStrategy.getBarrierValue(barrierDistance);
         float barrierAvoidanceValue = mBarrierDistanceStrategy.getBarrierValue(barrierAvoidanceDistance);
 
 
         float upBarrierArea = (Math.min(barrierValue, barrierAvoidanceValue)) * ratio;
-        Log.d(TAG, "barrierValue=" + barrierValue + ",barrierAvoidanceValue=" + barrierAvoidanceValue + ",upBarrierArea=" + upBarrierArea + ",ratio" +
-                "=" + ratio);
 
         if (upBarrierArea > 0) {
             mPaint.setColor(mBarrierIndicatorColor);
@@ -919,7 +916,6 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
                 top = 0;
                 bottom = (int) upBarrierArea;
             }
-            Log.d(TAG, "top=" + top + ",bottom=" + bottom);
 
             RECT.set(-mAvoidanceIndicatorWidth, top, 0, bottom);
             canvas.drawRect(RECT, mPaint);
@@ -1018,8 +1014,6 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
     private static class HsiBarrierDistanceStrategy implements IBarrierDistanceStrategy {
         @Override
         public float getBarrierValue(float distance) {
-            Log.d(TAG, "HsiBarrierDistanceStrategy getBarrierValue=" + distance);
-
             if (distance <= 0) {
                 return 0;
             } else if (distance <= 2) {

@@ -89,6 +89,9 @@ open class ExposureModeSettingWidget @JvmOverloads constructor(
             R.id.layout_camera_mode_a -> exposureMode = CameraExposureMode.APERTURE_PRIORITY
             R.id.layout_camera_mode_s -> exposureMode = CameraExposureMode.SHUTTER_PRIORITY
             R.id.layout_camera_mode_m -> exposureMode = CameraExposureMode.MANUAL
+            else -> {
+                //do nothing
+            }
         }
 
         if (exposureMode == previousExposureMode) {
