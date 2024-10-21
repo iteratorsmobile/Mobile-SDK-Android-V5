@@ -33,7 +33,6 @@ open class LensControlWidget @JvmOverloads constructor(
     View.OnClickListener, ICameraIndex {
 
     private var firstBtnSource = CameraVideoStreamSourceType.ZOOM_CAMERA
-    private var secondBtnSource = CameraVideoStreamSourceType.WIDE_CAMERA
 
     private val widgetModel by lazy {
         LensControlModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
@@ -118,25 +117,19 @@ open class LensControlWidget @JvmOverloads constructor(
             widgetStateDataProcessor.offer(ModelState.Gone)
             return
         }
+
+        updateBtnText(
+            first_len_btn,
+            getProperVideoSource(
+                videoSourceRange,
+                widgetModel.cameraVideoStreamSourceProcessor.value
+            ).also {
+                firstBtnSource = it
+            })
+
         first_len_btn.visibility = VISIBLE
-        //双源
-        if (videoSourceRange.size == 2) {
-            updateBtnText(
-                first_len_btn,
-                getProperVideoSource(
-                    videoSourceRange,
-                    widgetModel.cameraVideoStreamSourceProcessor.value
-                ).also {
-                    firstBtnSource = it
-                })
-            return
-        }
-        //超过2个源
         this.visibility = VISIBLE
         widgetStateDataProcessor.offer(ModelState.Visible)
-        updateBtnText(first_len_btn, getProperVideoSource(videoSourceRange, secondBtnSource).also {
-            firstBtnSource = it
-        })
     }
 
     private fun updateBtnText(view: View, source: CameraVideoStreamSourceType) {
