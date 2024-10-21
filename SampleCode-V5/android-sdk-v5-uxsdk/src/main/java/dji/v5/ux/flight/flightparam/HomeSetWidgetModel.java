@@ -3,7 +3,6 @@ package dji.v5.ux.flight.flightparam;
 import android.location.Location;
 
 import androidx.annotation.NonNull;
-
 import dji.sdk.keyvalue.key.FlightControllerKey;
 import dji.sdk.keyvalue.key.KeyTools;
 import dji.sdk.keyvalue.key.ProductKey;
@@ -20,8 +19,8 @@ import dji.v5.ux.core.base.WidgetModel;
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore;
 import dji.v5.ux.core.util.DataProcessor;
 import io.reactivex.rxjava3.core.Completable;
-import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.core.Observable;
+
+import static dji.v5.ux.map.MapWidgetModel.INVALID_COORDINATE;
 
 /**
  * @author feel.feng
@@ -36,8 +35,8 @@ public class HomeSetWidgetModel extends WidgetModel {
     private final DataProcessor<RCMode> rcModeDataProcessor = DataProcessor.create(RCMode.UNKNOWN);
     private final DataProcessor<RcGPSInfo> rcGPSInfoDataProcessor = DataProcessor.create(new RcGPSInfo());
 
-    private final DataProcessor<LocationCoordinate2D> homeLocationDataProcessor =
-            DataProcessor.create(new LocationCoordinate2D(181.0, 181.0));
+    public final DataProcessor<LocationCoordinate2D> homeLocationDataProcessor =
+            DataProcessor.create(new LocationCoordinate2D(INVALID_COORDINATE, INVALID_COORDINATE));
 
     protected HomeSetWidgetModel(@NonNull DJISDKModel djiSdkModel, @NonNull ObservableInMemoryKeyedStore uxKeyManager) {
         super(djiSdkModel, uxKeyManager);
@@ -60,11 +59,6 @@ public class HomeSetWidgetModel extends WidgetModel {
         //do nothing
     }
 
-
-    public Flowable<LocationCoordinate2D> getHomeLocation() {
-        return homeLocationDataProcessor.toFlowable();
-    }
-
     public RcGPSInfo getRcGPSInfo() {
         return rcGPSInfoDataProcessor.getValue();
     }
@@ -82,25 +76,19 @@ public class HomeSetWidgetModel extends WidgetModel {
         return djiSdkModel.performActionWithOutResult(KeyTools.createKey(FlightControllerKey.KeyHomeLocationUsingCurrentAircraftLocation));
     }
 
-
-    public Observable<Integer> checkRcGpsValid(final double latitude, final double longitude, final double accuracy) {
+    public int checkRcGpsValid(final double latitude, final double longitude, final double accuracy) {
         if (!GpsUtils.checkLatitude(latitude)
                 || !GpsUtils.checkLongitude(longitude)
                 || !isFineAccuracy((float) accuracy, 60)) {
-            return Observable.just(-1);
+            return -1;
         }
-
-        return getHomeLocation().map(getResult -> {
-
-            if (GpsUtils.isValid(getResult.getLatitude(), getResult.getLongitude())) {
-                return (int) GpsUtils.distance(latitude, longitude, getResult.getLatitude(), getResult.getLongitude());
-            } else {
-                return -1;
-            }
-        }).onErrorReturnItem(-1).toObservable();
-
+        LocationCoordinate2D homeLocation = homeLocationDataProcessor.getValue();
+        if (GpsUtils.isValid(homeLocation.getLatitude(), homeLocation.getLongitude())) {
+            return (int) GpsUtils.distance(latitude, longitude, homeLocation.getLatitude(), homeLocation.getLongitude());
+        } else {
+            return -1;
+        }
     }
-
 
     public Completable setHomeLocation(LocationCoordinate2D locationCoordinate2D) {
         return djiSdkModel.setValue(KeyTools.createKey(FlightControllerKey.KeyHomeLocation), locationCoordinate2D);

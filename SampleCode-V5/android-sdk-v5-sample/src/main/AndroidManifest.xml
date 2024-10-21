@@ -17,10 +17,7 @@
         android:name="com.google.android.geo.API_KEY"
         android:value="${GMAP_API_KEY}" />
 
-    <!-- AMaps -->
-    <meta-data
-        android:name="com.amap.api.v2.apikey"
-        android:value="${AMAP_API_KEY}" />
+
 
 
     <uses-feature
@@ -43,6 +40,10 @@
             android:name="com.dji.sdk.API_KEY"
             android:value="${API_KEY}"/>
 
+        <!-- Maplibre Token-->
+        <meta-data
+            android:name="com.dji.mapkit.maplibre.apikey"
+            android:value="${MAPLIBRE_TOKEN}" />
         <activity
             android:name="dji.sampleV5.aircraft.DJIAircraftMainActivity"
             android:theme="@style/full_screen_theme"

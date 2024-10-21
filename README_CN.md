@@ -1,4 +1,4 @@
-# DJI Mobile SDK for Android V5 最新版本 V5.8.0
+# DJI Mobile SDK for Android V5 最新版本 V5.10.0
 [English Version](README.md)
 
 ## DJI Mobile SDK V5 是什么?
@@ -7,14 +7,13 @@ DJI Mobile SDK V5拥有更加简洁易用的无人机硬件控制接口和软件
 
 
 当前版本支持机型：
+* [禅思 H30系列](https://enterprise.dji.com/cn/zenmuse-h30-series)
 * [DJI Mini3 Pro](https://www.dji.com/cn/mini-3-pro?site=brandsite&from=landing_page)
 * [DJI Mini3](https://www.dji.com/cn/mini-3?site=brandsite&from=landing_page)
 * [Mavic 3 行业系列](https://www.dji.com/cn/mavic-3-enterprise)
 * [经纬 M30 系列](https://www.dji.com/cn/matrice-30?site=brandsite&from=nav)
 * [经纬 M300 RTK](https://www.dji.com/cn/matrice-300?site=brandsite&from=nav)
 * [Matrice 350 RTK](https://enterprise.dji.com/cn/matrice-350-rtk)
-
-
 
 ## 工程目录介绍
 
@@ -29,10 +28,10 @@ DJI Mobile SDK V5拥有更加简洁易用的无人机硬件控制接口和软件
 │   │   ├── 5.4.0_5.5.0_android_diff.html
 │   │   ├── 5.5.0_5.6.0_android_diff.html
 │   │   ├── 5.6.0_5.7.0_android_diff.html
-│   │   └── 5.7.0_5.8.0_android_diff.html
+│   │   ├── 5.7.0_5.8.0_android_diff.html
+│   │   ├── 5.8.0_5.9.0_android_diff.html
+│   │   └── 5.9.0_5.10.0_android_diff.html
 │   └── Android_API
-│       ├── cn
-│       └── en
 ├── LICENSE.txt
 ├── README.md
 ├── README_CN.md
@@ -40,10 +39,11 @@ DJI Mobile SDK V5拥有更加简洁易用的无人机硬件控制接口和软件
     ├── android-sdk-v5-as
     ├── android-sdk-v5-sample
     └── android-sdk-v5-uxsdk
-    
 ```
 
 ### API 差异
+- [5.9.0_5.10.0_android_diff.html](https://dji-sdk.github.io/Mobile-SDK-Android-V5/Docs/API-Diff/5.9.0_5.10.0_android_diff.html)
+- [5.8.0_5.9.0_android_diff.html](https://dji-sdk.github.io/Mobile-SDK-Android-V5/Docs/API-Diff/5.8.0_5.9.0_android_diff.html)
 - [5.7.0_5.8.0_android_diff.html](https://dji-sdk.github.io/Mobile-SDK-Android-V5/Docs/API-Diff/5.7.0_5.8.0_android_diff.html)
 - [5.6.0_5.7.0_android_diff.html](https://dji-sdk.github.io/Mobile-SDK-Android-V5/Docs/API-Diff/5.6.0_5.7.0_android_diff.html)
 - [5.5.0_5.6.0_android_diff.html](https://dji-sdk.github.io/Mobile-SDK-Android-V5/Docs/API-Diff/5.5.0_5.6.0_android_diff.html)
@@ -84,7 +84,7 @@ Sample模块：
 
 ## AAR说明
 
-> **注意：** sdkVersion = 5.8.0
+> **注意：** sdkVersion = 5.10.0
 
 | SDK包| 说明| 使用方式|
 | :---------------: | :-----------------:  | :---------------: |

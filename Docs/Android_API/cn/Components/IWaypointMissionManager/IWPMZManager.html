@@ -90,9 +90,15 @@
                                       </dd>
                                       <dd><a href="../IKeyManager/Value_Camera_Struct_MSDKZoomRatiosRange.html">ZoomRatiosRange</a>
                                       </dd>
+                                      <dd><a href="../IKeyManager/Value_Camera_Struct_VideoPreRecordDurationMsg.html">VideoPreRecordDurationInfo</a>
+                                      </dd>
+                                      <dd><a href="../IKeyManager/Value_Camera_Struct_VideoRecordPlanMsg.html">VideoRecordPlanInfo</a>
+                                      </dd>
                                       <dd><a href="../IKeyManager/Value_Camera_Struct_LaserMeasureInformationMsg.html">LaserMeasureInformation</a>
                                       </dd>
                                       <dd><a href="../IKeyManager/Value_Camera_Struct_MultiSpectralFusionDisplayRangeMsg.html">MultiSpectralFusionDisplayRange</a>
+                                      </dd>
+                                      <dd><a href="../IKeyManager/Value_Camera_Struct_IsRecordingInfoMsg.html">VideoRecordingStatus</a>
                                       </dd>
                                       <dd><a href="../IKeyManager/Value_Camera_Struct_MSDKCameraStreamSettings.html">CameraStreamSettingsInfo</a>
                                       </dd>
@@ -103,6 +109,8 @@
                                       <dd><a href="../IKeyManager/Value_Camera_Struct_CustomExpandNameSettings.html">CustomExpandNameSettings</a>
                                       </dd>
                                       <dd><a href="../IKeyManager/Value_Camera_Struct_WatermarkDisplayContentSettings.html">WatermarkDisplayContentSettings</a>
+                                      </dd>
+                                      <dd><a href="../IKeyManager/Value_Camera_Struct_ZoomPointTargetMsg.html">ZoomTargetPointInfo</a>
                                       </dd>
                                       <dd><a href="../IKeyManager/Value_Camera_Struct_ThermalGainModeTemperatureRangeMsg.html">ThermalGainModeTemperatureRange</a>
                                       </dd>
@@ -155,6 +163,8 @@
                                       <dd><a href="../IKeyManager/Value_RemoteController_Struct_RCModeChannelTypeMsg.html">MultiControlChannelInfo</a>
                                       </dd>
                                       <dd><a href="../IKeyManager/Value_RemoteController_Struct_RcFiveDimensionPressedStatus.html">FiveDimensionPressedStatus</a>
+                                      </dd>
+                                      <dd><a href="../IKeyManager/Value_FlightController_LookAtInfo.html">LookAtInfo</a>
                                       </dd>
                                       <dd><a href="../IKeyManager/Value_FlightController_Struct_MultiGimbalSyncControlMsg.html">MultiGimbalSyncControlInfo</a>
                                       </dd>
@@ -255,6 +265,10 @@
                                       <dd><a href="../IMediaDataCenter/ICameraStreamManager_ReceiveStreamListener.html">ReceiveStreamListener</a>
                                       </dd>
                                       <dd><a href="../IMediaDataCenter/ICameraStreamManager_StreamInfo.html">StreamInfo</a>
+                                      </dd>
+                                      <dd><a href="../IMediaDataCenter/ICameraStreamManager_PinPointInfo.html">PinPointInfo</a>
+                                      </dd>
+                                      <dd><a href="../IMediaDataCenter/ICameraStreamManager_PinPoint.html">PinPoint</a>
                                       </dd>
                               </ul>
                             </dd>
@@ -608,7 +622,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IWPMZManager</span></span></span><br></pre></td></tr></table></figure>
 <html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">此类是航线任务编辑类，用于航线任务文件的加载，航线字段的编辑和航线任务文件生成。航线字段的含义请参考代码注释和<a href="https://developer.dji.com/doc/cloud-api-tutorial/cn/api-reference/dji-wpml/overview.html" target="_blank" rel="noopener">航线文件格式</a>。，接口调用流程请参阅：<a href="https://developer.dji.com/doc/mobile-sdk-tutorial/cn/tutorials/waypoint.html" target="_blank" rel="noopener">航线教程</a>。 <br><br><code><i>MSDK 5.6.0开始支持</i></code></font></p>
+<p><font color="#666">此类是航线任务编辑类，用于航线任务文件的加载，航线字段的编辑和航线任务文件生成。航线字段的含义请参考代码注释和<a href="https://developer.dji.com/doc/cloud-api-tutorial/cn/api-reference/dji-wpml/overview.html" target="_blank" rel="noopener">航线文件格式</a>。接口调用流程请参阅：<a href="https://developer.dji.com/doc/mobile-sdk-tutorial/cn/tutorials/waypoint.html" target="_blank" rel="noopener">航线教程</a>。 <br><br><code><i>MSDK 5.6.0开始支持</i></code></font></p>
 <h5 id="类成员">类成员:</h5>
 <div class="api-row" id="iwpmzmanager_getkmzinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_getkmzinfo_inline">getKMZInfo</a></div></div><div class="inline-doc" id="iwpmzmanager_getkmzinfo_inline" <blockquote>
 <div class="article"><h6><font color="#AAA">method </font>getKMZInfo</h6></div>
