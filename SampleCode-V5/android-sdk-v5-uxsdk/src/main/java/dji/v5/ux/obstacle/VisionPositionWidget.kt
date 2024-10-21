@@ -13,7 +13,6 @@ import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.util.ViewUtil
 import io.reactivex.rxjava3.core.CompletableObserver
 import io.reactivex.rxjava3.disposables.Disposable
-import kotlinx.android.synthetic.main.uxsdk_widget_vision_position_widget_layout.view.*
 
 /**
  * Description :

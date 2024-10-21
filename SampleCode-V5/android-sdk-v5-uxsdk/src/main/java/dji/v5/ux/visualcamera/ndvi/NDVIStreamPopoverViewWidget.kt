@@ -2,14 +2,12 @@ package dji.v5.ux.visualcamera.ndvi
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.lifecycle.*
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.v5.ux.R
 import dji.v5.ux.core.base.ICameraIndex
 import dji.v5.ux.core.base.widget.FrameLayoutWidget
 import dji.v5.ux.core.ui.component.SegmentedButtonGroup
-import kotlinx.android.synthetic.main.uxsdk_m3m_stream_palette_popover_view.view.*
 
 /**
  * 码流切换及调色弹窗

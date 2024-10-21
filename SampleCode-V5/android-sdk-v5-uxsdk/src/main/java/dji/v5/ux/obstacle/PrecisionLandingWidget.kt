@@ -11,7 +11,6 @@ import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import io.reactivex.rxjava3.core.CompletableObserver
 import io.reactivex.rxjava3.disposables.Disposable
-import kotlinx.android.synthetic.main.uxsdk_widget_precision_landing_widget_layout.view.*
 
 /**
  * Description :该控件不支持M3系列飞机

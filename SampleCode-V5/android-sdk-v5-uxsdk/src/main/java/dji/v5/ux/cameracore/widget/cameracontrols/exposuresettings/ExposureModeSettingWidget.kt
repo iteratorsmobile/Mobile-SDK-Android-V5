@@ -16,7 +16,6 @@ import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.util.UxErrorHandle
 import io.reactivex.rxjava3.functions.Action
-import kotlinx.android.synthetic.main.uxsdk_widget_exposure_mode_setting.view.*
 
 /**
  * Class Description

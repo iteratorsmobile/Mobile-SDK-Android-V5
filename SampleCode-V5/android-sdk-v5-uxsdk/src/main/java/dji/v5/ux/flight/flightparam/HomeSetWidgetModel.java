@@ -20,8 +20,6 @@ import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore;
 import dji.v5.ux.core.util.DataProcessor;
 import io.reactivex.rxjava3.core.Completable;
 
-import static dji.v5.ux.map.MapWidgetModel.INVALID_COORDINATE;
-
 /**
  * @author feel.feng
  * @time 2023/08/11 11:20
@@ -36,7 +34,7 @@ public class HomeSetWidgetModel extends WidgetModel {
     private final DataProcessor<RcGPSInfo> rcGPSInfoDataProcessor = DataProcessor.create(new RcGPSInfo());
 
     public final DataProcessor<LocationCoordinate2D> homeLocationDataProcessor =
-            DataProcessor.create(new LocationCoordinate2D(INVALID_COORDINATE, INVALID_COORDINATE));
+            DataProcessor.create(new LocationCoordinate2D(181.0, 181.0));
 
     protected HomeSetWidgetModel(@NonNull DJISDKModel djiSdkModel, @NonNull ObservableInMemoryKeyedStore uxKeyManager) {
         super(djiSdkModel, uxKeyManager);

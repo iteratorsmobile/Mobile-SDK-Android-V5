@@ -43,6 +43,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import dji.sdk.keyvalue.value.common.LocationCoordinate2D;
 import dji.sdk.keyvalue.value.common.LocationCoordinate3D;
 import dji.v5.manager.aircraft.flysafe.info.FlyZoneInformation;
@@ -143,7 +144,7 @@ public class MapWidget extends ConstraintLayoutWidget<Object> implements View.On
 
     //region direction to home fields
     private DJIPolyline homeLine;
-    private List<FlyZoneInformation> flyZoneInformationList ;
+    private List<FlyZoneInformation> flyZoneInformationList;
     private boolean homeDirectionEnabled = true;
     @ColorInt
     private int homeDirectionColor = Color.GREEN;
@@ -446,8 +447,7 @@ public class MapWidget extends ConstraintLayoutWidget<Object> implements View.On
      * Updates the aircraft's home location on the map
      */
     private void updateHomeLocation(LocationCoordinate2D homeLocation) {
-        if (homeLocation.getLatitude() == MapWidgetModel.INVALID_COORDINATE
-                || homeLocation.getLongitude() == MapWidgetModel.INVALID_COORDINATE) return;
+        if (homeLocation.getLatitude() == 181.0 || homeLocation.getLongitude() == 181.0) return;
         DJILatLng homePosition = new DJILatLng(homeLocation.getLatitude(), homeLocation.getLongitude());
         if (map == null || !homePosition.isAvailable()) return;
         if (homeMarker != null) {
@@ -640,8 +640,8 @@ public class MapWidget extends ConstraintLayoutWidget<Object> implements View.On
      */
     private void updateAircraftLocation(LocationCoordinate3D locationCoordinate3D) {
         if (map == null) return;
-        if (locationCoordinate3D.getLatitude() == MapWidgetModel.INVALID_COORDINATE
-                || locationCoordinate3D.getLongitude() == MapWidgetModel.INVALID_COORDINATE) return;
+        if (locationCoordinate3D.getLatitude() == MapWidgetModel .181 .0
+                || locationCoordinate3D.getLongitude() == MapWidgetModel .181 .0)return;
 
         final DJILatLng aircraftPosition = new DJILatLng(locationCoordinate3D.getLatitude(), locationCoordinate3D.getLongitude());
         if (aircraftMarker != null) {
@@ -860,13 +860,12 @@ public class MapWidget extends ConstraintLayoutWidget<Object> implements View.On
     }
 
 
-
     /**
      * Initializes the MapWidget with Mapbox.
      *
-     * @param listener          The OnMapReadyListener which will invoke the onMapReady method when the map has finished
-     *                          initializing.
-     * @param context The API access context from Mapbox.
+     * @param listener The OnMapReadyListener which will invoke the onMapReady method when the map has finished
+     *                 initializing.
+     * @param context  The API access context from Mapbox.
      */
     public void initMapLibreMap(@NonNull Context context, @Nullable final OnMapReadyListener listener) {
         Mapkit.init(context);
@@ -876,7 +875,7 @@ public class MapWidget extends ConstraintLayoutWidget<Object> implements View.On
             flyZoneHelper.initializeMap(map);
             this.map = map;
             postInit(mapLib -> {
-                if (flyZoneInformationList != null ) {
+                if (flyZoneInformationList != null) {
                     onFlyZoneListUpdate(flyZoneInformationList);
                 }
                 if (listener != null) {
@@ -1362,6 +1361,7 @@ public class MapWidget extends ConstraintLayoutWidget<Object> implements View.On
         isAutoFrameMapBounds = isEnabled;
         autoFrameMapBounds();
     }
+
     /**
      * Map Centering Options.
      */

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import dji.sampleV5.aircraft.R
-import dji.v5.utils.common.LogUtils
 import kotlinx.android.synthetic.main.frag_uas_page.*
 
 /**

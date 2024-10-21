@@ -16,7 +16,6 @@ import dji.v5.ux.core.base.widget.FrameLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.popover.PopoverHelper
 import dji.v5.ux.core.ui.component.StrokeTextView
-import kotlinx.android.synthetic.main.uxsdk_camera_status_action_item_content.view.*
 
 open class NDVIStreamSelectorWidget @JvmOverloads constructor(
     context: Context,

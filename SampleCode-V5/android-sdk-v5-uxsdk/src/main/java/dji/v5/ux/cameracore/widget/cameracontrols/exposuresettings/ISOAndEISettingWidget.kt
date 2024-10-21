@@ -23,7 +23,6 @@ import dji.v5.ux.core.util.AudioUtil
 import dji.v5.ux.core.util.CameraUtil
 import dji.v5.ux.core.util.UxErrorHandle
 import io.reactivex.rxjava3.functions.Action
-import kotlinx.android.synthetic.main.uxsdk_widget_iso_ei_setting.view.*
 
 /**
  * Class Description

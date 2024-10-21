@@ -1,22 +1,18 @@
 package dji.v5.ux.remotecontroller
 
 import android.content.Context
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.widget.Button
 import android.widget.Toast
 import dji.sdk.keyvalue.value.remotecontroller.PairingState
-import dji.v5.utils.common.LogUtils
 import dji.v5.utils.common.StringUtils
 import dji.v5.ux.R
 import dji.v5.ux.core.base.DJISDKModel
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.util.ViewUtil
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.CompletableObserver
 import io.reactivex.rxjava3.disposables.Disposable
-import kotlinx.android.synthetic.main.uxsdk_widget_rc_check_frequency_layout.view.*
 
 /**
  * Description :

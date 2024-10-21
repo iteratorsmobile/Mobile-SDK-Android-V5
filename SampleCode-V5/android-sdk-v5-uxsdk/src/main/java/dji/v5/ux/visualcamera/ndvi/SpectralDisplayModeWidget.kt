@@ -14,8 +14,6 @@ import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.extension.getColor
 import dji.v5.ux.core.extension.getString
 import dji.v5.ux.core.ui.component.StrokeTextView
-import kotlinx.android.synthetic.main.uxsdk_camera_status_action_item_content.view.*
-
 
 /**
  * 仅用于CameraLensType.CAMERA_LENS_MS_NDVI镜头下
@@ -28,7 +26,10 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
     private var tv_content: StrokeTextView? = null
 
     private val widgetModel by lazy {
-        SpectralDisplayModeWidgetModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        SpectralDisplayModeWidgetModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {

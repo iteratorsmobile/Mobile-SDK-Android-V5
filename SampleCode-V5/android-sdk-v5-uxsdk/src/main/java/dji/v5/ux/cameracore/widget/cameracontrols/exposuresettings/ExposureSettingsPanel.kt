@@ -8,7 +8,6 @@ import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.v5.ux.R
 import dji.v5.ux.core.base.ICameraIndex
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
-import kotlinx.android.synthetic.main.uxsdk_panel_exposure_setting.view.*
 
 /**
  * Class Description

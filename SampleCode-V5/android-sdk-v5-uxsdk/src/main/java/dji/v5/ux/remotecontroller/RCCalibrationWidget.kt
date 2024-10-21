@@ -9,7 +9,6 @@ import dji.v5.ux.R
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.util.ViewUtil
 import dji.v5.ux.remotecontroller.calibration.SmartControllerCalibrationView
-import kotlinx.android.synthetic.main.uxsdk_widget_setting_rc_calibration_layout.view.*
 
 /**
  * Description :

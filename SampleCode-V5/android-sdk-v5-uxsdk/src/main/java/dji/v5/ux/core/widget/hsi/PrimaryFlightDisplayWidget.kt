@@ -9,8 +9,6 @@ import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.ui.hsi.AircraftAttitudeView
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import kotlinx.android.synthetic.main.uxsdk_liveview_pfd_attitude_display_widget.view.*
-import kotlinx.android.synthetic.main.uxsdk_primary_flight_display_widget.view.*
 
 /**
  * Class Description
@@ -51,11 +49,11 @@ open class PrimaryFlightDisplayWidget @JvmOverloads constructor(
         addDisposable(
             widgetModel.aircraftAttitudeProcessor.toFlowable()
                 .observeOn(AndroidSchedulers.mainThread()).subscribe {
-                fpv_attitude?.setPitch(it.pitch.toFloat())
-                fpv_attitude?.setRoll(it.roll.toFloat())
-                fpv_attitude?.setYaw(it.yaw.toFloat())
+                    fpv_attitude?.setPitch(it.pitch.toFloat())
+                    fpv_attitude?.setRoll(it.roll.toFloat())
+                    fpv_attitude?.setYaw(it.yaw.toFloat())
 
-            })
+                })
         setVideoViewSize(1440, 1080)
     }
 

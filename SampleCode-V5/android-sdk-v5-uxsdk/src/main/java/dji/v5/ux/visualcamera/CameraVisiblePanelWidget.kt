@@ -13,7 +13,6 @@ import dji.v5.ux.visualcamera.iso.CameraConfigISOAndEIWidget
 import dji.v5.ux.visualcamera.shutter.CameraConfigShutterWidget
 import dji.v5.ux.visualcamera.storage.CameraConfigStorageWidget
 import dji.v5.ux.visualcamera.wb.CameraConfigWBWidget
-import kotlinx.android.synthetic.main.uxsdk_panel_common_camera.view.*
 
 open class CameraVisiblePanelWidget @JvmOverloads constructor(
     context: Context,

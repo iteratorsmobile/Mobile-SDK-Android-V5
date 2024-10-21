@@ -6,7 +6,6 @@ import dji.v5.ux.core.ui.setting.fragment.CommonMenuFragment;
 import dji.v5.ux.core.ui.setting.fragment.FlycMenuFragment;
 import dji.v5.ux.core.ui.setting.fragment.GimbalMenuFragment;
 import dji.v5.ux.core.ui.setting.fragment.HDMenuFragment;
-import dji.v5.ux.core.ui.setting.fragment.OmniPerceptionMenuFragment;
 import dji.v5.ux.core.ui.setting.fragment.PayloadFragment;
 import dji.v5.ux.core.ui.setting.fragment.RCMenuFragment;
 import dji.v5.ux.core.ui.setting.fragment.RtkMenuFragment;
@@ -39,8 +38,6 @@ public class MenuFragmentFactory {
             return new GimbalMenuFragment();
         } else if (FRAGMENT_TAG_RC.equals(tag)) {
             return new RCMenuFragment();
-        } else if (FRAGMENT_TAG_PERCEPTION.equals(tag)) {
-            return new OmniPerceptionMenuFragment();
         } else if (FRAGMENT_TAG_HD.equals(tag)) {
             return new HDMenuFragment();
         } else if (FRAGMENT_TAG_BATTERY.equals(tag)) {

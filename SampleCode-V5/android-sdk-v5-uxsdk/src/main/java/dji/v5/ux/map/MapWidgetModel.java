@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import androidx.annotation.NonNull;
+
 import dji.sdk.keyvalue.key.FlightControllerKey;
 import dji.sdk.keyvalue.key.GimbalKey;
 import dji.sdk.keyvalue.key.KeyTools;
@@ -57,10 +58,6 @@ import io.reactivex.rxjava3.core.Flowable;
  * underlying logic and communication
  */
 public class MapWidgetModel extends WidgetModel {
-
-    public static final double INVALID_COORDINATE = 181;  //valid longitude range is -180 to 180.
-
-
     private final DataProcessor<LocationCoordinate3D> aircraftLocationDataProcessor;
     private final DataProcessor<LocationCoordinate2D> homeLocationDataProcessor;
     private final DataProcessor<Double> gimbalYawDataProcessor;
@@ -101,10 +98,10 @@ public class MapWidgetModel extends WidgetModel {
                           @NonNull ObservableInMemoryKeyedStore keyedStore) {
         super(djiSdkModel, keyedStore);
         aircraftLocationDataProcessor =
-                DataProcessor.create(new LocationCoordinate3D(INVALID_COORDINATE, INVALID_COORDINATE, -1d));
+                DataProcessor.create(new LocationCoordinate3D(181.0, 181.0, -1d));
 
         homeLocationDataProcessor =
-                DataProcessor.create(new LocationCoordinate2D(INVALID_COORDINATE, INVALID_COORDINATE));
+                DataProcessor.create(new LocationCoordinate2D(181.0, 181.0));
         gimbalYawDataProcessor = DataProcessor.create(0.0d);
         aircraftHeadingDataProcessor = DataProcessor.create(0.0d);
         flightControllerSerialNumberDataProcessor = DataProcessor.create("");

@@ -6,11 +6,9 @@ import android.view.View
 import android.widget.TextView
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
-import dji.v5.utils.common.LogUtils
 import dji.v5.ux.R
 import dji.v5.ux.core.base.ICameraIndex
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
-import kotlinx.android.synthetic.main.uxsdk_fpv_view_horizontal_situation_indicator.view.*
 
 /**
  * Class Description

@@ -10,7 +10,6 @@ import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.visualcamera.ndvi.NDVIStreamPaletteBar
 import dji.v5.ux.visualcamera.ndvi.NDVIStreamSelectorWidget
 import dji.v5.ux.visualcamera.ndvi.SpectralDisplayModeWidget
-import kotlinx.android.synthetic.main.uxsdk_panel_ndvl.view.*
 
 /**
  * Class Description
