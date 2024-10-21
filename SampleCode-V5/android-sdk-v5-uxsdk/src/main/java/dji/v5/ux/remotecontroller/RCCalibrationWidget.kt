@@ -23,14 +23,15 @@ class RCCalibrationWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-
-    ) : ConstraintLayoutWidget<RCPairingWidget.ModelState>(context, attrs, defStyleAttr) {
+) : ConstraintLayoutWidget<RCPairingWidget.ModelState>(context, attrs, defStyleAttr) {
 
     private var mSmartControllerCalibrationView: SmartControllerCalibrationView? = null
+    private var rc_calibration_layout: LinearLayout? = null
     private var sHasShowDialog = false
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_widget_setting_rc_calibration_layout, this)
+        rc_calibration_layout = findViewById(R.id.rc_calibration_layout)
     }
 
     override fun reactToModelChanges() {
@@ -42,9 +43,15 @@ class RCCalibrationWidget @JvmOverloads constructor(
         rc_calibration_layout?.removeAllViews()
         if (mSmartControllerCalibrationView == null) {
             mSmartControllerCalibrationView =
-                LayoutInflater.from(context).inflate(R.layout.uxsdk_setting_ui_rc_smart_controller_calibration, null, false) as SmartControllerCalibrationView
-            mSmartControllerCalibrationView?.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT)
+                LayoutInflater.from(context).inflate(
+                    R.layout.uxsdk_setting_ui_rc_smart_controller_calibration,
+                    null,
+                    false
+                ) as SmartControllerCalibrationView
+            mSmartControllerCalibrationView?.layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            )
         }
         rc_calibration_layout?.addView(mSmartControllerCalibrationView)
         if (!sHasShowDialog) {

@@ -37,7 +37,7 @@ import io.reactivex.rxjava3.processors.PublishProcessor
  * This is a base class for widgets requiring ConstraintLayout.
  * T is the type of Widget State Update, @see[getWidgetStateUpdate].
  */
-abstract class ConstraintLayoutWidget<T> @JvmOverloads constructor(
+abstract class ConstraintLayoutWidget<T : Any> @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0

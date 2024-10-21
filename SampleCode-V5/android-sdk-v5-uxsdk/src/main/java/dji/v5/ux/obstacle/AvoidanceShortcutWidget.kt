@@ -38,7 +38,8 @@ import io.reactivex.rxjava3.disposables.Disposable
  */
 class AvoidanceShortcutWidget @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null,
-) : ConstraintLayoutWidget<AvoidanceShortcutWidget.ModelState>(context, attrs), TabLayout.BaseOnTabSelectedListener<TabLayout.Tab> {
+) : ConstraintLayoutWidget<AvoidanceShortcutWidget.ModelState>(context, attrs),
+    TabLayout.BaseOnTabSelectedListener<TabLayout.Tab> {
 
     companion object {
         private const val TAG = "AvoidanceShortcutWidget"
@@ -60,7 +61,10 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
 
     private var currentMode = ObstacleAvoidanceType.CLOSE
     private val widgetModel by lazy {
-        AvoidanceShortcutWidgetModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        AvoidanceShortcutWidgetModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
 
@@ -87,22 +91,28 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
 
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        LayoutInflater.from(context).inflate(R.layout.uxsdk_setting_menu_omni_apas_layout, this, true)
-
+        LayoutInflater.from(context)
+            .inflate(R.layout.uxsdk_setting_menu_omni_apas_layout, this, true)
     }
 
     override fun reactToModelChanges() {
-        addReaction(widgetModel.productTypeProcessor.toFlowable().observeOn(SchedulerProvider.ui()).subscribe {
-            updateTabItems()
-        })
-        addReaction(widgetModel.flightModeProcessor.toFlowable().observeOn(SchedulerProvider.ui()).subscribe {
-            flightMode = it
-        })
+        addReaction(
+            widgetModel.productTypeProcessor.toFlowable().observeOn(SchedulerProvider.ui())
+                .subscribe {
+                    updateTabItems()
+                })
+        addReaction(
+            widgetModel.flightModeProcessor.toFlowable().observeOn(SchedulerProvider.ui())
+                .subscribe {
+                    flightMode = it
+                })
 
-        addReaction(widgetModel.obstacleAvoidanceTypeProcessor.toFlowable().observeOn(SchedulerProvider.ui()).subscribe {
-            currentMode = it
-            updateSelectTab(it)
-        })
+        addReaction(
+            widgetModel.obstacleAvoidanceTypeProcessor.toFlowable()
+                .observeOn(SchedulerProvider.ui()).subscribe {
+                currentMode = it
+                updateSelectTab(it)
+            })
 
 
     }
@@ -123,16 +133,21 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
             val mode = flightMode.getFlightModeString()
             // 当前档位为A/S时需要提示用户
             if (mode == "A" || mode == "S") {
-                var content = if (value == ObstacleAvoidanceType.BRAKE)
-                    StringUtils.getResStr(context, R.string.uxsdk_setting_menu_perception_break_s_mode, mode)
+                val content = if (value == ObstacleAvoidanceType.BRAKE)
+                    StringUtils.getResStr(
+                        context,
+                        R.string.uxsdk_setting_menu_perception_break_s_mode,
+                        mode
+                    )
                 else
                 // 切换绕行
                     StringUtils.getResStr(R.string.uxsdk_setting_menu_perception_apas_s_mode, mode)
                 showToast(content)
             }
-        }else{
-            val resStr = StringUtils.getResStr(R.string.uxsdk_setting_menu_perception_apas_off_dialog_content)
-            ViewUtil.showToast(context,resStr)
+        } else {
+            val resStr =
+                StringUtils.getResStr(R.string.uxsdk_setting_menu_perception_apas_off_dialog_content)
+            ViewUtil.showToast(context, resStr)
         }
     }
 
@@ -153,7 +168,7 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
     private fun setObstacleAction(type: ObstacleAvoidanceType) {
         widgetModel.setObstacleActionType(type).observeOn(SchedulerProvider.ui())
             .subscribe(object : CompletableObserver {
-                override fun onSubscribe(d: Disposable?) {
+                override fun onSubscribe(d: Disposable) {
                     //do nothing
                 }
 
@@ -161,7 +176,7 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
                     //do nothing
                 }
 
-                override fun onError(e: Throwable?) {
+                override fun onError(e: Throwable) {
                     //do nothing
                     LogUtils.e(TAG, "setObstacleAction onError:$e")
                     revertObstacleAction()
@@ -234,12 +249,16 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
         return when (this) {
             FCFlightMode.UNKNOWN ->
                 ""
+
             FCFlightMode.ATTI ->
                 "A"
+
             FCFlightMode.GPS_SPORT ->
                 "S"
+
             FCFlightMode.TRIPOD_GPS ->
                 "T"
+
             else -> {
                 if (DpadProductManager.getInstance().isDjiRcPlus || DpadProductManager.getInstance().isDjiRcPro || ProductUtil.isM30Product() || ProductUtil.isM350Product()) "N" else "P"
             }

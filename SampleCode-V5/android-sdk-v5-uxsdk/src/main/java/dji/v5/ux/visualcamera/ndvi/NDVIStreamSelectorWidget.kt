@@ -3,6 +3,7 @@ package dji.v5.ux.visualcamera.ndvi
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.FrameLayout
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.camera.MultiSpectralFusionType
 import dji.sdk.keyvalue.value.common.CameraLensType
@@ -14,6 +15,7 @@ import dji.v5.ux.core.base.SchedulerProvider
 import dji.v5.ux.core.base.widget.FrameLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.popover.PopoverHelper
+import dji.v5.ux.core.ui.component.StrokeTextView
 import kotlinx.android.synthetic.main.uxsdk_camera_status_action_item_content.view.*
 
 open class NDVIStreamSelectorWidget @JvmOverloads constructor(
@@ -21,9 +23,14 @@ open class NDVIStreamSelectorWidget @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayoutWidget<Any>(context, attrs, defStyleAttr), ICameraIndex, View.OnClickListener {
+    private var tv_content: StrokeTextView? = null
+    private var stream_selector_root_view: FrameLayout? = null
 
     private val widgetModel by lazy {
-        NDVIStreamSelectorWidgetModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        NDVIStreamSelectorWidgetModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     override fun onAttachedToWindow() {
@@ -31,7 +38,7 @@ open class NDVIStreamSelectorWidget @JvmOverloads constructor(
         if (!isInEditMode) {
             widgetModel.setup()
         }
-        tv_content.text = "NDVI"
+        tv_content?.text = "NDVI"
     }
 
     override fun onDetachedFromWindow() {
@@ -43,6 +50,8 @@ open class NDVIStreamSelectorWidget @JvmOverloads constructor(
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_camera_status_action_item_content, this)
+        tv_content = findViewById(R.id.tv_content)
+        stream_selector_root_view = findViewById(R.id.stream_selector_root_view)
         setOnClickListener(this)
     }
 
@@ -62,7 +71,7 @@ open class NDVIStreamSelectorWidget @JvmOverloads constructor(
     }
 
     private fun updateContent() {
-        tv_content.text = when (widgetModel.cameraVideoStreamSourceProcessor.value) {
+        tv_content?.text = when (widgetModel.cameraVideoStreamSourceProcessor.value) {
             CameraVideoStreamSourceType.MS_G_CAMERA -> "G"
             CameraVideoStreamSourceType.MS_R_CAMERA -> "R"
             CameraVideoStreamSourceType.MS_RE_CAMERA -> "RE"
@@ -72,14 +81,17 @@ open class NDVIStreamSelectorWidget @JvmOverloads constructor(
                     MultiSpectralFusionType.GNDVI -> {
                         "GNDVI"
                     }
+
                     MultiSpectralFusionType.NDRE -> {
                         "NDRE"
                     }
+
                     else -> {
                         "NDVI"
                     }
                 }
             }
+
             else -> ""
         }
     }
@@ -90,9 +102,11 @@ open class NDVIStreamSelectorWidget @JvmOverloads constructor(
 
     private fun openSettingPanel() {
         val view = NDVIStreamPopoverViewWidget(context)
-        view.updateCameraSource(getCameraIndex(),getLensType())
+        view.updateCameraSource(getCameraIndex(), getLensType())
         view.selectIndex = 0
-        PopoverHelper.showPopover(stream_selector_root_view, view)
+        stream_selector_root_view?.let {
+            PopoverHelper.showPopover(it, view)
+        }
     }
 
     override fun getCameraIndex(): ComponentIndexType {

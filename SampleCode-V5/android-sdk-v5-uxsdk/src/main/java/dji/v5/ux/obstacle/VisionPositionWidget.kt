@@ -29,15 +29,21 @@ class VisionPositionWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : ConstraintLayoutWidget<VisionPositionWidget.ModelState>(context, attrs, defStyleAttr), SwitcherCell.OnCheckedChangedListener {
+) : ConstraintLayoutWidget<VisionPositionWidget.ModelState>(context, attrs, defStyleAttr),
+    SwitcherCell.OnCheckedChangedListener {
     private var listener: SwitchStateListener? = null
+    private var omni_common_downwards_switcher_cell: SwitcherCell? = null
 
     private val widgetModel by lazy {
-        VisionPositionWidgetModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        VisionPositionWidgetModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_widget_vision_position_widget_layout, this)
+        omni_common_downwards_switcher_cell = findViewById(R.id.omni_common_downwards_switcher_cell)
     }
 
     override fun reactToModelChanges() {
@@ -53,7 +59,7 @@ class VisionPositionWidget @JvmOverloads constructor(
             widgetModel.setup()
 
         }
-        omni_common_downwards_switcher_cell.setOnCheckedChangedListener(this)
+        omni_common_downwards_switcher_cell?.setOnCheckedChangedListener(this)
     }
 
     override fun onDetachedFromWindow() {
@@ -70,21 +76,22 @@ class VisionPositionWidget @JvmOverloads constructor(
     override fun onCheckedChanged(cell: SwitcherCell?, isChecked: Boolean) {
         if (cell?.id == R.id.omni_common_downwards_switcher_cell) {
             if (!isChecked) {
-                val msg = StringUtils.getResStr(context, R.string.uxsdk_setting_ui_omni_perception_desc)
-                ViewUtil.showToast(context,msg)
+                val msg =
+                    StringUtils.getResStr(context, R.string.uxsdk_setting_ui_omni_perception_desc)
+                ViewUtil.showToast(context, msg)
             }
 
             widgetModel.setVisionPositioningEnabled(isChecked).observeOn(SchedulerProvider.ui())
                 .subscribe(object : CompletableObserver {
-                    override fun onSubscribe(d: Disposable?) {
+                    override fun onSubscribe(d: Disposable) {
                         //do nothing
                     }
 
                     override fun onComplete() {
-                        LogUtils.i(TAG,"setVisionPositioningEnabled onComplete!")
+                        LogUtils.i(TAG, "setVisionPositioningEnabled onComplete!")
                     }
 
-                    override fun onError(e: Throwable?) {
+                    override fun onError(e: Throwable) {
                         //do nothing
                         LogUtils.e(TAG, "setVisionPositioningEnabled onError:$e")
                         updateVisionSwitchCell(!isChecked)
@@ -100,10 +107,10 @@ class VisionPositionWidget @JvmOverloads constructor(
      * @param enable 开启
      */
     private fun updateVisionSwitchCell(enable: Boolean) {
-        LogUtils.i(TAG,"updateVisionSwitchCell:$enable")
-        omni_common_downwards_switcher_cell.setOnCheckedChangedListener(null)
-        omni_common_downwards_switcher_cell.isChecked = enable
-        omni_common_downwards_switcher_cell.setOnCheckedChangedListener(this)
+        LogUtils.i(TAG, "updateVisionSwitchCell:$enable")
+        omni_common_downwards_switcher_cell?.setOnCheckedChangedListener(null)
+        omni_common_downwards_switcher_cell?.isChecked = enable
+        omni_common_downwards_switcher_cell?.setOnCheckedChangedListener(this)
         listener?.onUpdate(enable)
     }
 

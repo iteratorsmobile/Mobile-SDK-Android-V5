@@ -3,6 +3,8 @@ package dji.v5.ux.visualcamera.ndvi
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.v5.utils.common.LogUtils
@@ -24,10 +26,16 @@ class NDVIStreamPaletteBar @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : FrameLayoutWidget<Any>(context, attrs), ICameraIndex, View.OnClickListener {
+) : FrameLayoutWidget<Any>(context, attrs, defStyleAttr), ICameraIndex, View.OnClickListener {
+    private var left_tv: TextView? = null
+    private var right_tv: TextView? = null
+    private var stream_palette_root_view: ConstraintLayout? = null
 
     private val widgetModel by lazy {
-        NDVIStreamPaletteBarPanelModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        NDVIStreamPaletteBarPanelModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     override fun getCameraIndex(): ComponentIndexType = widgetModel.getCameraIndex()
@@ -40,6 +48,9 @@ class NDVIStreamPaletteBar @JvmOverloads constructor(
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_m3m_stream_palette_bar, this)
+        stream_palette_root_view = findViewById(R.id.stream_palette_root_view)
+        left_tv = findViewById(R.id.left_tv)
+        right_tv = findViewById(R.id.right_tv)
         setOnClickListener(this)
     }
 
@@ -61,8 +72,8 @@ class NDVIStreamPaletteBar @JvmOverloads constructor(
         addReaction(widgetModel.multiSpectralFusionDisplayRangeProcessor.toFlowable()
             .observeOn(SchedulerProvider.ui())
             .subscribe {
-                left_tv.text = (it.displayMin / 10.0f).toString()
-                right_tv.text = (it.displayMax / 10.0f).toString()
+                left_tv?.text = (it.displayMin / 10.0f).toString()
+                right_tv?.text = (it.displayMax / 10.0f).toString()
             }
         )
     }
@@ -71,6 +82,8 @@ class NDVIStreamPaletteBar @JvmOverloads constructor(
         val view = NDVIStreamPopoverViewWidget(context)
         view.updateCameraSource(getCameraIndex(), getLensType())
         view.selectIndex = 1
-        PopoverHelper.showPopover(stream_palette_root_view, view)
+        stream_palette_root_view?.let {
+            PopoverHelper.showPopover(it, view)
+        }
     }
 }

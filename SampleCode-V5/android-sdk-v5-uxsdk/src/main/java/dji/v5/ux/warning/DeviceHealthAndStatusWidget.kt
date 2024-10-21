@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.ViewOutlineProvider
 import android.widget.FrameLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import dji.v5.manager.diagnostic.WarningLevel
 import dji.v5.utils.common.AndUtil
 import dji.v5.utils.common.JsonUtil
@@ -30,21 +31,27 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ConstraintLayoutWidget<Any>(context, attrs, defStyleAttr) {
 
-    lateinit var warningMessageCountWrapper: ViewGroup
-    lateinit var cardViewWarningWrapper: FrameLayout
-    lateinit var tvWarningMessage: TextView
-    lateinit var tvLevel3Count: TextView
-    lateinit var tvLevel2Count: TextView
-    lateinit var tvNoMessage: TextView
+    private lateinit var warningMessageCountWrapper: ViewGroup
+    private lateinit var cardViewWarningWrapper: FrameLayout
+    private lateinit var tvWarningMessage: TextView
+    private lateinit var tvLevel3Count: TextView
+    private lateinit var tvLevel2Count: TextView
+    private lateinit var tvNoMessage: TextView
+    private lateinit var warningMessageRootView: ConstraintLayout
 
     private val popupView: View by lazy {
         FpvWarningMessagePopoverView(context)
     }
 
-    var popover: Popover? = null
+    private var popover: Popover? = null
+    private var warnOutlineProvider: ViewOutlineProvider? = null
+    private var cardOutlineProvider: ViewOutlineProvider? = null
 
     private val widgetModel by lazy {
-        DeviceHealthAndStatusWidgetModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        DeviceHealthAndStatusWidgetModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
@@ -52,25 +59,29 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
 
         warningMessageCountWrapper = findViewById(R.id.warning_message_count_wrapper)
         warningMessageCountWrapper.clipToOutline = true
-        warningMessageCountWrapper.outlineProvider = object : ViewOutlineProvider() {
+        warnOutlineProvider = object : ViewOutlineProvider() {
             override fun getOutline(view: View, outline: Outline) {
                 val radius = resources.getDimension(R.dimen.uxsdk_2_dp)
                 outline.setRoundRect(0, 0, view.width, view.height, radius)
             }
         }
+        warningMessageCountWrapper.outlineProvider = warnOutlineProvider
 
         tvWarningMessage = findViewById(R.id.tv_warning_message)
         tvLevel3Count = findViewById(R.id.tv_level3_count)
         tvLevel2Count = findViewById(R.id.tv_level2_count)
         tvNoMessage = findViewById(R.id.tv_warning_no_message)
         cardViewWarningWrapper = findViewById(R.id.cardview_warning_message)
+        warningMessageRootView = findViewById(R.id.warning_message_root_view)
         cardViewWarningWrapper.clipToOutline = true
-        cardViewWarningWrapper.outlineProvider = object : ViewOutlineProvider() {
+        cardOutlineProvider = object : ViewOutlineProvider() {
             override fun getOutline(view: View, outline: Outline) {
                 val radius = resources.getDimension(R.dimen.uxsdk_2_dp)
                 outline.setRoundRect(0, 0, view.width, view.height, radius)
             }
         }
+        cardViewWarningWrapper.outlineProvider = cardOutlineProvider
+
 
         setOnClickListener {
             if (popover?.isShowing() == true) {
@@ -78,19 +89,20 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
             }
             if (popover == null) {
                 val isEmpty: Boolean = widgetModel.deviceMessageProcessor.value.isEmpty()
-                popover = PopoverHelper.baseBuilder(if (isEmpty) tvNoMessage else warning_message_root_view)
-                    .yOffset(
-                        if (isEmpty) AndUtil.getDimension(R.dimen.uxsdk_10_dp)
-                            .roundToInt() else AndUtil.getDimension(R.dimen.uxsdk_2_dp)
-                            .roundToInt()
-                    )
-                    .customView(popupView)
-                    .bottomScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_96_dp).toInt())
-                    .leftScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_40_dp).roundToInt())
-                    .align(Popover.Align.CENTER)
-                    .arrowColor(AndUtil.getResColor(R.color.uxsdk_fpv_popover_content_background_color))
-                    .onDismiss {}
-                    .build()
+                popover =
+                    PopoverHelper.baseBuilder(if (isEmpty) tvNoMessage else warningMessageRootView)
+                        .yOffset(
+                            if (isEmpty) AndUtil.getDimension(R.dimen.uxsdk_10_dp)
+                                .roundToInt() else AndUtil.getDimension(R.dimen.uxsdk_2_dp)
+                                .roundToInt()
+                        )
+                        .customView(popupView)
+                        .bottomScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_96_dp).toInt())
+                        .leftScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_40_dp).roundToInt())
+                        .align(Popover.Align.CENTER)
+                        .arrowColor(AndUtil.getResColor(R.color.uxsdk_fpv_popover_content_background_color))
+                        .onDismiss {}
+                        .build()
             }
             popover?.show()
         }
@@ -134,7 +146,8 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
                 if (!widgetModel.isConnectedProcessor.value) {
                     tvNoMessage.text = "N/A"
                 } else {
-                    tvNoMessage.text = AndUtil.getResString(R.string.uxsdk_fpv_message_box_empty_content_v2)
+                    tvNoMessage.text =
+                        AndUtil.getResString(R.string.uxsdk_fpv_message_box_empty_content_v2)
                 }
                 popover?.let { p ->
                     p.builder.anchor = tvNoMessage
@@ -154,7 +167,14 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
 
     override fun onDetachedFromWindow() {
         if (!isInEditMode) {
+            cardViewWarningWrapper.outlineProvider = null
+            cardOutlineProvider = null
+
+            warningMessageCountWrapper.outlineProvider = null
+            warnOutlineProvider = null
+
             widgetModel.cleanup()
+            popover = null
         }
         super.onDetachedFromWindow()
     }
@@ -181,7 +201,8 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
             tvLevel3Count.text = level3Count.toString()
         }
 
-        warningMessageCountWrapper.visibility = if (level2Count == 0 && level3Count == 0) INVISIBLE else VISIBLE
+        warningMessageCountWrapper.visibility =
+            if (level2Count == 0 && level3Count == 0) INVISIBLE else VISIBLE
 
         // 主动请求一次popover重新layout，条目变化高度可能需要更新
         popover?.requestLayout()

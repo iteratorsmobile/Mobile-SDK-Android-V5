@@ -26,7 +26,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import java.util.*
 
 open class SpeedDisplayWidget @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
-    ConstraintLayoutWidget<Boolean?>(context, attrs, defStyleAttr) {
+    ConstraintLayoutWidget<Boolean>(context, attrs, defStyleAttr) {
     @ExportedProperty(category = "dji", formatToHexString = true)
     private val mWindTextColor: Int
     private var mTvWsValue: TextView? = null
@@ -79,16 +79,20 @@ open class SpeedDisplayWidget @JvmOverloads constructor(context: Context, attrs:
                 widgetModel.windSpeedProcessor.toFlowable(),
                 widgetModel.windDirectionProcessor.toFlowable(),
                 widgetModel.windWarningProcessor.toFlowable(),
-                widgetModel.aircraftAttitudeProcessor.toFlowable(),
-                { windSpeed: Int, fcWindDirectionStatus: WindDirection, fcWindWarning: WindWarning, attitude: Attitude ->
-                    val yaw = attitude.yaw.toFloat()
-                    val aircraftDegree: Float = yaw + if (yaw < 0) 359f else 0f
-                    AndroidSchedulers.mainThread().scheduleDirect {
-                        updateWindStatus(windSpeed.toFloat() / 10, fcWindDirectionStatus, fcWindWarning, aircraftDegree)
-                    }
-                    true
+                widgetModel.aircraftAttitudeProcessor.toFlowable()
+            ) { windSpeed: Int, fcWindDirectionStatus: WindDirection, fcWindWarning: WindWarning, attitude: Attitude ->
+                val yaw = attitude.yaw.toFloat()
+                val aircraftDegree: Float = yaw + if (yaw < 0) 359f else 0f
+                AndroidSchedulers.mainThread().scheduleDirect {
+                    updateWindStatus(
+                        windSpeed.toFloat() / 10,
+                        fcWindDirectionStatus,
+                        fcWindWarning,
+                        aircraftDegree
+                    )
                 }
-            ).subscribe()
+                true
+            }.subscribe()
         )
     }
 

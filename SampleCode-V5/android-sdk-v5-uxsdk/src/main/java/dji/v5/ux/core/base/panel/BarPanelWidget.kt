@@ -57,7 +57,7 @@ import dji.v5.ux.core.util.ViewIDGenerator
  *
  * @property orientation The current BarPanelWidget orientation.
  */
-abstract class BarPanelWidget<T> @JvmOverloads constructor(
+abstract class BarPanelWidget<T : Any> @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0,

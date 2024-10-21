@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.ImageView
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
@@ -33,6 +34,7 @@ open class LensControlWidget @JvmOverloads constructor(
     View.OnClickListener, ICameraIndex {
 
     private var firstBtnSource = CameraVideoStreamSourceType.ZOOM_CAMERA
+    private var first_len_btn: ImageView? = null
 
     private val widgetModel by lazy {
         LensControlModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
@@ -41,6 +43,7 @@ open class LensControlWidget @JvmOverloads constructor(
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         View.inflate(context, R.layout.uxsdk_camera_lens_control_widget, this)
         widgetStateDataProcessor.offer(ModelState.Visible)
+        first_len_btn = findViewById(R.id.first_len_btn)
     }
 
     override fun reactToModelChanges() {
@@ -53,7 +56,7 @@ open class LensControlWidget @JvmOverloads constructor(
             widgetModel.cameraVideoStreamSourceProcessor.toFlowable().observeOn(ui()).subscribe {
                 updateBtnView()
             })
-        first_len_btn.setOnClickListener(this)
+        first_len_btn?.setOnClickListener(this)
     }
 
     override fun onAttachedToWindow() {
@@ -113,7 +116,6 @@ open class LensControlWidget @JvmOverloads constructor(
         val videoSourceRange = widgetModel.properCameraVideoStreamSourceRangeProcessor.value
         //单源
         if (videoSourceRange.size <= 1) {
-            this.visibility = GONE
             widgetStateDataProcessor.offer(ModelState.Gone)
             return
         }
@@ -127,13 +129,11 @@ open class LensControlWidget @JvmOverloads constructor(
                 firstBtnSource = it
             })
 
-        first_len_btn.visibility = VISIBLE
-        this.visibility = VISIBLE
         widgetStateDataProcessor.offer(ModelState.Visible)
     }
 
-    private fun updateBtnText(view: View, source: CameraVideoStreamSourceType) {
-        view.tag = when (source) {
+    private fun updateBtnText(view: View?, source: CameraVideoStreamSourceType) {
+        view?.tag = when (source) {
             CameraVideoStreamSourceType.WIDE_CAMERA -> StringUtils.getResStr(R.string.uxsdk_lens_type_wide)
             CameraVideoStreamSourceType.ZOOM_CAMERA -> StringUtils.getResStr(R.string.uxsdk_lens_type_zoom)
             CameraVideoStreamSourceType.INFRARED_CAMERA -> StringUtils.getResStr(R.string.uxsdk_lens_type_ir)

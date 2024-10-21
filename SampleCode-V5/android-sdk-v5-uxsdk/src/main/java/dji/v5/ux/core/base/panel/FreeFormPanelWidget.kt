@@ -54,7 +54,7 @@ import kotlin.random.Random
  * The class provides helper methods to add, remove and get view/widget in a pane.
  *
  */
-abstract class FreeFormPanelWidget<T> @JvmOverloads constructor(
+abstract class FreeFormPanelWidget<T : Any> @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,

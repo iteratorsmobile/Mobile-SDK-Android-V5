@@ -52,7 +52,7 @@ import java.text.DecimalFormat
  * @property defaultStyle - Resource id for style used for defining the default setup
  * of the widget.
  */
-abstract class BaseTelemetryWidget<T> @JvmOverloads constructor(
+abstract class BaseTelemetryWidget<T : Any> @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0,

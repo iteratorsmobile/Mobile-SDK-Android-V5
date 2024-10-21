@@ -48,7 +48,7 @@ import kotlin.math.roundToInt
  * @property defaultStyle - Resource id for tyle used for defining the default setup
  * of the widget.
  */
-abstract class ListItemTitleWidget<T> @JvmOverloads constructor(
+abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0,

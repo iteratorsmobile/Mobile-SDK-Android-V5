@@ -13,7 +13,8 @@ class DeviceHealthAndStatusWidgetModel constructor(
     keyedStore: ObservableInMemoryKeyedStore,
 ) : WidgetModel(djiSdkModel, keyedStore) {
 
-    val deviceMessageProcessor: DataProcessor<ArrayList<DeviceMessage>> = DataProcessor.create(arrayListOf())
+    val deviceMessageProcessor: DataProcessor<ArrayList<DeviceMessage>> =
+        DataProcessor.create(arrayListOf())
     val isConnectedProcessor: DataProcessor<Boolean> = DataProcessor.create(false)
 
     private val healthInfoChangeListener = DJIDeviceHealthInfoChangeListener {
@@ -25,37 +26,60 @@ class DeviceHealthAndStatusWidgetModel constructor(
     }
 
     override fun inSetup() {
-        DeviceHealthManager.getInstance().addDJIDeviceHealthInfoChangeListener(healthInfoChangeListener)
-        DeviceStatusManager.getInstance().addDJIDeviceStatusChangeListener(deviceStatusChangeListener)
-        bindDataProcessor(FlightControllerKey.KeyConnection.create(), isConnectedProcessor)
+        runCatching {
+            DeviceHealthManager.getInstance()
+                .addDJIDeviceHealthInfoChangeListener(healthInfoChangeListener)
+            DeviceStatusManager.getInstance()
+                .addDJIDeviceStatusChangeListener(deviceStatusChangeListener)
+            bindDataProcessor(FlightControllerKey.KeyConnection.create(), isConnectedProcessor)
+        }
     }
 
     override fun inCleanup() {
-        DeviceHealthManager.getInstance().removeDJIDeviceHealthInfoChangeListener(healthInfoChangeListener)
-        DeviceStatusManager.getInstance().removeDJIDeviceStatusChangeListener(deviceStatusChangeListener)
+        runCatching {
+            DeviceHealthManager.getInstance()
+                .removeDJIDeviceHealthInfoChangeListener(healthInfoChangeListener)
+            DeviceStatusManager.getInstance()
+                .removeDJIDeviceStatusChangeListener(deviceStatusChangeListener)
+        }
     }
 
     private fun updateDeviceMessage() {
-
-        val messages = ArrayList<DeviceMessage>()
-        for (health: DJIDeviceHealthInfo in DeviceHealthManager.getInstance().currentDJIDeviceHealthInfos) {
-            messages.add(DeviceMessage(health.title(), health.description(), health.warningLevel(), health.informationCode()))
-        }
+        runCatching {
+            val messages = ArrayList<DeviceMessage>()
+            for (health: DJIDeviceHealthInfo in DeviceHealthManager.getInstance().currentDJIDeviceHealthInfos) {
+                messages.add(
+                    DeviceMessage(
+                        health.title(),
+                        health.description(),
+                        health.warningLevel(),
+                        health.informationCode()
+                    )
+                )
+            }
 //        val status = DeviceStatusManager.getInstance().currentDJIDeviceStatus
 //        messages.add(DeviceMessage(status.description(), status.description(), status.warningLevel(), status.statusCode()))
-        if (messages == deviceMessageProcessor.value) {
-            return
-        }
-        messages.sortByDescending { msg -> msg.warningLevel }
+            if (messages == deviceMessageProcessor.value) {
+                return
+            }
+            messages.sortByDescending { msg -> msg.warningLevel }
 
-        deviceMessageProcessor.onNext(messages)
+            deviceMessageProcessor.onNext(messages)
+        }
     }
 
-    fun level3Count() = deviceMessageProcessor.value.count { it.warningLevel == WarningLevel.WARNING || it.warningLevel == WarningLevel.SERIOUS_WARNING }
+    fun level3Count() =
+        deviceMessageProcessor.value.count { it.warningLevel == WarningLevel.WARNING || it.warningLevel == WarningLevel.SERIOUS_WARNING }
 
-    fun level2Count() = deviceMessageProcessor.value.count { it.warningLevel == WarningLevel.NOTICE || it.warningLevel == WarningLevel.CAUTION }
+    fun level2Count() =
+        deviceMessageProcessor.value.count { it.warningLevel == WarningLevel.NOTICE || it.warningLevel == WarningLevel.CAUTION }
 
-    data class DeviceMessage(val title: String, val description: String, val warningLevel: WarningLevel, val code: String) {
+    data class DeviceMessage(
+        val title: String,
+        val description: String,
+        val warningLevel: WarningLevel,
+        val code: String
+    ) {
 
         override fun equals(other: Any?): Boolean {
             return if (other is DeviceMessage) {

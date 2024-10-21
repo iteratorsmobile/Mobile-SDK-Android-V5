@@ -22,12 +22,15 @@ open class NDVIStreamPaletteBarPanel @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : FrameLayoutWidget<Any>(context, attrs), ICameraIndex {
+) : FrameLayoutWidget<Any>(context, attrs, defStyleAttr), ICameraIndex {
 
     private lateinit var rangeSeekbar: StreamPaletteRangeSeekbar
 
     private val widgetModel by lazy {
-        NDVIStreamPaletteBarPanelModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        NDVIStreamPaletteBarPanelModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     override fun getCameraIndex(): ComponentIndexType = widgetModel.getCameraIndex()

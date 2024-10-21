@@ -24,6 +24,9 @@ class NDVIStreamPopoverViewWidget @JvmOverloads constructor(
     private var lensType = CameraLensType.CAMERA_LENS_ZOOM
     private var group: SegmentedButtonGroup? = null
 
+    private var palette_selection_panel: NDVIStreamSelectionPanelWidget? = null
+    private var isotherm_selection_panel: NDVIStreamPaletteBarPanel? = null
+
     var selectIndex = 0
         set(value) {
             group?.check(if (value == 0) R.id.stream_selection else R.id.stream_palette_bar)
@@ -38,21 +41,24 @@ class NDVIStreamPopoverViewWidget @JvmOverloads constructor(
         this.cameraIndex = cameraIndex
         this.lensType = lensType
 
-        palette_selection_panel.updateCameraSource(cameraIndex, lensType)
-        isotherm_selection_panel.updateCameraSource(cameraIndex, lensType)
+        palette_selection_panel?.updateCameraSource(cameraIndex, lensType)
+        isotherm_selection_panel?.updateCameraSource(cameraIndex, lensType)
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_m3m_stream_palette_popover_view, this)
         group = findViewById(R.id.segmented_button_group)
+        palette_selection_panel = findViewById(R.id.palette_selection_panel)
+        isotherm_selection_panel = findViewById(R.id.isotherm_selection_panel)
+
         group?.onCheckedChangedListener = SegmentedButtonGroup.OnCheckedListener {
             post {
                 if (it == R.id.stream_selection) {
-                    palette_selection_panel.visibility = VISIBLE
-                    isotherm_selection_panel.visibility = GONE
+                    palette_selection_panel?.visibility = VISIBLE
+                    isotherm_selection_panel?.visibility = GONE
                 } else {
-                    isotherm_selection_panel.visibility = VISIBLE
-                    palette_selection_panel.visibility = GONE
+                    isotherm_selection_panel?.visibility = VISIBLE
+                    palette_selection_panel?.visibility = GONE
                 }
             }
         }

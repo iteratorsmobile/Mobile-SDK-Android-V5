@@ -3,6 +3,7 @@ package dji.v5.ux.core.widget.hsi
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
+import android.widget.TextView
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.v5.utils.common.LogUtils
@@ -23,10 +24,22 @@ open class HorizontalSituationIndicatorWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : ConstraintLayoutWidget<HorizontalSituationIndicatorWidget.ModelState>(context, attrs, defStyleAttr), ICameraIndex {
+) : ConstraintLayoutWidget<HorizontalSituationIndicatorWidget.ModelState>(
+    context,
+    attrs,
+    defStyleAttr
+), ICameraIndex {
+    private var pfd_hsi_speed_display: SpeedDisplayWidget? = null
+    private var pfd_hsi_attitude_display: AttitudeDisplayWidget? = null
+    private var pfd_hsi_gimbal_pitch_display: GimbalPitchBarWidget? = null
+    private var pfd_hsi_laser_distance: TextView? = null
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         View.inflate(context, R.layout.uxsdk_fpv_view_horizontal_situation_indicator, this)
+        pfd_hsi_speed_display = findViewById(R.id.pfd_hsi_speed_display)
+        pfd_hsi_attitude_display = findViewById(R.id.pfd_hsi_attitude_display)
+        pfd_hsi_gimbal_pitch_display = findViewById(R.id.pfd_hsi_gimbal_pitch_display)
+        pfd_hsi_laser_distance = findViewById(R.id.pfd_hsi_laser_distance)
     }
 
     override fun reactToModelChanges() {
@@ -38,27 +51,27 @@ open class HorizontalSituationIndicatorWidget @JvmOverloads constructor(
     }
 
     fun setSimpleModeEnable(isEnable: Boolean) {
-        pfd_hsi_speed_display.visibility = if (isEnable) VISIBLE else GONE
-        pfd_hsi_attitude_display.visibility = if (isEnable) VISIBLE else GONE
-        pfd_hsi_gimbal_pitch_display.visibility = if (isEnable) VISIBLE else GONE
+        pfd_hsi_speed_display?.visibility = if (isEnable) VISIBLE else GONE
+        pfd_hsi_attitude_display?.visibility = if (isEnable) VISIBLE else GONE
+        pfd_hsi_gimbal_pitch_display?.visibility = if (isEnable) VISIBLE else GONE
     }
 
     fun updateLaserPointDistance(distanceString: String) {
-        pfd_hsi_laser_distance.text = distanceString
+        pfd_hsi_laser_distance?.text = distanceString
     }
 
     sealed class ModelState
 
     override fun getCameraIndex(): ComponentIndexType {
-       return pfd_hsi_gimbal_pitch_display.getCameraIndex()
+        return pfd_hsi_gimbal_pitch_display?.getCameraIndex() ?: ComponentIndexType.LEFT_OR_MAIN
     }
 
     override fun getLensType(): CameraLensType {
-        return pfd_hsi_gimbal_pitch_display.getLensType()
+        return pfd_hsi_gimbal_pitch_display?.getLensType() ?: CameraLensType.CAMERA_LENS_DEFAULT
 
     }
 
     override fun updateCameraSource(cameraIndex: ComponentIndexType, lensType: CameraLensType) {
-        pfd_hsi_gimbal_pitch_display.updateCameraSource(cameraIndex, lensType)
+        pfd_hsi_gimbal_pitch_display?.updateCameraSource(cameraIndex, lensType)
     }
 }

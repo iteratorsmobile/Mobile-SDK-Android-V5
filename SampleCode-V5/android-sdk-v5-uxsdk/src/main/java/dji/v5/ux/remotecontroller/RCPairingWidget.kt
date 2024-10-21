@@ -3,6 +3,7 @@ package dji.v5.ux.remotecontroller
 import android.content.Context
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.widget.Button
 import android.widget.Toast
 import dji.sdk.keyvalue.value.remotecontroller.PairingState
 import dji.v5.utils.common.LogUtils
@@ -39,13 +40,19 @@ class RCPairingWidget @JvmOverloads constructor(
     private var isStopPairing = false
 
     private val widgetModel by lazy {
-        RcCheckFrequencyWidgetModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+        RcCheckFrequencyWidgetModel(
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     sealed class ModelState
 
+    private var setting_menu_rc_check_frequency: Button? = null
+
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_widget_rc_check_frequency_layout, this)
+        setting_menu_rc_check_frequency = findViewById(R.id.setting_menu_rc_check_frequency)
     }
 
     override fun reactToModelChanges() {
@@ -61,15 +68,27 @@ class RCPairingWidget @JvmOverloads constructor(
                     return@subscribe
                 }
                 if ((pairingState == PairingState.UNPAIRED) && PairingState.PAIRING == it) {
-                    ViewUtil.showToast(context, StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_start_pair))
+                    ViewUtil.showToast(
+                        context,
+                        StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_start_pair)
+                    )
                 } else if (pairingState == PairingState.PAIRING && PairingState.UNPAIRED == it) {
                     if (isStopPairing) {
-                        ViewUtil.showToast(context, StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_stop_pair))
+                        ViewUtil.showToast(
+                            context,
+                            StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_stop_pair)
+                        )
                     } else {
-                        ViewUtil.showToast(context, StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_pairing_finish))
+                        ViewUtil.showToast(
+                            context,
+                            StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_pairing_finish)
+                        )
                     }
                 } else if (pairingState == PairingState.PAIRING && PairingState.PAIRED == it) {
-                    ViewUtil.showToast(context, StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_pairing_finish))
+                    ViewUtil.showToast(
+                        context,
+                        StringUtils.getResStr(R.string.uxsdk_setting_ui_rc_pairing_finish)
+                    )
 
                 }
                 pairingState = it
@@ -77,13 +96,17 @@ class RCPairingWidget @JvmOverloads constructor(
             })
 
 
-        setting_menu_rc_check_frequency.setOnClickListener {
+        setting_menu_rc_check_frequency?.setOnClickListener {
             if (isMotorOn && connect) {
-                ViewUtil.showToast(context, R.string.uxsdk_dialog_message_rc_cannot_frequency_motorup, Toast.LENGTH_SHORT)
+                ViewUtil.showToast(
+                    context,
+                    R.string.uxsdk_dialog_message_rc_cannot_frequency_motorup,
+                    Toast.LENGTH_SHORT
+                )
             } else if (pairingState == PairingState.PAIRING) {
                 isStopPairing = true
                 widgetModel.stopPairing().subscribe(object : CompletableObserver {
-                    override fun onSubscribe(d: Disposable?) {
+                    override fun onSubscribe(d: Disposable) {
                         //do nothing
                     }
 
@@ -91,15 +114,14 @@ class RCPairingWidget @JvmOverloads constructor(
                         //do nothing
                     }
 
-                    override fun onError(e: Throwable?) {
+                    override fun onError(e: Throwable) {
                         //do nothing
-                        ViewUtil.showToast(context, e?.message, Toast.LENGTH_SHORT)
+                        ViewUtil.showToast(context, e.message, Toast.LENGTH_SHORT)
                     }
-
                 })
             } else {
                 widgetModel.startPairing().subscribe(object : CompletableObserver {
-                    override fun onSubscribe(d: Disposable?) {
+                    override fun onSubscribe(d: Disposable) {
                         //do nothing
                     }
 
@@ -107,9 +129,9 @@ class RCPairingWidget @JvmOverloads constructor(
                         //do nothing
                     }
 
-                    override fun onError(e: Throwable?) {
+                    override fun onError(e: Throwable) {
                         //do nothing
-                        ViewUtil.showToast(context, e?.message, Toast.LENGTH_SHORT)
+                        ViewUtil.showToast(context, e.message, Toast.LENGTH_SHORT)
                     }
 
                 })

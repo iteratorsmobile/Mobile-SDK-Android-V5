@@ -54,7 +54,7 @@ abstract class BaseModule {
      * @param dataProcessor      DataProcessor to be bound
      * @param sideEffectConsumer Consumer to be called along with data processor
      */
-    protected open fun<T> bindDataProcessor(widgetModel: WidgetModel,
+    protected open fun<T : Any> bindDataProcessor(widgetModel: WidgetModel,
                                          key: DJIKey<T>,
                                          dataProcessor: DataProcessor<T>,
                                          sideEffectConsumer: Consumer<T> = Consumer {}) {

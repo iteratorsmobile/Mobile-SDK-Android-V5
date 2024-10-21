@@ -13,6 +13,7 @@ import dji.v5.ux.core.base.widget.FrameLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.extension.getColor
 import dji.v5.ux.core.extension.getString
+import dji.v5.ux.core.ui.component.StrokeTextView
 import kotlinx.android.synthetic.main.uxsdk_camera_status_action_item_content.view.*
 
 
@@ -24,6 +25,7 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : FrameLayoutWidget<Any>(context, attrs, defStyleAttr), ICameraIndex, View.OnClickListener {
+    private var tv_content: StrokeTextView? = null
 
     private val widgetModel by lazy {
         SpectralDisplayModeWidgetModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
@@ -31,6 +33,7 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         inflate(context, R.layout.uxsdk_camera_status_action_item_content, this)
+        tv_content = findViewById(R.id.tv_content)
         setOnClickListener(this)
     }
 
@@ -43,7 +46,7 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
         if (!isInEditMode) {
             widgetModel.setup()
         }
-        tv_content.text = getString(R.string.uxsdk_stream_switcher_sbs)
+        tv_content?.text = getString(R.string.uxsdk_stream_switcher_sbs)
     }
 
     override fun onDetachedFromWindow() {
@@ -58,9 +61,9 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
             .observeOn(ui())
             .subscribe {
                 if (it) {
-                    tv_content.setTextColor(getColor(R.color.uxsdk_yellow_in_light))
+                    tv_content?.setTextColor(getColor(R.color.uxsdk_yellow_in_light))
                 } else {
-                    tv_content.setTextColor(getColor(R.color.uxsdk_white_33_percent))
+                    tv_content?.setTextColor(getColor(R.color.uxsdk_white_33_percent))
                 }
             }
         )

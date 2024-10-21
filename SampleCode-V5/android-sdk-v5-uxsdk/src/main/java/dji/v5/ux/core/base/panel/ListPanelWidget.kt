@@ -58,7 +58,7 @@ import dji.v5.ux.core.util.ViewIDGenerator
  * User can also remove the dividers:
  * android:divider="@null"
  */
-abstract class ListPanelWidget<T> @JvmOverloads constructor(
+abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
         context: Context,
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0,
