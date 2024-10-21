@@ -21,7 +21,6 @@ import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.popover.Popover
 import dji.v5.ux.core.popover.PopoverHelper
-import kotlinx.android.synthetic.main.uxsdk_fpv_top_bar_widget_warning_message.view.*
 import kotlin.math.roundToInt
 
 /**
