@@ -1,15 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
+    compileSdk Integer.parseInt(project.ANDROID_COMPILE_SDK_VERSION)
 
     defaultConfig {
         applicationId "com.dji.sampleV5.aircraft"
-        minSdkVersion Integer.parseInt(project.ANDROID_MIN_SDK_VERSION)
-        targetSdkVersion Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
+        minSdk Integer.parseInt(project.ANDROID_MIN_SDK_VERSION)
+        targetSdk Integer.parseInt(project.ANDROID_TARGET_SDK_VERSION)
         versionCode 1
         versionName "1.0"
         manifestPlaceholders["API_KEY"] = project.AIRCRAFT_API_KEY

@@ -13,7 +13,7 @@
         android:gravity="center"
         android:paddingTop="@dimen/uxsdk_12_dp"
         android:paddingBottom="@dimen/uxsdk_12_dp"
-        android:text="@string/setting_menu_title_rc_check_frequency"
+        android:text="@string/uxsdk_setting_menu_title_rc_check_frequency"
         android:textAllCaps="false"
         android:textColor="@color/uxsdk_dic_color_c10_sea_blue"
         android:textSize="@dimen/uxsdk_dic_text_size_18sp" />

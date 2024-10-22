@@ -19,7 +19,7 @@
             android:textColor="@color/uxsdk_dic_color_c8_white"
             android:textSize="@dimen/uxsdk_dic_text_size_20sp"
             android:layout_centerInParent="true"
-            android:text="@string/setting_ui_imu_title"/>
+            android:text="@string/uxsdk_setting_ui_imu_title"/>
 
         <ImageView
             android:id="@+id/imu_cal_close_img"
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:gravity="center_vertical"
-                    android:text="@string/setting_ui_imu_calibrating"
+                    android:text="@string/uxsdk_setting_ui_imu_calibrating"
                     android:textColor="@color/uxsdk_white"
                     android:visibility="gone"
                     android:textSize="12dp"/>
@@ -153,7 +153,7 @@
                     android:background="@drawable/uxsdk_selector_white_round_rect"
                     android:textColor="@color/uxsdk_white"
                     android:textSize="14dp"
-                    android:text="@string/setting_ui_imu_start"
+                    android:text="@string/uxsdk_setting_ui_imu_start"
                 />
 
                 <TextView
@@ -162,7 +162,7 @@
                     android:layout_height="35dp"
                     android:gravity="center_vertical|right"
                     android:visibility="invisible"
-                    android:text="@string/setting_ui_imu_calibrating"
+                    android:text="@string/uxsdk_setting_ui_imu_calibrating"
                     android:textColor="@color/uxsdk_dic_color_c10_sea_blue"
                     android:textSize="12dp"/>
 
@@ -201,7 +201,7 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center"
                 android:lineSpacingExtra="15dp"
-                android:text="@string/setting_ui_imu_success"
+                android:text="@string/uxsdk_setting_ui_imu_success"
                 android:textColor="@color/uxsdk_white"
                 android:textSize="14dp"/>
 
@@ -225,7 +225,7 @@
                 android:paddingBottom="10dp"
                 android:minWidth="220dp"
                 android:paddingTop="10dp"
-                android:text="@string/setting_ui_imu_back"/>
+                android:text="@string/uxsdk_setting_ui_imu_back"/>
 
             <TextView
                 android:id="@+id/imu_cal_status_restart_tv"
@@ -242,7 +242,7 @@
                 android:minWidth="220dp"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
-                android:text="@string/setting_ui_imu_restart"/>
+                android:text="@string/uxsdk_setting_ui_imu_restart"/>
 
         </LinearLayout>
     </FrameLayout>

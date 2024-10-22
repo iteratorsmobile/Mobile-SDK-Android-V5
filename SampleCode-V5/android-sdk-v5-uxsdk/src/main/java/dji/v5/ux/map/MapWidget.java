@@ -640,8 +640,8 @@ public class MapWidget extends ConstraintLayoutWidget<Object> implements View.On
      */
     private void updateAircraftLocation(LocationCoordinate3D locationCoordinate3D) {
         if (map == null) return;
-        if (locationCoordinate3D.getLatitude() == MapWidgetModel .181 .0
-                || locationCoordinate3D.getLongitude() == MapWidgetModel .181 .0)return;
+        if (locationCoordinate3D.getLatitude() == 181.0
+                || locationCoordinate3D.getLongitude() == 181.0) return;
 
         final DJILatLng aircraftPosition = new DJILatLng(locationCoordinate3D.getLatitude(), locationCoordinate3D.getLongitude());
         if (aircraftMarker != null) {

@@ -21,7 +21,7 @@
             android:checked="true"
             android:background="@drawable/uxsdk_edit_radiobutton_tab_bg"
             android:textSize="@dimen/uxsdk_12_dp"
-            android:text="@string/setting_ui_rc_calibration_stick_label" />
+            android:text="@string/uxsdk_setting_ui_rc_calibration_stick_label" />
 
         <dji.v5.ux.remotecontroller.calibration.CalibrationRadioButton
             android:id="@+id/setting_ui_rc_calibration_wheel_rg"
@@ -30,7 +30,7 @@
             android:layout_width="@dimen/uxsdk_90_dp"
             android:layout_weight="1"
             android:textSize="@dimen/uxsdk_12_dp"
-            android:text="@string/setting_ui_rc_calibration_dial_label" />
+            android:text="@string/uxsdk_setting_ui_rc_calibration_dial_label" />
     </RadioGroup>
 
     <androidx.viewpager.widget.ViewPager
@@ -54,7 +54,7 @@
         android:background="@drawable/uxsdk_selector_blue_rect_mask"
         android:textSize="14sp"
         android:textColor="@color/uxsdk_rc_calibration_btn_txt"
-        android:text="@string/setting_ui_rc_cal"
+        android:text="@string/uxsdk_setting_ui_rc_cal"
         android:textAllCaps="false"/>
 
     <View style="@style/HorizontalDivider"/>

@@ -9,16 +9,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginLeft="@dimen/uxsdk_30_dp"
         android:layout_marginRight="@dimen/uxsdk_30_dp"
+        android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             style="@style/setting_ui_txt"
-            android:textSize="@dimen/uxsdk_16_dp"
-            android:text="@string/setting_ui_rc_calibration_left_wheel_label" />
+            android:text="@string/uxsdk_setting_ui_rc_calibration_left_wheel_label"
+            android:textSize="@dimen/uxsdk_16_dp" />
 
         <ImageView
             android:id="@+id/fpv_rcsetting_cele_item_left_img"
@@ -27,17 +27,17 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:adjustViewBounds="true"
-            android:contentDescription="@string/app_name"
+            android:contentDescription="@string/uxsdk_app_name"
             android:src="@drawable/uxsdk_setting_ui_rc_calibration_wheel_left_dirc" />
 
         <ImageView
             android:id="@+id/fpv_rcsetting_cele_item_right_img"
             android:layout_width="@dimen/uxsdk_110_dp"
             android:layout_height="@dimen/uxsdk_50_dp"
-            android:adjustViewBounds="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:contentDescription="@string/app_name"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/uxsdk_app_name"
             android:src="@drawable/uxsdk_setting_ui_rc_calibration_wheel_right_dirc" />
 
         <dji.v5.ux.remotecontroller.calibration.DJICalProgressBar
@@ -45,42 +45,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/fpv_rcsetting_cele_item_left_img"
-            android:layout_toLeftOf="@id/fpv_rcsetting_cele_item_right_img" />
+            android:layout_toLeftOf="@id/fpv_rcsetting_cele_item_right_img"
+            android:layout_toRightOf="@id/fpv_rcsetting_cele_item_left_img" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginLeft="@dimen/uxsdk_30_dp"
         android:layout_marginRight="@dimen/uxsdk_30_dp"
+        android:layout_weight="1"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             style="@style/setting_ui_txt"
-            android:textSize="@dimen/uxsdk_16_dp"
-            android:text="@string/setting_ui_rc_calibration_right_wheel_label" />
+            android:text="@string/uxsdk_setting_ui_rc_calibration_right_wheel_label"
+            android:textSize="@dimen/uxsdk_16_dp" />
 
         <ImageView
             android:id="@+id/fpv_rcsetting_cele_item_right_wheel_left_img"
             android:layout_width="@dimen/uxsdk_110_dp"
             android:layout_height="@dimen/uxsdk_50_dp"
-            android:adjustViewBounds="true"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:contentDescription="@string/app_name"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/uxsdk_app_name"
             android:src="@drawable/uxsdk_setting_ui_rc_calibration_wheel_left_dirc" />
 
         <ImageView
             android:id="@+id/fpv_rcsetting_cele_item_right_wheel_right_img"
             android:layout_width="@dimen/uxsdk_110_dp"
             android:layout_height="@dimen/uxsdk_50_dp"
-            android:adjustViewBounds="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:contentDescription="@string/app_name"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/uxsdk_app_name"
             android:src="@drawable/uxsdk_setting_ui_rc_calibration_wheel_right_dirc" />
 
         <dji.v5.ux.remotecontroller.calibration.DJICalProgressBar
@@ -88,8 +88,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@id/fpv_rcsetting_cele_item_right_wheel_left_img"
-            android:layout_toLeftOf="@id/fpv_rcsetting_cele_item_right_wheel_right_img" />
+            android:layout_toLeftOf="@id/fpv_rcsetting_cele_item_right_wheel_right_img"
+            android:layout_toRightOf="@id/fpv_rcsetting_cele_item_right_wheel_left_img" />
     </RelativeLayout>
 
     <TextView
@@ -97,6 +97,6 @@
         android:layout_marginLeft="@dimen/uxsdk_30_dp"
         android:layout_marginRight="@dimen/uxsdk_30_dp"
         android:layout_marginBottom="@dimen/uxsdk_20_dp"
-        android:text="@string/setting_ui_rc_calibration_wheel_desc" />
+        android:text="@string/uxsdk_setting_ui_rc_calibration_wheel_desc" />
 
 </dji.v5.ux.remotecontroller.calibration.wheel.WheelCalibrationView>

@@ -1213,4 +1213,16 @@
     <string name="setting_menu_title_hd_frequency" />
     <string name="fpv_setting_safe_obstacle_avoidance_behavior_list" />
     <string name="setting_menu_perception_apas_description" />
+    <string name="setting_menu_desc_perception_precision_landing" />
+    <string name="setting_ui_hd_sdr_bandwidth_desc" />
+    <string name="setting_menu_title_hd_channel_mode" />
+    <string name="setting_menu_title_hd_data_rate" />
+    <string name="setting_ui_battery_volume_percent_txt" />
+    <string name="setting_ui_battery_voltage_desc" />
+    <string name="setting_ui_battery_temperature" />
+    <string name="setting_ui_battery_charge_times" />
+    <string name="setting_ui_battery_total_volume_percent_txt" />
+    <string name="setting_ui_battery_fly_time" />
+    <string name="setting_menu_summary_perception_precision_landing" />
+    <string name="setting_menu_summary_omni_perception_downwards" />
 </resources>

@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/uxsdk_10_dp"
         android:layout_marginTop="@dimen/uxsdk_10_dp"
-        android:text="@string/setting_ui_general_battery"
+        android:text="@string/uxsdk_setting_ui_general_battery"
         android:textColor="@color/uxsdk_white"
         android:textSize="@dimen/uxsdk_14_dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/uxsdk_10_dp"
         android:gravity="end"
-        android:text="@string/normal"
+        android:text="@string/uxsdk_normal"
         android:textColor="@color/uxsdk_normal_state_color"
         android:textSize="@dimen/uxsdk_14_dp"
 
@@ -209,7 +209,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/uxsdk_14_dp"
         android:layout_marginBottom="@dimen/uxsdk_4_dp"
-        android:text="@string/hms_carepage_maintenance_highvoltage_title"
+        android:text="@string/uxsdk_hms_carepage_maintenance_highvoltage_title"
         android:textColor="@color/uxsdk_dic_color_c5_deepGray"
         android:textSize="@dimen/uxsdk_12_dp"
         app:layout_constraintBottom_toTopOf="@+id/setting_menu_battery_high_voltage_save_value_tv"
@@ -270,7 +270,7 @@
             android:layout_marginTop="@dimen/uxsdk_16_dp"
             android:layout_marginBottom="@dimen/uxsdk_16_dp"
             android:maxLines="1"
-            android:text="@string/setting_ui_battery_serial_number"
+            android:text="@string/uxsdk_setting_ui_battery_serial_number"
             android:textColor="@color/uxsdk_dic_color_c5_deepGray"
             android:textSize="@dimen/uxsdk_10_dp" />
 
@@ -283,7 +283,7 @@
             android:layout_marginTop="@dimen/uxsdk_16_dp"
             android:layout_marginBottom="@dimen/uxsdk_16_dp"
             android:maxLines="1"
-            android:text="@string/setting_ui_battery_product_date"
+            android:text="@string/uxsdk_setting_ui_battery_product_date"
             android:textColor="@color/uxsdk_dic_color_c5_deepGray"
             android:textSize="@dimen/uxsdk_10_dp"
             android:visibility="gone" />
