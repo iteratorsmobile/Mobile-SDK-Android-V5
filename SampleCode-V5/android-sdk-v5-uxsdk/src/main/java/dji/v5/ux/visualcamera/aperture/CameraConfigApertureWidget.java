@@ -148,7 +148,7 @@ public class CameraConfigApertureWidget extends ConstraintLayoutWidget<Object> i
      * @param textAppearance Style resource for text appearance
      */
     public void setApertureTitleTextAppearance(@StyleRes int textAppearance) {
-        apertureTitleTextView.setTextAppearance(getContext(), textAppearance);
+        apertureTitleTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -242,7 +242,7 @@ public class CameraConfigApertureWidget extends ConstraintLayoutWidget<Object> i
      * @param textAppearance Style resource for text appearance
      */
     public void setApertureValueTextAppearance(@StyleRes int textAppearance) {
-        apertureValueTextView.setTextAppearance(getContext(), textAppearance);
+        apertureValueTextView.setTextAppearance(textAppearance);
     }
 
     /**

@@ -327,7 +327,7 @@ open class VideoSignalWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setTextAppearance(@StyleRes textAppearance: Int) {
-        frequencyBandTextView.setTextAppearance(context, textAppearance)
+        frequencyBandTextView.setTextAppearance(textAppearance)
     }
     //endregion
 

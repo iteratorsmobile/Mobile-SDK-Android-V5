@@ -148,7 +148,7 @@ abstract class RadarSectionViewHolder {
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setDistanceTextAppearance(context: Context?, @StyleRes textAppearanceResId: Int) {
-        distance.setTextAppearance(context, textAppearanceResId)
+        distance.setTextAppearance(textAppearanceResId)
     }
 
     /**

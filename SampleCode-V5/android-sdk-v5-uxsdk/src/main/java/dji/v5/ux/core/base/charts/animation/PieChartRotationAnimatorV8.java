@@ -1,6 +1,7 @@
 package dji.v5.ux.core.base.charts.animation;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -48,7 +49,7 @@ public class PieChartRotationAnimatorV8 implements PieChartRotationAnimator {
         };
         this.chart = chart;
         this.duration = duration;
-        this.handler = new Handler();
+        this.handler = new Handler(Looper.getMainLooper());
     }
 
     public void startAnimation(float startRotation, float targetRotation) {

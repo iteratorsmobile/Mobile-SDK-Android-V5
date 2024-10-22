@@ -38,6 +38,8 @@ import android.view.ViewParent;
 import android.widget.Scroller;
 
 import androidx.annotation.ColorInt;
+import androidx.core.content.ContextCompat;
+
 import dji.v5.ux.R;
 
 /**
@@ -259,7 +261,7 @@ public class RulerView extends View {
 
     protected void initDefaultAttrs() {
         final Resources res = getResources();
-        scaleColor = res.getColor(R.color.uxsdk_white);
+        scaleColor = ContextCompat.getColor(getContext(), R.color.uxsdk_white);
         scalePadding = res.getDimensionPixelSize(R.dimen.uxsdk_gen_corner_radius);
         drawPaint.setColor(scaleColor);
     }

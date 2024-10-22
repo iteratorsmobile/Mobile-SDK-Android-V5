@@ -25,7 +25,7 @@ import dji.v5.ux.core.util.DataProcessor
  *
  * Copyright (c) 2021, DJI All Rights Reserved.
  */
-open class AttitudeDisplayModel constructor(
+open class AttitudeDisplayModel(
     djiSdkModel: DJISDKModel,
     keyedStore: ObservableInMemoryKeyedStore,
 ) : WidgetModel(djiSdkModel, keyedStore) {

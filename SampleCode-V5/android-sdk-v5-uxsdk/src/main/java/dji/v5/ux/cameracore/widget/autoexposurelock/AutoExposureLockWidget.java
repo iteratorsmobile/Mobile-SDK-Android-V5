@@ -38,6 +38,8 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
+import androidx.core.content.ContextCompat;
+
 import dji.sdk.keyvalue.value.common.CameraLensType;
 import dji.sdk.keyvalue.value.common.ComponentIndexType;
 import dji.v5.ux.R;
@@ -162,9 +164,9 @@ public class AutoExposureLockWidget extends ConstraintLayoutWidget<Object> imple
     }
 
     private void initDefaults() {
-        autoExposureLockDrawable = getResources().getDrawable(R.drawable.uxsdk_ic_auto_exposure_lock);
-        autoExposureUnlockDrawable = getResources().getDrawable(R.drawable.uxsdk_ic_auto_exposure_unlock);
-        setTitleTextColor(getResources().getColorStateList(R.color.uxsdk_color_selector_auto_exposure_lock));
+        autoExposureLockDrawable = ContextCompat.getDrawable(getContext(), R.drawable.uxsdk_ic_auto_exposure_lock);
+        autoExposureUnlockDrawable = ContextCompat.getDrawable(getContext(), R.drawable.uxsdk_ic_auto_exposure_unlock);
+        setTitleTextColor(ContextCompat.getColorStateList(getContext(), R.color.uxsdk_color_selector_auto_exposure_lock));
     }
 
     private void initAttributes(@NonNull Context context, @NonNull AttributeSet attrs) {
@@ -340,7 +342,7 @@ public class AutoExposureLockWidget extends ConstraintLayoutWidget<Object> imple
      * @param textAppearance to be used
      */
     public void setTitleTextAppearance(@StyleRes int textAppearance) {
-        titleTextView.setTextAppearance(getContext(), textAppearance);
+        titleTextView.setTextAppearance(textAppearance);
     }
 
     /**

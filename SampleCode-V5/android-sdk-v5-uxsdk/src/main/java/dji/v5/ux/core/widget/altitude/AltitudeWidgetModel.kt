@@ -39,7 +39,7 @@ import dji.v5.ux.core.util.UnitConversionUtil.UnitType
  * Widget Model for the [AMSLAltitudeWidget] and [AGLAltitudeWidget] used to define
  * the underlying logic and communication.
  */
-class AltitudeWidgetModel @JvmOverloads constructor(
+class AltitudeWidgetModel(
         djiSdkModel: DJISDKModel,
         keyedStore: ObservableInMemoryKeyedStore,
         private val preferencesManager: GlobalPreferencesInterface?

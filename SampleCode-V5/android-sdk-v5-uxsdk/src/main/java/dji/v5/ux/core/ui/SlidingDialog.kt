@@ -525,7 +525,7 @@ class SlidingDialog @JvmOverloads constructor(
      * @param textAppearance The text appearance of the dialog title
      */
     fun setDialogTitleTextAppearance(@StyleRes textAppearance: Int): SlidingDialog {
-        titleTextView.setTextAppearance(context, textAppearance)
+        titleTextView.setTextAppearance(textAppearance)
         return this
     }
 
@@ -535,7 +535,7 @@ class SlidingDialog @JvmOverloads constructor(
      * @param textAppearance The text appearance of the dialog message
      */
     fun setDialogMessageTextAppearance(@StyleRes textAppearance: Int): SlidingDialog {
-        messageTextView.setTextAppearance(context, textAppearance)
+        messageTextView.setTextAppearance(textAppearance)
         return this
     }
 
@@ -615,7 +615,7 @@ class SlidingDialog @JvmOverloads constructor(
      * @param textAppearance The text appearance of the check box message
      */
     fun setCheckBoxMessageTextAppearance(@StyleRes textAppearance: Int): SlidingDialog {
-        checkbox.setTextAppearance(context, textAppearance)
+        checkbox.setTextAppearance(textAppearance)
         return this
     }
 
@@ -675,7 +675,7 @@ class SlidingDialog @JvmOverloads constructor(
      * @param textAppearance The text appearance of the action message
      */
     fun setActionMessageTextAppearance(@StyleRes textAppearance: Int): SlidingDialog {
-        actionTextView.setTextAppearance(context, textAppearance)
+        actionTextView.setTextAppearance(textAppearance)
         return this
     }
 
@@ -735,7 +735,7 @@ class SlidingDialog @JvmOverloads constructor(
      * @param textAppearance The text appearance of the cancel button
      */
     fun setCancelTextAppearance(@StyleRes textAppearance: Int): SlidingDialog {
-        cancelTextView.setTextAppearance(context, textAppearance)
+        cancelTextView.setTextAppearance(textAppearance)
         return this
     }
     //endregion

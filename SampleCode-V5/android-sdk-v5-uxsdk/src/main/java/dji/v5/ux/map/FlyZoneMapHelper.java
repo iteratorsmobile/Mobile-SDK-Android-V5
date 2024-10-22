@@ -42,6 +42,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import dji.sdk.keyvalue.value.common.LocationCoordinate2D;
 import dji.v5.manager.aircraft.flysafe.info.FlyZoneCategory;
@@ -390,7 +391,7 @@ public class FlyZoneMapHelper {
     }
 
     private int getColor(int id) {
-        return context.getResources().getColor(id);
+        return ContextCompat.getColor(context, id);
     }
 
     private void initDefaults() {

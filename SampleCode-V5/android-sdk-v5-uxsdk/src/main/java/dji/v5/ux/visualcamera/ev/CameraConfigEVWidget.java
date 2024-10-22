@@ -162,7 +162,7 @@ public class CameraConfigEVWidget extends ConstraintLayoutWidget<Object> impleme
      * @param textAppearance Style resource for text appearance
      */
     public void setEVTitleTextAppearance(@StyleRes int textAppearance) {
-        evTitleTextView.setTextAppearance(getContext(), textAppearance);
+        evTitleTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -256,7 +256,7 @@ public class CameraConfigEVWidget extends ConstraintLayoutWidget<Object> impleme
      * @param textAppearance Style resource for text appearance
      */
     public void setEVValueTextAppearance(@StyleRes int textAppearance) {
-        evValueTextView.setTextAppearance(getContext(), textAppearance);
+        evValueTextView.setTextAppearance(textAppearance);
     }
 
     /**

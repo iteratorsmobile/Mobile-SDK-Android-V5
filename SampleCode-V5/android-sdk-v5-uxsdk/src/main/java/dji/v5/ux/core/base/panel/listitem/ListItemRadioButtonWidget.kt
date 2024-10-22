@@ -34,6 +34,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
 import androidx.core.view.get
 import io.reactivex.rxjava3.core.Flowable
@@ -99,7 +100,7 @@ abstract class ListItemRadioButtonWidget<T : Any> @JvmOverloads constructor(
      * 2. android_state_checked = false
      * 3. android_state_checked = true
      */
-    var optionColorStateList: ColorStateList? = resources.getColorStateList(R.color.uxsdk_selector_radio_button_colors)
+    var optionColorStateList: ColorStateList? = ContextCompat.getColorStateList(context, R.color.uxsdk_selector_radio_button_colors)
         set(value) {
             field = value
             for (i in 0 until radioGroup.childCount) {
@@ -262,8 +263,8 @@ abstract class ListItemRadioButtonWidget<T : Any> @JvmOverloads constructor(
      */
     fun setOptionTextAppearance(@StyleRes textAppearance: Int) {
         for (i in 0 until radioGroup.childCount) {
-            val radioButton: RadioButton? = radioGroup.getChildAt(i) as RadioButton
-            radioButton?.setTextAppearance(context, textAppearance)
+            val radioButton = radioGroup.getChildAt(i) as? RadioButton
+            radioButton?.setTextAppearance(textAppearance)
         }
 
     }

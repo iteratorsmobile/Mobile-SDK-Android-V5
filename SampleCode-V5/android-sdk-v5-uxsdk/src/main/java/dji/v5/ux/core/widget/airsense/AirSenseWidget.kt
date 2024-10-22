@@ -318,7 +318,7 @@ open class AirSenseWidget @JvmOverloads constructor(
             uiUpdateStateProcessor.onNext(NeverShowAgainCheckChanged(checked))
         }
         if (checkBoxTextAppearance != INVALID_RESOURCE) {
-            dontShowAgainCheckBox.setTextAppearance(context, checkBoxTextAppearance)
+            dontShowAgainCheckBox.setTextAppearance(checkBoxTextAppearance)
         }
         if (checkBoxTextColor != null) {
             dontShowAgainCheckBox.setTextColor(checkBoxTextColor)
@@ -349,7 +349,7 @@ open class AirSenseWidget @JvmOverloads constructor(
         termsLinkTextView.movementMethod = LinkMovementMethod.getInstance()
         termsLinkTextView.text = termsLink
         if (termsLinkTextAppearance != INVALID_RESOURCE) {
-            termsLinkTextView.setTextAppearance(context, termsLinkTextAppearance)
+            termsLinkTextView.setTextAppearance(termsLinkTextAppearance)
         }
         if (termsLinkTextBackground != null) {
             termsLinkTextView.background = termsLinkTextBackground
@@ -386,7 +386,7 @@ open class AirSenseWidget @JvmOverloads constructor(
         if (!isInEditMode) {
             addDisposable(widgetModel.airSenseState.firstOrError()
                     .observeOn(SchedulerProvider.ui())
-                    .subscribe(Consumer { this.updateIcon(it) }, UxErrorHandle.logErrorConsumer(TAG, "Update Icon ")))
+                    .subscribe({ this.updateIcon(it) }, UxErrorHandle.logErrorConsumer(TAG, "Update Icon ")))
         }
     }
     //endregion
@@ -417,7 +417,7 @@ open class AirSenseWidget @JvmOverloads constructor(
      */
     @ColorInt
     fun getAirSenseIconTintColor(state: AirSenseState): Int {
-        return (colorMap[state]?.let { it } ?: getColor(R.color.uxsdk_white))
+        return (colorMap[state] ?: getColor(R.color.uxsdk_white))
     }
 
     /**

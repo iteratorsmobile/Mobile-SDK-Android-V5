@@ -65,22 +65,23 @@ import dji.v5.ux.core.util.UnitConversionUtil.UnitType
  * It also provides an option to switch between them.
  */
 open class UnitModeListItemWidget @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
 ) : ListItemRadioButtonWidget<ModelState>(
-        context,
-        attrs,
-        defStyleAttr,
-        R.style.UXSDKUnitModeListItem
+    context,
+    attrs,
+    defStyleAttr,
+    R.style.UXSDKUnitModeListItem
 ) {
 
     //region Fields
     private val widgetModel: UnitModeListItemWidgetModel by lazy {
         UnitModeListItemWidgetModel(
-                DJISDKModel.getInstance(),
-                ObservableInMemoryKeyedStore.getInstance(),
-                GlobalPreferencesManager.getInstance())
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance(),
+            GlobalPreferencesManager.getInstance()
+        )
     }
 
     private var imperialItemIndex: Int = INVALID_OPTION_INDEX
@@ -129,14 +130,14 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
     //region Lifecycle
     override fun reactToModelChanges() {
         addReaction(widgetModel.productConnection
-                .observeOn(SchedulerProvider.ui())
-                .subscribe { widgetStateDataProcessor.onNext(ProductConnected(it)) })
+            .observeOn(SchedulerProvider.ui())
+            .subscribe { widgetStateDataProcessor.onNext(ProductConnected(it)) })
         addReaction(widgetModel.unitTypeState
-                .observeOn(SchedulerProvider.ui())
-                .subscribe {
-                    widgetStateDataProcessor.onNext(UnitTypeUpdated(it))
-                    updateUI(it)
-                })
+            .observeOn(SchedulerProvider.ui())
+            .subscribe {
+                widgetStateDataProcessor.onNext(UnitTypeUpdated(it))
+                updateUI(it)
+            })
     }
 
     override fun onAttachedToWindow() {
@@ -160,17 +161,19 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
             UnitType.METRIC
         }
         addDisposable(widgetModel.setUnitType(newUnitType)
-                .observeOn(SchedulerProvider.ui())
-                .subscribe({
-                    widgetStateDataProcessor.onNext(SetUnitTypeSucceeded)
-                    if (newUnitType == UnitType.IMPERIAL
-                            && !GlobalPreferencesManager.getInstance().isUnitModeDialogNeverShown) {
-                        showWarningDialog()
-                    }
-                }, {
-                    widgetStateDataProcessor.onNext(SetUnitTypeFailed(it as UXSDKError))
-                    resetUI()
-                }))
+            .observeOn(SchedulerProvider.ui())
+            .subscribe({
+                widgetStateDataProcessor.onNext(SetUnitTypeSucceeded)
+                if (newUnitType == UnitType.IMPERIAL
+                    && !GlobalPreferencesManager.getInstance().isUnitModeDialogNeverShown
+                ) {
+                    showWarningDialog()
+                }
+            }, {
+                widgetStateDataProcessor.onNext(SetUnitTypeFailed(it as UXSDKError))
+                resetUI()
+            })
+        )
 
     }
 
@@ -203,7 +206,8 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
             uiUpdateStateProcessor.onNext(UIState.DialogDismissed(null))
         }
         val ctw = ContextThemeWrapper(context, dialogTheme)
-        val inflater: LayoutInflater = ctw.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val inflater: LayoutInflater =
+            ctw.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = inflater.inflate(R.layout.uxsdk_layout_dialog_checkbox, null)
         val builder = AlertDialog.Builder(context, dialogTheme)
         builder.setPositiveButton(getString(R.string.uxsdk_app_ok), dialogListener)
@@ -213,7 +217,7 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
         val neverShowAgainCheckBox = view.findViewById<CheckBox>(R.id.checkbox_dont_show_again)
         neverShowAgainCheckBox.setTextColor(getColor(R.color.uxsdk_white))
         if (checkBoxTextAppearance != INVALID_RESOURCE) {
-            neverShowAgainCheckBox.setTextAppearance(context, checkBoxTextAppearance)
+            neverShowAgainCheckBox.setTextAppearance(checkBoxTextAppearance)
         }
         if (checkBoxTextColor != null) {
             neverShowAgainCheckBox.setTextColor(checkBoxTextColor)
@@ -237,8 +241,8 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
 
     private fun resetUI() {
         addDisposable(widgetModel.unitTypeState
-                .observeOn(SchedulerProvider.ui())
-                .subscribe { updateUI(it) })
+            .observeOn(SchedulerProvider.ui())
+            .subscribe { updateUI(it) })
     }
 
     private fun getSpannableString(): SpannableStringBuilder {
@@ -246,7 +250,7 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
 
         val str1 = SpannableString(getString(R.string.uxsdk_dialog_unit_change_notice))
         str1.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_NORMAL), 0, str1.length, 0)
-        builder.appendln(str1).appendln()
+        builder.appendLine(str1).appendLine()
 
         val str2 = SpannableString(resources.getString(R.string.uxsdk_dialog_unit_change_example))
         str2.setSpan(AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, str2.length, 0)
@@ -262,9 +266,11 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
     }
 
     override val widgetSizeDescription: WidgetSizeDescription =
-            WidgetSizeDescription(WidgetSizeDescription.SizeType.OTHER,
-                    widthDimension = WidgetSizeDescription.Dimension.EXPAND,
-                    heightDimension = WidgetSizeDescription.Dimension.WRAP)
+        WidgetSizeDescription(
+            WidgetSizeDescription.SizeType.OTHER,
+            widthDimension = WidgetSizeDescription.Dimension.EXPAND,
+            heightDimension = WidgetSizeDescription.Dimension.WRAP
+        )
 
     /**
      * Set the text color for the check box label
@@ -286,25 +292,26 @@ open class UnitModeListItemWidget @JvmOverloads constructor(
         checkBoxTextBackground = getDrawable(resourceId)
     }
 
-        @SuppressLint("Recycle")
+    @SuppressLint("Recycle")
     private fun initAttributes(context: Context, attrs: AttributeSet?) {
-        context.obtainStyledAttributes(attrs, R.styleable.UnitModeListItemWidget, 0, defaultStyle).use { typedArray ->
-            typedArray.getResourceIdAndUse(R.styleable.UnitModeListItemWidget_uxsdk_list_item_dialog_theme) {
-                dialogTheme = it
+        context.obtainStyledAttributes(attrs, R.styleable.UnitModeListItemWidget, 0, defaultStyle)
+            .use { typedArray ->
+                typedArray.getResourceIdAndUse(R.styleable.UnitModeListItemWidget_uxsdk_list_item_dialog_theme) {
+                    dialogTheme = it
+                }
+                typedArray.getResourceIdAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextAppearance) {
+                    checkBoxTextAppearance = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextColor) {
+                    checkBoxTextColor = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextBackground) {
+                    checkBoxTextBackground = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextSize) {
+                    checkBoxTextSize = DisplayUtil.pxToSp(context, it)
+                }
             }
-            typedArray.getResourceIdAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextAppearance) {
-                checkBoxTextAppearance = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextColor) {
-                checkBoxTextColor = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextBackground) {
-                checkBoxTextBackground = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.UnitModeListItemWidget_uxsdk_checkBoxTextSize) {
-                checkBoxTextSize = DisplayUtil.pxToSp(context, it)
-            }
-        }
     }
 
     //endregion

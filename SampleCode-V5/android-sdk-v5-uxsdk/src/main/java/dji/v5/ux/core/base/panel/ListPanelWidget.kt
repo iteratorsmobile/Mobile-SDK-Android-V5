@@ -59,10 +59,10 @@ import dji.v5.ux.core.util.ViewIDGenerator
  * android:divider="@null"
  */
 abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0,
-        configuration: PanelWidgetConfiguration
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+    configuration: PanelWidgetConfiguration
 ) : PanelWidget<View, T>(context, attrs, defStyleAttr, configuration) {
 
     //region Properties
@@ -85,7 +85,8 @@ abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
     /**
      * Default [ListPanelWidgetBaseModel], can be overwritten.
      */
-    protected open val listPanelWidgetBaseModel: ListPanelWidgetBaseModel = ListPanelWidgetBaseModel()
+    protected open val listPanelWidgetBaseModel: ListPanelWidgetBaseModel =
+        ListPanelWidgetBaseModel()
     private val adapter = Adapter()
     //endregion
 
@@ -127,9 +128,9 @@ abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
         if (!isInEditMode) {
             smartListModel?.setUp()
 
-            listPanelWidgetBaseModel.widgetList
-                    .observeOn(SchedulerProvider.ui())
-                    .subscribe { updateUI() }
+            addDisposable(listPanelWidgetBaseModel.widgetList
+                .observeOn(SchedulerProvider.ui())
+                .subscribe { updateUI() })
         }
     }
 
@@ -181,9 +182,9 @@ abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
     /**
      * Add a [View] at [index] to the current list of widgets.
      */
-    override fun addWidget(index: Int, view: View) {
+    override fun addWidget(index: Int, item: View) {
         if (smartListModel == null) {
-            listPanelWidgetBaseModel.addWidget(index, view)
+            listPanelWidgetBaseModel.addWidget(index, item)
         }
     }
 
@@ -214,7 +215,7 @@ abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
     private inner class Adapter : BaseAdapter() {
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val view = listPanelWidgetBaseModel.getWidget(position)
-                    ?: throw IllegalAccessException("View not found at position $position")
+                ?: throw IllegalAccessException("View not found at position $position")
             if (view is Navigable) {
                 view.panelNavigator = this@ListPanelWidget.panelNavigator
             }
@@ -224,7 +225,7 @@ abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
 
         override fun getItem(position: Int): Any {
             return listPanelWidgetBaseModel.getWidget(position)
-                    ?: throw IllegalAccessException("Item not found at position $position")
+                ?: throw IllegalAccessException("Item not found at position $position")
         }
 
         override fun getItemId(position: Int): Long = position.toLong()

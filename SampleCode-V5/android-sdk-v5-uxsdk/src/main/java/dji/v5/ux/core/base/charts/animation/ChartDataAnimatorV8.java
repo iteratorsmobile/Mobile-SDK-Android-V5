@@ -1,6 +1,7 @@
 package dji.v5.ux.core.base.charts.animation;
 
 import android.os.Handler;
+import android.os.Looper;
 import android.os.SystemClock;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -32,7 +33,7 @@ public class ChartDataAnimatorV8 implements ChartDataAnimator{
 
     public ChartDataAnimatorV8(Chart chart) {
         this.chart = chart;
-        this.handler = new Handler();
+        this.handler = new Handler(Looper.getMainLooper());
     }
 
     public void startAnimation(long duration) {

@@ -66,41 +66,50 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
     private val beiDouTitleTextView: TextView = findViewById(R.id.textview_beidou_title)
     private val beiDouAntenna1TextView: TextView = findViewById(R.id.textview_beidou_antenna_1)
     private val beiDouAntenna2TextView: TextView = findViewById(R.id.textview_beidou_antenna_2)
-    private val beiDouBaseStationTextView: TextView = findViewById(R.id.textview_beidou_base_station)
+    private val beiDouBaseStationTextView: TextView =
+        findViewById(R.id.textview_beidou_base_station)
     private val glonassTitleTextView: TextView = findViewById(R.id.textview_glonass_title)
     private val glonassAntenna1TextView: TextView = findViewById(R.id.textview_glonass_antenna_1)
     private val glonassAntenna2TextView: TextView = findViewById(R.id.textview_glonass_antenna_2)
-    private val glonassBaseStationTextView: TextView = findViewById(R.id.textview_glonass_base_station)
+    private val glonassBaseStationTextView: TextView =
+        findViewById(R.id.textview_glonass_base_station)
     private val galileoTitleTextView: TextView = findViewById(R.id.textview_galileo_title)
     private val galileoAntenna1TextView: TextView = findViewById(R.id.textview_galileo_antenna_1)
     private val galileoAntenna2TextView: TextView = findViewById(R.id.textview_galileo_antenna_2)
-    private val galileoBaseStationTextView: TextView = findViewById(R.id.textview_galileo_base_station)
+    private val galileoBaseStationTextView: TextView =
+        findViewById(R.id.textview_galileo_base_station)
     private val latitudeTitleTextView: TextView = findViewById(R.id.textview_latitude_title)
     private val longitudeTitleTextView: TextView = findViewById(R.id.textview_longitude_title)
     private val altitudeTitleTextView: TextView = findViewById(R.id.textview_altitude_title)
-    private val aircraftCoordinatesTitleTextView: TextView = findViewById(R.id.textview_aircraft_coordinates_title)
+    private val aircraftCoordinatesTitleTextView: TextView =
+        findViewById(R.id.textview_aircraft_coordinates_title)
     private val aircraftLatitudeTextView: TextView = findViewById(R.id.textview_aircraft_latitude)
     private val aircraftLongitudeTextView: TextView = findViewById(R.id.textview_aircraft_longitude)
     private val aircraftAltitudeTextView: TextView = findViewById(R.id.textview_aircraft_altitude)
     private val baseStationCoordinatesTitleTextView: TextView =
         findViewById(R.id.textview_base_station_coordinates_title)
-    private val baseStationLatitudeTextView: TextView = findViewById(R.id.textview_base_station_latitude)
-    private val baseStationLongitudeTextView: TextView = findViewById(R.id.textview_base_station_longitude)
-    private val baseStationAltitudeTextView: TextView = findViewById(R.id.textview_base_station_altitude)
+    private val baseStationLatitudeTextView: TextView =
+        findViewById(R.id.textview_base_station_latitude)
+    private val baseStationLongitudeTextView: TextView =
+        findViewById(R.id.textview_base_station_longitude)
+    private val baseStationAltitudeTextView: TextView =
+        findViewById(R.id.textview_base_station_altitude)
     private val courseAngleTitleTextView: TextView = findViewById(R.id.textview_course_angle_title)
     private val courseAngleTextView: TextView = findViewById(R.id.textview_course_angle_value)
     private val orientationTitleTextView: TextView = findViewById(R.id.textview_orientation_title)
     private val orientationTextView: TextView = findViewById(R.id.textview_orientation)
     private val positioningTitleTextView: TextView = findViewById(R.id.textview_positioning_title)
     private val positioningTextView: TextView = findViewById(R.id.textview_positioning)
-    private val standardDeviationTitleTextView: TextView = findViewById(R.id.textview_standard_deviation_title)
+    private val standardDeviationTitleTextView: TextView =
+        findViewById(R.id.textview_standard_deviation_title)
     private val standardDeviationTextView: TextView = findViewById(R.id.textview_standard_deviation)
     private val rtkAircraftSeparator: View = findViewById(R.id.rtk_aircraft_separator)
     private val rtkBaseStationSeparator: View = findViewById(R.id.rtk_base_station_separator)
-    private val rtkOrientationPositioningSeparator: View = findViewById(R.id.rtk_orientation_positioning_separator)
+    private val rtkOrientationPositioningSeparator: View =
+        findViewById(R.id.rtk_orientation_positioning_separator)
     private val rtkLocationSeparator: View = findViewById(R.id.rtk_location_separator)
     private val rtkSatelliteCountSeparator: View = findViewById(R.id.rtk_satellite_count_separator)
-    private var positioningSolution :RTKPositioningSolution ?= null
+    private var positioningSolution: RTKPositioningSolution? = null
     private val connectionStateTextColorMap: MutableMap<RTKSatelliteStatusWidgetModel.RTKBaseStationState, Int> =
         mutableMapOf(
             RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE to getColor(R.color.uxsdk_rtk_status_connected_in_use),
@@ -553,13 +562,27 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
     }
 
     override fun reactToModelChanges() {
-        addReaction(widgetModel.productConnection.observeOn(SchedulerProvider.ui()).subscribe { updateUIForIsRTKConnected(it) })
-        addReaction(widgetModel.rtkLocationInfo.observeOn(SchedulerProvider.ui()).subscribe(this::updateRTKLocationInfo))
+        addReaction(
+            widgetModel.productConnection.observeOn(SchedulerProvider.ui())
+                .subscribe { updateUIForIsRTKConnected(it) })
+        addReaction(
+            widgetModel.rtkLocationInfo.observeOn(SchedulerProvider.ui())
+                .subscribe(this::updateRTKLocationInfo)
+        )
 
-        addReaction(widgetModel.rtkSystemState.observeOn(SchedulerProvider.ui()).subscribe(this::updateRTKSystemState))
-        addReaction(widgetModel.standardDeviation.observeOn(SchedulerProvider.ui()).subscribe { updateStandardDeviation(it) })
-        addReaction(widgetModel.rtkBaseStationState.observeOn(SchedulerProvider.ui()).subscribe { updateBaseStationStatus(it) })
-        addReaction(widgetModel.rtkNetworkServiceState.observeOn(SchedulerProvider.ui()).subscribe { updateNetworkServiceStatus(it) })
+        addReaction(
+            widgetModel.rtkSystemState.observeOn(SchedulerProvider.ui())
+                .subscribe(this::updateRTKSystemState)
+        )
+        addReaction(
+            widgetModel.standardDeviation.observeOn(SchedulerProvider.ui())
+                .subscribe { updateStandardDeviation(it) })
+        addReaction(
+            widgetModel.rtkBaseStationState.observeOn(SchedulerProvider.ui())
+                .subscribe { updateBaseStationStatus(it) })
+        addReaction(
+            widgetModel.rtkNetworkServiceState.observeOn(SchedulerProvider.ui())
+                .subscribe { updateNetworkServiceStatus(it) })
 
     }
 
@@ -603,7 +626,7 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setRTKConnectionStatusTitleTextAppearance(@StyleRes textAppearance: Int) {
-        rtkStatusTitleTextView.setTextAppearance(context, textAppearance)
+        rtkStatusTitleTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -612,7 +635,7 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setRTKConnectionStatusTextAppearance(@StyleRes textAppearance: Int) {
-        rtkStatusTextView.setTextAppearance(context, textAppearance)
+        rtkStatusTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -648,21 +671,21 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setRTKLabelsTextAppearance(@StyleRes textAppearance: Int) {
-        antenna1TitleTextView.setTextAppearance(context, textAppearance)
-        antenna2TitleTextView.setTextAppearance(context, textAppearance)
-        gpsTitleTextView.setTextAppearance(context, textAppearance)
-        beiDouTitleTextView.setTextAppearance(context, textAppearance)
-        glonassTitleTextView.setTextAppearance(context, textAppearance)
-        galileoTitleTextView.setTextAppearance(context, textAppearance)
-        latitudeTitleTextView.setTextAppearance(context, textAppearance)
-        longitudeTitleTextView.setTextAppearance(context, textAppearance)
-        altitudeTitleTextView.setTextAppearance(context, textAppearance)
-        aircraftCoordinatesTitleTextView.setTextAppearance(context, textAppearance)
-        baseStationCoordinatesTitleTextView.setTextAppearance(context, textAppearance)
-        courseAngleTitleTextView.setTextAppearance(context, textAppearance)
-        orientationTitleTextView.setTextAppearance(context, textAppearance)
-        positioningTitleTextView.setTextAppearance(context, textAppearance)
-        standardDeviationTitleTextView.setTextAppearance(context, textAppearance)
+        antenna1TitleTextView.setTextAppearance(textAppearance)
+        antenna2TitleTextView.setTextAppearance(textAppearance)
+        gpsTitleTextView.setTextAppearance(textAppearance)
+        beiDouTitleTextView.setTextAppearance(textAppearance)
+        glonassTitleTextView.setTextAppearance(textAppearance)
+        galileoTitleTextView.setTextAppearance(textAppearance)
+        latitudeTitleTextView.setTextAppearance(textAppearance)
+        longitudeTitleTextView.setTextAppearance(textAppearance)
+        altitudeTitleTextView.setTextAppearance(textAppearance)
+        aircraftCoordinatesTitleTextView.setTextAppearance(textAppearance)
+        baseStationCoordinatesTitleTextView.setTextAppearance(textAppearance)
+        courseAngleTitleTextView.setTextAppearance(textAppearance)
+        orientationTitleTextView.setTextAppearance(textAppearance)
+        positioningTitleTextView.setTextAppearance(textAppearance)
+        standardDeviationTitleTextView.setTextAppearance(textAppearance)
     }
 
 
@@ -672,108 +695,121 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setRTKValuesTextAppearance(@StyleRes textAppearance: Int) {
-        gpsAntenna1TextView.setTextAppearance(context, textAppearance)
-        gpsAntenna2TextView.setTextAppearance(context, textAppearance)
-        gpsBaseStationTextView.setTextAppearance(context, textAppearance)
-        beiDouAntenna1TextView.setTextAppearance(context, textAppearance)
-        beiDouAntenna2TextView.setTextAppearance(context, textAppearance)
-        beiDouBaseStationTextView.setTextAppearance(context, textAppearance)
-        glonassAntenna1TextView.setTextAppearance(context, textAppearance)
-        glonassAntenna2TextView.setTextAppearance(context, textAppearance)
-        glonassBaseStationTextView.setTextAppearance(context, textAppearance)
-        galileoAntenna1TextView.setTextAppearance(context, textAppearance)
-        galileoAntenna2TextView.setTextAppearance(context, textAppearance)
-        galileoBaseStationTextView.setTextAppearance(context, textAppearance)
-        aircraftLatitudeTextView.setTextAppearance(context, textAppearance)
-        aircraftLongitudeTextView.setTextAppearance(context, textAppearance)
-        aircraftAltitudeTextView.setTextAppearance(context, textAppearance)
-        baseStationLatitudeTextView.setTextAppearance(context, textAppearance)
-        baseStationLongitudeTextView.setTextAppearance(context, textAppearance)
-        baseStationAltitudeTextView.setTextAppearance(context, textAppearance)
-        courseAngleTextView.setTextAppearance(context, textAppearance)
-        orientationTextView.setTextAppearance(context, textAppearance)
-        positioningTextView.setTextAppearance(context, textAppearance)
-        standardDeviationTextView.setTextAppearance(context, textAppearance)
+        gpsAntenna1TextView.setTextAppearance(textAppearance)
+        gpsAntenna2TextView.setTextAppearance(textAppearance)
+        gpsBaseStationTextView.setTextAppearance(textAppearance)
+        beiDouAntenna1TextView.setTextAppearance(textAppearance)
+        beiDouAntenna2TextView.setTextAppearance(textAppearance)
+        beiDouBaseStationTextView.setTextAppearance(textAppearance)
+        glonassAntenna1TextView.setTextAppearance(textAppearance)
+        glonassAntenna2TextView.setTextAppearance(textAppearance)
+        glonassBaseStationTextView.setTextAppearance(textAppearance)
+        galileoAntenna1TextView.setTextAppearance(textAppearance)
+        galileoAntenna2TextView.setTextAppearance(textAppearance)
+        galileoBaseStationTextView.setTextAppearance(textAppearance)
+        aircraftLatitudeTextView.setTextAppearance(textAppearance)
+        aircraftLongitudeTextView.setTextAppearance(textAppearance)
+        aircraftAltitudeTextView.setTextAppearance(textAppearance)
+        baseStationLatitudeTextView.setTextAppearance(textAppearance)
+        baseStationLongitudeTextView.setTextAppearance(textAppearance)
+        baseStationAltitudeTextView.setTextAppearance(textAppearance)
+        courseAngleTextView.setTextAppearance(textAppearance)
+        orientationTextView.setTextAppearance(textAppearance)
+        positioningTextView.setTextAppearance(textAppearance)
+        standardDeviationTextView.setTextAppearance(textAppearance)
     }
 
     //Initialize all customizable attributes
     @SuppressLint("Recycle")
     private fun initAttributes(context: Context, attrs: AttributeSet) {
-        context.obtainStyledAttributes(attrs, R.styleable.RTKSatelliteStatusWidget).use { typedArray ->
-            typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleTextAppearance) {
-                setRTKConnectionStatusTitleTextAppearance(it)
-            }
-            typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleTextSize) {
-                rtkConnectionStatusTitleTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleTextColor) {
-                rtkConnectionStatusTitleTextColor = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleBackgroundDrawable) {
-                rtkConnectionStatusTitleTextBackground = it
-            }
-            typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTextAppearance) {
-                setRTKConnectionStatusTextAppearance(it)
-            }
-            typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTextSize) {
-                rtkConnectionStatusTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusConnectedInUseTextColor) {
-                setRTKConnectionStatusLabelTextColor(
-                    RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE,
-                    it
-                )
-            }
-            typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusConnectedNotInUseTextColor) {
-                setRTKConnectionStatusLabelTextColor(
-                    RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_NOT_IN_USE,
-                    it
-                )
-            }
-            typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusDisconnectedTextColor) {
-                setRTKConnectionStatusLabelTextColor(RTKSatelliteStatusWidgetModel.RTKBaseStationState.DISCONNECTED, it)
-            }
-            typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusBackgroundDrawable) {
-                rtkConnectionStatusTextBackground = it
-            }
-            typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsTextAppearance) {
-                setRTKLabelsTextAppearance(it)
-            }
-            typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsTextSize) {
-                rtkLabelsTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsTextColor) {
-                rtkLabelsTextColor = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsBackgroundDrawable) {
-                rtkLabelsTextBackground = it
-            }
-            typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesTextAppearance) {
-                setRTKValuesTextAppearance(it)
-            }
-            typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesTextSize) {
-                rtkValuesTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesTextColor) {
-                rtkValuesTextColor = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesBackgroundDrawable) {
-                rtkValuesTextBackground = it
-            }
+        context.obtainStyledAttributes(attrs, R.styleable.RTKSatelliteStatusWidget)
+            .use { typedArray ->
+                typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleTextAppearance) {
+                    setRTKConnectionStatusTitleTextAppearance(it)
+                }
+                typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleTextSize) {
+                    rtkConnectionStatusTitleTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleTextColor) {
+                    rtkConnectionStatusTitleTextColor = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTitleBackgroundDrawable) {
+                    rtkConnectionStatusTitleTextBackground = it
+                }
+                typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTextAppearance) {
+                    setRTKConnectionStatusTextAppearance(it)
+                }
+                typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusTextSize) {
+                    rtkConnectionStatusTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusConnectedInUseTextColor) {
+                    setRTKConnectionStatusLabelTextColor(
+                        RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE,
+                        it
+                    )
+                }
+                typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusConnectedNotInUseTextColor) {
+                    setRTKConnectionStatusLabelTextColor(
+                        RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_NOT_IN_USE,
+                        it
+                    )
+                }
+                typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusDisconnectedTextColor) {
+                    setRTKConnectionStatusLabelTextColor(
+                        RTKSatelliteStatusWidgetModel.RTKBaseStationState.DISCONNECTED,
+                        it
+                    )
+                }
+                typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkConnectionStatusBackgroundDrawable) {
+                    rtkConnectionStatusTextBackground = it
+                }
+                typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsTextAppearance) {
+                    setRTKLabelsTextAppearance(it)
+                }
+                typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsTextSize) {
+                    rtkLabelsTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsTextColor) {
+                    rtkLabelsTextColor = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkLabelsBackgroundDrawable) {
+                    rtkLabelsTextBackground = it
+                }
+                typedArray.getResourceIdAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesTextAppearance) {
+                    setRTKValuesTextAppearance(it)
+                }
+                typedArray.getDimensionAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesTextSize) {
+                    rtkValuesTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesTextColor) {
+                    rtkValuesTextColor = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkValuesBackgroundDrawable) {
+                    rtkValuesTextBackground = it
+                }
 
-            typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkSeparatorsColor) {
-                rtkSeparatorsColor = it
+                typedArray.getColorAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_rtkSeparatorsColor) {
+                    rtkSeparatorsColor = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_tableBackground) {
+                    tableBackground = it
+                }
+                isBeiDouSatelliteInfoVisible =
+                    typedArray.getBoolean(
+                        R.styleable.RTKSatelliteStatusWidget_uxsdk_beiDouSatellitesVisibility,
+                        true
+                    )
+                isGLONASSSatelliteInfoVisible =
+                    typedArray.getBoolean(
+                        R.styleable.RTKSatelliteStatusWidget_uxsdk_glonassSatellitesVisibility,
+                        true
+                    )
+                isGalileoSatelliteInfoVisible =
+                    typedArray.getBoolean(
+                        R.styleable.RTKSatelliteStatusWidget_uxsdk_galileoSatellitesVisibility,
+                        true
+                    )
             }
-            typedArray.getDrawableAndUse(R.styleable.RTKSatelliteStatusWidget_uxsdk_tableBackground) {
-                tableBackground = it
-            }
-            isBeiDouSatelliteInfoVisible =
-                typedArray.getBoolean(R.styleable.RTKSatelliteStatusWidget_uxsdk_beiDouSatellitesVisibility, true)
-            isGLONASSSatelliteInfoVisible =
-                typedArray.getBoolean(R.styleable.RTKSatelliteStatusWidget_uxsdk_glonassSatellitesVisibility, true)
-            isGalileoSatelliteInfoVisible =
-                typedArray.getBoolean(R.styleable.RTKSatelliteStatusWidget_uxsdk_galileoSatellitesVisibility, true)
-        }
     }
 
 
@@ -781,12 +817,22 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
         when (connectionState) {
             RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE -> {
                 rtkStatusTextView.setText(R.string.uxsdk_rtk_state_connect)
-                rtkStatusTextView.setTextColor(getRTKConnectionStatusLabelTextColor(RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE))
+                rtkStatusTextView.setTextColor(
+                    getRTKConnectionStatusLabelTextColor(
+                        RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE
+                    )
+                )
             }
+
             RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_NOT_IN_USE -> {
                 rtkStatusTextView.setText(R.string.uxsdk_rtk_state_connect_not_healthy)
-                rtkStatusTextView.setTextColor(getRTKConnectionStatusLabelTextColor(RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_NOT_IN_USE))
+                rtkStatusTextView.setTextColor(
+                    getRTKConnectionStatusLabelTextColor(
+                        RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_NOT_IN_USE
+                    )
+                )
             }
+
             RTKSatelliteStatusWidgetModel.RTKBaseStationState.DISCONNECTED -> {
                 rtkStatusTextView.setText(R.string.uxsdk_rtk_state_disconnect)
                 rtkStatusTextView.textColor =
@@ -824,26 +870,48 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
                     rtkStatusStr = getString(R.string.uxsdk_rtk_state_connect_not_healthy)
                 }
 
-            RTKServiceState.RTCM_AUTH_FAILED -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_auth_failed)
-            RTKServiceState.RTCM_USER_NOT_BOUNDED -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_not_bind)
-            RTKServiceState.SERVICE_SUSPENSION -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_pause)
-            RTKServiceState.RTCM_USER_NOT_ACTIVATED -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_not_active)
+            RTKServiceState.RTCM_AUTH_FAILED -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_state_auth_failed)
+
+            RTKServiceState.RTCM_USER_NOT_BOUNDED -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_state_not_bind)
+
+            RTKServiceState.SERVICE_SUSPENSION -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_state_pause)
+
+            RTKServiceState.RTCM_USER_NOT_ACTIVATED -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_state_not_active)
+
             RTKServiceState.RTCM_ILLEGAL_UTC_TIME,
             RTKServiceState.ACCOUNT_EXPIRED,
             -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_account_expire)
-            RTKServiceState.NETWORK_NOT_REACHABLE -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_network_err)
-            RTKServiceState.LOGIN_FAILURE -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_auth_failed)
+
+            RTKServiceState.NETWORK_NOT_REACHABLE -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_state_network_err)
+
+            RTKServiceState.LOGIN_FAILURE -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_state_auth_failed)
+
             RTKServiceState.RTCM_SET_COORDINATE_FAILURE -> rtkStatusStr =
                 getString(R.string.uxsdk_rtk_state_coordinate_fialed)
+
             RTKServiceState.RTCM_CONNECTING,
             RTKServiceState.READY,
             RTKServiceState.RTK_START_PROCESSING,
             -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_connecting)
-            RTKServiceState.ACCOUNT_ERROR -> rtkStatusStr = getString(R.string.uxsdk_rtk_nrtk_account_error)
-            RTKServiceState.CONNECTING -> rtkStatusStr = getString(R.string.uxsdk_rtk_nrtk_connecting)
-            RTKServiceState.INVALID_REQUEST -> rtkStatusStr = getString(R.string.uxsdk_rtk_nrtk_invalid_request)
+
+            RTKServiceState.ACCOUNT_ERROR -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_nrtk_account_error)
+
+            RTKServiceState.CONNECTING -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_nrtk_connecting)
+
+            RTKServiceState.INVALID_REQUEST -> rtkStatusStr =
+                getString(R.string.uxsdk_rtk_nrtk_invalid_request)
+
             RTKServiceState.SERVER_NOT_REACHABLE -> rtkStatusStr =
                 getString(R.string.uxsdk_rtk_nrtk_server_not_reachable)
+
             else -> rtkStatusStr = getString(R.string.uxsdk_rtk_state_disconnect)
         }
         rtkStatusTextView.text = rtkStatusStr
@@ -912,34 +980,45 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
         }
 
         //更新定位信息
-         positioningSolution = rtkLocationInfo?.rtkLocation?.positioningSolution
+        positioningSolution = rtkLocationInfo?.rtkLocation?.positioningSolution
         if (positioningSolution == RTKPositioningSolution.NONE || positioningSolution == RTKPositioningSolution.UNKNOWN) {
             positioningTextView.setText(R.string.uxsdk_string_default_value)
         } else {
             positioningTextView.text = RTKUtil.getRTKStatusName(this, positioningSolution)
         }
 
-        if (positioningSolution == RTKPositioningSolution.FIXED_POINT ) {
+        if (positioningSolution == RTKPositioningSolution.FIXED_POINT) {
             rtkStatusTextView.setText(R.string.uxsdk_rtk_state_connect)
-            rtkStatusTextView.setTextColor(getRTKConnectionStatusLabelTextColor(RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE))
+            rtkStatusTextView.setTextColor(
+                getRTKConnectionStatusLabelTextColor(
+                    RTKSatelliteStatusWidgetModel.RTKBaseStationState.CONNECTED_IN_USE
+                )
+            )
         }
 
     }
 
     //更新标准差
     private fun updateStandardDeviation(standardDeviation: RTKSatelliteStatusWidgetModel.StandardDeviation) {
-        val resourceString = if (standardDeviation.unitType == UnitConversionUtil.UnitType.IMPERIAL) {
-            R.string.uxsdk_value_feet
-        } else {
-            R.string.uxsdk_value_meters
-        }
+        val resourceString =
+            if (standardDeviation.unitType == UnitConversionUtil.UnitType.IMPERIAL) {
+                R.string.uxsdk_value_feet
+            } else {
+                R.string.uxsdk_value_meters
+            }
         val standardDeviationStr =
-            (resources.getString(resourceString, String.format(Locale.US, "%s", standardDeviation.latitude)) + "\n"
+            (resources.getString(
+                resourceString,
+                String.format(Locale.US, "%s", standardDeviation.latitude)
+            ) + "\n"
                     + resources.getString(
                 resourceString,
                 String.format(Locale.US, "%s", standardDeviation.longitude)
             ) + "\n"
-                    + resources.getString(resourceString, String.format(Locale.US, "%s", standardDeviation.altitude)))
+                    + resources.getString(
+                resourceString,
+                String.format(Locale.US, "%s", standardDeviation.altitude)
+            ))
         standardDeviationTextView.text = standardDeviationStr
     }
 
@@ -955,15 +1034,19 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
                     GNSSType.BEIDOU -> {
                         beiDouAntenna1TextView.text = count
                     }
+
                     GNSSType.GALILEO -> {
                         galileoAntenna1TextView.text = count
                     }
+
                     GNSSType.GLONASS -> {
                         glonassAntenna1TextView.text = count
                     }
+
                     GNSSType.GPS -> {
                         gpsAntenna1TextView.text = count
                     }
+
                     else -> {}
                 }
             }
@@ -979,15 +1062,19 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
                     GNSSType.BEIDOU -> {
                         beiDouAntenna2TextView.text = count
                     }
+
                     GNSSType.GALILEO -> {
                         galileoAntenna2TextView.text = count
                     }
+
                     GNSSType.GLONASS -> {
                         glonassAntenna2TextView.text = count
                     }
+
                     GNSSType.GPS -> {
                         gpsAntenna2TextView.text = count
                     }
+
                     else -> {}
                 }
             }
@@ -1003,15 +1090,19 @@ open class RTKSatelliteStatusWidget @JvmOverloads constructor(
                     GNSSType.BEIDOU -> {
                         beiDouBaseStationTextView.text = count
                     }
+
                     GNSSType.GALILEO -> {
                         galileoBaseStationTextView.text = count
                     }
+
                     GNSSType.GLONASS -> {
                         glonassBaseStationTextView.text = count
                     }
+
                     GNSSType.GPS -> {
                         gpsBaseStationTextView.text = count
                     }
+
                     else -> {}
                 }
             }

@@ -168,7 +168,7 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
                 getResources().getDimensionPixelSize(R.dimen.uxsdk_22_dp));
 
         mBarrierIndicatorColor = typedArray.getColor(R.styleable.AttitudeDashBoard_uxsdk_barrier_indicator_color,
-                getResources().getColor(R.color.uxsdk_pfd_barrier_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_barrier_color));
         Drawable up = typedArray.getDrawable(R.styleable.AttitudeDashBoard_uxsdk_barrier_drawable_up);
         if (up != null) {
             mBarrierUp = DrawUtils.drawable2Bitmap(up);
@@ -178,7 +178,7 @@ public class AttitudeDashBoard extends ScrollableAttributeDashBoard {
             mBarrierDown = DrawUtils.drawable2Bitmap(down);
         }
         mAvoidanceIndicatorColor = typedArray.getColor(R.styleable.AttitudeDashBoard_uxsdk_avoidance_indicator_color,
-                getResources().getColor(R.color.uxsdk_pfd_avoidance_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_avoidance_color));
         mUpwardRadarDistance = typedArray.getInt(R.styleable.AttitudeDashBoard_uxsdk_barrier_distance, Integer.MAX_VALUE);
         mBarrierOriginLineWidth = getResources().getDimension(R.dimen.uxsdk_1_dp);
         mBarrierOriginLineLength = getResources().getDimension(R.dimen.uxsdk_6_dp);

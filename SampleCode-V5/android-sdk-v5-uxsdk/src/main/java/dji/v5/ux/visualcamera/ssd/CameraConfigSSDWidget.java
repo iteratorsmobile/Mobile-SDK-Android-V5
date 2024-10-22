@@ -421,7 +421,7 @@ public class CameraConfigSSDWidget extends ConstraintLayoutWidget<Object> implem
      * @param textAppearance Style resource for text appearance
      */
     public void setSSDClipInfoTextAppearance(@StyleRes int textAppearance) {
-        ssdClipInfoTextView.setTextAppearance(getContext(), textAppearance);
+        ssdClipInfoTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -515,7 +515,7 @@ public class CameraConfigSSDWidget extends ConstraintLayoutWidget<Object> implem
      * @param textAppearance Style resource for text appearance
      */
     public void setSSDCapacityOrLicenseTextAppearance(@StyleRes int textAppearance) {
-        ssdCapacityOrLicenseTextView.setTextAppearance(getContext(), textAppearance);
+        ssdCapacityOrLicenseTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -609,7 +609,7 @@ public class CameraConfigSSDWidget extends ConstraintLayoutWidget<Object> implem
      * @param textAppearance Style resource for text appearance
      */
     public void setStatusInfoTextAppearance(@StyleRes int textAppearance) {
-        statusInfoTextView.setTextAppearance(getContext(), textAppearance);
+        statusInfoTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -703,7 +703,7 @@ public class CameraConfigSSDWidget extends ConstraintLayoutWidget<Object> implem
      * @param textAppearance Style resource for text appearance
      */
     public void setFormatInfoTextAppearance(@StyleRes int textAppearance) {
-        formatInfoTextView.setTextAppearance(getContext(), textAppearance);
+        formatInfoTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -797,7 +797,7 @@ public class CameraConfigSSDWidget extends ConstraintLayoutWidget<Object> implem
      * @param textAppearance Style resource for text appearance
      */
     public void setSSDCapacityValueTextAppearance(@StyleRes int textAppearance) {
-        ssdCapacityValueTextView.setTextAppearance(getContext(), textAppearance);
+        ssdCapacityValueTextView.setTextAppearance(textAppearance);
     }
 
     /**

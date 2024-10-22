@@ -266,7 +266,7 @@ open class SystemStatusWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setSystemStatusMessageTextAppearance(@StyleRes textAppearance: Int) {
-        systemStatusTextView.setTextAppearance(context, textAppearance)
+        systemStatusTextView.setTextAppearance(textAppearance)
     }
 
     /**

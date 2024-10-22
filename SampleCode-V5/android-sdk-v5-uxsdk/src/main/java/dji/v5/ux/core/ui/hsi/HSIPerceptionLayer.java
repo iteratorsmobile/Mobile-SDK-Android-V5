@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
 import dji.sdk.keyvalue.value.flightcontroller.FCFlightMode;
@@ -156,20 +157,20 @@ public class HSIPerceptionLayer implements HSIContract.HSILayer {
 
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.AttitudeDashBoard);
         mPerceptionLevelColor[2] = typedArray.getColor(R.styleable.HSIView_uxsdk_hsi_avoidance_setting_area_color,
-                context.getResources().getColor(R.color.uxsdk_pfd_hsi_barrier_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_hsi_barrier_color));
         mPerceptionLevelColor[1] = typedArray.getColor(R.styleable.HSIView_uxsdk_hsi_perception_setting_area_color,
-                context.getResources().getColor(R.color.uxsdk_pfd_hsi_avoidance_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_hsi_avoidance_color));
         mPerceptionLevelColor[0] = typedArray.getColor(R.styleable.HSIView_uxsdk_hsi_max_perception_area_color,
-                context.getResources().getColor(R.color.uxsdk_pfd_hsi_main_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_hsi_main_color));
         mMaxPerceptionStrokeWidth = typedArray.getDimensionPixelSize(R.styleable.HSIView_uxsdk_hsi_max_perception_stroke_width,
                 context.getResources().getDimensionPixelSize(R.dimen.uxsdk_2_dp));
 
         mRadarLevelColor[2] = typedArray.getColor(R.styleable.HSIView_uxsdk_hsi_radar_avoidance_setting_area_color,
-                context.getResources().getColor(R.color.uxsdk_pfd_hsi_radar_barrier_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_hsi_radar_barrier_color));
         mRadarLevelColor[1] = typedArray.getColor(R.styleable.HSIView_uxsdk_hsi_radar_perception_setting_area_color,
-                context.getResources().getColor(R.color.uxsdk_pfd_hsi_radar_avoidance_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_hsi_radar_avoidance_color));
         mRadarLevelColor[0] = typedArray.getColor(R.styleable.HSIView_uxsdk_hsi_radar_max_perception_area_color,
-                context.getResources().getColor(R.color.uxsdk_pfd_hsi_radar_main_color));
+                ContextCompat.getColor(context, R.color.uxsdk_pfd_hsi_radar_main_color));
         mRadarMaxPerceptionStrokeWidth = typedArray.getDimensionPixelSize(R.styleable.HSIView_uxsdk_hsi_radar_max_perception_stroke_width,
                 context.getResources().getDimensionPixelSize(R.dimen.uxsdk_4_dp));
         typedArray.recycle();
@@ -184,8 +185,8 @@ public class HSIPerceptionLayer implements HSIContract.HSILayer {
         mPerceptionAreaDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         mPerceptionAreaDrawable.setShape(GradientDrawable.RECTANGLE);
 
-        mWarnColor = context.getResources().getColor(R.color.uxsdk_pfd_avoidance_color);
-        mDangerColor = context.getResources().getColor(R.color.uxsdk_pfd_barrier_color);
+        mWarnColor = ContextCompat.getColor(context, R.color.uxsdk_pfd_avoidance_color);
+        mDangerColor = ContextCompat.getColor(context, R.color.uxsdk_pfd_barrier_color);
         mTofDrawable = new GradientDrawable(
                 GradientDrawable.Orientation.BOTTOM_TOP,
                 new int[]{

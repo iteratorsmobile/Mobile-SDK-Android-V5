@@ -148,7 +148,7 @@ public class CameraConfigShutterWidget extends ConstraintLayoutWidget<Object> im
      * @param textAppearance Style resource for text appearance
      */
     public void setShutterTitleTextAppearance(@StyleRes int textAppearance) {
-        shutterTitleTextView.setTextAppearance(getContext(), textAppearance);
+        shutterTitleTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -242,7 +242,7 @@ public class CameraConfigShutterWidget extends ConstraintLayoutWidget<Object> im
      * @param textAppearance Style resource for text appearance
      */
     public void setShutterValueTextAppearance(@StyleRes int textAppearance) {
-        shutterValueTextView.setTextAppearance(getContext(), textAppearance);
+        shutterValueTextView.setTextAppearance(textAppearance);
     }
 
     /**

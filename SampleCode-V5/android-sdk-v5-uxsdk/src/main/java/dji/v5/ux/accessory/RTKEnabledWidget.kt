@@ -56,18 +56,21 @@ open class RTKEnabledWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : ConstraintLayoutWidget<RTKEnabledWidget.ModelState>(context, attrs, defStyleAttr), CompoundButton.OnCheckedChangeListener {
+) : ConstraintLayoutWidget<RTKEnabledWidget.ModelState>(context, attrs, defStyleAttr),
+    CompoundButton.OnCheckedChangeListener {
 
     //region Fields
     private val rtkTitleTextView: TextView = findViewById(R.id.textview_rtk_title)
     private val rtkEnabledSwitch: Switch = findViewById(R.id.switch_rtk_enabled)
-    private val rtkEnabledDescriptionTextView: TextView = findViewById(R.id.textview_rtk_enabled_description)
+    private val rtkEnabledDescriptionTextView: TextView =
+        findViewById(R.id.textview_rtk_enabled_description)
     private val uiUpdateStateProcessor: PublishProcessor<UIState> = PublishProcessor.create()
 
     private val widgetModel by lazy {
         RTKEnabledWidgetModel(
-                DJISDKModel.getInstance(),
-                ObservableInMemoryKeyedStore.getInstance())
+            DJISDKModel.getInstance(),
+            ObservableInMemoryKeyedStore.getInstance()
+        )
     }
 
     /**
@@ -191,7 +194,8 @@ open class RTKEnabledWidget @JvmOverloads constructor(
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        addDisposable(widgetModel.canEnableRTK.firstOrError()
+        addDisposable(
+            widgetModel.canEnableRTK.firstOrError()
                 .observeOn(SchedulerProvider.ui())
                 .subscribe({ canEnableRTK: Boolean ->
                     if (!canEnableRTK) {
@@ -200,17 +204,18 @@ open class RTKEnabledWidget @JvmOverloads constructor(
                     } else {
                         setRTKEnabled(isChecked)
                     }
-                }, UxErrorHandle.logErrorConsumer(TAG, "canEnableRTK: ")))
+                }, UxErrorHandle.logErrorConsumer(TAG, "canEnableRTK: "))
+        )
         uiUpdateStateProcessor.onNext(UIState.SwitchChanged(isChecked))
     }
 
     override fun reactToModelChanges() {
         addReaction(widgetModel.rtkEnabled
-                .observeOn(SchedulerProvider.ui())
-                .subscribe { updateUIForRTKEnabled(it) })
+            .observeOn(SchedulerProvider.ui())
+            .subscribe { updateUIForRTKEnabled(it) })
         addReaction(widgetModel.productConnection
-                .observeOn(SchedulerProvider.ui())
-                .subscribe { widgetStateDataProcessor.onNext(ModelState.ProductConnected(it)) })
+            .observeOn(SchedulerProvider.ui())
+            .subscribe { widgetStateDataProcessor.onNext(ModelState.ProductConnected(it)) })
     }
     //endregion
 
@@ -221,23 +226,25 @@ open class RTKEnabledWidget @JvmOverloads constructor(
     }
 
     private fun setRTKEnabled(enabled: Boolean) {
-        addDisposable(widgetModel.rtkEnabled
+        addDisposable(
+            widgetModel.rtkEnabled
                 .firstOrError()
                 .observeOn(SchedulerProvider.ui())
                 .subscribe({ rtkEnabled: Boolean ->
                     if (rtkEnabled != enabled) {
                         addDisposable(toggleRTK(enabled))
                     }
-                }, UxErrorHandle.logErrorConsumer(TAG, "rtkEnabled: ")))
+                }, UxErrorHandle.logErrorConsumer(TAG, "rtkEnabled: "))
+        )
     }
 
     private fun toggleRTK(enabled: Boolean): Disposable {
         return widgetModel.setRTKEnabled(enabled)
-                .observeOn(SchedulerProvider.ui())
-                .subscribe({}) { throwable: Throwable ->
-                    setRTKSwitch(!enabled)
-                    LogUtils.e(TAG, "setRTKEnabled: " + throwable.localizedMessage)
-                }
+            .observeOn(SchedulerProvider.ui())
+            .subscribe({}) { throwable: Throwable ->
+                setRTKSwitch(!enabled)
+                LogUtils.e(TAG, "setRTKEnabled: " + throwable.localizedMessage)
+            }
     }
 
     private fun setRTKSwitch(isChecked: Boolean) {
@@ -258,7 +265,7 @@ open class RTKEnabledWidget @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setTitleTextAppearance(@StyleRes textAppearanceResId: Int) {
-        rtkTitleTextView.setTextAppearance(context, textAppearanceResId)
+        rtkTitleTextView.setTextAppearance(textAppearanceResId)
     }
 
     /**
@@ -285,7 +292,7 @@ open class RTKEnabledWidget @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setDescriptionTextAppearance(@StyleRes textAppearanceResId: Int) {
-        rtkEnabledDescriptionTextView.setTextAppearance(context, textAppearanceResId)
+        rtkEnabledDescriptionTextView.setTextAppearance(textAppearanceResId)
     }
 
     @SuppressLint("Recycle")

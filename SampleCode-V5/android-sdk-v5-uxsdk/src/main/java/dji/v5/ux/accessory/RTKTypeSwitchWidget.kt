@@ -21,6 +21,7 @@ import dji.v5.ux.core.base.DJISDKModel
 import dji.v5.ux.core.base.SchedulerProvider
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
+import dji.v5.ux.core.extension.getColor
 import dji.v5.ux.core.extension.getString
 import dji.v5.ux.core.extension.hide
 import dji.v5.ux.core.extension.isFastClick
@@ -308,7 +309,7 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
         }
     }
 
-    override fun `isTextEmptyChanged`() {
+    override fun isTextEmptyChanged() {
         //检查RTK设置项的填写状态，并更新设置button的状态
         var shouldEnableButton = true
         if (TextUtils.isEmpty(edUser.text)) {
@@ -329,10 +330,10 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
         //根据各项填写情况，更新保存按钮的值
         if (shouldEnableButton) {
             btSaveRtkInfo.isEnabled = true
-            btSaveRtkInfo.setTextColor(resources.getColor(R.color.uxsdk_setting_menu_rtk_tiny_green))
+            btSaveRtkInfo.setTextColor(getColor(R.color.uxsdk_setting_menu_rtk_tiny_green))
         } else {
             btSaveRtkInfo.isEnabled = false
-            btSaveRtkInfo.setTextColor(resources.getColor(R.color.uxsdk_setting_menu_rtk_txt_gray))
+            btSaveRtkInfo.setTextColor(getColor(R.color.uxsdk_setting_menu_rtk_txt_gray))
 
         }
     }

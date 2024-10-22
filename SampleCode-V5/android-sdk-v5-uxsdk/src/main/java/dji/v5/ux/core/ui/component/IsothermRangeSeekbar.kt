@@ -21,7 +21,7 @@ open class IsothermRangeSeekbar @JvmOverloads constructor(
     val thumbWidth = AndUtil.getDimension(R.dimen.uxsdk_11_dp).toInt()
     val thumbHeight = AndUtil.getDimension(R.dimen.uxsdk_18_dp).toInt()
 
-    var textFormatCallback: TextFormatCallback? = null
+    private var textFormatCallback: TextFormatCallback? = null
 
     init {
         paint.color = Color.RED
@@ -54,36 +54,43 @@ open class IsothermRangeSeekbar @JvmOverloads constructor(
         } else {
             mTouchRect.right += thumbWidth
         }
-        mTouchRect.top -= thumbHeight/2
-        mTouchRect.bottom += thumbHeight/2
+        mTouchRect.top -= thumbHeight / 2
+        mTouchRect.bottom += thumbHeight / 2
         return mTouchRect
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         // 高度
-        var heightMeasureSpec = heightMeasureSpec
-        val heightNeeded: Int = resources.getDimension(R.dimen.uxsdk_42_dp).toInt() + paddingTop + paddingBottom
-        var heightSize: Int = MeasureSpec.getSize(heightMeasureSpec)
-        val heightMode: Int = MeasureSpec.getMode(heightMeasureSpec)
-        heightMeasureSpec = if (heightMode == MeasureSpec.EXACTLY) {
-            MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY)
-        } else if (heightMode == MeasureSpec.AT_MOST) {
-            MeasureSpec.makeMeasureSpec(
-                if (heightSize < heightNeeded) heightSize else heightNeeded, MeasureSpec.EXACTLY
-            )
-        } else {
-            MeasureSpec.makeMeasureSpec(
-                heightNeeded, MeasureSpec.EXACTLY
-            )
+        var heightMeasureSpec1 = heightMeasureSpec
+        val heightNeeded: Int =
+            resources.getDimension(R.dimen.uxsdk_42_dp).toInt() + paddingTop + paddingBottom
+        var heightSize: Int = MeasureSpec.getSize(heightMeasureSpec1)
+        val heightMode: Int = MeasureSpec.getMode(heightMeasureSpec1)
+        heightMeasureSpec1 = when (heightMode) {
+            MeasureSpec.EXACTLY -> {
+                MeasureSpec.makeMeasureSpec(heightSize, MeasureSpec.EXACTLY)
+            }
+
+            MeasureSpec.AT_MOST -> {
+                MeasureSpec.makeMeasureSpec(
+                    if (heightSize < heightNeeded) heightSize else heightNeeded, MeasureSpec.EXACTLY
+                )
+            }
+
+            else -> {
+                MeasureSpec.makeMeasureSpec(
+                    heightNeeded, MeasureSpec.EXACTLY
+                )
+            }
         }
         val widthSize = MeasureSpec.getSize(widthMeasureSpec)
-        heightSize = MeasureSpec.getSize(heightMeasureSpec)
+        heightSize = MeasureSpec.getSize(heightMeasureSpec1)
         setMeasuredDimension(widthSize, heightSize)
     }
 
     override fun drawLeftThumb(canvas: Canvas) {
 
-        val leftTop = height / 2 - thumbHeight/2
+        val leftTop = height / 2 - thumbHeight / 2
         val leftX = getThumbPosition(mLeftValue) - thumbWidth
         mLeftThumb.setBounds(leftX, leftTop, leftX + thumbWidth, leftTop + thumbHeight)
         if (isEnabled) {
@@ -91,7 +98,7 @@ open class IsothermRangeSeekbar @JvmOverloads constructor(
         }
 
         // 绘制文字
-        val text = textFormatCallback?.format(mLeftValue)?:mLeftValue.toString()
+        val text = textFormatCallback?.format(mLeftValue) ?: mLeftValue.toString()
         textPaint.getTextBounds(text, 0, text.length, textBounds)
         val textRight = leftX + textBounds.width()
         // 超出显示范围，画在左边
@@ -108,14 +115,14 @@ open class IsothermRangeSeekbar @JvmOverloads constructor(
 
     override fun drawRightThumb(canvas: Canvas) {
         val rightX = getThumbPosition(mRightValue)
-        val rightTop = height / 2 - thumbHeight/2
+        val rightTop = height / 2 - thumbHeight / 2
         mRightThumb.setBounds(rightX, rightTop, rightX + thumbWidth, rightTop + thumbHeight)
         if (isEnabled) {
             mRightThumb.draw(canvas)
         }
 
         // 绘制文字
-        val text = textFormatCallback?.format(mRightValue)?:mRightValue.toString()
+        val text = textFormatCallback?.format(mRightValue) ?: mRightValue.toString()
         textPaint.getTextBounds(text, 0, text.length, textBounds)
         val textRight = rightX - textBounds.width()
         // 超出显示范围，画在左边

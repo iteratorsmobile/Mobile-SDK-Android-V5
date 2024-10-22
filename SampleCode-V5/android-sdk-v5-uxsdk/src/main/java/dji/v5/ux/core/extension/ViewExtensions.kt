@@ -27,6 +27,7 @@ package dji.v5.ux.core.extension
 
 import android.content.DialogInterface
 import android.content.res.ColorStateList
+import android.content.res.Resources.Theme
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
@@ -39,6 +40,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.*
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat.ThemeCompat
 import androidx.recyclerview.widget.RecyclerView
 import dji.v5.ux.R
 import dji.v5.ux.core.util.UnitConversionUtil.UnitType
@@ -47,18 +50,20 @@ import dji.v5.ux.core.util.UnitConversionUtil.UnitType
 /**
  * Get the [String] for the given [stringRes].
  */
-fun View.getString(@StringRes stringRes: Int, vararg value: Any): String = context.resources.getString(stringRes, *value)
+fun View.getString(@StringRes stringRes: Int, vararg value: Any): String =
+    context.resources.getString(stringRes, *value)
 
 /**
  * Get the [Drawable] for the given [drawableRes].
  */
-fun View.getDrawable(@DrawableRes drawableRes: Int): Drawable = context.resources.getDrawable(drawableRes)
+fun View.getDrawable(@DrawableRes drawableRes: Int): Drawable =
+    ContextCompat.getDrawable(this.context, drawableRes) ?: throw Throwable("No such drawable")
 
 /**
  * The the color int for the given [colorRes].
  */
 @ColorInt
-fun View.getColor(@ColorRes colorRes: Int): Int = context.resources.getColor(colorRes)
+fun View.getColor(@ColorRes colorRes: Int): Int = ContextCompat.getColor(this.context, colorRes)
 
 /**
  * The the px size for the given [dimenRes].
@@ -167,7 +172,6 @@ var ImageView.imageDrawable: Drawable?
 /**
  * Show an alert dialog.
  * @param dialogTheme The style of the dialog
- * @param isCancellable Dismiss the dialog when touch outside its bounds
  * @param title Dialog title text
  * @param icon  Dialog title icon
  * @param message Dialog message
@@ -197,12 +201,9 @@ fun View.showAlertDialog(
 /**
  * Show an alert dialog.
  * @param dialogTheme The style of the dialog
- * @param isCancellable Dismiss the dialog when touch outside its bounds
  * @param title Dialog title text
  * @param icon  Dialog title icon
  * @param message Dialog message
- * @param positiveButton Positive button text
- * @param negativeButton Negative button text
  * @param dialogClickListener
  */
 fun View.showConfirmationDialog(
@@ -298,16 +299,9 @@ fun <T : RecyclerView.ViewHolder> T.listen(event: (position: Int) -> Unit): T {
     return this
 }
 
-const val TRANSITION_OFFSET = 80
 private const val FAST_CLICK_DURATION = 300
 private val sClickTimes: SparseLongArray = SparseLongArray()
 
-/**
- * 判断是否点击过快
- * @param viewId
- * @param duration
- * @return
- */
 fun Button.isFastClick(duration: Int): Boolean {
     val prevTime: Long = sClickTimes.get(this.id)
     val now = System.currentTimeMillis()
@@ -318,11 +312,6 @@ fun Button.isFastClick(duration: Int): Boolean {
     return isFast
 }
 
-/**
- * 判断是否点击过快
- * @param viewId
- * @return
- */
 fun Button.isFastClick(): Boolean {
     return isFastClick(FAST_CLICK_DURATION)
 }

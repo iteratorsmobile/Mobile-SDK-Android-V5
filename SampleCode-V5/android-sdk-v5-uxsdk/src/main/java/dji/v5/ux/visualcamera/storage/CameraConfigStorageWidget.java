@@ -457,7 +457,7 @@ public class CameraConfigStorageWidget extends ConstraintLayoutWidget<Object> im
      * @param textAppearance Style resource for text appearance
      */
     public void setCameraColorTextAppearance(@StyleRes int textAppearance) {
-        cameraColorTextView.setTextAppearance(getContext(), textAppearance);
+        cameraColorTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -551,7 +551,7 @@ public class CameraConfigStorageWidget extends ConstraintLayoutWidget<Object> im
      * @param textAppearance Style resource for text appearance
      */
     public void setImageFormatTextAppearance(@StyleRes int textAppearance) {
-        imageFormatTextView.setTextAppearance(getContext(), textAppearance);
+        imageFormatTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -645,7 +645,7 @@ public class CameraConfigStorageWidget extends ConstraintLayoutWidget<Object> im
      * @param textAppearance Style resource for text appearance
      */
     public void setStatusCapacityTitleTextAppearance(@StyleRes int textAppearance) {
-        statusCapacityTitleTextView.setTextAppearance(getContext(), textAppearance);
+        statusCapacityTitleTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -739,7 +739,7 @@ public class CameraConfigStorageWidget extends ConstraintLayoutWidget<Object> im
      * @param textAppearance Style resource for text appearance
      */
     public void setStatusCapacityValueTextAppearance(@StyleRes int textAppearance) {
-        statusCapacityValueTextView.setTextAppearance(getContext(), textAppearance);
+        statusCapacityValueTextView.setTextAppearance(textAppearance);
     }
 
     /**

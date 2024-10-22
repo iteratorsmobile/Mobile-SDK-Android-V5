@@ -228,7 +228,7 @@ open class FlightModeWidget @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setTextAppearance(@StyleRes textAppearanceResId: Int) {
-        flightModeTextView.setTextAppearance(context, textAppearanceResId)
+        flightModeTextView.setTextAppearance(textAppearanceResId)
     }
 
     /**

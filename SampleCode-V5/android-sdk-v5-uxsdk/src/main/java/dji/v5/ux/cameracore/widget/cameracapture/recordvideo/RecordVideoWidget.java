@@ -643,7 +643,7 @@ public class RecordVideoWidget extends ConstraintLayoutWidget<Object> implements
      * @param textAppearance to be used
      */
     public void setTimerTextAppearance(@StyleRes int textAppearance) {
-        videoTimerTextView.setTextAppearance(getContext(), textAppearance);
+        videoTimerTextView.setTextAppearance(textAppearance);
     }
     //endregion
 

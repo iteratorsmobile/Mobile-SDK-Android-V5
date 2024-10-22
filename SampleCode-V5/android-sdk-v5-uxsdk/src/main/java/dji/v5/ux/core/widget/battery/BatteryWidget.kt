@@ -461,7 +461,7 @@ open class BatteryWidget @JvmOverloads constructor(
      * @param textAppearance appearance to apply
      */
     fun setSinglePercentTextAppearance(@StyleRes textAppearance: Int) {
-        singleBatteryValueTextView.setTextAppearance(context, textAppearance)
+        singleBatteryValueTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -470,8 +470,8 @@ open class BatteryWidget @JvmOverloads constructor(
      * @param textAppearance appearance to apply
      */
     fun setDualPercentTextAppearance(@StyleRes textAppearance: Int) {
-        dualBattery1ValueTextView.setTextAppearance(context, textAppearance)
-        dualBattery2ValueTextView.setTextAppearance(context, textAppearance)
+        dualBattery1ValueTextView.setTextAppearance(textAppearance)
+        dualBattery2ValueTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -480,8 +480,8 @@ open class BatteryWidget @JvmOverloads constructor(
      * @param textAppearance appearance to apply
      */
     fun setDualVoltageTextAppearance(@StyleRes textAppearance: Int) {
-        dualBattery1VoltageTextView.setTextAppearance(context, textAppearance)
-        dualBattery2VoltageTextView.setTextAppearance(context, textAppearance)
+        dualBattery1VoltageTextView.setTextAppearance(textAppearance)
+        dualBattery2VoltageTextView.setTextAppearance(textAppearance)
     }
 
     /**

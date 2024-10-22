@@ -22,6 +22,8 @@ import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+
 import dji.sdk.keyvalue.value.product.ProductType;
 import dji.v5.manager.aircraft.perception.data.ObstacleAvoidanceType;
 import dji.v5.manager.aircraft.perception.data.PerceptionInfo;
@@ -233,7 +235,7 @@ public class HSIView extends View implements HSIContract.HSIContainer {
         mCompassMargin = typedArray.getDimensionPixelSize(R.styleable.HSIView_uxsdk_hsi_compass_margin,
                 getResources().getDimensionPixelSize(R.dimen.uxsdk_5_dp));
         mDegreeIndicatorColor = typedArray.getColor(R.styleable.HSIView_uxsdk_hsi_degree_indicator_color,
-                getResources().getColor(R.color.uxsdk_green_in_dark));
+                ContextCompat.getColor(context, R.color.uxsdk_green_in_dark));
         mAircraftHeadingOffsetDistanceX = typedArray.getDimensionPixelSize(R.styleable.HSIView_uxsdk_hsi_aircraft_heading_offset_x, 0);
         mAircraftHeadingOffsetDistanceY = typedArray.getDimensionPixelSize(R.styleable.HSIView_uxsdk_hsi_aircraft_heading_offset_y, 0);
         mHeadingLineWidth = typedArray.getDimensionPixelSize(R.styleable.HSIView_uxsdk_hsi_heading_line_width,
@@ -253,8 +255,8 @@ public class HSIView extends View implements HSIContract.HSIContainer {
         mRadarUnavailableBitmap = getBitmap(R.drawable.uxsdk_hsi_aircraft_radar_disable);
         mAircraftHeadingLineDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP,
                 new int[]{
-                        getResources().getColor(R.color.uxsdk_white_30_percent),
-                        getResources().getColor(R.color.uxsdk_white)
+                        ContextCompat.getColor(context, R.color.uxsdk_white_30_percent),
+                        ContextCompat.getColor(context, R.color.uxsdk_white)
                 });
         mAircraftHeadingLineDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);
         mAircraftHeadingLineDrawable.setShape(GradientDrawable.RECTANGLE);
@@ -409,7 +411,7 @@ public class HSIView extends View implements HSIContract.HSIContainer {
     }
 
     private void drawDegreeLine(Canvas canvas) {
-        mPaint.setColor(getResources().getColor(R.color.uxsdk_green_in_dark));
+        mPaint.setColor(ContextCompat.getColor(getContext(), R.color.uxsdk_green_in_dark));
         float width = mDegreeIndicatorWidth;
         mPaint.setStrokeWidth(width);
         mPaint.setStyle(Paint.Style.FILL);

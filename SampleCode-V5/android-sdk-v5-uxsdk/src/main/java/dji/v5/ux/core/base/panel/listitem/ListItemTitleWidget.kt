@@ -49,10 +49,10 @@ import kotlin.math.roundToInt
  * of the widget.
  */
 abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
-        context: Context,
-        attrs: AttributeSet? = null,
-        defStyleAttr: Int = 0,
-        @StyleRes protected val defaultStyle: Int
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0,
+    @StyleRes protected val defaultStyle: Int
 ) : ConstraintLayoutWidget<T>(context, attrs, defStyleAttr), View.OnClickListener {
 
     private val listItemTitleTextView = findViewById<TextView>(R.id.text_view_list_item_title)
@@ -182,7 +182,8 @@ abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
     /**
      * Left padding of the list item content
      */
-    var contentPaddingLeft: Int = getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
+    var contentPaddingLeft: Int =
+        getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
         set(value) {
             field = value
             guidelineLeft.setGuidelineBegin(value)
@@ -191,7 +192,8 @@ abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
     /**
      * Top padding of the list item content
      */
-    var contentPaddingTop: Int = getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
+    var contentPaddingTop: Int =
+        getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
         set(value) {
             field = value
             guidelineTop.setGuidelineBegin(value)
@@ -200,7 +202,8 @@ abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
     /**
      * Right padding of the list item content
      */
-    var contentPaddingRight: Int = getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
+    var contentPaddingRight: Int =
+        getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
         set(value) {
             field = value
             guidelineRight.setGuidelineEnd(value)
@@ -209,7 +212,8 @@ abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
     /**
      * Bottom padding of the list item content
      */
-    var contentPaddingBottom: Int = getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
+    var contentPaddingBottom: Int =
+        getDimension(R.dimen.uxsdk_pre_flight_checklist_item_padding).toInt()
         set(value) {
             field = value
             guidelineBottom.setGuidelineEnd(value)
@@ -233,62 +237,68 @@ abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
 
     @SuppressLint("Recycle")
     private fun initAttributes(context: Context, attrs: AttributeSet?) {
-        context.obtainStyledAttributes(attrs, R.styleable.ListItemTitleWidget,0, defaultStyle).use { typedArray ->
-            typedArray.getResourceIdAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_appearance) {
-                setListItemTitleTextAppearance(it)
+        context.obtainStyledAttributes(attrs, R.styleable.ListItemTitleWidget, 0, defaultStyle)
+            .use { typedArray ->
+                typedArray.getResourceIdAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_appearance) {
+                    setListItemTitleTextAppearance(it)
+                }
+                typedArray.getDrawableAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_icon) {
+                    listItemTitleIcon = it
+                }
+                typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_icon_color) {
+                    listItemTitleIconColor = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_background) {
+                    listItemTitleBackground = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_size) {
+                    listItemTitleTextSize = it
+                }
+                typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_color) {
+                    listItemTitleTextColor = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_color) {
+                    listItemTitleTextColors = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_left) {
+                    contentPaddingLeft = it.toInt()
+                }
+                typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_top) {
+                    contentPaddingTop = it.toInt()
+                }
+                typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_right) {
+                    contentPaddingRight = it.toInt()
+                }
+                typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_bottom) {
+                    contentPaddingBottom = it.toInt()
+                }
+                typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_disconnected_color) {
+                    disconnectedValueColor = it
+                }
+                typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_normal_color) {
+                    normalValueColor = it
+                }
+                typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_warning_color) {
+                    warningValueColor = it
+                }
+                typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_error_color) {
+                    errorValueColor = it
+                }
+                listItemTitle =
+                    typedArray.getString(
+                        R.styleable.ListItemTitleWidget_uxsdk_list_item_title,
+                        getString(R.string.uxsdk_string_default_value)
+                    )
+                typedArray.getDrawableAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_click_indicator_icon) {
+                    clickIndicatorIcon = it
+                }
+                typedArray.getBooleanAndUse(
+                    R.styleable.ListItemTitleWidget_uxsdk_list_item_clickable,
+                    false
+                ) {
+                    listItemClickable = it
+                }
             }
-            typedArray.getDrawableAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_icon) {
-                listItemTitleIcon = it
-            }
-            typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_icon_color) {
-                listItemTitleIconColor = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_background) {
-                listItemTitleBackground = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_size) {
-                listItemTitleTextSize = it
-            }
-            typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_color) {
-                listItemTitleTextColor = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_title_text_color) {
-                listItemTitleTextColors = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_left) {
-                contentPaddingLeft = it.toInt()
-            }
-            typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_top) {
-                contentPaddingTop = it.toInt()
-            }
-            typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_right) {
-                contentPaddingRight = it.toInt()
-            }
-            typedArray.getDimensionAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_padding_bottom) {
-                contentPaddingBottom = it.toInt()
-            }
-            typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_disconnected_color) {
-                disconnectedValueColor = it
-            }
-            typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_normal_color) {
-                normalValueColor = it
-            }
-            typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_warning_color) {
-                warningValueColor = it
-            }
-            typedArray.getColorAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_error_color) {
-                errorValueColor = it
-            }
-            listItemTitle =
-                    typedArray.getString(R.styleable.ListItemTitleWidget_uxsdk_list_item_title,
-                            getString(R.string.uxsdk_string_default_value))
-            typedArray.getDrawableAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_click_indicator_icon) {
-                clickIndicatorIcon = it
-            }
-            typedArray.getBooleanAndUse(R.styleable.ListItemTitleWidget_uxsdk_list_item_clickable, false) {
-                listItemClickable = it
-            }
-        }
     }
 
     override fun setEnabled(enabled: Boolean) {
@@ -319,7 +329,7 @@ abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setListItemTitleTextAppearance(@StyleRes textAppearanceResId: Int) {
-        listItemTitleTextView.setTextAppearance(context, textAppearanceResId)
+        listItemTitleTextView.setTextAppearance(textAppearanceResId)
     }
 
     /**

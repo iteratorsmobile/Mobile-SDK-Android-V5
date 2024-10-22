@@ -412,7 +412,7 @@ abstract class BarPanelWidget<T : Any> @JvmOverloads constructor(
             throw UnsupportedOperationException("Try getLeftPanelItem or getRightPanelItem instead")
 
     @Throws(UnsupportedOperationException::class)
-    override fun addWidgets(panelItems: Array<PanelItem>) {
+    override fun addWidgets(items: Array<PanelItem>) {
         throw UnsupportedOperationException("Try addLeftPanelItems or addRightPanelItems instead")
     }
 

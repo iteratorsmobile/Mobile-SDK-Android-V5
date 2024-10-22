@@ -176,7 +176,7 @@ public class CameraConfigISOAndEIWidget extends ConstraintLayoutWidget<Object> i
      * @param textAppearance Style resource for text appearance
      */
     public void setISOAndEITitleTextAppearance(@StyleRes int textAppearance) {
-        isoTitleTextView.setTextAppearance(getContext(), textAppearance);
+        isoTitleTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -270,7 +270,7 @@ public class CameraConfigISOAndEIWidget extends ConstraintLayoutWidget<Object> i
      * @param textAppearance Style resource for text appearance
      */
     public void setISOAndEIValueTextAppearance(@StyleRes int textAppearance) {
-        isoValueTextView.setTextAppearance(getContext(), textAppearance);
+        isoValueTextView.setTextAppearance(textAppearance);
     }
 
     /**

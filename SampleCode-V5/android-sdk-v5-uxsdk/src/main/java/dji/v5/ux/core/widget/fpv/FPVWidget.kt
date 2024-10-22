@@ -432,7 +432,7 @@ open class FPVWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setCameraNameTextAppearance(@StyleRes textAppearance: Int) {
-        cameraNameTextView.setTextAppearance(context, textAppearance)
+        cameraNameTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -441,7 +441,7 @@ open class FPVWidget @JvmOverloads constructor(
      * @param textAppearance Style resource for text appearance
      */
     fun setCameraSideTextAppearance(@StyleRes textAppearance: Int) {
-        cameraSideTextView.setTextAppearance(context, textAppearance)
+        cameraSideTextView.setTextAppearance(textAppearance)
     }
 
     @SuppressLint("Recycle")

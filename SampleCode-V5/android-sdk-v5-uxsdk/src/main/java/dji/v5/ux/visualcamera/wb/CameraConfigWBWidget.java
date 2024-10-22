@@ -166,7 +166,7 @@ public class CameraConfigWBWidget extends ConstraintLayoutWidget<Object> impleme
      * @param textAppearance Style resource for text appearance
      */
     public void setWBTitleTextAppearance(@StyleRes int textAppearance) {
-        wbTitleTextView.setTextAppearance(getContext(), textAppearance);
+        wbTitleTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -260,7 +260,7 @@ public class CameraConfigWBWidget extends ConstraintLayoutWidget<Object> impleme
      * @param textAppearance Style resource for text appearance
      */
     public void setWBValueTextAppearance(@StyleRes int textAppearance) {
-        wbValueTextView.setTextAppearance(getContext(), textAppearance);
+        wbValueTextView.setTextAppearance(textAppearance);
     }
 
     /**

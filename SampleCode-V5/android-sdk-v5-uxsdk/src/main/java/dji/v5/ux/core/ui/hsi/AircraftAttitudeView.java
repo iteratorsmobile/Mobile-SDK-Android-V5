@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import dji.v5.utils.common.LogUtils;
 import dji.v5.ux.R;
@@ -109,7 +110,7 @@ public class AircraftAttitudeView extends View {
 
         mLineStrokeWidth = context.getResources().getDimensionPixelSize(R.dimen.uxsdk_1_dp);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
-        mPaint.setColor(getResources().getColor(R.color.uxsdk_green_in_dark));
+        mPaint.setColor(ContextCompat.getColor(context, R.color.uxsdk_green_in_dark));
         mPaint.setStrokeWidth(mLineStrokeWidth);
     }
 

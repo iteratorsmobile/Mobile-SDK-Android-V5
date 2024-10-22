@@ -578,7 +578,7 @@ abstract class BaseTelemetryWidget<T : Any> @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setLabelTextAppearance(@StyleRes textAppearanceResId: Int) {
-        labelTextView.setTextAppearance(context, textAppearanceResId)
+        labelTextView.setTextAppearance(textAppearanceResId)
     }
 
     /**
@@ -596,7 +596,7 @@ abstract class BaseTelemetryWidget<T : Any> @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setValueTextAppearance(@StyleRes textAppearanceResId: Int) {
-        valueTextView.setTextAppearance(context, textAppearanceResId)
+        valueTextView.setTextAppearance(textAppearanceResId)
     }
 
     /**
@@ -614,7 +614,7 @@ abstract class BaseTelemetryWidget<T : Any> @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setUnitTextAppearance(@StyleRes textAppearanceResId: Int) {
-        unitTextView.setTextAppearance(context, textAppearanceResId)
+        unitTextView.setTextAppearance(textAppearanceResId)
     }
 
     /**

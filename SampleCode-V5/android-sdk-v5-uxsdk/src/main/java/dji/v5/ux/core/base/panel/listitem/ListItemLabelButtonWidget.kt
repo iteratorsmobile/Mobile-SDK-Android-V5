@@ -33,6 +33,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.annotation.*
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.use
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.processors.PublishProcessor
@@ -73,8 +74,8 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
      * The list item label string
      */
     var listItemLabel: String?
-        @Nullable get() = listItemLabelTextView.text.toString()
-        set(@Nullable value) {
+        get() = listItemLabelTextView.text.toString()
+        set(value) {
             listItemLabelTextView.text = value
         }
 
@@ -133,8 +134,8 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
      * The list item label string
      */
     var listItemButtonText: String?
-        @Nullable get() = listItemButton.text.toString()
-        set(@Nullable value) {
+        get() = listItemButton.text.toString()
+        set(value) {
             listItemButton.text = value
         }
 
@@ -270,7 +271,7 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
     private fun initLabel() {
         listItemLabelTextView.id = ViewIDGenerator.generateViewId()
         listItemLabelTextView.gravity = Gravity.CENTER_VERTICAL or Gravity.END
-        listItemLabelTextColors = resources.getColorStateList(R.color.uxsdk_selector_text_color)
+        listItemLabelTextColors = ContextCompat.getColorStateList(context, R.color.uxsdk_selector_text_color)
         listItemLabelTextSize = getDimension(R.dimen.uxsdk_list_item_label_text_size)
         listItemLabel = getString(R.string.uxsdk_string_default_value)
     }
@@ -278,7 +279,7 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
     private fun initButton() {
         listItemButton.id = ViewIDGenerator.generateViewId()
         listItemButtonBackground = getDrawable(R.drawable.uxsdk_system_status_button_background_selector)
-        listItemButtonTextColors = resources.getColorStateList(R.color.uxsdk_selector_text_color)
+        listItemButtonTextColors = ContextCompat.getColorStateList(context, R.color.uxsdk_selector_text_color)
         listItemButtonText = getString(R.string.uxsdk_string_default_value)
         listItemButton.setOnClickListener(this)
         listItemButton.gravity = Gravity.CENTER
@@ -347,7 +348,7 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setListItemButtonTextAppearance(@StyleRes textAppearanceResId: Int) {
-        listItemButton.setTextAppearance(context, textAppearanceResId)
+        listItemButton.setTextAppearance(textAppearanceResId)
     }
 
     /**
@@ -365,7 +366,7 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setListItemLabelTextAppearance(@StyleRes textAppearanceResId: Int) {
-        listItemLabelTextView.setTextAppearance(context, textAppearanceResId)
+        listItemLabelTextView.setTextAppearance(textAppearanceResId)
     }
 
     override fun setEnabled(enabled: Boolean) {
@@ -375,9 +376,9 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
     }
 
     @CallSuper
-    override fun onClick(view: View?) {
-        super.onClick(view)
-        if (view == listItemButton) {
+    override fun onClick(v: View?) {
+        super.onClick(v)
+        if (v == listItemButton) {
             uiUpdateStateProcessor.onNext(UIState.ButtonClicked)
             onButtonClick()
         }

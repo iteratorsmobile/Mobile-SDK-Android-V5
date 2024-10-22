@@ -44,6 +44,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
+
 import dji.v5.ux.R;
 
 /**
@@ -116,7 +118,7 @@ public class HorizontalSeekBar extends ConstraintLayout implements View.OnTouchL
         seekBarMinus = findViewById(R.id.imageview_minus);
         seekBarPlus = findViewById(R.id.imageview_plus);
 
-        seekBarBaselineColor = getResources().getColor(R.color.uxsdk_green);
+        seekBarBaselineColor = ContextCompat.getColor(context, R.color.uxsdk_green);
     }
 
     private void initAttributes(@NonNull Context context, @Nullable AttributeSet attrs) {
@@ -756,7 +758,7 @@ public class HorizontalSeekBar extends ConstraintLayout implements View.OnTouchL
      * @param textAppearanceResId Style resource for text appearance
      */
     public void setValueTextAppearance(@StyleRes int textAppearanceResId) {
-        seekBarValueText.setTextAppearance(getContext(), textAppearanceResId);
+        seekBarValueText.setTextAppearance(textAppearanceResId);
     }
 
     /**
@@ -850,7 +852,7 @@ public class HorizontalSeekBar extends ConstraintLayout implements View.OnTouchL
      * @param textAppearanceResId Style resource for text appearance
      */
     public void setMinValueTextAppearance(@StyleRes int textAppearanceResId) {
-        seekBarMinText.setTextAppearance(getContext(), textAppearanceResId);
+        seekBarMinText.setTextAppearance(textAppearanceResId);
     }
 
     /**
@@ -944,7 +946,7 @@ public class HorizontalSeekBar extends ConstraintLayout implements View.OnTouchL
      * @param textAppearanceResId Style resource for text appearance
      */
     public void setMaxValueTextAppearance(@StyleRes int textAppearanceResId) {
-        seekBarMaxText.setTextAppearance(getContext(), textAppearanceResId);
+        seekBarMaxText.setTextAppearance(textAppearanceResId);
     }
 
     /**

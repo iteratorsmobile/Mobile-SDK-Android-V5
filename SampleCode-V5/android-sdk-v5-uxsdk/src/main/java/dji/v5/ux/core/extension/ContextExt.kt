@@ -11,8 +11,8 @@ import android.view.WindowManager
 fun Context.getLandScreenSize(): Size {
     val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
 
-    var screenWidth: Int
-    var screenHeight: Int
+    val screenWidth: Int
+    val screenHeight: Int
 
     val display = windowManager.defaultDisplay
     val outSize = Point()

@@ -12,6 +12,7 @@ import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
 import dji.v5.utils.common.LogUtils
 import dji.v5.ux.R
+import dji.v5.ux.core.extension.getColor
 import dji.v5.ux.core.extension.getLandScreenSize
 
 
@@ -42,12 +43,18 @@ class Popover(val builder: Builder) {
             } else {
                 popupWindow.height
             }
-            val width = if (popupWindow.contentView.rootView.layoutParams.width > popoverView.measuredWidth) {
-                popoverView.measuredWidth
-            } else {
-                popupWindow.width
-            }
-            popupWindow.update(newLocation[0] + builder.xOffset, newLocation[1] + builder.yOffset, width, height)
+            val width =
+                if (popupWindow.contentView.rootView.layoutParams.width > popoverView.measuredWidth) {
+                    popoverView.measuredWidth
+                } else {
+                    popupWindow.width
+                }
+            popupWindow.update(
+                newLocation[0] + builder.xOffset,
+                newLocation[1] + builder.yOffset,
+                width,
+                height
+            )
         }
     }
 
@@ -76,40 +83,55 @@ class Popover(val builder: Builder) {
                 when (builder.align) {
                     Align.TOP ->
                         location[1] = anchorViewLocationInScreen[1] - popoverView.paddingTop
+
                     Align.BOTTOM ->
-                        location[1] = anchorViewLocationInScreen[1] + anchorHeight - popoverHeight + popoverView.paddingTop
+                        location[1] =
+                            anchorViewLocationInScreen[1] + anchorHeight - popoverHeight + popoverView.paddingTop
+
                     else -> {
-                        location[1] = anchorViewLocationInScreen[1] + anchorHeight / 2 - popoverHeight / 2
+                        location[1] =
+                            anchorViewLocationInScreen[1] + anchorHeight / 2 - popoverHeight / 2
                     }
                 }
             }
+
             Position.RIGHT -> {
                 location[0] = anchorViewLocationInScreen[0] + anchorWidth - popoverView.paddingLeft
 
                 when (builder.align) {
                     Align.TOP ->
                         location[1] = anchorViewLocationInScreen[1] - popoverView.paddingTop
+
                     Align.BOTTOM ->
-                        location[1] = anchorViewLocationInScreen[1] + anchorHeight - popoverHeight + popoverView.paddingTop
+                        location[1] =
+                            anchorViewLocationInScreen[1] + anchorHeight - popoverHeight + popoverView.paddingTop
+
                     else -> {
-                        location[1] = anchorViewLocationInScreen[1] + anchorHeight / 2 - popoverHeight / 2
+                        location[1] =
+                            anchorViewLocationInScreen[1] + anchorHeight / 2 - popoverHeight / 2
                     }
                 }
             }
+
             Position.TOP -> {
                 location[1] = anchorViewLocationInScreen[1] - popoverHeight + popoverView.paddingTop
                 when (builder.align) {
                     Align.LEFT -> {
                         location[0] = anchorViewLocationInScreen[0] - popoverView.paddingLeft
                     }
+
                     Align.RIGHT -> {
-                        location[0] = anchorViewLocationInScreen[0] + anchorWidth - popoverWidth + popoverView.paddingLeft
+                        location[0] =
+                            anchorViewLocationInScreen[0] + anchorWidth - popoverWidth + popoverView.paddingLeft
                     }
+
                     else -> {
-                        location[0] = anchorViewLocationInScreen[0] + anchorWidth / 2 - popoverWidth / 2
+                        location[0] =
+                            anchorViewLocationInScreen[0] + anchorWidth / 2 - popoverWidth / 2
                     }
                 }
             }
+
             Position.BOTTOM -> {
                 location[1] = anchorViewLocationInScreen[1] + anchorHeight - popoverView.paddingTop
                 when (builder.align) {
@@ -117,12 +139,16 @@ class Popover(val builder: Builder) {
                         location[0] = anchorViewLocationInScreen[0] - popoverView.paddingLeft
 
                     }
+
                     Align.RIGHT -> {
-                        location[0] = anchorViewLocationInScreen[0] + anchorWidth - popoverWidth + popoverView.paddingLeft
+                        location[0] =
+                            anchorViewLocationInScreen[0] + anchorWidth - popoverWidth + popoverView.paddingLeft
 
                     }
+
                     else -> {
-                        location[0] = anchorViewLocationInScreen[0] + anchorWidth / 2 - popoverWidth / 2
+                        location[0] =
+                            anchorViewLocationInScreen[0] + anchorWidth / 2 - popoverWidth / 2
                     }
                 }
             }
@@ -142,7 +168,8 @@ class Popover(val builder: Builder) {
         popoverView: PopoverView,
     ) {
         if (location[0] + popoverWidth - popoverView.paddingLeft > screenWidth - builder.rightScreenMargin) {
-            location[0] = screenWidth - popoverWidth + popoverView.paddingLeft - builder.rightScreenMargin
+            location[0] =
+                screenWidth - popoverWidth + popoverView.paddingLeft - builder.rightScreenMargin
         }
 
         if (location[0] < builder.leftScreenMargin) {
@@ -207,8 +234,8 @@ class Popover(val builder: Builder) {
         builder.anchor.getLocationOnScreen(anchorViewLocationInScreen)
 
         popupWindow.contentView.measure(MeasureSpec.UNSPECIFIED, MeasureSpec.UNSPECIFIED)
-        var popoverWidth = popupWindow.contentView.measuredWidth
-        var popoverHeight = popupWindow.contentView.measuredHeight
+        val popoverWidth = popupWindow.contentView.measuredWidth
+        val popoverHeight = popupWindow.contentView.measuredHeight
 
         if (isTextContent) {
             popupWindow.width = popoverWidth
@@ -220,14 +247,29 @@ class Popover(val builder: Builder) {
         val screenHeight = builder.anchor.context.getLandScreenSize().height
 
 
-        val popupWindowLocation = getShowLocation(anchorViewLocationInScreen, popoverWidth, popoverHeight, anchorWidth, anchorHeight, popoverView)
-        adjustPopupWindowLayoutParams(popupWindowLocation, popoverWidth, popoverHeight, screenWidth, screenHeight, popoverView)
+        val popupWindowLocation = getShowLocation(
+            anchorViewLocationInScreen,
+            popoverWidth,
+            popoverHeight,
+            anchorWidth,
+            anchorHeight,
+            popoverView
+        )
+        adjustPopupWindowLayoutParams(
+            popupWindowLocation,
+            popoverWidth,
+            popoverHeight,
+            screenWidth,
+            screenHeight,
+            popoverView
+        )
 
         val arrowPosition = when (builder.position) {
             Position.BOTTOM,
             Position.TOP,
             ->
                 (anchorViewLocationInScreen[0] + anchorWidth / 2 - popupWindowLocation[0] - popoverView.paddingLeft) / (popoverWidth - popoverView.paddingLeft * 2).toFloat()
+
             else ->
                 (anchorViewLocationInScreen[1] + anchorHeight / 2 - popupWindowLocation[1] - popoverView.paddingTop) / (popoverHeight - popoverView.paddingTop * 2).toFloat()
         }
@@ -250,24 +292,27 @@ class Popover(val builder: Builder) {
             Position.BOTTOM -> PopoverView.ArrowPosition.TOP
         }
 
-        val popoverView = PopoverView(builder.anchor.context,
+        val popoverView = PopoverView(
+            builder.anchor.context,
             popoverBackgroundColor = builder.backgroundColor,
             arrowColor = builder.arrowColor,
             showArrow = builder.showArrow,
             arrowPosition = arrowPosition,
-            borderRadius = builder.anchor.resources.getDimension(R.dimen.uxsdk_4_dp))
+            borderRadius = builder.anchor.resources.getDimension(R.dimen.uxsdk_4_dp)
+        )
 
         if (builder.customView != null) {
             popoverView.setContentView(builder.customView!!, builder.layoutParams)
         } else if (builder.customLayoutRes != 0) {
-            val view = LayoutInflater.from(builder.anchor.context).inflate(builder.customLayoutRes, popoverView, false)
+            val view = LayoutInflater.from(builder.anchor.context)
+                .inflate(builder.customLayoutRes, popoverView, false)
             popoverView.setContentView(view, view.layoutParams)
         } else if (builder.content != null) {
             // 纯文本提示的Popover
             isTextContent = true
             val textView = TextView(builder.anchor.context)
             textView.text = builder.content
-            textView.setTextColor(builder.anchor.resources.getColor(builder.textColor))
+            textView.setTextColor(builder.anchor.getColor(builder.textColor))
             textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12F)
             textView.setTypeface(textView.typeface, Typeface.BOLD)
             val padding = builder.anchor.resources.getDimension(R.dimen.uxsdk_8_dp).toInt()
@@ -280,10 +325,12 @@ class Popover(val builder: Builder) {
 
     fun show() {
         val popupWindowLocation = initPopover()
-        popupWindow.showAtLocation(builder.anchor,
+        popupWindow.showAtLocation(
+            builder.anchor,
             Gravity.NO_GRAVITY,
             popupWindowLocation[0] + builder.xOffset,
-            popupWindowLocation[1] + builder.yOffset)
+            popupWindowLocation[1] + builder.yOffset
+        )
 
     }
 
@@ -340,7 +387,7 @@ class Popover(val builder: Builder) {
     }
 
     fun requestLayout() {
-        popoverView?.post(requestLayoutRunnable)
+        popoverView.post(requestLayoutRunnable)
     }
 
     /**
@@ -369,7 +416,10 @@ class Popover(val builder: Builder) {
         var content: CharSequence? = null
         var customView: View? = null
         var customLayoutRes: Int = 0
-        var layoutParams: ViewGroup.LayoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        var layoutParams: ViewGroup.LayoutParams = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
         var align: Align = Align.CENTER
         var position: Position = Position.BOTTOM
         var enableShadow: Boolean = true
@@ -389,7 +439,7 @@ class Popover(val builder: Builder) {
 
         init {
             dropShadow = DropShadow(
-                color = anchor.resources.getColor(R.color.uxsdk_black_20_percent),
+                color = anchor.getColor(R.color.uxsdk_black_20_percent),
                 dx = 0F,
                 dy = anchor.resources.getDimension(R.dimen.uxsdk_4_dp),
                 blurRadius = anchor.resources.getDimension(R.dimen.uxsdk_16_dp)

@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import androidx.core.content.ContextCompat;
+
 import dji.v5.utils.common.DisplayUtil;
 import dji.v5.ux.R;
 
@@ -31,7 +33,7 @@ public class OffsetVerticalSeekBar extends VerticalSeekBar {
         mRect = new Rect();
         mPaint = new Paint();
         mSeekBarHeight = DisplayUtil.dip2px(getContext(), 4);
-        mRectColor = context.getResources().getColor(R.color.uxsdk_white_0_percent);
+        mRectColor = ContextCompat.getColor(context, R.color.uxsdk_white_0_percent);
     }
 
     @Override

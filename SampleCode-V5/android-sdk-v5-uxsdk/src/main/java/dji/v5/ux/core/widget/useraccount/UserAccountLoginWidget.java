@@ -375,7 +375,7 @@ public class UserAccountLoginWidget extends ConstraintLayoutWidget<Boolean> impl
      * @param textAppearance style resource id for the text appearance
      */
     public void setWidgetStateTextAppearance(@StyleRes int textAppearance) {
-        widgetStateTextView.setTextAppearance(getContext(), textAppearance);
+        widgetStateTextView.setTextAppearance(textAppearance);
     }
 
     /**
@@ -453,7 +453,7 @@ public class UserAccountLoginWidget extends ConstraintLayoutWidget<Boolean> impl
      * @param textAppearance style resource id for the text appearance
      */
     public void setWidgetMessageTextAppearance(@StyleRes int textAppearance) {
-        widgetMessageTextView.setTextAppearance(getContext(), textAppearance);
+        widgetMessageTextView.setTextAppearance(textAppearance);
     }
 
     /**

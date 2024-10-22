@@ -23,7 +23,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
+import androidx.core.content.ContextCompat;
 
 
 import dji.sdk.keyvalue.value.common.LocationCoordinate3D;
@@ -248,7 +248,7 @@ public class HSIMarkerLayer implements HSIContract.HSILayer {
         mSmartTrackInfo.showInHsi = false;
         mSmartTrackInfo.textOffset.set(0, (int) -mHSIContainer.getDegreeIndicatorHeight());
 
-        mWayPointInfo.textColor = context.getResources().getColor(R.color.uxsdk_blue_highlight);
+        mWayPointInfo.textColor = ContextCompat.getColor(context, R.color.uxsdk_blue_highlight);
         mWayPointInfo.textSize = mMarkerIndicatorTextSize;
         mWayPointInfo.horizontalAlign = INDICATOR_ALIGN_LEFT;
         mWayPointInfo.verticalAlign = INDICATOR_ALIGN_TOP;

@@ -36,6 +36,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.annotation.StyleRes
+import androidx.core.content.ContextCompat
 import dji.v5.ux.core.extension.textColor
 import dji.v5.ux.core.extension.textColorStateList
 import dji.v5.ux.R
@@ -48,10 +49,10 @@ import dji.v5.ux.training.simulatorcontrol.SimulatorControlWidget
  * The values entered in [SimulatorControlWidget] can be saved for future simulation as preset.
  * This dialog provides a user interface to enter the name to be used for saving the preset.
  */
-class SavePresetDialog (
-        context: Context,
-        cancelable: Boolean,
-        simulatorPresetData: SimulatorPresetData
+class SavePresetDialog(
+    context: Context,
+    cancelable: Boolean,
+    simulatorPresetData: SimulatorPresetData
 ) : Dialog(context), View.OnClickListener {
 
     //region Fields
@@ -66,8 +67,10 @@ class SavePresetDialog (
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window?.setBackgroundDrawableResource(R.drawable.uxsdk_background_dialog_rounded_corners)
-        window?.setLayout(context.resources.getDimension(R.dimen.uxsdk_simulator_dialog_width).toInt(),
-                ViewGroup.LayoutParams.WRAP_CONTENT)
+        window?.setLayout(
+            context.resources.getDimension(R.dimen.uxsdk_simulator_dialog_width).toInt(),
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
     }
 
     init {
@@ -97,9 +100,11 @@ class SavePresetDialog (
 
     private fun savePreset(name: String) {
         if (TextUtils.isEmpty(name)) {
-            Toast.makeText(context,
-                    context.resources.getString(R.string.uxsdk_simulator_preset_name_empty_error),
-                    Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                context,
+                context.resources.getString(R.string.uxsdk_simulator_preset_name_empty_error),
+                Toast.LENGTH_SHORT
+            ).show()
         } else {
             SimulatorPresetUtils.savePreset(name, simulatorPresetData)
             dismiss()
@@ -133,7 +138,7 @@ class SavePresetDialog (
      * @param textAppearance Style resource for text appearance
      */
     fun setTitleTextAppearance(@StyleRes textAppearance: Int) {
-        titleTextView.setTextAppearance(context, textAppearance)
+        titleTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -149,7 +154,7 @@ class SavePresetDialog (
      * Set background to title text
      */
     fun setTitleBackground(@DrawableRes resourceId: Int) {
-        titleBackground = context.resources.getDrawable(resourceId)
+        titleBackground = ContextCompat.getDrawable(context, resourceId)
     }
 
     /**
@@ -166,7 +171,7 @@ class SavePresetDialog (
      * Set background to button text
      */
     fun setButtonBackground(@DrawableRes resourceId: Int) {
-        buttonBackground = context.resources.getDrawable(resourceId)
+        ContextCompat.getDrawable(context, resourceId)?.let { buttonBackground = it }
     }
 
     /**
@@ -195,8 +200,8 @@ class SavePresetDialog (
      * @param textAppearance Style resource for text appearance
      */
     fun setButtonTextAppearance(@StyleRes textAppearance: Int) {
-        saveTextView.setTextAppearance(context, textAppearance)
-        cancelTextView.setTextAppearance(context, textAppearance)
+        saveTextView.setTextAppearance(textAppearance)
+        cancelTextView.setTextAppearance(textAppearance)
     }
     //endregion
 

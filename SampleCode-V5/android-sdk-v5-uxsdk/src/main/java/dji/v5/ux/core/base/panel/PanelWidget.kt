@@ -437,7 +437,7 @@ abstract class PanelWidget<S, T : Any> @JvmOverloads constructor(
      * @param textAppearanceResId Style resource for text appearance
      */
     fun setTitleTextAppearance(@StyleRes textAppearanceResId: Int) {
-        titleTextView?.setTextAppearance(context, textAppearanceResId)
+        titleTextView?.setTextAppearance(textAppearanceResId)
     }
 
     @SuppressLint("Recycle")

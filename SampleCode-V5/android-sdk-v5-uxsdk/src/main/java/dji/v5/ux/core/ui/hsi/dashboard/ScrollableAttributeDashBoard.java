@@ -21,6 +21,7 @@ import android.view.ViewDebug;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 
 import dji.v5.utils.common.DJIExecutor;
@@ -321,11 +322,11 @@ public abstract class ScrollableAttributeDashBoard extends View {
         mFrameworkStrokeWidth = typedArray.getDimensionPixelSize(R.styleable.ScrollableAttributeDashBoard_uxsdk_framework_stroke_width,
                 getResources().getDimensionPixelSize(R.dimen.uxsdk_1_dp));
         mFrameworkPrimaryColor = typedArray.getColor(R.styleable.ScrollableAttributeDashBoard_uxsdk_framework_primary_color,
-                getResources().getColor(R.color.uxsdk_green_in_dark));
+                ContextCompat.getColor(context, R.color.uxsdk_green_in_dark));
         mFrameworkSecondaryColor = typedArray.getColor(R.styleable.ScrollableAttributeDashBoard_uxsdk_framework_secondary_color,
-                getResources().getColor(R.color.uxsdk_green_in_dark_045));
+                ContextCompat.getColor(context, R.color.uxsdk_green_in_dark_045));
         mFrameworkStrokeColor = typedArray.getColor(R.styleable.ScrollableAttributeDashBoard_uxsdk_framework_stroke_color,
-                getResources().getColor(R.color.uxsdk_black_30_percent));
+                ContextCompat.getColor(context, R.color.uxsdk_black_30_percent));
         mPointerLineInnerWidth = typedArray.getDimensionPixelSize(R.styleable.ScrollableAttributeDashBoard_uxsdk_pointer_line_inner_width, 0);
         mPointerLineOuterWidth = typedArray.getDimensionPixelSize(R.styleable.ScrollableAttributeDashBoard_uxsdk_pointer_line_outer_width,
                 getResources().getDimensionPixelOffset(R.dimen.uxsdk_6_dp));
@@ -356,7 +357,7 @@ public abstract class ScrollableAttributeDashBoard extends View {
                 getResources().getDimension(R.dimen.uxsdk_2_dp));
         mShowBorder = typedArray.getBoolean(R.styleable.ScrollableAttributeDashBoard_uxsdk_show_border, false);
         mBorderColor = typedArray.getColor(R.styleable.ScrollableAttributeDashBoard_uxsdk_border_color,
-                getResources().getColor(R.color.uxsdk_green_in_dark));
+                ContextCompat.getColor(context, R.color.uxsdk_green_in_dark));
         mBorderWidth = typedArray.getDimension(R.styleable.ScrollableAttributeDashBoard_uxsdk_border_width,
                 getResources().getDimension(R.dimen.uxsdk_0_6_dp));
         mBorderRadius = typedArray.getDimension(R.styleable.ScrollableAttributeDashBoard_uxsdk_border_radius,

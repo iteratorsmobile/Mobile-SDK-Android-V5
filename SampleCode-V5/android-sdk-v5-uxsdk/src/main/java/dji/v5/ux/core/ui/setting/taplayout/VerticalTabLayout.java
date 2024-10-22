@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -57,7 +58,7 @@ public class VerticalTabLayout extends ScrollView {
         setFillViewport(true);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.VerticalTabLayout);
         mColorIndicator = typedArray.getColor(R.styleable.VerticalTabLayout_uxsdk_indicator_color,
-                context.getResources().getColor(R.color.uxsdk_blue_highlight));
+                ContextCompat.getColor(context, R.color.uxsdk_blue_highlight));
         mIndicatorWidth = (int) typedArray.getDimension(R.styleable.VerticalTabLayout_uxsdk_indicator_width, dp2px(3));
         mIndicatorCorners = typedArray.getDimension(R.styleable.VerticalTabLayout_uxsdk_indicator_corners, 0);
         mIndicatorGravity = typedArray.getInteger(R.styleable.VerticalTabLayout_uxsdk_indicator_gravity, Gravity.LEFT);

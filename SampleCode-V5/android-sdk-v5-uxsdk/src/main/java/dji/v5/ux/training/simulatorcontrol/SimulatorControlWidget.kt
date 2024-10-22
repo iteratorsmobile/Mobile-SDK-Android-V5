@@ -85,8 +85,7 @@ open class SimulatorControlWidget @JvmOverloads constructor(
     context,
     attrs,
     defStyleAttr
-),
-    View.OnClickListener, OnLoadPresetListener {
+), View.OnClickListener, OnLoadPresetListener {
 
     //region Fields
     private val widgetModel by lazy {
@@ -98,7 +97,8 @@ open class SimulatorControlWidget @JvmOverloads constructor(
     private val latitudeEditText: EditText = findViewById(R.id.edit_text_simulator_lat)
     private val longitudeEditText: EditText = findViewById(R.id.edit_text_simulator_lng)
     private val frequencySeekBar: HorizontalSeekBar = findViewById(R.id.seek_bar_frequency)
-    private val satelliteCountSeekBar: HorizontalSeekBar = findViewById(R.id.seek_bar_satellite_count)
+    private val satelliteCountSeekBar: HorizontalSeekBar =
+        findViewById(R.id.seek_bar_satellite_count)
     private val simulatorTitleTextView: TextView = findViewById(R.id.textview_simulator_title)
     private val simulatorSwitch: Switch = findViewById(R.id.switch_simulator)
     private val latitudeTextView: TextView = findViewById(R.id.textview_simulator_latitude_value)
@@ -108,35 +108,46 @@ open class SimulatorControlWidget @JvmOverloads constructor(
     private val worldYTextView: TextView = findViewById(R.id.textview_simulator_world_y_value)
     private val worldZTextView: TextView = findViewById(R.id.textview_simulator_world_z_value)
     private val motorsStartedTextView: TextView = findViewById(R.id.textview_simulator_motors_value)
-    private val aircraftFlyingTextView: TextView = findViewById(R.id.textview_simulator_aircraft_flying_value)
+    private val aircraftFlyingTextView: TextView =
+        findViewById(R.id.textview_simulator_aircraft_flying_value)
     private val pitchTextView: TextView = findViewById(R.id.textview_simulator_aircraft_pitch_value)
     private val yawTextView: TextView = findViewById(R.id.textview_simulator_aircraft_yaw_value)
     private val rollTextView: TextView = findViewById(R.id.textview_simulator_aircraft_roll_value)
     private val frequencyTextView: TextView = findViewById(R.id.textview_simulator_frequency_value)
     private val loadPresetTextView: TextView = findViewById(R.id.textview_load_preset)
     private val savePresetTextView: TextView = findViewById(R.id.textview_save_preset)
-    private val latitudeLabelTextView: TextView = findViewById(R.id.textview_simulator_latitude_label)
-    private val longitudeLabelTextView: TextView = findViewById(R.id.textview_simulator_longitude_label)
-    private val satelliteLabelTextView: TextView = findViewById(R.id.textview_simulator_satellite_label)
+    private val latitudeLabelTextView: TextView =
+        findViewById(R.id.textview_simulator_latitude_label)
+    private val longitudeLabelTextView: TextView =
+        findViewById(R.id.textview_simulator_longitude_label)
+    private val satelliteLabelTextView: TextView =
+        findViewById(R.id.textview_simulator_satellite_label)
     private val worldXLabelTextView: TextView = findViewById(R.id.textview_simulator_world_x_label)
     private val worldYLabelTextView: TextView = findViewById(R.id.textview_simulator_world_y_label)
     private val worldZLabelTextView: TextView = findViewById(R.id.textview_simulator_world_z_label)
-    private val motorsStartedLabelTextView: TextView = findViewById(R.id.textview_simulator_motors_label)
-    private val aircraftFlyingLabelTextView: TextView = findViewById(R.id.textview_simulator_aircraft_flying_label)
+    private val motorsStartedLabelTextView: TextView =
+        findViewById(R.id.textview_simulator_motors_label)
+    private val aircraftFlyingLabelTextView: TextView =
+        findViewById(R.id.textview_simulator_aircraft_flying_label)
     private val pitchLabelTextView: TextView = findViewById(R.id.textview_simulator_pitch_label)
     private val yawLabelTextView: TextView = findViewById(R.id.textview_simulator_yaw_label)
     private val rollLabelTextView: TextView = findViewById(R.id.textview_simulator_roll_label)
-    private val frequencyLabelTextView: TextView = findViewById(R.id.textview_simulator_frequency_label)
+    private val frequencyLabelTextView: TextView =
+        findViewById(R.id.textview_simulator_frequency_label)
     private val windXLabelTextView: TextView = findViewById(R.id.textview_wind_speed_x_label)
     private val windYLabelTextView: TextView = findViewById(R.id.textview_wind_speed_y_label)
     private val windZLabelTextView: TextView = findViewById(R.id.textview_wind_speed_z_label)
     private val windSpeedXSeekBar: HorizontalSeekBar = findViewById(R.id.seek_bar_wind_speed_x)
     private val windSpeedYSeekBar: HorizontalSeekBar = findViewById(R.id.seek_bar_wind_speed_y)
     private val windSpeedZSeekBar: HorizontalSeekBar = findViewById(R.id.seek_bar_wind_speed_z)
-    private val positionSectionHeaderTextView: TextView = findViewById(R.id.textview_location_section_header)
-    private val windSectionHeaderTextView: TextView = findViewById(R.id.textview_wind_section_header)
-    private val attitudeSectionHeaderTextView: TextView = findViewById(R.id.textview_attitude_section_header)
-    private val aircraftSectionHeaderTextView: TextView = findViewById(R.id.textview_status_section_header)
+    private val positionSectionHeaderTextView: TextView =
+        findViewById(R.id.textview_location_section_header)
+    private val windSectionHeaderTextView: TextView =
+        findViewById(R.id.textview_wind_section_header)
+    private val attitudeSectionHeaderTextView: TextView =
+        findViewById(R.id.textview_attitude_section_header)
+    private val aircraftSectionHeaderTextView: TextView =
+        findViewById(R.id.textview_status_section_header)
     private val attitudeGroup: Group = findViewById(R.id.constraint_group_attitude)
     private val aircraftStatusGroup: Group = findViewById(R.id.constraint_group_aircraft_state)
     private val realWorldPositionGroup: Group = findViewById(R.id.constraint_group_wind)
@@ -145,29 +156,40 @@ open class SimulatorControlWidget @JvmOverloads constructor(
     private lateinit var df: DecimalFormat
     private var shouldReactToCheckChange = false
     private val seekBarChangeListener = object : HorizontalSeekBar.OnSeekBarChangeListener {
-        override fun onProgressChanged(horizontalSeekBar: HorizontalSeekBar, progress: Int, isFromUI: Boolean) {
+        override fun onProgressChanged(
+            horizontalSeekBar: HorizontalSeekBar,
+            progress: Int,
+            isFromUI: Boolean
+        ) {
             when (horizontalSeekBar) {
                 satelliteCountSeekBar -> {
                     satelliteCountSeekBar.text = satelliteCountSeekBar.progress.toString()
                 }
+
                 frequencySeekBar -> {
                     frequencySeekBar.text = max(MIN_FREQUENCY, frequencySeekBar.progress).toString()
                 }
+
                 windSpeedXSeekBar -> {
-                    horizontalSeekBar.text = normalizeWindValue(horizontalSeekBar.progress).toString()
+                    horizontalSeekBar.text =
+                        normalizeWindValue(horizontalSeekBar.progress).toString()
                     if (isFromUI) {
                         setWindSpeedUI(WIND_DIRECTION_X, horizontalSeekBar.progress > 0)
                     }
 
                 }
+
                 windSpeedYSeekBar -> {
-                    horizontalSeekBar.text = normalizeWindValue(horizontalSeekBar.progress).toString()
+                    horizontalSeekBar.text =
+                        normalizeWindValue(horizontalSeekBar.progress).toString()
                     if (isFromUI) {
                         setWindSpeedUI(WIND_DIRECTION_Y, horizontalSeekBar.progress > 0)
                     }
                 }
+
                 windSpeedZSeekBar -> {
-                    horizontalSeekBar.text = normalizeWindValue(horizontalSeekBar.progress).toString()
+                    horizontalSeekBar.text =
+                        normalizeWindValue(horizontalSeekBar.progress).toString()
                     if (isFromUI) {
                         setWindSpeedUI(WIND_DIRECTION_Z, horizontalSeekBar.progress > 0)
                     }
@@ -650,9 +672,10 @@ open class SimulatorControlWidget @JvmOverloads constructor(
 //                .debounce(500, TimeUnit.MILLISECONDS)
 //                .observeOn(SchedulerProvider.ui())
 //                .subscribe { this.updateWindValues(it) })
-        addReaction(widgetModel.simulatorState
-            .observeOn(SchedulerProvider.ui())
-            .subscribe({ this.updateWidgetValues(it) }, { e -> LogUtils.e(logTag, e.message) })
+        addReaction(
+            widgetModel.simulatorState
+                .observeOn(SchedulerProvider.ui())
+                .subscribe({ this.updateWidgetValues(it) }, { e -> LogUtils.e(logTag, e.message) })
         )
         addReaction(widgetModel.isSimulatorActive
             .observeOn(SchedulerProvider.ui())
@@ -697,6 +720,7 @@ open class SimulatorControlWidget @JvmOverloads constructor(
                 uiUpdateStateProcessor.onNext(LoadPresetClicked)
                 showPresetListDialog()
             }
+
             R.id.textview_save_preset -> {
                 uiUpdateStateProcessor.onNext(SavePresetClicked)
                 showSavePresetDialog()
@@ -706,105 +730,106 @@ open class SimulatorControlWidget @JvmOverloads constructor(
 
     @SuppressLint("Recycle")
     private fun initAttributes(context: Context, attrs: AttributeSet) {
-        context.obtainStyledAttributes(attrs, R.styleable.SimulatorControlWidget).use { typedArray ->
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_simulatorActiveDrawable) {
-                simulatorActiveIcon = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_simulatorInactiveDrawable) {
-                simulatorInactiveIcon = it
-            }
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonBackground) {
-                buttonBackground = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextColor) {
-                buttonTextColors = it
-            }
-            typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextColor) {
-                buttonTextColor = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextSize) {
-                buttonTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextAppearance) {
-                setButtonTextAppearance(it)
-            }
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsBackground) {
-                labelBackground = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextColor) {
-                labelTextColors = it
-            }
-            typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextColor) {
-                labelTextColor = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextSize) {
-                labelTextSize = it
-            }
-            typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextAppearance) {
-                setLabelTextAppearance(it)
-            }
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputBackground) {
-                inputBackground = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextColor) {
-                inputTextColors = it
-            }
-            typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextColor) {
-                inputTextColor = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextSize) {
-                inputTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextAppearance) {
-                setInputTextAppearance(it)
-            }
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueBackground) {
-                valueBackground = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextColor) {
-                valueTextColors = it
-            }
+        context.obtainStyledAttributes(attrs, R.styleable.SimulatorControlWidget)
+            .use { typedArray ->
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_simulatorActiveDrawable) {
+                    simulatorActiveIcon = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_simulatorInactiveDrawable) {
+                    simulatorInactiveIcon = it
+                }
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonBackground) {
+                    buttonBackground = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextColor) {
+                    buttonTextColors = it
+                }
+                typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextColor) {
+                    buttonTextColor = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextSize) {
+                    buttonTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_buttonTextAppearance) {
+                    setButtonTextAppearance(it)
+                }
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsBackground) {
+                    labelBackground = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextColor) {
+                    labelTextColors = it
+                }
+                typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextColor) {
+                    labelTextColor = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextSize) {
+                    labelTextSize = it
+                }
+                typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_labelsTextAppearance) {
+                    setLabelTextAppearance(it)
+                }
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputBackground) {
+                    inputBackground = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextColor) {
+                    inputTextColors = it
+                }
+                typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextColor) {
+                    inputTextColor = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextSize) {
+                    inputTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_inputTextAppearance) {
+                    setInputTextAppearance(it)
+                }
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueBackground) {
+                    valueBackground = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextColor) {
+                    valueTextColors = it
+                }
 
-            typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextColor) {
-                valueTextColor = it
+                typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextColor) {
+                    valueTextColor = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextSize) {
+                    valueTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextAppearance) {
+                    setValueTextAppearance(it)
+                }
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerBackground) {
+                    headerBackground = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextColor) {
+                    headerTextColors = it
+                }
+                typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextColor) {
+                    headerTextColor = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextSize) {
+                    headerTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextAppearance) {
+                    setHeaderTextAppearance(it)
+                }
+                typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleBackground) {
+                    titleBackground = it
+                }
+                typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextColor) {
+                    titleTextColors = it
+                }
+                typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextColor) {
+                    titleTextColor = it
+                }
+                typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextSize) {
+                    titleTextSize = DisplayUtil.pxToSp(context, it)
+                }
+                typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextAppearance) {
+                    setTitleTextAppearance(it)
+                }
             }
-            typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextSize) {
-                valueTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_valueTextAppearance) {
-                setValueTextAppearance(it)
-            }
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerBackground) {
-                headerBackground = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextColor) {
-                headerTextColors = it
-            }
-            typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextColor) {
-                headerTextColor = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextSize) {
-                headerTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_headerTextAppearance) {
-                setHeaderTextAppearance(it)
-            }
-            typedArray.getDrawableAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleBackground) {
-                titleBackground = it
-            }
-            typedArray.getColorStateListAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextColor) {
-                titleTextColors = it
-            }
-            typedArray.getColorAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextColor) {
-                titleTextColor = it
-            }
-            typedArray.getDimensionAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextSize) {
-                titleTextSize = DisplayUtil.pxToSp(context, it)
-            }
-            typedArray.getResourceIdAndUse(R.styleable.SimulatorControlWidget_uxsdk_widgetTitleTextAppearance) {
-                setTitleTextAppearance(it)
-            }
-        }
     }
 
     private fun setWindSpeedUI(windDirection: Int, isPositive: Boolean) {
@@ -845,7 +870,7 @@ open class SimulatorControlWidget @JvmOverloads constructor(
                 widgetModel.isSimulatorActive.firstOrError()
                     .observeOn(SchedulerProvider.ui())
                     .subscribe(
-                        Consumer { this.updateUI(it) },
+                        { this.updateUI(it) },
                         UxErrorHandle.logErrorConsumer(TAG, "Update Icon ")
                     )
             )
@@ -861,7 +886,11 @@ open class SimulatorControlWidget @JvmOverloads constructor(
         longitudeEditText.filters = arrayOf<InputFilter>(EditTextNumberInputFilter("-180", "180"))
         loadPresetTextView.setOnClickListener(this)
         savePresetTextView.setOnClickListener(this)
-        simulatorSwitch.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean -> handleSwitchChange(isChecked) }
+        simulatorSwitch.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->
+            handleSwitchChange(
+                isChecked
+            )
+        }
         valueTextColor = getColor(R.color.uxsdk_blue)
         titleTextColor = getColor(R.color.uxsdk_white)
         headerTextColor = getColor(R.color.uxsdk_white)
@@ -966,9 +995,11 @@ open class SimulatorControlWidget @JvmOverloads constructor(
             latitudeEditText.text.toString().isNotEmpty() -> {
                 df.format(latitudeEditText.text.toString().toDouble())
             }
+
             SimulatorPresetUtils.currentSimulatorStartLat.isNotEmpty() -> {
                 SimulatorPresetUtils.currentSimulatorStartLat
             }
+
             else -> {
                 getString(R.string.uxsdk_simulator_null_string)
             }
@@ -977,9 +1008,11 @@ open class SimulatorControlWidget @JvmOverloads constructor(
             longitudeEditText.text.toString().isNotEmpty() -> {
                 df.format(longitudeEditText.text.toString().toDouble())
             }
+
             SimulatorPresetUtils.currentSimulatorStartLng.isNotEmpty() -> {
                 SimulatorPresetUtils.currentSimulatorStartLng
             }
+
             else -> {
                 getString(R.string.uxsdk_simulator_null_string)
             }
@@ -998,11 +1031,18 @@ open class SimulatorControlWidget @JvmOverloads constructor(
         latitudeTextView.visibility = View.VISIBLE
         longitudeTextView.visibility = View.VISIBLE
         satelliteTextView.visibility = View.VISIBLE
-        simulatorTitleTextView.setCompoundDrawablesWithIntrinsicBounds(simulatorActiveIcon, null, null, null)
-        realWorldPositionGroup.visibility = if (isWorldPositionSectionVisible) View.VISIBLE else View.GONE
+        simulatorTitleTextView.setCompoundDrawablesWithIntrinsicBounds(
+            simulatorActiveIcon,
+            null,
+            null,
+            null
+        )
+        realWorldPositionGroup.visibility =
+            if (isWorldPositionSectionVisible) View.VISIBLE else View.GONE
         windSimulationGroup.visibility = if (isWindSectionVisible) View.VISIBLE else View.GONE
         attitudeGroup.visibility = if (isAttitudeSectionVisible) View.VISIBLE else View.GONE
-        aircraftStatusGroup.visibility = if (isAircraftStatusSectionVisible) View.VISIBLE else View.GONE
+        aircraftStatusGroup.visibility =
+            if (isAircraftStatusSectionVisible) View.VISIBLE else View.GONE
         buttonGroup.visibility = View.GONE
     }
 
@@ -1027,7 +1067,12 @@ open class SimulatorControlWidget @JvmOverloads constructor(
         windSpeedXSeekBar.progress = 20
         windSpeedYSeekBar.progress = 20
         windSpeedZSeekBar.progress = 20
-        simulatorTitleTextView.setCompoundDrawablesWithIntrinsicBounds(simulatorInactiveIcon, null, null, null)
+        simulatorTitleTextView.setCompoundDrawablesWithIntrinsicBounds(
+            simulatorInactiveIcon,
+            null,
+            null,
+            null
+        )
         realWorldPositionGroup.visibility = View.GONE
         windSimulationGroup.visibility = View.GONE
         attitudeGroup.visibility = View.GONE
@@ -1074,7 +1119,8 @@ open class SimulatorControlWidget @JvmOverloads constructor(
     private val simulatedLocation: LocationCoordinate2D?
         get() {
             if (latitudeEditText.text.toString().isNotEmpty()
-                && longitudeEditText.text.toString().isNotEmpty()) {
+                && longitudeEditText.text.toString().isNotEmpty()
+            ) {
                 val latCoordinates = latitudeEditText.text.toString().toDouble()
                 val lngCoordinates = longitudeEditText.text.toString().toDouble()
                 if (!latCoordinates.isNaN() && !lngCoordinates.isNaN()) {
@@ -1086,7 +1132,8 @@ open class SimulatorControlWidget @JvmOverloads constructor(
 
     private fun showSavePresetDialog() {
         if (TextUtils.isEmpty(latitudeEditText.text.toString())
-            || TextUtils.isEmpty(longitudeEditText.text.toString())) return
+            || TextUtils.isEmpty(longitudeEditText.text.toString())
+        ) return
         val presetData = SimulatorPresetData(
             latitudeEditText.text.toString().toDouble(),
             longitudeEditText.text.toString().toDouble(),
@@ -1140,7 +1187,7 @@ open class SimulatorControlWidget @JvmOverloads constructor(
      * @param textAppearance resourceId for text appearance for title
      */
     fun setTitleTextAppearance(@StyleRes textAppearance: Int) {
-        simulatorTitleTextView.setTextAppearance(context, textAppearance)
+        simulatorTitleTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -1149,18 +1196,18 @@ open class SimulatorControlWidget @JvmOverloads constructor(
      * @param textAppearance resourceId for text appearance of value fields
      */
     fun setValueTextAppearance(@StyleRes textAppearance: Int) {
-        latitudeTextView.setTextAppearance(context, textAppearance)
-        longitudeTextView.setTextAppearance(context, textAppearance)
-        satelliteTextView.setTextAppearance(context, textAppearance)
-        worldXTextView.setTextAppearance(context, textAppearance)
-        worldYTextView.setTextAppearance(context, textAppearance)
-        worldZTextView.setTextAppearance(context, textAppearance)
-        motorsStartedTextView.setTextAppearance(context, textAppearance)
-        aircraftFlyingTextView.setTextAppearance(context, textAppearance)
-        pitchTextView.setTextAppearance(context, textAppearance)
-        yawTextView.setTextAppearance(context, textAppearance)
-        rollTextView.setTextAppearance(context, textAppearance)
-        frequencyTextView.setTextAppearance(context, textAppearance)
+        latitudeTextView.setTextAppearance(textAppearance)
+        longitudeTextView.setTextAppearance(textAppearance)
+        satelliteTextView.setTextAppearance(textAppearance)
+        worldXTextView.setTextAppearance(textAppearance)
+        worldYTextView.setTextAppearance(textAppearance)
+        worldZTextView.setTextAppearance(textAppearance)
+        motorsStartedTextView.setTextAppearance(textAppearance)
+        aircraftFlyingTextView.setTextAppearance(textAppearance)
+        pitchTextView.setTextAppearance(textAppearance)
+        yawTextView.setTextAppearance(textAppearance)
+        rollTextView.setTextAppearance(textAppearance)
+        frequencyTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -1178,21 +1225,21 @@ open class SimulatorControlWidget @JvmOverloads constructor(
      * @param textAppearance resource id of text appearance for label text
      */
     fun setLabelTextAppearance(@StyleRes textAppearance: Int) {
-        latitudeLabelTextView.setTextAppearance(context, textAppearance)
-        longitudeLabelTextView.setTextAppearance(context, textAppearance)
-        satelliteLabelTextView.setTextAppearance(context, textAppearance)
-        worldXLabelTextView.setTextAppearance(context, textAppearance)
-        worldYLabelTextView.setTextAppearance(context, textAppearance)
-        worldZLabelTextView.setTextAppearance(context, textAppearance)
-        motorsStartedLabelTextView.setTextAppearance(context, textAppearance)
-        aircraftFlyingLabelTextView.setTextAppearance(context, textAppearance)
-        pitchLabelTextView.setTextAppearance(context, textAppearance)
-        yawLabelTextView.setTextAppearance(context, textAppearance)
-        rollLabelTextView.setTextAppearance(context, textAppearance)
-        frequencyLabelTextView.setTextAppearance(context, textAppearance)
-        windXLabelTextView.setTextAppearance(context, textAppearance)
-        windYLabelTextView.setTextAppearance(context, textAppearance)
-        windZLabelTextView.setTextAppearance(context, textAppearance)
+        latitudeLabelTextView.setTextAppearance(textAppearance)
+        longitudeLabelTextView.setTextAppearance(textAppearance)
+        satelliteLabelTextView.setTextAppearance(textAppearance)
+        worldXLabelTextView.setTextAppearance(textAppearance)
+        worldYLabelTextView.setTextAppearance(textAppearance)
+        worldZLabelTextView.setTextAppearance(textAppearance)
+        motorsStartedLabelTextView.setTextAppearance(textAppearance)
+        aircraftFlyingLabelTextView.setTextAppearance(textAppearance)
+        pitchLabelTextView.setTextAppearance(textAppearance)
+        yawLabelTextView.setTextAppearance(textAppearance)
+        rollLabelTextView.setTextAppearance(textAppearance)
+        frequencyLabelTextView.setTextAppearance(textAppearance)
+        windXLabelTextView.setTextAppearance(textAppearance)
+        windYLabelTextView.setTextAppearance(textAppearance)
+        windZLabelTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -1210,8 +1257,8 @@ open class SimulatorControlWidget @JvmOverloads constructor(
      * @param textAppearance resourceId for text appearance of input text fields
      */
     fun setInputTextAppearance(@StyleRes textAppearance: Int) {
-        latitudeEditText.setTextAppearance(context, textAppearance)
-        longitudeEditText.setTextAppearance(context, textAppearance)
+        latitudeEditText.setTextAppearance(textAppearance)
+        longitudeEditText.setTextAppearance(textAppearance)
     }
 
     /**
@@ -1229,8 +1276,8 @@ open class SimulatorControlWidget @JvmOverloads constructor(
      * @param textAppearance resourceId for text appearance for buttons
      */
     fun setButtonTextAppearance(@StyleRes textAppearance: Int) {
-        savePresetTextView.setTextAppearance(context, textAppearance)
-        loadPresetTextView.setTextAppearance(context, textAppearance)
+        savePresetTextView.setTextAppearance(textAppearance)
+        loadPresetTextView.setTextAppearance(textAppearance)
     }
 
     /**
@@ -1248,10 +1295,10 @@ open class SimulatorControlWidget @JvmOverloads constructor(
      * @param textAppearance resourceId for text appearance of header text fields
      */
     fun setHeaderTextAppearance(@StyleRes textAppearance: Int) {
-        positionSectionHeaderTextView.setTextAppearance(context, textAppearance)
-        aircraftSectionHeaderTextView.setTextAppearance(context, textAppearance)
-        attitudeSectionHeaderTextView.setTextAppearance(context, textAppearance)
-        windSectionHeaderTextView.setTextAppearance(context, textAppearance)
+        positionSectionHeaderTextView.setTextAppearance(textAppearance)
+        aircraftSectionHeaderTextView.setTextAppearance(textAppearance)
+        attitudeSectionHeaderTextView.setTextAppearance(textAppearance)
+        windSectionHeaderTextView.setTextAppearance(textAppearance)
     }
 
     /**

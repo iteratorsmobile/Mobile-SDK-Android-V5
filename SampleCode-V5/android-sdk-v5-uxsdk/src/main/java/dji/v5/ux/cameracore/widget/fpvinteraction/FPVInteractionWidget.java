@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.os.Looper;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Pair;
@@ -76,7 +77,7 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
     private static final String TAG = "FPVInteractionWidget";
     private static final int LONG_PRESS_TIME = 500; // Time in milliseconds
     private static final float DEFAULT_VELOCITY_FACTOR = 16.0f;
-    private final Handler handler = new Handler();
+    private final Handler handler = new Handler(Looper.getMainLooper());
     //region Fields
     private FocusTargetView focusTargetView;
     private ExposureMeteringWidget exposureMeterView;
