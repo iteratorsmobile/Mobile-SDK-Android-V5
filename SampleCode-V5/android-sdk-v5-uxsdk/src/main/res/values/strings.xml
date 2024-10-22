@@ -1194,4 +1194,23 @@
     <string name="uxsdk_hdmi_system_setting_mode_same">Duplicar pantalla</string>
     <string name="uxsdk_hdmi_system_setting_mode_fpv">Vista de cámara</string>
     <string name="uxsdk_hdmi_system_setting_mode_camera">Vista de cámara limpia</string>
+    <string name="setting_menu_title_gimbal_fine_tune">Adjust gimbal</string>
+    <string name="setting_ui_hd_sdr_custom_selected_tip">q</string>
+    <string name="setting_ui_hd_sdr_mincolor_desc">q</string>
+    <string name="setting_ui_hd_sdr_maxcolor_desc">q</string>
+    <string name="setting_ui_hd_sdr_channel_select_tip">q</string>
+    <string name="checklist_manual_drone_battery_title" />
+    <string name="setting_menu_common_aircraft_version" />
+    <string name="setting_menu_common_rc_version" />
+    <string name="setting_menu_common_flyc_serial" />
+    <string name="not_a_num" />
+    <string name="setting_menu_common_rc_serial" />
+    <string name="setting_menu_common_rtk_module_serial" />
+    <string name="setting_menu_flyc_smart_rth_set_altitude">When aircraft is farther than 50 m from Home Point, aircraft will automatically calculate RTH route, fly to open area, ascend to preset altitude, and return to home\\nWhen aircraft is 5 to 50 m from Home Point, aircraft will fly planned route and return to home at current altitude\\nWhen aircraft is less than 5 m from Home Point, aircraft will land automatically\\nIf lighting is insufficient or environment is not suitable for vision system to work properly, such as direct sunlight at dusk or weak or no light at night, aircraft will fly to Home Point in straight line at preset altitude\n</string>
+    <string name="setting_menu_flyc_rth_mode" />
+    <string name="setting_common_device_name" />
+    <string name="setting_ui_redundancy_sensor_compass_vector">Compass vector</string>
+    <string name="setting_menu_title_hd_frequency" />
+    <string name="fpv_setting_safe_obstacle_avoidance_behavior_list" />
+    <string name="setting_menu_perception_apas_description" />
 </resources>

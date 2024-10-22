@@ -43,6 +43,6 @@
         android:gravity="center"
         android:paddingTop="@dimen/uxsdk_12_dp"
         android:paddingBottom="@dimen/uxsdk_12_dp"
-        android:text="@string/setting_common_save" />
+        android:text="@string/uxsdk_app_save" />
 
 </RelativeLayout>
