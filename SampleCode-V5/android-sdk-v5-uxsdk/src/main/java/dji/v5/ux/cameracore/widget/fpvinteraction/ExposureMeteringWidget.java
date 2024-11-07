@@ -149,6 +149,7 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> imple
         unscheduleHide();
         hideExposureDisposable = Completable.timer(1500, TimeUnit.MILLISECONDS, SchedulerProvider.ui()).subscribe(() -> {
             mExposeVSeekBar.setShowSeekBar(false);
+            mExposeVSeekBar.setVisibility(View.INVISIBLE);
             mExposeVSeekBar.drawThumb = false;
             openSliderButton.setVisibility(View.VISIBLE);
             setVisibility(View.GONE);
@@ -169,6 +170,7 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> imple
         openSliderButton = findViewById(R.id.exposure_open_slider_button);
         openSliderButton.setOnClickListener(v -> {
             if (!mExposeVSeekBar.isShowSeekBar()) {
+                mExposeVSeekBar.setVisibility(View.VISIBLE);
                 mExposeVSeekBar.setShowSeekBar(true);
                 mExposeVSeekBar.drawThumb = true;
                 openSliderButton.setVisibility(View.GONE);
@@ -181,6 +183,7 @@ public class ExposureMeteringWidget extends ConstraintLayoutWidget<Object> imple
         mExposeVSeekBar = findViewById(R.id.expose_level_seekbar);
         mExposeVSeekBar.setMax(100);
 
+        mExposeVSeekBar.setVisibility(View.INVISIBLE);
         mExposeVSeekBar.setShowSeekBar(false);
         mExposeVSeekBar.drawThumb = false;
         mExposeVSeekBar.setOnChangeListener(new VerticalSeekBar.OnVSBChangeListener() {

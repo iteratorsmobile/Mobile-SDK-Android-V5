@@ -5,11 +5,14 @@ import android.os.SystemClock;
 import java.util.concurrent.TimeUnit;
 
 import androidx.annotation.NonNull;
+
 import dji.sdk.keyvalue.key.CameraKey;
 import dji.sdk.keyvalue.key.DJIKey;
 import dji.sdk.keyvalue.key.KeyTools;
+import dji.sdk.keyvalue.key.ProductKey;
 import dji.sdk.keyvalue.value.common.CameraLensType;
 import dji.sdk.keyvalue.value.common.ComponentIndexType;
+import dji.sdk.keyvalue.value.product.ProductType;
 import dji.v5.manager.KeyManager;
 import dji.v5.ux.core.base.DJISDKModel;
 import dji.v5.ux.core.base.ICameraIndex;
@@ -37,8 +40,8 @@ class FocalZoomWidgetViewModel extends WidgetModel implements ICameraIndex {
     private DJIKey<Double> cameraZoomRatiosKey;
     private DJIKey<Double> thermalZoomRatiosKey;
     public final DataProcessor<Double> focalZoomRatios = DataProcessor.create(0.0D);
-    private final DataProcessor<Double> visibleFocalZoomRatios =  DataProcessor.create(0.0D);
-    private final DataProcessor<Double> thermalFocalZoomRatios =  DataProcessor.create(0.0D);
+    private final DataProcessor<Double> visibleFocalZoomRatios = DataProcessor.create(0.0D);
+    private final DataProcessor<Double> thermalFocalZoomRatios = DataProcessor.create(0.0D);
 
     private long mSendFocusDistanceTime = 0;
 
@@ -50,10 +53,14 @@ class FocalZoomWidgetViewModel extends WidgetModel implements ICameraIndex {
     protected void inSetup() {
         initSendFocalLengthObservable();
         //SDK在Key做过了区分，所以这里直接用
-        cameraZoomRatiosKey = KeyTools.createCameraKey(CameraKey.KeyCameraZoomRatios, cameraIndex, CameraLensType.CAMERA_LENS_ZOOM);
+        ProductType productType = KeyManager.getInstance().getValue(KeyTools.createKey(ProductKey.KeyProductType));
+        CameraLensType zoomLensToUse = productType == ProductType.DJI_MINI_3 || productType == ProductType.DJI_MINI_3_PRO ?
+                CameraLensType.CAMERA_LENS_DEFAULT : CameraLensType.CAMERA_LENS_ZOOM;
+
+        cameraZoomRatiosKey = KeyTools.createCameraKey(CameraKey.KeyCameraZoomRatios, cameraIndex, zoomLensToUse);
         thermalZoomRatiosKey = KeyTools.createCameraKey(CameraKey.KeyThermalZoomRatios, cameraIndex, CameraLensType.CAMERA_LENS_THERMAL);
         bindDataProcessor(cameraZoomRatiosKey, visibleFocalZoomRatios, ratios -> {
-            if (lensType == CameraLensType.CAMERA_LENS_ZOOM) {
+            if (lensType == CameraLensType.CAMERA_LENS_ZOOM || lensType == CameraLensType.CAMERA_LENS_DEFAULT) {
                 focalZoomRatios.onNext(ratios);
             }
         });
@@ -111,7 +118,7 @@ class FocalZoomWidgetViewModel extends WidgetModel implements ICameraIndex {
 
     private void sendFocusDistance(double value) {
         mSendFocusDistanceTime = SystemClock.uptimeMillis();
-        if (lensType == CameraLensType.CAMERA_LENS_ZOOM) {
+        if (lensType == CameraLensType.CAMERA_LENS_ZOOM || lensType == CameraLensType.CAMERA_LENS_DEFAULT) {
             KeyManager.getInstance().setValue(cameraZoomRatiosKey, value, null);
         } else if (lensType == CameraLensType.CAMERA_LENS_THERMAL) {
             KeyManager.getInstance().setValue(thermalZoomRatiosKey, value, null);

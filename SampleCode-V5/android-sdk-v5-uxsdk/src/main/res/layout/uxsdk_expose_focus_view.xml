@@ -21,11 +21,11 @@
 
     <ImageView
         android:id="@+id/exposure_open_slider_button"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="48dp"
         android:layout_marginBottom="48dp"
-        android:padding="5dp"
+        android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,13 +38,14 @@
         style="@style/DisableSeekBar"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/uxsdk_100_dp"
-        android:layout_marginStart="@dimen/uxsdk_43_dp"
+        android:layout_marginStart="@dimen/uxsdk_24_dp"
         android:padding="0dp"
         android:rotation="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@id/expose_focus_iv"
         app:layout_constraintTop_toTopOf="parent"
         custom:uxsdk_max="16"
+        custom:uxsdk_progressHeight="50dp"
         custom:uxsdk_thumb="@drawable/uxsdk_ic_fpv_focusbox_sun_16_active" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

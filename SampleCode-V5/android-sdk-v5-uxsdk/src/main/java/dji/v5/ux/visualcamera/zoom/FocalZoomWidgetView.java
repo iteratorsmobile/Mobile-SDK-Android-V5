@@ -17,9 +17,16 @@ import java.math.BigDecimal;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import dji.sdk.keyvalue.key.CameraKey;
+import dji.sdk.keyvalue.key.KeyTools;
+import dji.sdk.keyvalue.key.ProductKey;
 import dji.sdk.keyvalue.utils.CameraUtil;
+import dji.sdk.keyvalue.value.camera.CameraMode;
 import dji.sdk.keyvalue.value.common.CameraLensType;
 import dji.sdk.keyvalue.value.common.ComponentIndexType;
+import dji.sdk.keyvalue.value.product.ProductType;
+import dji.v5.manager.KeyManager;
 import dji.v5.utils.common.LogUtils;
 import dji.v5.ux.R;
 import dji.v5.ux.core.base.DJISDKModel;
@@ -164,7 +171,13 @@ public class FocalZoomWidgetView extends ViewWidget implements ICameraIndex {
     @Override
     public void updateCameraSource(@NonNull ComponentIndexType cameraIndex, @NonNull CameraLensType lensType) {
         widgetModel.updateCameraSource(cameraIndex, lensType);
-        mFocalLengthGears = CameraUtil.getFocalLengthGears(widgetModel.getCameraIndex().value());
+        ProductType product = KeyManager.getInstance().getValue(KeyTools.createKey(ProductKey.KeyProductType));
+        CameraMode cameraMode = KeyManager.getInstance().getValue(KeyTools.createKey(CameraKey.KeyCameraMode));
+
+        if (product == ProductType.DJI_MINI_3 || product == ProductType.DJI_MINI_3_PRO) {
+            mFocalLengthGears = cameraMode == CameraMode.VIDEO_NORMAL ? new int[]{1, 4} : new int[]{1, 2};
+        } else
+            mFocalLengthGears = CameraUtil.getFocalLengthGears(widgetModel.getCameraIndex().value());
     }
 
     @Override

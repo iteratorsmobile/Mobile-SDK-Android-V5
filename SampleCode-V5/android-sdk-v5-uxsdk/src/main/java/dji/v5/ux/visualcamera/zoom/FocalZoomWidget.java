@@ -75,7 +75,7 @@ public class FocalZoomWidget extends ConstraintLayoutWidget<Object> implements I
     }
 
     private boolean showZoomView(CameraLensType lensType) {
-        return lensType == CameraLensType.CAMERA_LENS_ZOOM || lensType == CameraLensType.CAMERA_LENS_THERMAL;
+        return lensType == CameraLensType.CAMERA_LENS_DEFAULT || lensType == CameraLensType.CAMERA_LENS_ZOOM || lensType == CameraLensType.CAMERA_LENS_THERMAL;
     }
 
     public void onUpLevel() {

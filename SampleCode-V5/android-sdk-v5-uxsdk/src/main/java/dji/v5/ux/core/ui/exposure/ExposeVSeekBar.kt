@@ -17,10 +17,10 @@ class ExposeVSeekBar @JvmOverloads constructor(
 ) : VerticalSeekBar(context, attrs) {
 
     var isShowSeekBar = false
-    private val sunSize = getContext().resources.getDimensionPixelSize(R.dimen.uxsdk_14_dp)
+    private val sunSize = getContext().resources.getDimensionPixelSize(R.dimen.uxsdk_24_dp)
     private val rectWidth = getContext().resources.getDimensionPixelSize(R.dimen.uxsdk_1_dp)
     private val sunMargin = getContext().resources.getDimensionPixelSize(R.dimen.uxsdk_2_dp)
-    private val rectStrokeWidth = AndUtil.dip2px(context, 0.5f)
+    private val rectStrokeWidth = AndUtil.dip2px(context, 0.8f)
     private val halfSunSize = sunSize shr 1
 
     private val rect = Rect()
@@ -37,17 +37,6 @@ class ExposeVSeekBar @JvmOverloads constructor(
         dw += paddingLeft + paddingRight
         dh += paddingTop + paddingBottom
         setMeasuredDimension(dw, dh)
-    }
-
-    override fun onTouchEvent(event: MotionEvent?): Boolean {
-        if ((event != null && event.action == MotionEvent.ACTION_DOWN && mThumb != null)
-            && (event.y < mThumb.bounds.top - mThumb.intrinsicWidth
-                    || event.y > mThumb.bounds.bottom + mThumb.intrinsicWidth)
-        ) {
-            //只有点击小太阳图标时才有效，否则不处理点击事件
-            return false
-        }
-        return super.onTouchEvent(event)
     }
 
     override fun onDraw(canvas: Canvas?) {
