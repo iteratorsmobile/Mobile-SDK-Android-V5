@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_aircraft"
-    app:startDestination="@id/waypoint_page">
-
-    <fragment
-        android:id="@+id/waypoint_page"
-        android:name="dji.sampleV5.aircraft.pages.WaypointFragment"
-        android:label="waypoint_page"
-        tools:layout="@layout/frag_waypoint_page" />
+    app:startDestination="@id/virtual_stick_page">
 
     <fragment
         android:id="@+id/virtual_stick_page"

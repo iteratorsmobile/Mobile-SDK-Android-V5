@@ -2,6 +2,7 @@ package dji.v5.ux.visualcamera.ndvi
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
@@ -14,6 +15,9 @@ import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.extension.getColor
 import dji.v5.ux.core.extension.getString
 import dji.v5.ux.core.ui.component.StrokeTextView
+import dji.v5.ux.databinding.UxsdkCameraStatusActionItemContentBinding
+import dji.v5.ux.databinding.UxsdkPanelCommonCameraBinding
+import dji.v5.ux.databinding.UxsdkPanelNdvlBinding
 
 /**
  * 仅用于CameraLensType.CAMERA_LENS_MS_NDVI镜头下
@@ -25,6 +29,8 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
 ) : FrameLayoutWidget<Any>(context, attrs, defStyleAttr), ICameraIndex, View.OnClickListener {
     private var tv_content: StrokeTextView? = null
 
+    private lateinit var binding: UxsdkCameraStatusActionItemContentBinding
+
     private val widgetModel by lazy {
         SpectralDisplayModeWidgetModel(
             DJISDKModel.getInstance(),
@@ -33,8 +39,7 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        inflate(context, R.layout.uxsdk_camera_status_action_item_content, this)
-        tv_content = findViewById(R.id.tv_content)
+        binding = UxsdkCameraStatusActionItemContentBinding.inflate(LayoutInflater.from(context), this, true)
         setOnClickListener(this)
     }
 
@@ -47,7 +52,7 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
         if (!isInEditMode) {
             widgetModel.setup()
         }
-        tv_content?.text = getString(R.string.uxsdk_stream_switcher_sbs)
+        binding.tvContent.text = getString(R.string.uxsdk_stream_switcher_sbs)
     }
 
     override fun onDetachedFromWindow() {
@@ -62,9 +67,9 @@ open class SpectralDisplayModeWidget @JvmOverloads constructor(
             .observeOn(ui())
             .subscribe {
                 if (it) {
-                    tv_content?.setTextColor(getColor(R.color.uxsdk_yellow_in_light))
+                    binding.tvContent.setTextColor(getColor(R.color.uxsdk_yellow_in_light))
                 } else {
-                    tv_content?.setTextColor(getColor(R.color.uxsdk_white_33_percent))
+                    binding.tvContent.setTextColor(getColor(R.color.uxsdk_white_33_percent))
                 }
             }
         )

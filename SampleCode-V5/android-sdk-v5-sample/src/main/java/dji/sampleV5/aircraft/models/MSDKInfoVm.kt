@@ -101,14 +101,6 @@ class MSDKInfoVm : DJIViewModel() {
 
     private fun updateNetworkInfo(isAvailable: Boolean) {
         msdkInfo.value?.networkInfo = if(isAvailable) ONLINE_STR else NO_NETWORK_STR
-//        viewModelScope.launch {
-//            var isInInnerNetwork: Boolean
-//            withContext(Dispatchers.IO) {
-//                isInInnerNetwork = SDKConfig.getInstance().isInInnerNetwork
-//            }
-//            msdkInfo.value?.networkInfo =
-//                if (isInInnerNetwork) IN_INNER_NETWORK_STR else IN_OUT_NETWORK_STR
-//        }
     }
 
     private fun updateFirmwareVersion() {

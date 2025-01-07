@@ -434,7 +434,7 @@ open class TakeOffWidget @JvmOverloads constructor(
                 override fun onCheckBoxChecked(dialog: DialogInterface?, checked: Boolean) {
                     uiUpdateStateProcessor.onNext(DialogCheckboxCheckChanged(dialogType))
                     checkBoxChecked = checked
-                    updateTakeOffDialogMessage()
+//                    updateTakeOffDialogMessage()
                 }
             })
 

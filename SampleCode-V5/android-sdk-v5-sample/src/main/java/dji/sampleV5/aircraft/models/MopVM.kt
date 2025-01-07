@@ -62,10 +62,11 @@ class MopVM : DJIViewModel() {
     }
 
     fun readData() {
+        var time = "Start time：${getTimeNow()}"
         val result = pipeline?.readData(data) ?: DataResult()
         val len = result.length
+        time += "，Receive time：${getTimeNow()}，“len:${len}"
         if (len > 0) {
-            var time = "Receive time：${getTimeNow()}"
             if (data.isNotEmpty()) {
                 val newValueString = String(data)
                 time += "，Receive content：$newValueString"
@@ -86,7 +87,6 @@ class MopVM : DJIViewModel() {
         if (!isStop) {
             readData()
         }
-
     }
 
     fun sendData(byteArray: ByteArray) {

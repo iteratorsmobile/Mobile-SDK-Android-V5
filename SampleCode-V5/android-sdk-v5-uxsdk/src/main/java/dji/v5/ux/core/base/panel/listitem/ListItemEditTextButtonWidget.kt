@@ -77,11 +77,11 @@ import io.reactivex.rxjava3.processors.PublishProcessor
  * @property widgetType - The [WidgetType] of the current widget.
  */
 abstract class ListItemEditTextButtonWidget<T : Any> @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
-    val widgetType: WidgetType,
-    @StyleRes defaultStyle: Int
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0,
+        val widgetType: WidgetType,
+        @StyleRes defaultStyle: Int
 ) : ListItemTitleWidget<T>(context, attrs, defStyleAttr, defaultStyle), View.OnClickListener {
 
     //region Fields

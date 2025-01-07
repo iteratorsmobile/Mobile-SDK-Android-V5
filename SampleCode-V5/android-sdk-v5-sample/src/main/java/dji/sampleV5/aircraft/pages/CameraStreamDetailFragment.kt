@@ -19,9 +19,9 @@ import dji.sampleV5.aircraft.models.CameraStreamDetailVM
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.v5.manager.interfaces.ICameraStreamManager
-import kotlinx.android.synthetic.main.fragment_camera_stream_detail.sv_camera
+import dji.v5.utils.common.StringUtils
 
-class CameraStreamDetailFragment : Fragment() {
+class CameraStreamDetailFragment : DJIFragment() {
 
     companion object {
         private const val KEY_CAMERA_INDEX = "cameraIndex"
@@ -52,6 +52,8 @@ class CameraStreamDetailFragment : Fragment() {
     private lateinit var btnDownloadYUV: Button
     private lateinit var tvCameraName: TextView
     private lateinit var btnCloseOrOpen: Button
+    private lateinit var btnBeginDownloadStream: Button
+    private lateinit var btnStopDownloadStream: Button
     private lateinit var cameraIndex: ComponentIndexType
     private var onlyOneCamera = false
     private var isNeedPreviewCamera = false
@@ -75,6 +77,10 @@ class CameraStreamDetailFragment : Fragment() {
         return inflater.inflate(layoutId, container, false)
     }
 
+    override fun updateTitle() {
+        // do nothing
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -84,6 +90,8 @@ class CameraStreamDetailFragment : Fragment() {
         btnDownloadYUV = view.findViewById(R.id.btn_download_yuv)
         tvCameraName = view.findViewById(R.id.tv_camera_name)
         btnCloseOrOpen = view.findViewById(R.id.btn_close_or_open)
+        btnBeginDownloadStream = view.findViewById(R.id.btn_begin_download_stream)
+        btnStopDownloadStream = view.findViewById(R.id.btn_stop_download_stream)
         rgScaleLayout.setOnCheckedChangeListener(onScaleChangeListener)
         mrgLensTypeLayout.setOnCheckedChangeListener(mOnLensChangeListener)
         btnCloseOrOpen.setOnClickListener(onOpenOrCloseCheckListener)
@@ -91,6 +99,14 @@ class CameraStreamDetailFragment : Fragment() {
 
         btnDownloadYUV.setOnClickListener {
             downloadYUVImage()
+        }
+
+        btnBeginDownloadStream.setOnClickListener {
+            viewModel.beginDownloadStreamToLocal()
+        }
+
+        btnStopDownloadStream.setOnClickListener {
+            viewModel.stopDownloadStreamToLocal()
         }
 
         initViewModel()
@@ -139,9 +155,9 @@ class CameraStreamDetailFragment : Fragment() {
 
     private fun updateCameraStream() {
         if (isNeedPreviewCamera) {
-            sv_camera.visibility = View.VISIBLE
+            cameraSurfaceView.visibility = View.VISIBLE
         } else {
-            sv_camera.visibility = View.GONE
+            cameraSurfaceView.visibility = View.GONE
         }
         if (width <= 0 || height <= 0 || surface == null || !isNeedPreviewCamera) {
             if (surface != null) {
@@ -200,6 +216,7 @@ class CameraStreamDetailFragment : Fragment() {
         }
         updateCameraStream()
     }
+
     private val mOnLensChangeListener = RadioGroup.OnCheckedChangeListener { rg, checkedId ->
         rg.findViewById<RadioButton>(checkedId)?.let {
             val tag = it.tag

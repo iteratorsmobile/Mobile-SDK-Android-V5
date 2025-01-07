@@ -22,6 +22,10 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8
         freeCompilerArgs += ["-Xjvm-default=all"]
     }
+
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -51,7 +55,6 @@ dependencies {
     implementation deps.mikepenzIonicons
     implementation deps.material
 
-    api deps.maplibreAnotation
     api deps.maplibreTurf
     api deps.maplibreSdk
 
@@ -62,6 +65,6 @@ dependencies {
     api deps.playservicesbase
 
     compileOnly deps.aircraftProvided
-    compileOnly deps.aircraft
+    implementation deps.aircraft
 
 }

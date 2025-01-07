@@ -392,9 +392,7 @@ open class AirSenseWidget @JvmOverloads constructor(
     //endregion
 
     //region Customization
-    override fun getIdealDimensionRatioString(): String {
-        return getString(R.string.uxsdk_widget_air_sense_ratio)
-    }
+    override fun getIdealDimensionRatioString() = null
 
     /**
      * Tints the AirSense icon to the given color when the AirSense state is the given value.

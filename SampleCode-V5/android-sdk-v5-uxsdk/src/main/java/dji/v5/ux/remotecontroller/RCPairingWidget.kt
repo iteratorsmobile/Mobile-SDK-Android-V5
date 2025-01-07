@@ -3,6 +3,7 @@ package dji.v5.ux.remotecontroller
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.Button
+import android.view.LayoutInflater
 import android.widget.Toast
 import dji.sdk.keyvalue.value.remotecontroller.PairingState
 import dji.v5.utils.common.StringUtils
@@ -11,6 +12,8 @@ import dji.v5.ux.core.base.DJISDKModel
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.util.ViewUtil
+import dji.v5.ux.databinding.UxsdkPanelNdvlBinding
+import dji.v5.ux.databinding.UxsdkWidgetRcCheckFrequencyLayoutBinding
 import io.reactivex.rxjava3.core.CompletableObserver
 import io.reactivex.rxjava3.disposables.Disposable
 
@@ -35,6 +38,8 @@ class RCPairingWidget @JvmOverloads constructor(
     private var isStartPairing = false
     private var isStopPairing = false
 
+    private lateinit var binding: UxsdkWidgetRcCheckFrequencyLayoutBinding
+
     private val widgetModel by lazy {
         RcCheckFrequencyWidgetModel(
             DJISDKModel.getInstance(),
@@ -47,8 +52,7 @@ class RCPairingWidget @JvmOverloads constructor(
     private var setting_menu_rc_check_frequency: Button? = null
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        inflate(context, R.layout.uxsdk_widget_rc_check_frequency_layout, this)
-        setting_menu_rc_check_frequency = findViewById(R.id.setting_menu_rc_check_frequency)
+        binding = UxsdkWidgetRcCheckFrequencyLayoutBinding.inflate(LayoutInflater.from(context),this,true)
     }
 
     override fun reactToModelChanges() {
@@ -91,8 +95,7 @@ class RCPairingWidget @JvmOverloads constructor(
 
             })
 
-
-        setting_menu_rc_check_frequency?.setOnClickListener {
+        binding.settingMenuRcCheckFrequency.setOnClickListener {
             if (isMotorOn && connect) {
                 ViewUtil.showToast(
                     context,

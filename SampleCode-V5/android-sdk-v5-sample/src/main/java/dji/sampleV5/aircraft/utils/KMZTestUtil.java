@@ -1,7 +1,5 @@
 package dji.sampleV5.aircraft.utils;
 
-import static dji.sdk.wpmz.value.mission.WaylineWaypointTurnMode.TO_POINT_AND_STOP_WITH_DISCONTINUITY_CURVATURE;
-
 import com.dji.wpmzsdk.common.data.Template;
 import com.dji.wpmzsdk.common.utils.kml.model.WaypointActionType;
 
@@ -38,6 +36,7 @@ import dji.sdk.wpmz.value.mission.WaylinePositioningType;
 import dji.sdk.wpmz.value.mission.WaylineTemplateWaypointInfo;
 import dji.sdk.wpmz.value.mission.WaylineWaypoint;
 import dji.sdk.wpmz.value.mission.WaylineWaypointPitchMode;
+import dji.sdk.wpmz.value.mission.WaylineWaypointTurnMode;
 import dji.sdk.wpmz.value.mission.WaylineWaypointYawMode;
 import dji.sdk.wpmz.value.mission.WaylineWaypointYawParam;
 
@@ -119,7 +118,7 @@ public class KMZTestUtil {
         waypointInfo.setActionGroups(transformActionsFrom(waypointInfoModels));
         waypointInfo.setGlobalFlightHeight(DEF_GLOBAL_FLIGHT_HEIGHT);
         waypointInfo.setIsGlobalFlightHeightSet(true);
-        waypointInfo.setGlobalTurnMode(TO_POINT_AND_STOP_WITH_DISCONTINUITY_CURVATURE);
+        waypointInfo.setGlobalTurnMode(WaylineWaypointTurnMode.TO_POINT_AND_STOP_WITH_DISCONTINUITY_CURVATURE);
         waypointInfo.setUseStraightLine(true);
         waypointInfo.setIsTemplateGlobalTurnModeSet(true);
         WaylineWaypointYawParam yawParam = new WaylineWaypointYawParam();

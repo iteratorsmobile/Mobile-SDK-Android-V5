@@ -191,9 +191,7 @@ open class RemoteControllerSignalWidget @JvmOverloads constructor(
     //endregion
 
     //region Customization
-    override fun getIdealDimensionRatioString(): String {
-        return getString(R.string.uxsdk_widget_remote_control_signal_ratio)
-    }
+    override fun getIdealDimensionRatioString() = null
 
     /**
      * Set the [resourceId] for the RC icon

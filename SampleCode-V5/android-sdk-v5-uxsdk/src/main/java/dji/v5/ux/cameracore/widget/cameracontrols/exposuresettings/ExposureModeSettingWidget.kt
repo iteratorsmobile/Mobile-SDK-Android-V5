@@ -2,9 +2,8 @@ package dji.v5.ux.cameracore.widget.cameracontrols.exposuresettings
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
-import android.widget.FrameLayout
-import androidx.constraintlayout.widget.ConstraintLayout
 import dji.sdk.keyvalue.value.camera.CameraExposureMode
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
@@ -15,6 +14,8 @@ import dji.v5.ux.core.base.SchedulerProvider
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.util.UxErrorHandle
+import dji.v5.ux.databinding.UxsdkPanelNdvlBinding
+import dji.v5.ux.databinding.UxsdkWidgetExposureModeSettingBinding
 import io.reactivex.rxjava3.functions.Action
 
 /**
@@ -31,11 +32,7 @@ open class ExposureModeSettingWidget @JvmOverloads constructor(
     defStyleAttr: Int = 0,
 ) : ConstraintLayoutWidget<ExposureModeSettingWidget.ModelState>(context, attrs, defStyleAttr),
     View.OnClickListener, ICameraIndex {
-
-    private var layout_camera_mode_a: FrameLayout? = null
-    private var layout_camera_mode_s: FrameLayout? = null
-    private var layout_camera_mode_m: FrameLayout? = null
-    private var layout_camera_mode_p: ConstraintLayout? = null
+    private lateinit var binding: UxsdkWidgetExposureModeSettingBinding
 
     private val widgetModel by lazy {
         ExposureModeSettingModel(
@@ -45,11 +42,7 @@ open class ExposureModeSettingWidget @JvmOverloads constructor(
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        View.inflate(context, R.layout.uxsdk_widget_exposure_mode_setting, this)
-        layout_camera_mode_a = findViewById(R.id.layout_camera_mode_a)
-        layout_camera_mode_s = findViewById(R.id.layout_camera_mode_s)
-        layout_camera_mode_m = findViewById(R.id.layout_camera_mode_m)
-        layout_camera_mode_p = findViewById(R.id.layout_camera_mode_p)
+        binding = UxsdkWidgetExposureModeSettingBinding.inflate(LayoutInflater.from(context), this)
     }
 
     override fun onAttachedToWindow() {
@@ -57,11 +50,11 @@ open class ExposureModeSettingWidget @JvmOverloads constructor(
         if (!isInEditMode) {
             widgetModel.setup()
         }
-        layout_camera_mode_a?.setOnClickListener(this)
-        layout_camera_mode_s?.setOnClickListener(this)
-        layout_camera_mode_m?.setOnClickListener(this)
-        layout_camera_mode_p?.setOnClickListener(this)
-        layout_camera_mode_p?.isSelected = true
+        binding.layoutCameraModeA.setOnClickListener(this)
+        binding.layoutCameraModeS.setOnClickListener(this)
+        binding.layoutCameraModeM.setOnClickListener(this)
+        binding.layoutCameraModeP.setOnClickListener(this)
+        binding.layoutCameraModeP.isSelected = true
     }
 
     override fun onDetachedFromWindow() {
@@ -126,24 +119,26 @@ open class ExposureModeSettingWidget @JvmOverloads constructor(
     }
 
     private fun updateExposureModeRange(range: List<CameraExposureMode>) {
-        layout_camera_mode_a?.isEnabled = rangeContains(range, CameraExposureMode.APERTURE_PRIORITY)
-        layout_camera_mode_s?.isEnabled = rangeContains(range, CameraExposureMode.SHUTTER_PRIORITY)
-        layout_camera_mode_m?.isEnabled = rangeContains(range, CameraExposureMode.MANUAL)
-        layout_camera_mode_p?.isEnabled = rangeContains(range, CameraExposureMode.PROGRAM)
+        binding.layoutCameraModeA.isEnabled = rangeContains(range, CameraExposureMode.APERTURE_PRIORITY)
+        binding.layoutCameraModeS.isEnabled = rangeContains(range, CameraExposureMode.SHUTTER_PRIORITY)
+        binding.layoutCameraModeM.isEnabled = rangeContains(range, CameraExposureMode.MANUAL)
+        binding.layoutCameraModeP.isEnabled = rangeContains(range, CameraExposureMode.PROGRAM)
     }
 
     private fun updateExposureMode(mode: CameraExposureMode) {
-        layout_camera_mode_a?.isSelected = false
-        layout_camera_mode_s?.isSelected = false
-        layout_camera_mode_m?.isSelected = false
-        layout_camera_mode_p?.isSelected = false
+        binding.layoutCameraModeA.isSelected = false
+        binding.layoutCameraModeS.isSelected = false
+        binding.layoutCameraModeM.isSelected = false
+        binding.layoutCameraModeP.isSelected = false
 
         when (mode) {
-            CameraExposureMode.PROGRAM -> layout_camera_mode_p?.isSelected = true
-            CameraExposureMode.SHUTTER_PRIORITY -> layout_camera_mode_s?.isSelected = true
-            CameraExposureMode.APERTURE_PRIORITY -> layout_camera_mode_a?.isSelected = true
-            CameraExposureMode.MANUAL -> layout_camera_mode_m?.isSelected = true
-            else -> {}
+            CameraExposureMode.PROGRAM -> binding.layoutCameraModeP.isSelected = true
+            CameraExposureMode.SHUTTER_PRIORITY -> binding.layoutCameraModeS.isSelected = true
+            CameraExposureMode.APERTURE_PRIORITY -> binding.layoutCameraModeA.isSelected = true
+            CameraExposureMode.MANUAL -> binding.layoutCameraModeM.isSelected = true
+            else -> {
+                //do something
+            }
         }
     }
 

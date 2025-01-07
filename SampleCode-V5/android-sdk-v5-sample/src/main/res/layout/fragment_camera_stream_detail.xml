@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:viewBindingIgnore="true"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_light_divider_line"
@@ -240,36 +242,56 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btn_download_yuv"
-            android:layout_width="88dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="0dp"
-            android:text="capture"
-            android:textAllCaps="false"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="@id/btn_close_or_open"
-            app:layout_constraintEnd_toStartOf="@id/btn_close_or_open"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/btn_close_or_open" />
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
 
-        <Button
-            android:id="@+id/btn_close_or_open"
-            android:layout_width="88dp"
-            android:layout_height="wrap_content"
-            android:minHeight="0dp"
-            android:text="close"
-            android:textAllCaps="false"
-            android:textSize="11sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/btn_download_yuv"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/btn_download_yuv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:text="Capture"
+                android:textAllCaps="false"
+                android:singleLine="true"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_close_or_open"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:text="Close"
+                android:textAllCaps="false"
+                android:singleLine="true"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_begin_download_stream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:text="Begin Download Stream"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_stop_download_stream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:text="Stop Download Stream"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
 </LinearLayout>

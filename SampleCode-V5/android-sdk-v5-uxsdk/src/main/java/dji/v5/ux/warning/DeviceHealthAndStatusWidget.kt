@@ -3,6 +3,7 @@ package dji.v5.ux.warning
 import android.content.Context
 import android.graphics.Outline
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewOutlineProvider
@@ -21,6 +22,7 @@ import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.popover.Popover
 import dji.v5.ux.core.popover.PopoverHelper
+import dji.v5.ux.databinding.UxsdkFpvTopBarWidgetWarningMessageBinding
 import kotlin.math.roundToInt
 
 /**
@@ -46,6 +48,8 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
     private var warnOutlineProvider: ViewOutlineProvider? = null
     private var cardOutlineProvider: ViewOutlineProvider? = null
 
+    private lateinit var binding: UxsdkFpvTopBarWidgetWarningMessageBinding
+
     private val widgetModel by lazy {
         DeviceHealthAndStatusWidgetModel(
             DJISDKModel.getInstance(),
@@ -54,8 +58,7 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        inflate(context, R.layout.uxsdk_fpv_top_bar_widget_warning_message, this)
-
+        binding = UxsdkFpvTopBarWidgetWarningMessageBinding.inflate(LayoutInflater.from(context),this,true)
         warningMessageCountWrapper = findViewById(R.id.warning_message_count_wrapper)
         warningMessageCountWrapper.clipToOutline = true
         warnOutlineProvider = object : ViewOutlineProvider() {
@@ -88,20 +91,19 @@ open class DeviceHealthAndStatusWidget @JvmOverloads constructor(
             }
             if (popover == null) {
                 val isEmpty: Boolean = widgetModel.deviceMessageProcessor.value.isEmpty()
-                popover =
-                    PopoverHelper.baseBuilder(if (isEmpty) tvNoMessage else warningMessageRootView)
-                        .yOffset(
-                            if (isEmpty) AndUtil.getDimension(R.dimen.uxsdk_10_dp)
-                                .roundToInt() else AndUtil.getDimension(R.dimen.uxsdk_2_dp)
-                                .roundToInt()
-                        )
-                        .customView(popupView)
-                        .bottomScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_96_dp).toInt())
-                        .leftScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_40_dp).roundToInt())
-                        .align(Popover.Align.CENTER)
-                        .arrowColor(AndUtil.getResColor(R.color.uxsdk_fpv_popover_content_background_color))
-                        .onDismiss {}
-                        .build()
+                popover = PopoverHelper.baseBuilder(if (isEmpty) tvNoMessage else binding.warningMessageRootView)
+                    .yOffset(
+                        if (isEmpty) AndUtil.getDimension(R.dimen.uxsdk_10_dp)
+                            .roundToInt() else AndUtil.getDimension(R.dimen.uxsdk_2_dp)
+                            .roundToInt()
+                    )
+                    .customView(popupView)
+                    .bottomScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_96_dp).toInt())
+                    .leftScreenMargin(AndUtil.getDimension(R.dimen.uxsdk_40_dp).roundToInt())
+                    .align(Popover.Align.CENTER)
+                    .arrowColor(AndUtil.getResColor(R.color.uxsdk_fpv_popover_content_background_color))
+                    .onDismiss {}
+                    .build()
             }
             popover?.show()
         }

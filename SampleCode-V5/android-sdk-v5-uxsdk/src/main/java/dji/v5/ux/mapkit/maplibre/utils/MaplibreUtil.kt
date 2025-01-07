@@ -106,7 +106,12 @@ fun fromDJIBitmapDescriptor(context: Context, descriptor: DJIBitmapDescriptor?):
 
 fun fromDJILatLng(latLng: DJILatLng): LatLng = LatLng(latLng.latitude, latLng.longitude, latLng.altitude)
 
-fun fromLatLng(latLng: LatLng): DJILatLng = DJILatLng(latLng.latitude, latLng.longitude, latLng.altitude)
+fun fromLatLng(latLng: LatLng?): DJILatLng {
+    latLng?.let {
+        return DJILatLng(it.latitude, it.longitude, it.altitude)
+    }
+    return DJILatLng(Double.NaN, Double.NaN, Double.NaN)
+}
 
 fun fromCameraPosition(cameraPosition: CameraPosition): DJICameraPosition = DJICameraPosition.Builder()
         .target(fromLatLng(cameraPosition.target))

@@ -229,4 +229,6 @@ class LiveStreamVM : DJIViewModel() {
         streamManager.removeLiveStreamStatusListener(liveStreamStatusListener)
         cameraManager.removeAvailableCameraUpdatedListener(availableCameraUpdatedListener)
     }
+
+    fun getAircraftStreamFrameInfo(cameraIndex: ComponentIndexType) = cameraManager.getAircraftStreamFrameInfo(cameraIndex)
 }

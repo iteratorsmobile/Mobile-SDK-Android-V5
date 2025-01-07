@@ -280,9 +280,7 @@ open class VideoSignalWidget @JvmOverloads constructor(
     //endregion
 
     //region Customization
-    override fun getIdealDimensionRatioString(): String {
-        return getString(R.string.uxsdk_widget_video_signal_ratio)
-    }
+    override fun getIdealDimensionRatioString() = null
 
     /**
      * Set the resource ID for the video display icon

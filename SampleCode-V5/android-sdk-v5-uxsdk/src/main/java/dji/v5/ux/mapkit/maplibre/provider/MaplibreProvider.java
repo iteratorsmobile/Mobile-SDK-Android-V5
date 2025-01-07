@@ -1,23 +1,22 @@
 package dji.v5.ux.mapkit.maplibre.provider;
 
-import static dji.v5.ux.mapkit.core.Mapkit.MapProviderConstant.MAPLIBRE_MAP_PROVIDER;
-
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.view.Gravity;
 
+import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.WellKnownTileServer;
+import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
+
+import androidx.annotation.NonNull;
 import dji.v5.ux.mapkit.core.Mapkit;
 import dji.v5.ux.mapkit.core.MapkitOptions;
 import dji.v5.ux.mapkit.core.maps.DJIMapViewInternal;
 import dji.v5.ux.mapkit.core.places.IInternalPlacesClient;
 import dji.v5.ux.mapkit.core.providers.MapProvider;
-
+import dji.v5.ux.mapkit.maplibre.map.MaplibreMapView;
 import dji.v5.ux.mapkit.maplibre.place.MaplibrePlaceDelegate;
 
-import dji.v5.ux.mapkit.maplibre.map.MaplibreMapView;
-import com.mapbox.mapboxsdk.Mapbox;
-import com.mapbox.mapboxsdk.maps.MapboxMapOptions;
-
+import static dji.v5.ux.mapkit.core.Mapkit.MapProviderConstant.MAPLIBRE_MAP_PROVIDER;
 
 
 public class MaplibreProvider extends MapProvider {
@@ -34,7 +33,7 @@ public class MaplibreProvider extends MapProvider {
         final int mapType = mapkitOptions.getMapType();
         Mapkit.mapType(mapType);
         Mapkit.mapProvider(providerType);
-        Mapbox.getInstance(context.getApplicationContext(), Mapkit.getMapboxAccessToken());
+        Mapbox.getInstance(context.getApplicationContext(), Mapkit.getMapboxAccessToken(), WellKnownTileServer.Mapbox);
         MapboxMapOptions options = MapboxMapOptions.createFromAttributes(context);
         options.textureMode(true);
         options.attributionGravity(Gravity.BOTTOM | Gravity.RIGHT);

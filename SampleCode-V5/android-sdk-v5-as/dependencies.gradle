@@ -1,9 +1,9 @@
 ext {
     deps = [:]
     //DJI MSDK V5包
-    deps.aircraft = "com.dji:dji-sdk-v5-aircraft:5.10.0"
-    deps.aircraftProvided = "com.dji:dji-sdk-v5-aircraft-provided:5.10.0"
-    deps.networkImp = "com.dji:dji-sdk-v5-networkImp:5.10.0"
+    deps.aircraft = "com.dji:dji-sdk-v5-aircraft:5.11.0"
+    deps.aircraftProvided = "com.dji:dji-sdk-v5-aircraft-provided:5.11.0"
+    deps.networkImp = "com.dji:dji-sdk-v5-networkImp:5.11.0"
 
     //三方依赖库
     deps.gson = 'com.google.code.gson:gson:2.9.1'
@@ -17,9 +17,8 @@ ext {
     deps.leakcanary = 'com.squareup.leakcanary:leakcanary-android:2.11'
     deps.xcrash = 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
     deps.rx2Java = 'io.reactivex.rxjava2:rxjava:2.2.4' // 目前在CSDK升级模块中使用rxjava2
-    deps.maplibreAnotation = 'org.maplibre.gl:android-plugin-annotation-v9:1.0.0'
     deps.maplibreTurf = 'org.maplibre.gl:android-sdk-turf:5.9.1'
-    deps.maplibreSdk = 'org.maplibre.gl:android-sdk:9.4.2'
+    deps.maplibreSdk = 'org.maplibre.gl:android-sdk:10.3.1'
     deps.lottie = 'com.airbnb.android:lottie:3.3.1'//RTK扫描页中使用，用于实现动画效果
     deps.cardview = 'androidx.cardview:cardview:1.0.0'//PopoverView中使用
     deps.material = 'com.google.android.material:material:1.0.0'//AvoidanceShortcutWidget使用
@@ -77,7 +76,7 @@ ext {
 
     //wpmz 航线文件解析
     //本地依赖验证时将该aar放到主工程目录sdklib 并将sdk中aircraft 的gradle添加为本地依赖方式 api (name:"djisdkwpmz", ext:'aar')
-    deps.wpmzSdk = 'com.dji:wpmzsdk:1.0.1.7'
+    deps.wpmzSdk = 'com.dji:wpmzsdk:1.0.4.0'
     //sample 扩展EditText
     deps.expandedit = "com.github.thomhurst:ExpandableHintText:1.0.7"
 

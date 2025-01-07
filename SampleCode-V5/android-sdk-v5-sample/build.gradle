@@ -38,6 +38,7 @@ android {
         debug {
             minifyEnabled false
             shrinkResources false
+            signingConfig signingConfigs.release
         }
     }
 
@@ -92,6 +93,10 @@ android {
         doNotStrip "*/*/libmrtc_onvif.so"
         doNotStrip "*/*/libmrtc_rtmp.so"
         doNotStrip "*/*/libmrtc_rtsp.so"
+    }
+
+    buildFeatures {
+        viewBinding true
     }
 }
 

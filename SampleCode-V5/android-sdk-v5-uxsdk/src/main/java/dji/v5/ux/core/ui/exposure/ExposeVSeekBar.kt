@@ -39,8 +39,19 @@ class ExposeVSeekBar @JvmOverloads constructor(
         setMeasuredDimension(dw, dh)
     }
 
-    override fun onDraw(canvas: Canvas?) {
-        canvas?.takeIf { isShowSeekBar }?.let {
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        if ((event != null && event.action == MotionEvent.ACTION_DOWN && mThumb != null)
+            && (event.y < mThumb.bounds.top - mThumb.intrinsicWidth
+                    || event.y > mThumb.bounds.bottom + mThumb.intrinsicWidth)
+        ) {
+            //只有点击小太阳图标时才有效，否则不处理点击事件
+            return false
+        }
+        return super.onTouchEvent(event)
+    }
+
+    override fun onDraw(canvas: Canvas) {
+        canvas.takeIf { isShowSeekBar }?.let {
             drawRect(it)
         }
         super.onDraw(canvas)

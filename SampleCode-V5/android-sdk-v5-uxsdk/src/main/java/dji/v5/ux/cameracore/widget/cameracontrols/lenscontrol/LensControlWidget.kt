@@ -3,6 +3,7 @@ package dji.v5.ux.cameracore.widget.cameracontrols.lenscontrol
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
@@ -15,6 +16,8 @@ import dji.v5.ux.core.base.ICameraIndex
 import dji.v5.ux.core.base.SchedulerProvider.ui
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
+import dji.v5.ux.databinding.UxsdkCameraLensControlWidgetBinding
+import dji.v5.ux.databinding.UxsdkPanelNdvlBinding
 
 /**
  * Class Description
@@ -32,17 +35,17 @@ open class LensControlWidget @JvmOverloads constructor(
 ) : ConstraintLayoutWidget<LensControlWidget.ModelState>(context, attrs, defStyleAttr),
     View.OnClickListener, ICameraIndex {
 
+    private lateinit var binding: UxsdkCameraLensControlWidgetBinding
     private var firstBtnSource = CameraVideoStreamSourceType.ZOOM_CAMERA
-    private var first_len_btn: ImageView? = null
 
     private val widgetModel by lazy {
         LensControlModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
     }
 
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
-        View.inflate(context, R.layout.uxsdk_camera_lens_control_widget, this)
+        binding =
+            UxsdkCameraLensControlWidgetBinding.inflate(LayoutInflater.from(context), this, true)
         widgetStateDataProcessor.offer(ModelState.Visible)
-        first_len_btn = findViewById(R.id.first_len_btn)
     }
 
     override fun reactToModelChanges() {
@@ -55,7 +58,7 @@ open class LensControlWidget @JvmOverloads constructor(
             widgetModel.cameraVideoStreamSourceProcessor.toFlowable().observeOn(ui()).subscribe {
                 updateBtnView()
             })
-        first_len_btn?.setOnClickListener(this)
+        binding.firstLenBtn.setOnClickListener(this)
     }
 
     override fun onAttachedToWindow() {
@@ -77,7 +80,7 @@ open class LensControlWidget @JvmOverloads constructor(
     }
 
     override fun onClick(v: View?) {
-        if (v == first_len_btn) {
+        if (v == binding.firstLenBtn) {
             dealLensBtnClicked()
         }
     }
@@ -120,7 +123,7 @@ open class LensControlWidget @JvmOverloads constructor(
         }
 
         updateBtnText(
-            first_len_btn,
+            binding.firstLenBtn,
             getProperVideoSource(
                 videoSourceRange,
                 widgetModel.cameraVideoStreamSourceProcessor.value

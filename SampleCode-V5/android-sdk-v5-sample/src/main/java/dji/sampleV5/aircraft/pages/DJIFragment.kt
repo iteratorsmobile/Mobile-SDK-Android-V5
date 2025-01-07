@@ -30,12 +30,10 @@ import java.util.*
  */
 open class DJIFragment : Fragment() {
 
-    protected val logTag = LogUtils.getTag(this)
     protected var mainHandler = Handler(Looper.getMainLooper())
     protected var indexChosen = intArrayOf(-1, -1, -1)
 
     protected val msdkInfoVm: MSDKInfoVm by activityViewModels()
-
 
     open fun updateTitle() {
         arguments?.let {
