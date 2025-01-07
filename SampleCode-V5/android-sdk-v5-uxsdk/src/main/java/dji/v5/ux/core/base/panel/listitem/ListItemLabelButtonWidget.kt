@@ -376,7 +376,7 @@ abstract class ListItemLabelButtonWidget<T : Any> @JvmOverloads constructor(
     }
 
     @CallSuper
-    override fun onClick(v: View?) {
+    override fun onClick(v: View) {
         super.onClick(v)
         if (v == listItemButton) {
             uiUpdateStateProcessor.onNext(UIState.ButtonClicked)

@@ -306,8 +306,8 @@ abstract class ListItemTitleWidget<T : Any> @JvmOverloads constructor(
         clickIndicatorImageView.isEnabled = enabled
     }
 
-    override fun onClick(v: View?) {
-        if (v?.id == id && listItemClickable) {
+    override fun onClick(v: View) {
+        if (v.id == id && listItemClickable) {
             onListItemClick()
         }
     }
