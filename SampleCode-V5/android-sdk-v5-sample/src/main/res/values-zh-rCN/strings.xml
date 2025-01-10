@@ -153,7 +153,11 @@
     <string name="btn_file_list">文件列表</string>
     <string name="upload_status">上传状态</string>
     <string name="record_btn_title">点击启动录音</string>
+    <string name="btn_realtime_title">点击下方按钮开始实时喊话</string>
+    <string name="btn_press_to_start_record">点击说话</string>
+    <string name="btn_press_to_stop_record">停止</string>
     <string name="quick_play">快速播放</string>
+    <string name="start_agc">开启AGC算法</string>
     <string name="btn_send_tts_data">发送TTS数据</string>
     <string name="title_megaphone">喊话器</string>
     <string name="megaphone_state">喊话器状态</string>
@@ -162,6 +166,7 @@
     <string name="rt_transmission_status">实时数据传输状态：</string>
     <string name="btn_tts">文字转语音</string>
     <string name="btn_rt_voice">实时喊话</string>
+    <string name="btn_record_voice">录音喊话</string>
     <string name="btn_audio_list">语音列表</string>
     <string name="cur_volume_value">当前音量:</string>
 

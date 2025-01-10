@@ -248,13 +248,25 @@
                     android:layout_width="0dp"
                     android:layout_height="60dp"
                     android:layout_weight="1">
+                    <Button
+                        android:id="@+id/realtime_frag_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:textAllCaps="false"
+                        android:text="@string/btn_rt_voice" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="1">
 
                     <Button
                         android:id="@+id/record_frg_btn"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
                         android:textAllCaps="false"
-                        android:text="@string/btn_rt_voice" />
+                        android:text="@string/btn_record_voice" />
                 </RelativeLayout>
 
                 <RelativeLayout

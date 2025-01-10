@@ -694,6 +694,9 @@ class KeyValueFragment : DJIFragment(), View.OnClickListener {
             ComponentIndexType.RIGHT.name -> ComponentIndexType.RIGHT.value()
             ComponentIndexType.UP.name -> ComponentIndexType.UP.value()
             ComponentIndexType.AGGREGATION.name -> ComponentIndexType.AGGREGATION.value()
+            ComponentIndexType.UP_TYPE_C.name -> ComponentIndexType.UP_TYPE_C.value()
+            ComponentIndexType.UP_TYPE_C_EXT_ONE.name -> ComponentIndexType.UP_TYPE_C_EXT_ONE.value()
+
             else -> {
                 ComponentIndexType.UNKNOWN.value()
             }

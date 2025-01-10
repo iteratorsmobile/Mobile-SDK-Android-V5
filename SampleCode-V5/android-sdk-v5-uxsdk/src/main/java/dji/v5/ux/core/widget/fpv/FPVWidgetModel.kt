@@ -24,6 +24,7 @@ package dji.v5.ux.core.widget.fpv
 
 import android.view.Surface
 import dji.sdk.keyvalue.key.CameraKey
+import dji.sdk.keyvalue.key.FlightControllerKey
 import dji.sdk.keyvalue.value.camera.CameraType
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.camera.VideoResolutionFrameRate
@@ -33,11 +34,15 @@ import dji.v5.et.create
 import dji.v5.et.createCamera
 import dji.v5.manager.datacenter.MediaDataCenter
 import dji.v5.manager.interfaces.ICameraStreamManager
+import dji.v5.utils.common.LogUtils
+import dji.v5.utils.common.StringUtils
+import dji.v5.ux.R
 import dji.v5.ux.core.base.DJISDKModel
 import dji.v5.ux.core.base.ICameraIndex
 import dji.v5.ux.core.base.WidgetModel
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.module.FlatCameraModule
+import dji.v5.ux.core.util.CameraUtil
 import dji.v5.ux.core.util.DataProcessor
 import dji.v5.ux.core.util.UxErrorHandle
 import io.reactivex.rxjava3.core.Flowable
@@ -56,10 +61,12 @@ class FPVWidgetModel(
     private val streamSourceCameraTypeProcessor = DataProcessor.create(CameraVideoStreamSourceType.UNKNOWN)
     private val resolutionAndFrameRateProcessor: DataProcessor<VideoResolutionFrameRate> = DataProcessor.create(VideoResolutionFrameRate())
     private val cameraTypeProcessor: DataProcessor<CameraType> = DataProcessor.create(CameraType.NOT_SUPPORTED)
-    val cameraNameProcessor: DataProcessor<String> = DataProcessor.create("")
+    private val isMotorOnProcessor: DataProcessor<Boolean> = DataProcessor.create(false)
+    val displayMsgProcessor: DataProcessor<String> = DataProcessor.create("")
     val cameraSideProcessor: DataProcessor<String> = DataProcessor.create("")
     private val videoViewChangedProcessor: DataProcessor<Boolean> = DataProcessor.create(false)
     var streamSourceListener: FPVStreamSourceListener? = null
+    private var cameraType: CameraType = CameraType.NOT_SUPPORTED
 
     /**
      * The current camera index. This value should only be used for video size calculation.
@@ -112,9 +119,15 @@ class FPVWidgetModel(
             sourceUpdate()
         }
 
-        bindDataProcessor(CameraKey.KeyCameraType.create(currentCameraIndex), cameraTypeProcessor) {
+        bindDataProcessor(FlightControllerKey.KeyAreMotorsOn.create(), isMotorOnProcessor) {
             updateCameraDisplay()
         }
+
+        bindDataProcessor(CameraKey.KeyCameraType.create(currentCameraIndex), cameraTypeProcessor) {
+            cameraType = it
+            updateCameraDisplay()
+        }
+
         bindDataProcessor(CameraKey.KeyVideoResolutionFrameRate.createCamera(currentCameraIndex, currentLensType), resolutionAndFrameRateProcessor)
 
         addDisposable(
@@ -135,14 +148,19 @@ class FPVWidgetModel(
     }
 
     private fun updateCameraDisplay() {
-        var cameraName = ""
-        if (currentCameraIndex != ComponentIndexType.FPV) {
-            cameraName = cameraTypeProcessor.value.name
+        var msg = ""
+        if (!CameraUtil.isFPVTypeView(currentCameraIndex)) {
+            msg = cameraType.name
+        }
+        if (currentCameraIndex == ComponentIndexType.VISION_ASSIST) {
+            if (!isMotorOnProcessor.value) {
+                msg = StringUtils.getResStr(R.string.uxsdk_assistant_video_empty_text)
+            }
         }
         if (currentLensType != CameraLensType.CAMERA_LENS_DEFAULT && currentLensType != CameraLensType.UNKNOWN) {
-            cameraName = cameraName + "_" + currentLensType.name
+            msg = msg + "_" + currentLensType.name
         }
-        cameraNameProcessor.onNext(cameraName)
+        displayMsgProcessor.onNext(msg)
         cameraSideProcessor.onNext(currentCameraIndex.name)
     }
 
@@ -161,6 +179,10 @@ class FPVWidgetModel(
 
     fun removeCameraStreamSurface(surface: Surface) {
         MediaDataCenter.getInstance().cameraStreamManager.removeCameraStreamSurface(surface)
+    }
+
+    fun enableVisionAssist() {
+        MediaDataCenter.getInstance().cameraStreamManager.enableVisionAssist(true, null)
     }
 
     private fun onStreamSourceUpdated() {

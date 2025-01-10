@@ -304,7 +304,7 @@ public class CommonAboutWidget extends FrameLayoutWidget<Object> {
     }
 
     private void updateRTKSerialNumber(String sn) {
-        if (!TextUtils.isEmpty(sn) && ProductUtil.isM3EProduct()) {
+        if (!TextUtils.isEmpty(sn) && (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct())) {
             rtkSerialCell.setContent(sn);
             rtkSerialCell.setVisibility(View.VISIBLE);
         } else {

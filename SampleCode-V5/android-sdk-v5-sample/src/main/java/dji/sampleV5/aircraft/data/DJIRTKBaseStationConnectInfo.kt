@@ -1,5 +1,6 @@
 package dji.sampleV5.aircraft.data
 
+import dji.sdk.keyvalue.value.rtkbasestation.BaseStationDeviceType
 import dji.sdk.keyvalue.value.rtkbasestation.RTKStationInfo
 import dji.sdk.keyvalue.value.rtkbasestation.RTKStationConnetState
 
@@ -16,6 +17,6 @@ class DJIRTKBaseStationConnectInfo(
     var signalLevel: Int,
     var rtkStationName: String,
     var connectStatus: RTKStationConnetState = RTKStationConnetState.IDLE
-) : RTKStationInfo(baseStationId, signalLevel, rtkStationName) {
+) : RTKStationInfo(baseStationId, signalLevel, rtkStationName, BaseStationDeviceType.BS_RTK2) {
     constructor() : this(0, 0, "")
 }

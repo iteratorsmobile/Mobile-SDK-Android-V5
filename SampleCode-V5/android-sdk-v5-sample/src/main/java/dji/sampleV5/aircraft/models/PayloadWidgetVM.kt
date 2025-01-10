@@ -42,9 +42,7 @@ class PayloadWidgetVM : DJIViewModel() {
 
                     override fun onFailure(error: IDJIError) {
                         sendToastMsg(DJIToastResult.failed(error.toString()))
-
                     }
-
                 })
             }
         }
@@ -55,7 +53,6 @@ class PayloadWidgetVM : DJIViewModel() {
         val iPayloadManager = payloadManagerMap[payloadIndexType]
         iPayloadManager?.addPayloadBasicInfoListener(payloadBasicInfoListener)
         iPayloadManager?.addPayloadWidgetInfoListener(payloadWidgetInfoListener)
-
     }
 
     fun pullWidgetInfo() {
@@ -67,19 +64,15 @@ class PayloadWidgetVM : DJIViewModel() {
 
             override fun onFailure(error: IDJIError) {
                 sendToastMsg(DJIToastResult.failed(error.toString()))
-
             }
-
         })
     }
-
 
     override fun onCleared() {
         super.onCleared()
         val iPayloadManager = payloadManagerMap[payloadIndexType]
         iPayloadManager?.removePayloadWidgetInfoListener(payloadWidgetInfoListener)
         iPayloadManager?.removePayloadBasicInfoListener(payloadBasicInfoListener)
-
     }
 
     private fun sendToastMsg(djiToastResult: DJIToastResult) {

@@ -34,8 +34,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import dji.sdk.keyvalue.value.camera.CameraAperture;
 import dji.sdk.keyvalue.value.camera.CameraExposureCompensation;
 import dji.sdk.keyvalue.value.camera.CameraFlatMode;
@@ -49,7 +47,6 @@ import dji.sdk.keyvalue.value.camera.VideoResolution;
 import dji.sdk.keyvalue.value.common.CameraLensType;
 import dji.sdk.keyvalue.value.common.ComponentIndexType;
 import dji.sdk.keyvalue.value.payload.PayloadCameraType;
-import dji.v5.common.video.stream.PhysicalDevicePosition;
 import dji.v5.ux.R;
 
 /**
@@ -363,6 +360,10 @@ public final class CameraUtil {
                 lensType == CameraLensType.CAMERA_LENS_MS_RE ||
                 lensType == CameraLensType.CAMERA_LENS_MS_NIR ||
                 lensType == CameraLensType.CAMERA_LENS_MS_NDVI;
+    }
+
+    public static boolean isFPVTypeView(ComponentIndexType devicePosition) {
+        return devicePosition == ComponentIndexType.FPV || devicePosition == ComponentIndexType.VISION_ASSIST;
     }
 
     public static String getCameraDisplayName(CameraType cameraType) {

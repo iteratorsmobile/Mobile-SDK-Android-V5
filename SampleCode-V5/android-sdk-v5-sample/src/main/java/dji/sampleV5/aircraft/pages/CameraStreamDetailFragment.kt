@@ -12,14 +12,15 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import dji.sampleV5.aircraft.R
+import dji.sampleV5.aircraft.keyvalue.KeyValueDialogUtil
 import dji.sampleV5.aircraft.models.CameraStreamDetailVM
+import dji.sampleV5.aircraft.util.ToastUtils
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
+import dji.sdk.keyvalue.value.flightassistant.VisionAssistDirection
 import dji.v5.manager.interfaces.ICameraStreamManager
-import dji.v5.utils.common.StringUtils
 
 class CameraStreamDetailFragment : DJIFragment() {
 
@@ -48,12 +49,16 @@ class CameraStreamDetailFragment : DJIFragment() {
 
     private lateinit var rgScaleLayout: RadioGroup
     private lateinit var mrgLensTypeLayout: RadioGroup
+    private lateinit var mAssistViewDirectionLayout: RadioGroup
     private lateinit var cameraSurfaceView: SurfaceView
     private lateinit var btnDownloadYUV: Button
     private lateinit var tvCameraName: TextView
     private lateinit var btnCloseOrOpen: Button
+    private lateinit var btnCloseOrOpenVisionAssist: Button
     private lateinit var btnBeginDownloadStream: Button
     private lateinit var btnStopDownloadStream: Button
+    private lateinit var btnSetStreamEncodeBitrate: Button
+    private lateinit var btnGetStreamEncodeBitrate: Button
     private lateinit var cameraIndex: ComponentIndexType
     private var onlyOneCamera = false
     private var isNeedPreviewCamera = false
@@ -61,6 +66,7 @@ class CameraStreamDetailFragment : DJIFragment() {
     private var width = -1
     private var height = -1
     private var scaleType = ICameraStreamManager.ScaleType.CENTER_INSIDE
+    private var assistantVideoMode = VisionAssistDirection.AUTO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -86,15 +92,21 @@ class CameraStreamDetailFragment : DJIFragment() {
 
         rgScaleLayout = view.findViewById(R.id.rg_scale)
         mrgLensTypeLayout = view.findViewById(R.id.rg_lens_type)
+        mAssistViewDirectionLayout = view.findViewById(R.id.rg_assist_view_direction)
         cameraSurfaceView = view.findViewById(R.id.sv_camera)
         btnDownloadYUV = view.findViewById(R.id.btn_download_yuv)
         tvCameraName = view.findViewById(R.id.tv_camera_name)
         btnCloseOrOpen = view.findViewById(R.id.btn_close_or_open)
+        btnCloseOrOpenVisionAssist = view.findViewById(R.id.btn_vision_assist_close_or_open)
         btnBeginDownloadStream = view.findViewById(R.id.btn_begin_download_stream)
         btnStopDownloadStream = view.findViewById(R.id.btn_stop_download_stream)
+        btnSetStreamEncodeBitrate = view.findViewById(R.id.btn_set_stream_encode_bitrate)
+        btnGetStreamEncodeBitrate = view.findViewById(R.id.btn_get_stream_encode_bitrate)
         rgScaleLayout.setOnCheckedChangeListener(onScaleChangeListener)
         mrgLensTypeLayout.setOnCheckedChangeListener(mOnLensChangeListener)
+        mAssistViewDirectionLayout.setOnCheckedChangeListener(mOnAssistViewDirectionChangeListener)
         btnCloseOrOpen.setOnClickListener(onOpenOrCloseCheckListener)
+        btnCloseOrOpenVisionAssist.setOnClickListener(onOpenOrCloseVisionAssistCheckListener)
         cameraSurfaceView.holder.addCallback(cameraSurfaceCallback)
 
         btnDownloadYUV.setOnClickListener {
@@ -111,7 +123,39 @@ class CameraStreamDetailFragment : DJIFragment() {
 
         initViewModel()
 
+        btnStopDownloadStream.setOnClickListener {
+            viewModel.stopDownloadStreamToLocal()
+        }
+
+        btnSetStreamEncodeBitrate.setOnClickListener {
+            KeyValueDialogUtil.showInputDialog(
+                activity, "Stream Encode Bitrate(bps)",
+                viewModel.getStreamEncoderBitrate().toString(), "", false
+            ) {
+                it?.apply {
+                    if (this.toIntOrNull() == null) {
+                        ToastUtils.showToast("Value Parse Error")
+                        return@showInputDialog
+                    }
+                    viewModel.setStreamEncoderBitrate(this.toInt())
+                    ToastUtils.showToast("set success,it will take effect while encoder is working.")
+                }
+            }
+        }
+
+        btnGetStreamEncodeBitrate.setOnClickListener {
+            ToastUtils.showToast("Stream Encoder Bitrate:${viewModel.getStreamEncoderBitrate()}")
+        }
+
         onOpenOrCloseCheckListener.onClick(btnCloseOrOpen)
+
+        if (cameraIndex == ComponentIndexType.VISION_ASSIST) {
+            mAssistViewDirectionLayout.visibility = View.VISIBLE
+            btnCloseOrOpenVisionAssist.visibility = View.VISIBLE
+        } else {
+            mAssistViewDirectionLayout.visibility = View.GONE
+            btnCloseOrOpenVisionAssist.visibility = View.GONE
+        }
     }
 
     private fun initViewModel() {
@@ -125,11 +169,9 @@ class CameraStreamDetailFragment : DJIFragment() {
                 }
             }
             if (availableLensList.isEmpty()) {
-                val childView = mrgLensTypeLayout.findViewWithTag<View>(CameraVideoStreamSourceType.DEFAULT_CAMERA.toString())
-                if (childView != null) {
-                    childView.visibility = View.VISIBLE
-                }
+                mrgLensTypeLayout.visibility = View.GONE
             } else {
+                mrgLensTypeLayout.visibility = View.VISIBLE
                 for (lens in availableLensList) {
                     val childView = mrgLensTypeLayout.findViewWithTag<View>(lens.value().toString())
                     if (childView != null) {
@@ -150,6 +192,48 @@ class CameraStreamDetailFragment : DJIFragment() {
 
         viewModel.cameraName.observe(viewLifecycleOwner) { name ->
             tvCameraName.text = name
+        }
+
+        viewModel.isVisionAssistEnabled.observe(viewLifecycleOwner) {
+            btnCloseOrOpenVisionAssist.isSelected = it == true
+            if (btnCloseOrOpenVisionAssist.isSelected) {
+                btnCloseOrOpenVisionAssist.text = "close vision assist"
+            } else {
+                btnCloseOrOpenVisionAssist.text = "open vision assist"
+            }
+        }
+
+        viewModel.visionAssistViewDirection.observe(viewLifecycleOwner) {
+            val childView = mAssistViewDirectionLayout.findViewWithTag<View>(it.name)
+            if (childView is RadioButton) {
+                mAssistViewDirectionLayout.setOnCheckedChangeListener(null)
+                mAssistViewDirectionLayout.check(childView.id)
+                mAssistViewDirectionLayout.setOnCheckedChangeListener(mOnAssistViewDirectionChangeListener)
+                childView.visibility = View.VISIBLE
+            }
+        }
+
+        viewModel.visionAssistViewDirectionRange.observe(viewLifecycleOwner) { availableDirectionList ->
+            if (cameraIndex != ComponentIndexType.VISION_ASSIST) {
+                return@observe
+            }
+            for (i in 0 until mAssistViewDirectionLayout.childCount) {
+                val childView = mAssistViewDirectionLayout.getChildAt(i)
+                if (childView is RadioButton) {
+                    childView.visibility = View.GONE
+                }
+            }
+            if (availableDirectionList.isEmpty()) {
+                mAssistViewDirectionLayout.visibility = View.GONE
+            } else {
+                mAssistViewDirectionLayout.visibility = View.VISIBLE
+                for (direction in availableDirectionList) {
+                    val childView = mAssistViewDirectionLayout.findViewWithTag<View>(direction.name)
+                    if (childView != null) {
+                        childView.visibility = View.VISIBLE
+                    }
+                }
+            }
         }
     }
 
@@ -188,8 +272,8 @@ class CameraStreamDetailFragment : DJIFragment() {
             .setPositiveButton(R.string.title_select_yuv_format_ok) { dialog, _ ->
                 if (selectedIndex[0] >= 0) {
                     val format = SUPPORT_YUV_FORMAT[formatList[selectedIndex[0]]]
-                    val name =  formatList[selectedIndex[0]]
-                    viewModel.downloadYUVImageToLocal(format!!,name)
+                    val name = formatList[selectedIndex[0]]
+                    viewModel.downloadYUVImageToLocal(format!!, name)
                 }
                 dialog.dismiss()
             }
@@ -225,6 +309,43 @@ class CameraStreamDetailFragment : DJIFragment() {
         }
     }
 
+    private val mOnAssistViewDirectionChangeListener = RadioGroup.OnCheckedChangeListener { rg, checkedId ->
+        when (checkedId) {
+            R.id.rb_direction_auto -> {
+                assistantVideoMode = VisionAssistDirection.AUTO
+            }
+
+            R.id.rb_direction_front -> {
+                assistantVideoMode = VisionAssistDirection.FRONT
+            }
+
+            R.id.rb_direction_back -> {
+                assistantVideoMode = VisionAssistDirection.BACK
+            }
+
+            R.id.rb_direction_left -> {
+                assistantVideoMode = VisionAssistDirection.LEFT
+            }
+
+            R.id.rb_direction_right -> {
+                assistantVideoMode = VisionAssistDirection.RIGHT
+            }
+
+            R.id.rb_direction_up -> {
+                assistantVideoMode = VisionAssistDirection.UP
+            }
+
+            R.id.rb_direction_down -> {
+                assistantVideoMode = VisionAssistDirection.DOWN
+            }
+
+            R.id.rb_direction_off -> {
+                assistantVideoMode = VisionAssistDirection.OFF
+            }
+        }
+        viewModel.setVisionAssistViewDirection(assistantVideoMode)
+    }
+
     private val onOpenOrCloseCheckListener = View.OnClickListener { _ ->
         btnCloseOrOpen.isSelected = !btnCloseOrOpen.isSelected
         isNeedPreviewCamera = btnCloseOrOpen.isSelected
@@ -234,6 +355,10 @@ class CameraStreamDetailFragment : DJIFragment() {
             btnCloseOrOpen.text = "open"
         }
         updateCameraStream()
+    }
+
+    private val onOpenOrCloseVisionAssistCheckListener = View.OnClickListener { _ ->
+        viewModel.enableVisionAssist(!btnCloseOrOpenVisionAssist.isSelected)
     }
 
     private val cameraSurfaceCallback = object : SurfaceHolder.Callback {

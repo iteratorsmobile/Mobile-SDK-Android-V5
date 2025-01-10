@@ -146,7 +146,11 @@ More refer to the release notes." </string>
     <string name="btn_file_list">File List</string>
     <string name="upload_status">Upload Status</string>
     <string name="record_btn_title">Click To Start Record</string>
+    <string name="btn_press_to_start_record">Tap to Talk</string>
+    <string name="btn_press_to_stop_record">Stop</string>
+    <string name="btn_realtime_title">Click the button below to start calling in real time</string>
     <string name="quick_play">Quick Play</string>
+    <string name="start_agc">Turn on AGC algorithm</string>
     <string name="btn_send_tts_data">Send TTS</string>
     <string name="title_megaphone">Megaphone</string>
     <string name="megaphone_state">Megaphone State</string>
@@ -155,6 +159,7 @@ More refer to the release notes." </string>
     <string name="rt_transmission_status">Real-time Transmission Status:</string>
     <string name="btn_tts">TTS</string>
     <string name="btn_rt_voice">Real-time Voice</string>
+    <string name="btn_record_voice">Record Voice</string>
     <string name="btn_audio_list">Audio List</string>
     <string name="cur_volume_value">current volume:</string>
 

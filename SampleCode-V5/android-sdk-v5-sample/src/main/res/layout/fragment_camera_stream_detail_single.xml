@@ -253,6 +253,24 @@
                     android:visibility="gone" />
             </RadioGroup>
 
+            <RadioGroup
+                android:id="@+id/rg_assist_view_direction"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@id/rb_center_inside"
+                android:gravity="top|start"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/rg_lens_type"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                app:tabTextColor="@color/uxsdk_white">
+            </RadioGroup>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <HorizontalScrollView
@@ -290,6 +308,17 @@
                     android:textSize="11sp" />
 
                 <Button
+                    android:id="@+id/btn_vision_assist_close_or_open"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Open Vision Assist"
+                    android:singleLine="true"
+                    android:textAllCaps="false"
+                    android:textSize="11sp" />
+
+                <Button
                     android:id="@+id/btn_begin_download_stream"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -305,6 +334,26 @@
                     android:layout_height="wrap_content"
                     android:minHeight="0dp"
                     android:text="Stop Download Stream"
+                    android:singleLine="true"
+                    android:textAllCaps="false"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_set_stream_encode_bitrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Set Stream Encode Bitrate"
+                    android:singleLine="true"
+                    android:textAllCaps="false"
+                    android:textSize="11sp" />
+
+                <Button
+                    android:id="@+id/btn_get_stream_encode_bitrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Get Stream Encode Bitrate"
                     android:singleLine="true"
                     android:textAllCaps="false"
                     android:textSize="11sp" />

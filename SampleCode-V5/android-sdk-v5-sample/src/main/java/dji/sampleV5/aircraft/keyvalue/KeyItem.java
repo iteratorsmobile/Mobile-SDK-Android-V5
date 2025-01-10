@@ -201,12 +201,14 @@ public class KeyItem<P, R> extends KeyBaseStructure<P , R> implements  Comparabl
         try {
             final P p = validPrams(jsonStr);
             if (p == null) {
+                keyOperateCallBack.actionChange(getName() + "【SET】SetErrorMsg== json error");
                 return;
             }
 
             set(keyInfoSet, p, new CommonCallbacks.CompletionCallback() {
                 @Override
                 public void onSuccess() {
+                    LogUtils.e(TAG, "set success : " + getName());
                     if (keyOperateCallBack != null) {
                         // 保存上一次设置成功的对象，下次set时可使用保存过的对象 序列化json
                         if (getKeyInfo().getTypeConverter() instanceof DJIValueConverter) {
@@ -219,16 +221,15 @@ public class KeyItem<P, R> extends KeyBaseStructure<P , R> implements  Comparabl
 
                 @Override
                 public void onFailure(@NonNull IDJIError error) {
+                    LogUtils.e(TAG, "set error : " + error);
                     if (keyOperateCallBack != null) {
                         keyOperateCallBack.actionChange(getName() + "【SET】SetErrorMsg== " + p.toString() + "|" + error.toString());
                     }
                 }
             });
 
-
         } catch (Exception e) {
             ToastUtils.INSTANCE.showToast("输入参数出错");
-
         }
     }
 

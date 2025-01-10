@@ -4,9 +4,9 @@ import dji.rtk.CoordinateSystem
 import dji.sdk.keyvalue.key.FlightControllerKey
 import dji.sdk.keyvalue.key.KeyTools
 import dji.sdk.keyvalue.key.ProductKey
+import dji.sdk.keyvalue.utils.ProductUtil
 import dji.sdk.keyvalue.value.product.ProductType
 import dji.sdk.keyvalue.value.rtkbasestation.RTKReferenceStationSource
-import dji.sdk.keyvalue.utils.ProductUtil
 import dji.v5.common.utils.RxUtil
 import dji.v5.manager.KeyManager
 import dji.v5.manager.aircraft.rtk.RTKSystemStateListener
@@ -68,6 +68,7 @@ class RTKTypeSwitchWidgetModel(
             -> {
                 coordinateSystemList = arrayListOf(CoordinateSystem.WGS84, CoordinateSystem.CGCS2000)
             }
+
             else -> {
                 //Do Nothing
             }
@@ -101,10 +102,14 @@ class RTKTypeSwitchWidgetModel(
     override fun inSetup() {
         bindDataProcessor(
             KeyTools.createKey(
-                FlightControllerKey.KeyAreMotorsOn), isMotorOnProcessor)
+                FlightControllerKey.KeyAreMotorsOn
+            ), isMotorOnProcessor
+        )
         addDisposable(RxUtil.addListener(
             KeyTools.createKey(
-                ProductKey.KeyProductType), this).subscribe {
+                ProductKey.KeyProductType
+            ), this
+        ).subscribe {
             productTypeProcessor.onNext(it)
             updateSupportReferenceStationList()
         })
@@ -125,6 +130,7 @@ class RTKTypeSwitchWidgetModel(
                 AreaCode.CHINA.code -> {
                     supportReferenceStationListProcessor.onNext(getSupportReferenceStationSource(true))
                 }
+
                 else -> {
                     supportReferenceStationListProcessor.onNext(getSupportReferenceStationSource(false))
                 }
@@ -139,7 +145,7 @@ class RTKTypeSwitchWidgetModel(
      * 获取支持的差分数据源
      */
     private fun getSupportReferenceStationSource(supportNetworkRTK: Boolean): List<RTKReferenceStationSource> {
-        return if (ProductUtil.isM3EProduct()) {
+        return if (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct()) {
             getMavicSupportReferenceStationSource(supportNetworkRTK)
         } else {
             getDefaultSupportReferenceStationSource(supportNetworkRTK)

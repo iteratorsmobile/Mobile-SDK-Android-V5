@@ -72,7 +72,7 @@ class LiveStreamVM : DJIViewModel() {
         streamManager.startStream(object : CommonCallbacks.CompletionCallback {
             override fun onSuccess() {
                 CallbackUtils.onSuccess(callback)
-                reset();
+                reset()
             }
 
             override fun onFailure(error: IDJIError) {
@@ -86,7 +86,7 @@ class LiveStreamVM : DJIViewModel() {
         streamManager.stopStream(object : CommonCallbacks.CompletionCallback {
             override fun onSuccess() {
                 CallbackUtils.onSuccess(callback)
-                reset();
+                reset()
             }
 
             override fun onFailure(error: IDJIError) {

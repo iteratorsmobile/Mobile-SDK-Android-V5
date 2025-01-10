@@ -164,7 +164,6 @@
                 android:textColor="@color/white"
                 android:textSize="11sp" />
 
-
             <RadioButton
                 android:id="@+id/rb_camera_fpv"
                 android:layout_width="wrap_content"
@@ -172,6 +171,16 @@
                 android:buttonTint="@color/white"
                 android:tag="3"
                 android:text="FPV"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
+
+            <RadioButton
+                android:id="@+id/rb_camera_vision_assist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white"
+                android:tag="10000"
+                android:text="VISION_ASSIST"
                 android:textColor="@color/white"
                 android:textSize="11sp" />
 

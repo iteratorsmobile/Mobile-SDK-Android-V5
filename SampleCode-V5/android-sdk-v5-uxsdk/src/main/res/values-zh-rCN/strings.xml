@@ -1176,6 +1176,8 @@
     <string name="uxsdk_hdmi_system_setting_mode_same">复制屏幕</string>
     <string name="uxsdk_hdmi_system_setting_mode_fpv">相机画面</string>
     <string name="uxsdk_hdmi_system_setting_mode_camera">相机画面</string>
+
+    <string name="uxsdk_assistant_video_empty_text">起飞后查看</string>
 </resources>
 
 

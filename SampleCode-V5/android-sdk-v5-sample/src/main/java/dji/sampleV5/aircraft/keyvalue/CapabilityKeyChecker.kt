@@ -38,7 +38,7 @@ object CapabilityKeyChecker {
         var item: KeyItem<*, *>? = null
         KeyItemDataUtil.getAllKeyList(allList)
         allList.forEach {
-            if (it.toString().equals(keyName)) {
+            if (it.toString() == keyName) {
                 item = it;
             }
         }

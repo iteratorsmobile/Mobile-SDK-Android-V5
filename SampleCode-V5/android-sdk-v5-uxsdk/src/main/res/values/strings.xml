@@ -1225,4 +1225,5 @@
     <string name="setting_ui_battery_fly_time" />
     <string name="setting_menu_summary_perception_precision_landing" />
     <string name="setting_menu_summary_omni_perception_downwards" />
+    <string name="uxsdk_assistant_video_empty_text">View after take off</string>
 </resources>

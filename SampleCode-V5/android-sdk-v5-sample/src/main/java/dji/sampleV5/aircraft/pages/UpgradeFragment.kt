@@ -1,7 +1,9 @@
 package dji.sampleV5.aircraft.pages
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
@@ -117,7 +119,8 @@ class UpgradeFragment : DJIFragment() {
             UpgradeVM.startOfflineUpgrade(componentType, filePath.toString())
         }
 
-        binding?.rgComponentSelect?.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener {
+        binding?.rgComponentSelect?.setOnCheckedChangeListener(object :
+            RadioGroup.OnCheckedChangeListener {
             override fun onCheckedChanged(view: RadioGroup?, checkId: Int) {
                 when (checkId) {
                     R.id.rb_aircraft -> {
@@ -171,6 +174,4 @@ class UpgradeFragment : DJIFragment() {
         intent.addCategory(Intent.CATEGORY_OPENABLE)
         lancher.launch(intent)
     }
-
-
 }

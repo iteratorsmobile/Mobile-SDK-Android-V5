@@ -145,8 +145,7 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
                 showToast(content)
             }
         } else {
-            val resStr =
-                StringUtils.getResStr(R.string.uxsdk_setting_menu_perception_apas_off_dialog_content)
+            val resStr = StringUtils.getResStr(R.string.uxsdk_setting_menu_perception_apas_off_dialog_content)
             ViewUtil.showToast(context, resStr)
         }
     }
@@ -234,7 +233,7 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
      */
     private fun getAPASModeRange(): List<ObstacleAvoidanceType> {
         //行业机中只有M3支持绕行，其他机型都只支持刹停和关闭
-        return if (ProductUtil.isM3EProduct()) {
+        return if (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct()) {
             listOf(
                 ObstacleAvoidanceType.BRAKE,
                 ObstacleAvoidanceType.BYPASS,

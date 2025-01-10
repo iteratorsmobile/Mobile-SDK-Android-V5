@@ -1,15 +1,6 @@
 package dji.v5.ux.core.base;
 
 
-import static dji.v5.ux.core.base.IImuResources.INDEX_SIDE_TOP;
-import static dji.v5.ux.core.base.IImuResources.MAX_DESC_COUNT;
-import static dji.v5.ux.core.base.IImuResources.RESIDS_AIRCRAFT_M300;
-import static dji.v5.ux.core.base.IImuResources.RESIDS_AIRCRAFT_M320;
-import static dji.v5.ux.core.base.IImuResources.RESIDS_AIRCRAFT_M3E;
-import static dji.v5.ux.core.base.IImuResources.RESIDS_PREPARE_DESC;
-import static dji.v5.ux.core.base.IImuResources.RESIDS_PREPARE_DESC_REMOVE_DESC1;
-import static dji.v5.ux.core.base.IImuResources.RESIDS_PROCESS_DESC;
-
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -19,14 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
-import androidx.annotation.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-
+import androidx.annotation.NonNull;
 import dji.sdk.keyvalue.key.FlightControllerKey;
 import dji.sdk.keyvalue.key.KeyTools;
 import dji.sdk.keyvalue.utils.ProductUtil;
@@ -40,6 +28,15 @@ import dji.v5.manager.KeyManager;
 import dji.v5.utils.common.AndUtil;
 import dji.v5.utils.common.LogUtils;
 import dji.v5.ux.R;
+
+import static dji.v5.ux.core.base.IImuResources.INDEX_SIDE_TOP;
+import static dji.v5.ux.core.base.IImuResources.MAX_DESC_COUNT;
+import static dji.v5.ux.core.base.IImuResources.RESIDS_AIRCRAFT_M300;
+import static dji.v5.ux.core.base.IImuResources.RESIDS_AIRCRAFT_M320;
+import static dji.v5.ux.core.base.IImuResources.RESIDS_AIRCRAFT_M3E;
+import static dji.v5.ux.core.base.IImuResources.RESIDS_PREPARE_DESC;
+import static dji.v5.ux.core.base.IImuResources.RESIDS_PREPARE_DESC_REMOVE_DESC1;
+import static dji.v5.ux.core.base.IImuResources.RESIDS_PROCESS_DESC;
 
 
 
@@ -127,7 +124,7 @@ public class ImuCalView extends LinearLayout implements View.OnClickListener {
 
     private void initViews() {
         mPrepareDesc = RESIDS_PREPARE_DESC_REMOVE_DESC1;
-        sideSequence = ProductUtil.isM3EProduct() ? IImuResources.SIDE_SEQUENCE_M2E : IImuResources.SIDE_SEQUENCE;
+        sideSequence = (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct())? IImuResources.SIDE_SEQUENCE_M2E : IImuResources.SIDE_SEQUENCE;
 
         final int[] descResIds = new int[]{
             R.id.imu_cal_right_desc_ly1, R.id.imu_cal_right_desc_ly2, R.id.imu_cal_right_desc_ly3
@@ -438,7 +435,7 @@ public class ImuCalView extends LinearLayout implements View.OnClickListener {
     private int getReadyResId() {
         if(ProductUtil.isM30Product()){
             return R.drawable.uxsdk_setting_ui_imu_ready_m320;
-        } else if (ProductUtil.isM3EProduct()) {
+        } else if (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct()) {
             return R.drawable.uxsdk_img_device_home_m3e;
         } else{
             return R.drawable.uxsdk_setting_ui_imu_ready_m300;
@@ -450,7 +447,7 @@ public class ImuCalView extends LinearLayout implements View.OnClickListener {
 
         if (ProductUtil.isM30Product()) {
             resIds = RESIDS_AIRCRAFT_M320;
-        } else if (ProductUtil.isM3EProduct()) {
+        } else if (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct()) {
             resIds = RESIDS_AIRCRAFT_M3E;
         } else {
             resIds = RESIDS_AIRCRAFT_M300;

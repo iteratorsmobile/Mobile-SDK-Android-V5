@@ -41,6 +41,10 @@ class MegaphoneVM : DJIViewModel() {
     var isRightPayloadConnect = MutableLiveData(false)
     var isUpPayloadConnect = MutableLiveData(false)
     var isOSDKPayloadConnect = MutableLiveData(false)
+    var isPort1Connect = MutableLiveData(false)
+    var isPort2Connect = MutableLiveData(false)
+    var isPort3Connect = MutableLiveData(false)
+    var isPort4Connect = MutableLiveData(false)
     var megaphonePlayState = MutableLiveData<MegaphoneInfo?>()
     var isQuickPlay = false
 
@@ -201,6 +205,10 @@ class MegaphoneVM : DJIViewModel() {
 
     fun stopPushingFile(callback: CommonCallbacks.CompletionCallback?) {
         MegaphoneManager.getInstance().cancelPushingFileToMegaphone(callback)
+    }
+
+    fun enableAgc(enable : Boolean){
+        opusEncoder?.enableAgc(enable)
     }
 
     fun initRecorder() {

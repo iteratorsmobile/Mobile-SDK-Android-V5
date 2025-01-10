@@ -45,4 +45,8 @@ class MaplibreMapView @JvmOverloads constructor(
             else -> MaplibreStyle.MAPBOX_STREETS
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }

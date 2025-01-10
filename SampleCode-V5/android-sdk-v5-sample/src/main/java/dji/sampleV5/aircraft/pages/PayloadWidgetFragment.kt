@@ -64,17 +64,15 @@ class PayloadWidgetFragment : DJIFragment() {
             showMainInterfaceWidgetInfo(it, payLoadAdapter)
             showPayloadOtherWidgetInfo(it)
         }
-
-
     }
 
     private fun showNotListWidgetInfo(widget: PayloadWidget, data: ArrayList<PayloadWidgetItem>) {
         val selectDesc =
-            "selectedIcon=name:${widget.widgetName},index:${widget.widgetIndex},value:${widget.widgetValue},type:${widget.widgetType},hitMsg:${widget.hintMessage}"
+            "selectedIcon=name:${widget.widgetName},index:${widget.widgetIndex},value:${widget.widgetValue},type:${widget.widgetType}(${widget.widgetType.value()}),hitMsg:${widget.hintMessage}"
         val mainSelectIconPath = widget?.iconFilePath?.selectedIconPath
 
         val unselectDesc =
-            "unSelectedIcon=name:${widget.widgetName},index:${widget.widgetIndex},value:${widget.widgetValue},type:${widget.widgetType},hitMsg:${widget.hintMessage}"
+            "unSelectedIcon=name:${widget.widgetName},index:${widget.widgetIndex},value:${widget.widgetValue},type:${widget.widgetType}(${widget.widgetType.value()}),hitMsg:${widget.hintMessage}"
         val mainUnSelectIconPath = widget?.iconFilePath?.unSelectedIconPath
 
         data.add(PayloadWidgetItem(selectDesc, mainSelectIconPath))
@@ -88,7 +86,6 @@ class PayloadWidgetFragment : DJIFragment() {
                 "subItemSelectIcon=name:${widget.widgetName},index:${widget.widgetIndex},value:${widget.widgetValue},type:${widget.widgetType}(${widget.widgetType.value()})},subItemsName=${subItem?.subItemsName},hitMsg:${widget.hintMessage}"
             val mainSelectIconPath = subItem?.subItemsIconFilePath?.selectedIconPath
 
-
             val unselectDesc =
                 "subItemUnSelectIcon=name:${widget.widgetName},index:${widget.widgetIndex},value:${widget.widgetValue},type:${widget.widgetType}(${widget.widgetType.value()}),subItemsName=${subItem?.subItemsName},hitMsg:${widget.hintMessage}"
             val mainUnSelectIconPath = subItem?.subItemsIconFilePath?.unSelectedIconPath
@@ -96,9 +93,7 @@ class PayloadWidgetFragment : DJIFragment() {
             data.add(PayloadWidgetItem(selectDesc, mainSelectIconPath))
             data.add(PayloadWidgetItem(unselectDesc, mainUnSelectIconPath))
         }
-
     }
-
 
     private fun showMainInterfaceWidgetInfo(payloadWidgetInfo: PayloadWidgetInfo?, adapter: PayloadWidgetIconAdapter) {
         payloadWidgetInfo?.run {
@@ -118,7 +113,6 @@ class PayloadWidgetFragment : DJIFragment() {
                 }
                 adapter.submitList(data)
             }
-
         }
     }
 
@@ -169,10 +163,8 @@ class PayloadWidgetFragment : DJIFragment() {
                     append("uploadBandwidth:$uploadBandwidth").append("\n")
                     append("isFeatureOpened:$isFeatureOpened").append("\n")
                     append("firmwareVersion:$firmwareVersion").append("\n")
-
                 }
                 binding?.tvPayloadBasicInfo?.text = payloadBasicInfo.toString()
-
             }
         }
     }
@@ -198,7 +190,6 @@ class PayloadWidgetFragment : DJIFragment() {
     }
 
     private fun resetView() {
-        binding?.tvPayloadBasicInfo?.text = ""
         binding?.tvPayloadOtherWidgetInfo?.text = ""
         payLoadAdapter.submitList(arrayListOf<PayloadWidgetItem>())
     }
