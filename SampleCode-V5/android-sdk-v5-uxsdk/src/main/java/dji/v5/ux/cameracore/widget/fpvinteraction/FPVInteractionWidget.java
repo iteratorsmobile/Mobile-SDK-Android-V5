@@ -154,6 +154,7 @@ public class FPVInteractionWidget extends FrameLayoutWidget<Object> implements V
     @Override
     protected void onDetachedFromWindow() {
         if (!isInEditMode()) {
+            stopGimbalRotation();
             widgetModel.cleanup();
         }
         super.onDetachedFromWindow();
