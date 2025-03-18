@@ -5,6 +5,8 @@ import dji.sampleV5.aircraft.util.ToastUtils
 import dji.v5.common.callback.CommonCallbacks
 import dji.v5.common.error.IDJIError
 import dji.v5.manager.aircraft.uas.AreaStrategy
+import dji.v5.manager.aircraft.uas.CClassStatus
+import dji.v5.manager.aircraft.uas.CClassStatusListener
 import dji.v5.manager.aircraft.uas.OperatorRegistrationNumberStatus
 import dji.v5.manager.aircraft.uas.OperatorRegistrationNumberStatusListener
 import dji.v5.manager.aircraft.uas.UASRemoteIDManager
@@ -24,6 +26,7 @@ open class UASEuropeanVM : DJIViewModel() {
     val uasRemoteIDStatus = MutableLiveData(UASRemoteIDStatus())
     val operatorRegistrationNumberStatus = MutableLiveData(OperatorRegistrationNumberStatus())
     val currentOperatorRegistrationNumber = MutableLiveData("")
+    val currentCClassStatus = MutableLiveData(CClassStatus.UNKNOWN)
 
     private val uasRemoteIDStatusListener = UASRemoteIDStatusListener {
         uasRemoteIDStatus.postValue(it)
@@ -31,6 +34,10 @@ open class UASEuropeanVM : DJIViewModel() {
 
     private val operatorRegistrationNumberStatusListener = OperatorRegistrationNumberStatusListener {
         operatorRegistrationNumberStatus.postValue(it)
+    }
+
+    private val cClassStatusListener = CClassStatusListener {
+        currentCClassStatus.postValue(it)
     }
 
     protected val uasRemoteIDManager: UASRemoteIDManager = UASRemoteIDManager.getInstance()
@@ -75,6 +82,14 @@ open class UASEuropeanVM : DJIViewModel() {
 
     fun removeOperatorRegistrationNumberStatusListener() {
         uasRemoteIDManager.clearAllOperatorRegistrationNumberStatusListener()
+    }
+
+    fun addCClassStatusListener() {
+        uasRemoteIDManager.addCClassStatusListener(cClassStatusListener)
+    }
+
+    fun clearAllCClassStatusListener() {
+        uasRemoteIDManager.clearAllCClassStatusListener()
     }
 
     fun addRemoteIdStatusListener() {

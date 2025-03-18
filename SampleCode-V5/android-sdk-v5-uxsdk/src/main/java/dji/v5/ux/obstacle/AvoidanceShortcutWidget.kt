@@ -233,7 +233,7 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
      */
     private fun getAPASModeRange(): List<ObstacleAvoidanceType> {
         //行业机中只有M3支持绕行，其他机型都只支持刹停和关闭
-        return if (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct()) {
+        return if (ProductUtil.isM3EProduct() || ProductUtil.isM4EProduct() || ProductUtil.isM4DProduct()) {
             listOf(
                 ObstacleAvoidanceType.BRAKE,
                 ObstacleAvoidanceType.BYPASS,

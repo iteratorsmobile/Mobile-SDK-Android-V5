@@ -239,6 +239,16 @@
                 android:textColor="@color/white"
                 android:textSize="11sp" />
 
+            <RadioButton
+                android:id="@+id/rb_quality_original"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/white"
+                android:tag="100"
+                android:text="ORIGINAL"
+                android:textColor="@color/white"
+                android:textSize="11sp" />
+
         </RadioGroup>
 
     </LinearLayout>

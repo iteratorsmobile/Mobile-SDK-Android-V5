@@ -159,6 +159,7 @@ abstract class KeyOperatorCommand(
                 var result = StringBuilder()
                 val resStr = it.toString()
                 val keyNameIndex = resStr.indexOf(getTAG())
+                if (keyNameIndex <= -1 ) return@setKeyOperateCallBack
                 val keyName = resStr.substring(0, keyNameIndex)
                 val isPassed: Boolean
                 val failedReson = if (resStr.contains(getErrorTAG())) {

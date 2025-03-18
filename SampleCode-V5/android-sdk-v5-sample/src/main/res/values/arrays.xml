@@ -107,6 +107,38 @@
         <item>Start Record</item>
         <item>Stop Record</item>
         <item>Gimbal Pitch</item>
+        <item>Zoom</item>
+        <item>Hover</item>
+        <item>Aircraft Yaw</item>
+    </string-array>
+
+    <string-array name="mission_finish_action">
+        <item>NO_ACTION</item>
+        <item>GO_HOME</item>
+        <item>AUTO_LAND</item>
+        <item>GOTO_FIRST_WAYPOINT</item>
+    </string-array>
+
+    <string-array name="rc_lost_action">
+        <item>GO_BACK</item>
+        <item>LANDING</item>
+        <item>HOVER</item>
+    </string-array>
+
+    <string-array name="aircraft_heading">
+        <item>FOLLOW_WAYLINE</item>
+        <item>FIXED</item>
+        <item>MANUALLY</item>
+        <item>TOWARD_POI</item>
+        <item>SMOOTH_TRANSITION</item>
+    </string-array>
+
+    <string-array name="gimbal_heading">
+        <item>FOLLOW_WAYLINE</item>
+        <item>FIXED</item>
+        <item>MANUALLY</item>
+        <item>TOWARD_POI</item>
+        <item>SMOOTH_TRANSITION</item>
     </string-array>
 
     <string-array name="kml_heigh_mode">

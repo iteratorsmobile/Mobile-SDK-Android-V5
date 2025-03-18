@@ -16,11 +16,16 @@ import androidx.fragment.app.viewModels
 import dji.sampleV5.aircraft.R
 import dji.sampleV5.aircraft.keyvalue.KeyValueDialogUtil
 import dji.sampleV5.aircraft.models.CameraStreamDetailVM
+import dji.sampleV5.aircraft.util.Helper
 import dji.sampleV5.aircraft.util.ToastUtils
+import dji.sdk.keyvalue.value.camera.CameraMode
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.sdk.keyvalue.value.flightassistant.VisionAssistDirection
 import dji.v5.manager.interfaces.ICameraStreamManager
+import dji.v5.utils.common.LogPath
+import dji.v5.utils.common.LogUtils
+import dji.v5.utils.common.StringUtils
 
 class CameraStreamDetailFragment : DJIFragment() {
 
@@ -59,6 +64,7 @@ class CameraStreamDetailFragment : DJIFragment() {
     private lateinit var btnStopDownloadStream: Button
     private lateinit var btnSetStreamEncodeBitrate: Button
     private lateinit var btnGetStreamEncodeBitrate: Button
+    private lateinit var btnChangeCameraMode: Button
     private lateinit var cameraIndex: ComponentIndexType
     private var onlyOneCamera = false
     private var isNeedPreviewCamera = false
@@ -75,6 +81,7 @@ class CameraStreamDetailFragment : DJIFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        LogUtils.i(LogPath.SAMPLE, "onCreateView,onlyOneCamera:", onlyOneCamera)
         val layoutId: Int = if (onlyOneCamera) {
             R.layout.fragment_camera_stream_detail_single
         } else {
@@ -102,6 +109,7 @@ class CameraStreamDetailFragment : DJIFragment() {
         btnStopDownloadStream = view.findViewById(R.id.btn_stop_download_stream)
         btnSetStreamEncodeBitrate = view.findViewById(R.id.btn_set_stream_encode_bitrate)
         btnGetStreamEncodeBitrate = view.findViewById(R.id.btn_get_stream_encode_bitrate)
+        btnChangeCameraMode = view.findViewById(R.id.btn_change_camera_mode)
         rgScaleLayout.setOnCheckedChangeListener(onScaleChangeListener)
         mrgLensTypeLayout.setOnCheckedChangeListener(mOnLensChangeListener)
         mAssistViewDirectionLayout.setOnCheckedChangeListener(mOnAssistViewDirectionChangeListener)
@@ -147,6 +155,16 @@ class CameraStreamDetailFragment : DJIFragment() {
             ToastUtils.showToast("Stream Encoder Bitrate:${viewModel.getStreamEncoderBitrate()}")
         }
 
+        btnChangeCameraMode.setOnClickListener {
+            val index = arrayListOf(
+                CameraMode.PHOTO_NORMAL, CameraMode.VIDEO_NORMAL
+            )
+            initPopupNumberPicker(Helper.makeList(index)) {
+                viewModel.changeCameraMode(index[indexChosen[0]])
+                resetIndex()
+            }
+        }
+
         onOpenOrCloseCheckListener.onClick(btnCloseOrOpen)
 
         if (cameraIndex == ComponentIndexType.VISION_ASSIST) {
@@ -159,8 +177,9 @@ class CameraStreamDetailFragment : DJIFragment() {
     }
 
     private fun initViewModel() {
-        viewModel.setCameraIndex(cameraIndex)
+        LogUtils.i(LogPath.SAMPLE, "initViewModel,cameraIndex:", cameraIndex)
 
+        viewModel.setCameraIndex(cameraIndex)
         viewModel.availableLensListData.observe(viewLifecycleOwner) { availableLensList ->
             for (i in 0 until mrgLensTypeLayout.childCount) {
                 val childView = mrgLensTypeLayout.getChildAt(i)
@@ -197,9 +216,9 @@ class CameraStreamDetailFragment : DJIFragment() {
         viewModel.isVisionAssistEnabled.observe(viewLifecycleOwner) {
             btnCloseOrOpenVisionAssist.isSelected = it == true
             if (btnCloseOrOpenVisionAssist.isSelected) {
-                btnCloseOrOpenVisionAssist.text = "close vision assist"
+                btnCloseOrOpenVisionAssist.text = "Close Vision Assist"
             } else {
-                btnCloseOrOpenVisionAssist.text = "open vision assist"
+                btnCloseOrOpenVisionAssist.text = "Open Vision Assist"
             }
         }
 
@@ -309,7 +328,7 @@ class CameraStreamDetailFragment : DJIFragment() {
         }
     }
 
-    private val mOnAssistViewDirectionChangeListener = RadioGroup.OnCheckedChangeListener { rg, checkedId ->
+    private val mOnAssistViewDirectionChangeListener = RadioGroup.OnCheckedChangeListener { _, checkedId ->
         when (checkedId) {
             R.id.rb_direction_auto -> {
                 assistantVideoMode = VisionAssistDirection.AUTO

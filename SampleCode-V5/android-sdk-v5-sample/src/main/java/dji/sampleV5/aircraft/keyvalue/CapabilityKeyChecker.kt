@@ -132,13 +132,13 @@ object CapabilityKeyChecker {
     private fun checkOneType(
         productType: String,
         componentTypeName: String,
-        keyCheckType : KeyCheckType
+        keyCheckType: KeyCheckType
     ): Completable {
 
-      var keyOperatorCommand =   when(keyCheckType) {
-            KeyCheckType.SET -> KeySetCommand(productType , componentTypeName)
-            KeyCheckType.ACTION -> KeyActionCommand(productType ,componentTypeName)
-            KeyCheckType.GET -> KeyGetCommand(productType , componentTypeName)
+        var keyOperatorCommand = when (keyCheckType) {
+            KeyCheckType.SET -> KeySetCommand(productType, componentTypeName)
+            KeyCheckType.ACTION -> KeyActionCommand(productType, componentTypeName)
+            KeyCheckType.GET -> KeyGetCommand(productType, componentTypeName)
         }
         return keyOperatorCommand.execute()
     }
@@ -147,25 +147,25 @@ object CapabilityKeyChecker {
         productType: String,
         componentTypeName: String,
     ) {
-        checkOneType(productType ,componentTypeName , KeyCheckType.GET)
-            .andThen(checkOneType(productType ,componentTypeName , KeyCheckType.SET))
-            .andThen(checkOneType(productType ,componentTypeName , KeyCheckType.ACTION))
+        checkOneType(productType, componentTypeName, KeyCheckType.GET)
+            .andThen(checkOneType(productType, componentTypeName, KeyCheckType.SET))
+            .andThen(checkOneType(productType, componentTypeName, KeyCheckType.ACTION))
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : CompletableObserver{
-               override fun onSubscribe(d: Disposable) {
-                   LogUtils.e(TAG , "begin check")
-                   ToastUtils.showToast("begin check")
-               }
+            .subscribe(object : CompletableObserver {
+                override fun onSubscribe(d: Disposable) {
+                    LogUtils.e(TAG, "begin check", productType, componentTypeName)
+                    ToastUtils.showToast("begin check")
+                }
 
-               override fun onComplete() {
-                   LogUtils.e(TAG , "-check finish-")
-               }
+                override fun onComplete() {
+                    LogUtils.e(TAG, "-check finish-")
+                }
 
-               override fun onError(e: Throwable) {
-                   LogUtils.e(TAG , "check error${e.message}")
-               }
+                override fun onError(e: Throwable) {
+                    LogUtils.e(TAG, "check error${e.message}")
+                }
 
-           })
+            })
 
     }
 }

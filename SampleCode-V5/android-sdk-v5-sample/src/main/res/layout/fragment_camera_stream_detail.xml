@@ -22,7 +22,7 @@
         android:id="@+id/sv_camera"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="2" />
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/ll_live_info_layout"
@@ -56,7 +56,7 @@
                     android:layout_marginStart="7dp"
                     android:text="Scale："
                     android:textColor="@color/white"
-                    android:textSize="13sp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -66,7 +66,7 @@
                     android:buttonTint="@color/white"
                     android:text="CenterInside"
                     android:textColor="@color/white"
-                    android:textSize="11sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_center_crop"
@@ -75,7 +75,7 @@
                     android:buttonTint="@color/white"
                     android:text="CenterCrop"
                     android:textColor="@color/white"
-                    android:textSize="11sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_fix_xy"
@@ -84,7 +84,7 @@
                     android:buttonTint="@color/white"
                     android:text="FixXY"
                     android:textColor="@color/white"
-                    android:textSize="11sp" />
+                    android:textSize="9sp" />
             </RadioGroup>
 
             <RadioGroup
@@ -109,7 +109,7 @@
                     android:layout_marginStart="7dp"
                     android:text="Lens："
                     android:textColor="@color/white"
-                    android:textSize="13sp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -120,7 +120,7 @@
                     android:tag="0"
                     android:text="DEFAULT"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -131,7 +131,7 @@
                     android:tag="1"
                     android:text="WIDE"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -142,7 +142,7 @@
                     android:tag="2"
                     android:text="ZOOM"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -153,7 +153,7 @@
                     android:tag="3"
                     android:text="INFRARED"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -164,7 +164,7 @@
                     android:tag="100000"
                     android:text="RGB_CAMERA"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -175,7 +175,7 @@
                     android:tag="4"
                     android:text="NDVI_CAMERA"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -186,7 +186,7 @@
                     android:tag="7"
                     android:text="VISION_CAMERA"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -197,7 +197,7 @@
                     android:tag="8"
                     android:text="MS_G_CAMERA"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -208,7 +208,7 @@
                     android:tag="9"
                     android:text="MS_R_CAMERA"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -219,7 +219,7 @@
                     android:tag="10"
                     android:text="MS_RE_CAMERA"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -230,7 +230,7 @@
                     android:tag="11"
                     android:text="MS_NIR_CAMERA"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <RadioButton
@@ -241,7 +241,7 @@
                     android:tag="14"
                     android:text="POINT_CLOUD"
                     android:textColor="@color/white"
-                    android:textSize="11sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
             </RadioGroup>
 
@@ -249,7 +249,7 @@
                 android:id="@+id/rg_assist_view_direction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checkedButton="@id/rb_center_inside"
+                android:checkedButton="@id/rb_direction_auto"
                 android:gravity="top|start"
                 android:orientation="vertical"
                 android:paddingTop="8dp"
@@ -267,7 +267,7 @@
                     android:layout_marginStart="7dp"
                     android:text="View Direction:"
                     android:textColor="@color/white"
-                    android:textSize="13sp"
+                    android:textSize="10sp"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -278,7 +278,7 @@
                     android:text="AUTO"
                     android:tag="AUTO"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_direction_front"
@@ -288,7 +288,7 @@
                     android:text="FRONT"
                     android:tag="FRONT"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_direction_back"
@@ -298,7 +298,7 @@
                     android:text="BACK"
                     android:tag="BACK"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_direction_left"
@@ -308,7 +308,7 @@
                     android:text="LEFT"
                     android:tag="LEFT"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_direction_right"
@@ -318,7 +318,7 @@
                     android:text="RIGHT"
                     android:tag="RIGHT"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_direction_up"
@@ -328,7 +328,7 @@
                     android:text="UP"
                     android:tag="UP"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_direction_down"
@@ -338,7 +338,7 @@
                     android:text="DOWN"
                     android:tag="DOWN"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
 
                 <RadioButton
                     android:id="@+id/rb_direction_off"
@@ -348,7 +348,7 @@
                     android:text="OFF"
                     android:tag="OFF"
                     android:textColor="@color/white"
-                    android:textSize="13sp" />
+                    android:textSize="9sp" />
             </RadioGroup>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -390,6 +390,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="0dp"
                 android:text="Open Vision Assist"
+                android:singleLine="true"
                 android:textAllCaps="false"
                 android:textSize="11sp" />
 
@@ -430,6 +431,16 @@
                 android:layout_height="wrap_content"
                 android:minHeight="0dp"
                 android:text="Get Stream Encode Bitrate"
+                android:singleLine="true"
+                android:textAllCaps="false"
+                android:textSize="11sp" />
+
+            <Button
+                android:id="@+id/btn_change_camera_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="0dp"
+                android:text="Change Camera Mode"
                 android:singleLine="true"
                 android:textAllCaps="false"
                 android:textSize="11sp" />

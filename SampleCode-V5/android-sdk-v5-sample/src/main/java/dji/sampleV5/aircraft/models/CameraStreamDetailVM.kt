@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import dji.sampleV5.aircraft.util.ToastUtils
 import dji.sdk.keyvalue.key.CameraKey
 import dji.sdk.keyvalue.key.FlightControllerKey
+import dji.sdk.keyvalue.value.camera.CameraMode
 import dji.sdk.keyvalue.value.camera.CameraType
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
@@ -83,6 +84,7 @@ class CameraStreamDetailVM : DJIViewModel() {
         super.onCleared()
         setCameraIndex(ComponentIndexType.UNKNOWN)
         MediaDataCenter.getInstance().cameraStreamManager.removeVisionAssistStatusListener(visionAssistStatusListener)
+        KeyManager.getInstance().cancelListen(this)
         doStopDownloadStreamToLocal()
     }
 
@@ -254,6 +256,10 @@ class CameraStreamDetailVM : DJIViewModel() {
     }
 
     fun getStreamEncoderBitrate() = MediaDataCenter.getInstance().cameraStreamManager.getStreamEncoderBitrate(cameraIndex)
+
+    fun changeCameraMode(mode: CameraMode) {
+        CameraKey.KeyCameraMode.create().set(mode)
+    }
 
     private fun doStopDownloadStreamToLocal() {
         MediaDataCenter.getInstance().cameraStreamManager.removeReceiveStreamListener(streamListener)

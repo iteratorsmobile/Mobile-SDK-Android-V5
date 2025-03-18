@@ -2,6 +2,7 @@ package dji.sampleV5.aircraft.pages
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.Surface
 import android.view.SurfaceHolder
 import android.view.View
@@ -87,6 +88,17 @@ class LookAtFragment : DJIFragment() {
         }
         binding?.btnLookAt?.setOnClickListener {
             lookAt()
+        }
+        binding?.svCamera?.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                val viewHeight = binding?.svCamera?.height ?: -1
+                val viewWidth = binding?.svCamera?.width ?: -1
+                if (viewHeight == -1 || viewWidth == -1) {
+                    return@setOnTouchListener false
+                }
+                lookAtViewModel.startTapZoomPoint(event.x / viewHeight.toDouble(), event.y / viewWidth.toDouble())
+            }
+            true
         }
     }
 

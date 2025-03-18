@@ -30,6 +30,7 @@ import dji.v5.utils.common.DocumentUtil
 import dji.v5.ux.accessory.DescSpinnerCell
 import dji.v5.ux.map.MapWidget
 import dji.v5.ux.mapkit.core.maps.DJIMap
+import dji.v5.ux.sample.util.FlySafeMapUtil
 import java.util.*
 
 /**

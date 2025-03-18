@@ -35,6 +35,7 @@ class UASEuropeanFragment : DJIFragment() {
     private fun initListener() {
         uasEuropeanVM.addRemoteIdStatusListener()
         uasEuropeanVM.addOperatorRegistrationNumberStatusListener()
+        uasEuropeanVM.addCClassStatusListener()
         uasEuropeanVM.uasRemoteIDStatus.observe(viewLifecycleOwner) {
             updateUASInfo()
         }
@@ -42,6 +43,9 @@ class UASEuropeanFragment : DJIFragment() {
             updateUASInfo()
         }
         uasEuropeanVM.currentOperatorRegistrationNumber.observe(viewLifecycleOwner) {
+            updateUASInfo()
+        }
+        uasEuropeanVM.currentCClassStatus.observe(viewLifecycleOwner) {
             updateUASInfo()
         }
         binding?.btSetOperatorRegistrationNumber?.setOnClickListener {
@@ -64,6 +68,7 @@ class UASEuropeanFragment : DJIFragment() {
         super.onDestroy()
         uasEuropeanVM.clearRemoteIdStatusListener()
         uasEuropeanVM.removeOperatorRegistrationNumberStatusListener()
+        uasEuropeanVM.clearAllCClassStatusListener()
     }
 
     private fun updateUASInfo() {
@@ -73,6 +78,8 @@ class UASEuropeanFragment : DJIFragment() {
         builder.append("Uas Remote Operator Registration Number:").append(JsonUtil.toJson(uasEuropeanVM.currentOperatorRegistrationNumber.value))
         builder.append("\n")
         builder.append("Uas Operator Registration Number Status:").append(JsonUtil.toJson(uasEuropeanVM.operatorRegistrationNumberStatus.value))
+        builder.append("\n")
+        builder.append("CClassStatus:").append(uasEuropeanVM.currentCClassStatus.value!!.name)
         builder.append("\n")
         mainHandler.post {
             binding?.tvUasEuropeanInfo?.text = builder.toString()
