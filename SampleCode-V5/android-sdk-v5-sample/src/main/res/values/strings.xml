@@ -345,7 +345,7 @@ More refer to the release notes." </string>
     <string name="item_uas_description">Demonstrate how to use the related functions of uas</string>
     <string name="bt_set_eid_enable">Set electronicId enabled</string>
     <string name="bt_set_ua_registration_number">Set ua registration number</string>
-
+    <string name="m3e_little_battery_connceted">DJI Mavic 3 Enterprise Series Battery (EU C1 Version)</string>
 
     <!-- key Type-->
     <string name="key_type_battery">battery key</string>
@@ -483,6 +483,10 @@ More refer to the release notes." </string>
     <!-- Look At preview -->
     <string name="item_look_at_title">Look At</string>
     <string name="item_look_at_description">Demonstrate how to use look at</string>
+
+    <!-- Intelligent Flight preview -->
+    <string name="item_intelligent_flight_title">Intelligent Flight</string>
+    <string name="item_intelligent_flight__description">Demonstrate how to use intelligent flight</string>
 
     <!-- app silently upgrade preview -->
     <string name="item_app_silently_upgrade_title">APP Silently Upgrade</string>

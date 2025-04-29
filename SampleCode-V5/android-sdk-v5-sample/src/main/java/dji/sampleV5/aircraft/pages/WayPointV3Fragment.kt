@@ -593,8 +593,6 @@ class WayPointV3Fragment : DJIFragment() {
             && Build.VERSION.SDK_INT >= Build.VERSION_CODES.R && Environment.isExternalStorageManager()) {
             showFileChooser()
         }
-
-
     }
 
     fun checkPath() {

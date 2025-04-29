@@ -153,7 +153,7 @@ abstract class KeyOperatorCommand(
 
     fun doKeyParam(item: KeyItem<*, *>, type: KeyCheckType) {
         curCheckType = type
-        getItemDecoderList(item).forEach() {
+        getItemDecoderList(item).forEach {
             val lock = CountDownLatch(1)
             item.setKeyOperateCallBack {
                 var result = StringBuilder()

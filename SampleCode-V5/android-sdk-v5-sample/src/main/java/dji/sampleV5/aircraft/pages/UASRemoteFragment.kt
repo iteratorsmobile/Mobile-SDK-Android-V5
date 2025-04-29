@@ -41,5 +41,12 @@ class UASRemoteFragment : DJIFragment() {
         binding?.btnChina?.setOnClickListener {
             Navigation.findNavController(it).navigate(R.id.action_open_uas_chin_page)
         }
+        binding?.btnSingapore?.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_open_uas_singapore_page)
+        }
+
+        binding?.btnUae?.setOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.action_open_uas_uae_page)
+        }
     }
 }

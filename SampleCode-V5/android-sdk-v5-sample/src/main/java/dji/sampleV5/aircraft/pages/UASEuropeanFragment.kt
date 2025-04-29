@@ -48,6 +48,9 @@ class UASEuropeanFragment : DJIFragment() {
         uasEuropeanVM.currentCClassStatus.observe(viewLifecycleOwner) {
             updateUASInfo()
         }
+        uasEuropeanVM.M3ELittleBatteryType.observe(viewLifecycleOwner) {
+            updateUASInfo()
+        }
         binding?.btSetOperatorRegistrationNumber?.setOnClickListener {
             KeyValueDialogUtil.showInputDialog(
                 activity, "Operator Registration Number",
@@ -81,6 +84,10 @@ class UASEuropeanFragment : DJIFragment() {
         builder.append("\n")
         builder.append("CClassStatus:").append(uasEuropeanVM.currentCClassStatus.value!!.name)
         builder.append("\n")
+        uasEuropeanVM.M3ELittleBatteryType.value?.let {
+            builder.append("M3E Battery Type:").append(it)
+            builder.append("\n")
+        }
         mainHandler.post {
             binding?.tvUasEuropeanInfo?.text = builder.toString()
         }

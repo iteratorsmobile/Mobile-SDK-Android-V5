@@ -1,4 +1,4 @@
-# DJI Mobile SDK for Android V5 最新版本 V5.13.0
+# DJI Mobile SDK for Android V5 最新版本 V5.14.0
 [English Version](README.md)
 
 ## DJI Mobile SDK V5 是什么?
@@ -91,7 +91,7 @@ Sample模块：
 
 ## AAR说明
 
-> **注意：** sdkVersion = 5.13.0
+> **注意：** sdkVersion = 5.14.0
 
 | SDK包| 说明| 使用方式|
 | :---------------: | :-----------------:  | :---------------: |
