@@ -132,13 +132,14 @@ object CapabilityKeyChecker {
     private fun checkOneType(
         productType: String,
         componentTypeName: String,
-        keyCheckType: KeyCheckType
+        keyCheckType: KeyCheckType,
+        componentIndex: Int
     ): Completable {
 
         var keyOperatorCommand = when (keyCheckType) {
-            KeyCheckType.SET -> KeySetCommand(productType, componentTypeName)
-            KeyCheckType.ACTION -> KeyActionCommand(productType, componentTypeName)
-            KeyCheckType.GET -> KeyGetCommand(productType, componentTypeName)
+            KeyCheckType.SET -> KeySetCommand(productType, componentTypeName, componentIndex)
+            KeyCheckType.ACTION -> KeyActionCommand(productType, componentTypeName, componentIndex)
+            KeyCheckType.GET -> KeyGetCommand(productType, componentTypeName, componentIndex)
         }
         return keyOperatorCommand.execute()
     }
@@ -146,14 +147,15 @@ object CapabilityKeyChecker {
     fun check(
         productType: String,
         componentTypeName: String,
+        componentIndex: Int
     ) {
-        checkOneType(productType, componentTypeName, KeyCheckType.GET)
-            .andThen(checkOneType(productType, componentTypeName, KeyCheckType.SET))
-            .andThen(checkOneType(productType, componentTypeName, KeyCheckType.ACTION))
+        checkOneType(productType, componentTypeName, KeyCheckType.SET, componentIndex)
+            .andThen(checkOneType(productType, componentTypeName, KeyCheckType.SET, componentIndex))
+            .andThen(checkOneType(productType, componentTypeName, KeyCheckType.ACTION, componentIndex))
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : CompletableObserver {
                 override fun onSubscribe(d: Disposable) {
-                    LogUtils.e(TAG, "begin check", productType, componentTypeName)
+                    LogUtils.e(TAG, "begin check")
                     ToastUtils.showToast("begin check")
                 }
 

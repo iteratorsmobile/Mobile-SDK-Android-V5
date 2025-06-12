@@ -2,6 +2,7 @@ package dji.sampleV5.aircraft.keyvalue
 
 import dji.sdk.keyvalue.key.ComponentType
 import dji.sdk.keyvalue.key.ProductKey
+import dji.sdk.keyvalue.utils.MultiComponentManager
 import dji.sdk.keyvalue.value.common.CameraLensType
 import dji.sdk.keyvalue.value.product.ProductType
 import dji.v5.common.callback.CommonCallbacks
@@ -26,7 +27,8 @@ import java.util.concurrent.CountDownLatch
  */
 abstract class KeyOperatorCommand(
     private val productType: String,
-    private val componentTypeName: String
+    private val componentTypeName: String,
+    private val componentIndex: Int
 ) {
 
     private val INTERVAL_TIME = 500L // 连续快速调用key时 可能会导致失败
@@ -97,6 +99,11 @@ abstract class KeyOperatorCommand(
                 LogUtils.e(TAG, "${++keyCount} doCheck $item ")
                 LogUtils.e(TAG, "Thread name is 1 " + Thread.currentThread().name)
                 val lock = CountDownLatch(1)
+                item.componetIndex = if (MultiComponentManager.isMultiKey(item.keyInfo.componentType)) {
+                    componentIndex
+                } else {
+                    0
+                }
                 dependKeySet(item, object : CommonCallbacks.CompletionCallback {
                     override fun onSuccess() {
                         //从主线程再切回io线程
@@ -234,13 +241,19 @@ abstract class KeyOperatorCommand(
         if (keyParamList.isNotEmpty() || keyItem.canGet()) {
             lensTypeList.map {
                 transCameraLensTypeStr(it)
-            }.forEach { subComponetType ->
+            }.forEach { subComponentType ->
+                val index = if (MultiComponentManager.isMultiKey(keyItem.keyInfo.componentType)) {
+                    componentIndex
+                } else {
+                    0
+                }
                 if (curCheckType == KeyCheckType.SET || curCheckType == KeyCheckType.ACTION) {
                     keyParamList
                         .forEach {
                             resList.add(
                                 CapabilityKeyChecker.ItemDecoder(
-                                    subComponetType = subComponetType,
+                                    componetIndex = index,
+                                    subComponetType = subComponentType,
                                     jsonString = it
                                 )
                             )
@@ -248,7 +261,8 @@ abstract class KeyOperatorCommand(
                 } else if (curCheckType == KeyCheckType.GET) {
                     resList.add(
                         CapabilityKeyChecker.ItemDecoder(
-                            subComponetType = subComponetType,
+                            componetIndex = index,
+                            subComponetType = subComponentType,
                             jsonString = ""
                         )
                     )

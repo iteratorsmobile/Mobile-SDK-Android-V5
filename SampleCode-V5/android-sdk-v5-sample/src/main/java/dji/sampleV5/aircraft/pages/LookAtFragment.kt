@@ -109,10 +109,7 @@ class LookAtFragment : DJIFragment() {
     }
 
     private fun selectCamera() {
-        val index = arrayListOf(
-            ComponentIndexType.LEFT_OR_MAIN, ComponentIndexType.RIGHT,
-            ComponentIndexType.UP, ComponentIndexType.FPV
-        )
+        val index = ComponentIndexType.values()
         initPopupNumberPicker(Helper.makeList(index)) {
             cameraViewModel.setCameraIndex(index[indexChosen[0]])
             lookAtViewModel.currentComponentIndexType.value = index[indexChosen[0]]

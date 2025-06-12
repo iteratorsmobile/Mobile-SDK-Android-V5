@@ -67,6 +67,7 @@ class LocalFileFragment : DJIFragment() {
                     val filePath: String = binding?.etLocalFilePath?.text.toString()
                     val pcmFilePath = PCMTools.convertToPcmFileSync(filePath)
                     if (TextUtils.isEmpty(pcmFilePath)) {
+                        ToastUtils.showToast("error Path :$filePath")
                         return@execute
                     }
                     val opusPath = PCMTools.convertToOpusFileSync(pcmFilePath)

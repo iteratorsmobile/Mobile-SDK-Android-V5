@@ -1,5 +1,6 @@
 package dji.sampleV5.aircraft.pages
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Surface
@@ -19,6 +20,7 @@ import dji.sampleV5.aircraft.models.CameraStreamDetailVM
 import dji.sampleV5.aircraft.util.Helper
 import dji.sampleV5.aircraft.util.ToastUtils
 import dji.sdk.keyvalue.value.camera.CameraMode
+import dji.sdk.keyvalue.value.airlink.ChannelPriority
 import dji.sdk.keyvalue.value.camera.CameraVideoStreamSourceType
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.sdk.keyvalue.value.flightassistant.VisionAssistDirection
@@ -26,6 +28,7 @@ import dji.v5.manager.interfaces.ICameraStreamManager
 import dji.v5.utils.common.LogPath
 import dji.v5.utils.common.LogUtils
 import dji.v5.utils.common.StringUtils
+import dji.v5.ux.core.extension.textColor
 
 class CameraStreamDetailFragment : DJIFragment() {
 
@@ -55,6 +58,7 @@ class CameraStreamDetailFragment : DJIFragment() {
     private lateinit var rgScaleLayout: RadioGroup
     private lateinit var mrgLensTypeLayout: RadioGroup
     private lateinit var mAssistViewDirectionLayout: RadioGroup
+    private lateinit var mStreamPriorityLayout: RadioGroup
     private lateinit var cameraSurfaceView: SurfaceView
     private lateinit var btnDownloadYUV: Button
     private lateinit var tvCameraName: TextView
@@ -67,12 +71,12 @@ class CameraStreamDetailFragment : DJIFragment() {
     private lateinit var btnChangeCameraMode: Button
     private lateinit var cameraIndex: ComponentIndexType
     private var onlyOneCamera = false
-    private var isNeedPreviewCamera = false
     private var surface: Surface? = null
     private var width = -1
     private var height = -1
     private var scaleType = ICameraStreamManager.ScaleType.CENTER_INSIDE
     private var assistantVideoMode = VisionAssistDirection.AUTO
+    private var streamPriority = ChannelPriority.HIGH
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,6 +104,7 @@ class CameraStreamDetailFragment : DJIFragment() {
         rgScaleLayout = view.findViewById(R.id.rg_scale)
         mrgLensTypeLayout = view.findViewById(R.id.rg_lens_type)
         mAssistViewDirectionLayout = view.findViewById(R.id.rg_assist_view_direction)
+        mStreamPriorityLayout = view.findViewById(R.id.rg_stream_priority)
         cameraSurfaceView = view.findViewById(R.id.sv_camera)
         btnDownloadYUV = view.findViewById(R.id.btn_download_yuv)
         tvCameraName = view.findViewById(R.id.tv_camera_name)
@@ -113,6 +118,7 @@ class CameraStreamDetailFragment : DJIFragment() {
         rgScaleLayout.setOnCheckedChangeListener(onScaleChangeListener)
         mrgLensTypeLayout.setOnCheckedChangeListener(mOnLensChangeListener)
         mAssistViewDirectionLayout.setOnCheckedChangeListener(mOnAssistViewDirectionChangeListener)
+        mStreamPriorityLayout.setOnCheckedChangeListener(mOnStreamPriorityChangeListener)
         btnCloseOrOpen.setOnClickListener(onOpenOrCloseCheckListener)
         btnCloseOrOpenVisionAssist.setOnClickListener(onOpenOrCloseVisionAssistCheckListener)
         cameraSurfaceView.holder.addCallback(cameraSurfaceCallback)
@@ -254,20 +260,38 @@ class CameraStreamDetailFragment : DJIFragment() {
                 }
             }
         }
+
+        viewModel.cameraStreamEnableMap.observe(viewLifecycleOwner) { map ->
+            map[cameraIndex]?.let {
+                btnCloseOrOpen.isSelected = it == true
+                if (btnCloseOrOpen.isSelected) {
+                    btnCloseOrOpen.text = "Close"
+                    tvCameraName.textColor = Color.GREEN
+                } else {
+                    btnCloseOrOpen.text = "Open"
+                    tvCameraName.textColor = Color.RED
+                }
+            }
+        }
+    }
+
+    private fun updateStreamPriority() {
+        val childView = mStreamPriorityLayout.findViewWithTag<View>(viewModel.getStreamPriority().name)
+        if (childView is RadioButton) {
+            mStreamPriorityLayout.setOnCheckedChangeListener(null)
+            mStreamPriorityLayout.check(childView.id)
+            mStreamPriorityLayout.setOnCheckedChangeListener(mOnStreamPriorityChangeListener)
+        }
     }
 
     private fun updateCameraStream() {
-        if (isNeedPreviewCamera) {
-            cameraSurfaceView.visibility = View.VISIBLE
-        } else {
-            cameraSurfaceView.visibility = View.GONE
-        }
-        if (width <= 0 || height <= 0 || surface == null || !isNeedPreviewCamera) {
+        if (width <= 0 || height <= 0 || surface == null) {
             if (surface != null) {
                 viewModel.removeCameraStreamSurface(surface!!)
             }
             return
         }
+        updateStreamPriority()
         viewModel.putCameraStreamSurface(
             surface!!,
             width,
@@ -328,7 +352,28 @@ class CameraStreamDetailFragment : DJIFragment() {
         }
     }
 
-    private val mOnAssistViewDirectionChangeListener = RadioGroup.OnCheckedChangeListener { _, checkedId ->
+    private val mOnStreamPriorityChangeListener = RadioGroup.OnCheckedChangeListener { rg, checkedId ->
+        when (checkedId) {
+            R.id.rb_priority_low -> {
+                streamPriority = ChannelPriority.LOW
+            }
+
+            R.id.rb_priority_medium -> {
+                streamPriority = ChannelPriority.MEDIUM
+            }
+
+            R.id.rb_priority_high -> {
+                streamPriority = ChannelPriority.HIGH
+            }
+
+            R.id.rb_priority_highest -> {
+                streamPriority = ChannelPriority.HIGHEST
+            }
+        }
+        viewModel.setStreamPriority(streamPriority)
+    }
+
+    private val mOnAssistViewDirectionChangeListener = RadioGroup.OnCheckedChangeListener { rg, checkedId ->
         when (checkedId) {
             R.id.rb_direction_auto -> {
                 assistantVideoMode = VisionAssistDirection.AUTO
@@ -366,14 +411,7 @@ class CameraStreamDetailFragment : DJIFragment() {
     }
 
     private val onOpenOrCloseCheckListener = View.OnClickListener { _ ->
-        btnCloseOrOpen.isSelected = !btnCloseOrOpen.isSelected
-        isNeedPreviewCamera = btnCloseOrOpen.isSelected
-        if (btnCloseOrOpen.isSelected) {
-            btnCloseOrOpen.text = "close"
-        } else {
-            btnCloseOrOpen.text = "open"
-        }
-        updateCameraStream()
+        viewModel.enableStream(!btnCloseOrOpen.isSelected)
     }
 
     private val onOpenOrCloseVisionAssistCheckListener = View.OnClickListener { _ ->

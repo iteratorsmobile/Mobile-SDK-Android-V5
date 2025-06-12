@@ -65,12 +65,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_start_auto_sensing" />
 
             <Button
+                android:id="@+id/btn_select_intelligent_model"
+                style="@style/main_fragment_btn"
+                android:text="Select Intelligent Model"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_stop_auto_sensing" />
+
+            <Button
                 android:id="@+id/btn_select_camera"
                 style="@style/main_fragment_btn"
                 android:text="select camera"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_stop_auto_sensing" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_select_intelligent_model" />
 
             <Button
                 android:id="@+id/btn_select_lens"
@@ -100,12 +108,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/line" />
 
             <Button
+                android:id="@+id/btn_enter_spotlight_mode"
+                style="@style/main_fragment_btn"
+                android:layout_marginTop="6dp"
+                android:text="enter spotlight mode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_start_spotlight_for_industry" />
+
+            <Button
+                android:id="@+id/btn_exit_spotlight_mode"
+                style="@style/main_fragment_btn"
+                android:layout_marginTop="6dp"
+                android:text="exit spotlight mode"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_enter_spotlight_mode" />
+
+            <Button
                 android:id="@+id/btn_start_spotlight_for_consume"
                 style="@style/main_fragment_btn"
                 android:text="start spotlight for consume"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_start_spotlight_for_industry" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_exit_spotlight_mode" />
 
             <Button
                 android:id="@+id/btn_stop_spotlight"

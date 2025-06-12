@@ -30,9 +30,10 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <RadioGroup
                 android:id="@+id/rg_scale"
@@ -43,10 +44,6 @@
                 android:orientation="vertical"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/rg_lens_type"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0"
                 app:tabTextColor="@color/uxsdk_white">
 
@@ -96,11 +93,6 @@
                 android:orientation="vertical"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/rg_assist_view_direction"
-                app:layout_constraintStart_toEndOf="@id/rg_scale"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
                 app:tabTextColor="@color/uxsdk_white">
 
                 <TextView
@@ -254,11 +246,6 @@
                 android:orientation="vertical"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/rg_lens_type"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0"
                 app:tabTextColor="@color/uxsdk_white">
 
                 <TextView
@@ -351,7 +338,67 @@
                     android:textSize="9sp" />
             </RadioGroup>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioGroup
+                android:id="@+id/rg_stream_priority"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:orientation="vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:tabTextColor="@color/uxsdk_white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="Stream Priority:"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/rb_priority_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="LOW"
+                    android:tag="LOW"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_priority_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="MEDIUM"
+                    android:tag="MEDIUM"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_priority_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="HIGH"
+                    android:tag="HIGH"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_priority_highest"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/white"
+                    android:text="HIGHEST"
+                    android:tag="HIGHEST"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </RadioGroup>
+
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <HorizontalScrollView

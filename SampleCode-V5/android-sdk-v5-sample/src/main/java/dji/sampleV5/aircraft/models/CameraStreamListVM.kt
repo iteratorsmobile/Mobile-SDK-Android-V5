@@ -25,4 +25,8 @@ class CameraStreamListVM : DJIViewModel(), AvailableCameraUpdatedListener {
     override fun onAvailableCameraUpdated(availableCameraList: List<ComponentIndexType>) {
         _availableCameraListData.postValue(availableCameraList)
     }
+
+    override fun onCameraStreamEnableUpdate(cameraStreamEnableMap: MutableMap<ComponentIndexType, Boolean>) {
+        //
+    }
 }

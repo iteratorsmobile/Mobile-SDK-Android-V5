@@ -51,7 +51,6 @@ class PayLoadDataVM : DJIViewModel() {
         })
     }
 
-
     fun initPayloadDataListener(payloadIndexType: PayloadIndexType) {
         this.payloadIndexType = payloadIndexType
         payloadManagerMap[payloadIndexType]?.addPayloadDataListener(payloadDataListener)

@@ -1,4 +1,4 @@
-# DJI Mobile SDK for Android V5 Latest Version 5.14.0
+# DJI Mobile SDK for Android V5 Latest Version 5.15.0
 
 [中文版](README_CN.md)
 
@@ -7,6 +7,7 @@
 DJI Mobile SDK V5 has a series of APIs to control the software and hardware interfaces of an aircraft. We provide an open source production sample and a tutorial for developers to develop a more competitive drone solution on mobile device. This improves the experience and efficiency of MSDK App development.
 
 Supported Product:
+* [Matrice 400]()
 * [Matrice 4D Enterprise Series]()
 * [DJI Mini4 PRO](https://www.dji.com/cn/mini-4-pro?from=store-product-page)
 * [Matrice 4 Enterprise Series](https://enterprise.dji.com/cn/matrice-4-series)
@@ -90,7 +91,7 @@ For further detail on how to integrate the DJI Android SDK into your Android Stu
 
 ## AAR Explanation
 
-> **Notice:** sdkVersion = 5.14.0
+> **Notice:** sdkVersion = 5.15.0
 
 | SDK package | Explanation | How to use|
 | :---------------: | :-----------------:  | :---------------: |

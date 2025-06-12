@@ -139,7 +139,7 @@ public class OverLayerTopView extends AppCompatImageView {
     private String initTargetInfo(AutoSensingTarget info) {
         buffer.setLength(0);
         buffer.append("Id:").append(info.getTargetIndex()).append("\n");
-        buffer.append("Type:").append(info.getTargetType().name()).append(" ");
+        buffer.append(info.getLabel());
         return buffer.toString();
     }
 

@@ -27,6 +27,7 @@ import dji.sdk.keyvalue.value.common.LocationCoordinate3D
 import dji.sdk.keyvalue.value.flightcontroller.FlyToMode
 import dji.v5.manager.intelligent.AutoSensingInfo
 import dji.v5.manager.intelligent.IntelligentFlightInfo
+import dji.v5.manager.intelligent.IntelligentModel
 import dji.v5.manager.intelligent.flyto.FlyToInfo
 import dji.v5.manager.intelligent.flyto.FlyToTarget
 import dji.v5.manager.intelligent.poi.POIInfo
@@ -84,9 +85,11 @@ class IntelligentFlightFragment : DJIFragment() {
 
     private var intelligentFlightInfo: IntelligentFlightInfo = IntelligentFlightInfo()
     private var autoSensingInfo: AutoSensingInfo = AutoSensingInfo()
+    private var runningModelIndex: Int = 0
+    private var intelligentModels: List<IntelligentModel> = listOf()
 
-    var aircraftHeight = 0.0
-    var aircraftLocation = LocationCoordinate2D()
+    private var aircraftHeight = 0.0
+    private var aircraftLocation = LocationCoordinate2D()
 
     /**
      * POI
@@ -157,6 +160,14 @@ class IntelligentFlightFragment : DJIFragment() {
             aircraftLocation = it
             updateIntelligentFlightInfo()
         }
+        intelligentVM.runningModelIndex.observe(viewLifecycleOwner){
+            runningModelIndex = it
+            updateIntelligentFlightInfo()
+        }
+        intelligentVM.intelligentModels.observe(viewLifecycleOwner){
+            intelligentModels = it
+            updateIntelligentFlightInfo()
+        }
         binding?.btnSelectCamera?.setOnClickListener {
             selectCamera()
         }
@@ -176,6 +187,15 @@ class IntelligentFlightFragment : DJIFragment() {
         }
         binding?.btnStopAutoSensing?.setOnClickListener {
             intelligentVM.stopAutoSensing()
+        }
+        binding?.btnSelectIntelligentModel?.setOnClickListener {
+            val index = intelligentModels.map {
+                it.modelIndex
+            }
+            initPopupNumberPicker(Helper.makeList(index)) {
+                intelligentVM.selectIntelligentModel(index[indexChosen[0]])
+                resetIndex()
+            }
         }
         binding?.btnShowMap?.setOnClickListener {
             binding?.mapWidget?.visibility = View.VISIBLE
@@ -356,6 +376,12 @@ class IntelligentFlightFragment : DJIFragment() {
                 resetIndex()
             }
         }
+        binding?.btnEnterSpotlightMode?.setOnClickListener {
+            intelligentVM.enterSpotLightMode()
+        }
+        binding?.btnExitSpotlightMode?.setOnClickListener {
+            intelligentVM.exitSpotLightMode()
+        }
         binding?.btnStartSpotlightForConsume?.setOnClickListener {
             intelligentVM.startSpotlight()
         }
@@ -496,6 +522,8 @@ class IntelligentFlightFragment : DJIFragment() {
         sb.append("lat:${String.format("%.3f", aircraftLocation.latitude)},lng:${String.format("%.3f", aircraftLocation.longitude)},")
             .append("height:${String.format("%.2f", aircraftHeight)}\n")
         sb.append("${JsonUtil.toJson(intelligentFlightInfo)}\n")
+        sb.append("runningModelIndex:$runningModelIndex\n")
+        sb.append("intelligentModels:${JsonUtil.toJson(intelligentModels)}\n")
         sb.append("\n")
         sb.append("-- Intelligent Flight End --\n")
         sb.append("\n")
@@ -560,7 +588,6 @@ class IntelligentFlightFragment : DJIFragment() {
     private fun calcManhattanDistance(point1X: Float, point1Y: Float, point2X: Float, point2Y: Float): Double {
         return abs((point1X - point2X).toDouble()) + abs((point1Y - point2Y).toDouble())
     }
-
 
     override fun onPause() {
         super.onPause()

@@ -259,7 +259,7 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
                 "T"
 
             else -> {
-                if (DpadProductManager.getInstance().isDjiRcPlus || DpadProductManager.getInstance().isDjiRcPro || ProductUtil.isM30Product() || ProductUtil.isM350Product()) "N" else "P"
+                if (DpadProductManager.getInstance().isDjiRcPlus || DpadProductManager.getInstance().isDjiRcPro || ProductUtil.isM30Product() || ProductUtil.isM350Product() || ProductUtil.isM400Product()) "N" else "P"
             }
 
         }

@@ -13,11 +13,13 @@ import dji.v5.et.listen
 import dji.v5.manager.KeyManager
 import dji.v5.manager.intelligent.AutoSensingInfo
 import dji.v5.manager.intelligent.AutoSensingInfoListener
+import dji.v5.manager.intelligent.AutoSensingTarget
 import dji.v5.manager.intelligent.IMissionCapabilityListener
 import dji.v5.manager.intelligent.IMissionInfoListener
 import dji.v5.manager.intelligent.IntelligentFlightInfo
 import dji.v5.manager.intelligent.IntelligentFlightInfoListener
 import dji.v5.manager.intelligent.IntelligentFlightManager
+import dji.v5.manager.intelligent.IntelligentModel
 import dji.v5.manager.intelligent.TargetType
 import dji.v5.manager.intelligent.flyto.FlyToInfo
 import dji.v5.manager.intelligent.flyto.FlyToParam
@@ -38,6 +40,8 @@ class IntelligentFlightVM : DJIViewModel() {
 
     val intelligentFlightInfo = MutableLiveData<IntelligentFlightInfo>()
     val autoSensingInfo = MutableLiveData<AutoSensingInfo>()
+    val intelligentModels = MutableLiveData<List<IntelligentModel>>()
+    val runningModelIndex = MutableLiveData<Int>()
 
     val poiInfo = MutableLiveData<POIInfo>()
     val poiTarget = MutableLiveData<POITarget>()
@@ -61,8 +65,23 @@ class IntelligentFlightVM : DJIViewModel() {
         }
     }
 
-    private val autoSensingInfoListener: AutoSensingInfoListener = AutoSensingInfoListener {
-        autoSensingInfo.postValue(it)
+    private val autoSensingInfoListener: AutoSensingInfoListener = object :
+        AutoSensingInfoListener {
+        override fun onAutoSensingInfoUpdate(info: AutoSensingInfo) {
+            autoSensingInfo.postValue(info)
+        }
+
+        override fun onTrackingTargetUpdate(target: AutoSensingTarget) {
+//            super.onTrackingTargetUpdate(target)
+        }
+
+        override fun onIntelligentModelUpdate(models: MutableList<IntelligentModel>) {
+            intelligentModels.postValue(models)
+        }
+
+        override fun onRunningIntelligentModelUpdate(modelId: Int) {
+            runningModelIndex.postValue(modelId)
+        }
     }
 
     private val poiInfoListener: IMissionInfoListener<POIInfo, POITarget> = object :
@@ -166,6 +185,19 @@ class IntelligentFlightVM : DJIViewModel() {
 
             override fun onFailure(error: IDJIError) {
                 toastResult?.postValue(DJIToastResult.failed("stopAutoSensing,$error"))
+            }
+        })
+    }
+
+    fun selectIntelligentModel(model: Int) {
+        IntelligentFlightManager.getInstance().selectIntelligentModel(model, object :
+            CommonCallbacks.CompletionCallback {
+            override fun onSuccess() {
+                toastResult?.postValue(DJIToastResult.success("selectIntelligentModel,$model"))
+            }
+
+            override fun onFailure(error: IDJIError) {
+                toastResult?.postValue(DJIToastResult.failed("selectIntelligentModel,$error"))
             }
         })
     }
@@ -304,6 +336,32 @@ class IntelligentFlightVM : DJIViewModel() {
 
                 override fun onFailure(error: IDJIError) {
                     toastResult?.postValue(DJIToastResult.failed("setFlyToMode:$height,$error"))
+                }
+            })
+    }
+
+    fun enterSpotLightMode() {
+        IntelligentFlightManager.getInstance().spotLightManager.enterSpotLightMode(
+            object : CommonCallbacks.CompletionCallback {
+                override fun onSuccess() {
+                    toastResult?.postValue(DJIToastResult.success("enterSpotLightMode"))
+                }
+
+                override fun onFailure(error: IDJIError) {
+                    toastResult?.postValue(DJIToastResult.failed("enterSpotLightMode,$error"))
+                }
+            })
+    }
+
+    fun exitSpotLightMode() {
+        IntelligentFlightManager.getInstance().spotLightManager.exitSpotLightMode(
+            object : CommonCallbacks.CompletionCallback {
+                override fun onSuccess() {
+                    toastResult?.postValue(DJIToastResult.success("exitSpotLightMode"))
+                }
+
+                override fun onFailure(error: IDJIError) {
+                    toastResult?.postValue(DJIToastResult.failed("exitSpotLightMode,$error"))
                 }
             })
     }

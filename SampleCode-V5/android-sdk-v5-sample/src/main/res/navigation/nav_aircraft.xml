@@ -54,6 +54,11 @@
         android:layout="@layout/frag_payload_widget_page" />
 
     <fragment
+        android:id="@+id/intelligent_box_page"
+        android:name="dji.sampleV5.aircraft.pages.IntelligentBoxFragment"
+        android:label="intelligent_box_widget_page" />
+
+    <fragment
         android:id="@+id/psdk_center_page"
         android:name="dji.sampleV5.aircraft.pages.PayloadCenterFragment"
         android:label="psdk_center_page"
@@ -65,6 +70,10 @@
         <action
             android:id="@+id/action_open_payload_widget_page"
             app:destination="@id/psdk_widget_page" />
+
+        <action
+            android:id="@+id/action_open_intelligent_box_page"
+            app:destination="@id/intelligent_box_page" />
 
     </fragment>
 

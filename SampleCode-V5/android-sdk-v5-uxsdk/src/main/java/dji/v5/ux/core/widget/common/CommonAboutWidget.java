@@ -144,7 +144,7 @@ public class CommonAboutWidget extends FrameLayoutWidget<Object> {
             }
         }));
 
-        if (ProductUtil.isM350Product() || ProductUtil.isM300Product()) {
+        if (ProductUtil.isM350Product() || ProductUtil.isM400Product() || ProductUtil.isM300Product()) {
             addDisposable(Observable.combineLatest(
                     widgetModel.camera1SerialNumberProcessor.toObservableOnUI(),
                     widgetModel.camera2SerialNumberProcessor.toObservableOnUI(),
@@ -353,7 +353,7 @@ public class CommonAboutWidget extends FrameLayoutWidget<Object> {
             }
             final String batteryTitle = BatteryResourceUtil.INSTANCE.getBatteryTitle(index);
             textCell.setTitle(batteryTitle);
-            if (ProductUtil.isM350Product() || ProductUtil.isM300Product()) {
+            if (ProductUtil.isM350Product() || ProductUtil.isM400Product() || ProductUtil.isM300Product()) {
                 batteryDisposable.add(widgetModel.getIndustryBatteryType(index).subscribe(type -> {
                     if (type != null) {
                         textCell.setTitle(batteryTitle + " (" + BatteryResourceUtil.INSTANCE.productName(type) + ")");
