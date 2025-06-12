@@ -27,5 +27,6 @@ class DJIAircraftMainActivity : DJIMainActivity() {
 
     override fun prepareTestingToolsActivity() {
         enableTestingTools(AircraftTestingToolsActivity::class.java)
+        enableDefaultLayout(DefaultLayoutActivity::class.java)
     }
 }

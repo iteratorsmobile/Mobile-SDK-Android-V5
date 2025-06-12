@@ -292,15 +292,15 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <dji.v5.ux.core.widget.setting.SettingPanelWidget
-        android:id="@+id/manual_right_nav_setting"
-        android:layout_width="@dimen/uxsdk_510_dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="end"
-        android:background="@color/uxsdk_fpv_popover_content_background_color"
-        android:descendantFocusability="afterDescendants">
+<!--    <dji.v5.ux.core.widget.setting.SettingPanelWidget-->
+<!--        android:id="@+id/manual_right_nav_setting"-->
+<!--        android:layout_width="@dimen/uxsdk_510_dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="end"-->
+<!--        android:background="@color/uxsdk_fpv_popover_content_background_color"-->
+<!--        android:descendantFocusability="afterDescendants">-->
 
-    </dji.v5.ux.core.widget.setting.SettingPanelWidget>
+<!--    </dji.v5.ux.core.widget.setting.SettingPanelWidget>-->
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
