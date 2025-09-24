@@ -173,7 +173,7 @@ class CameraStreamDetailFragment : DJIFragment() {
 
         onOpenOrCloseCheckListener.onClick(btnCloseOrOpen)
 
-        if (cameraIndex == ComponentIndexType.VISION_ASSIST) {
+        if (cameraIndex == ComponentIndexType.VISION_ASSIST || cameraIndex == ComponentIndexType.FPV) {
             mAssistViewDirectionLayout.visibility = View.VISIBLE
             btnCloseOrOpenVisionAssist.visibility = View.VISIBLE
         } else {
@@ -239,7 +239,7 @@ class CameraStreamDetailFragment : DJIFragment() {
         }
 
         viewModel.visionAssistViewDirectionRange.observe(viewLifecycleOwner) { availableDirectionList ->
-            if (cameraIndex != ComponentIndexType.VISION_ASSIST) {
+            if (cameraIndex != ComponentIndexType.VISION_ASSIST && cameraIndex != ComponentIndexType.FPV) {
                 return@observe
             }
             for (i in 0 until mAssistViewDirectionLayout.childCount) {

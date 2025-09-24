@@ -1,4 +1,4 @@
-# DJI Mobile SDK for Android V5 最新版本 V5.15.0
+# DJI Mobile SDK for Android V5 最新版本 V5.16.0
 [English Version](README.md)
 
 ## DJI Mobile SDK V5 是什么?
@@ -7,7 +7,8 @@ DJI Mobile SDK V5拥有更加简洁易用的无人机硬件控制接口和软件
 
 
 当前版本支持机型：
-*  [Matrice 400]()
+* [DJI Mavic 3TA]()
+* [Matrice 400]()
 * [Matrice 4D 行业系列]()
 * [DJI Mini4 PRO](https://www.dji.com/cn/mini-4-pro?from=store-product-page)
 * [Matrice 4 行业系列](https://enterprise.dji.com/cn/matrice-4-series)
@@ -18,6 +19,7 @@ DJI Mobile SDK V5拥有更加简洁易用的无人机硬件控制接口和软件
 * [经纬 M30 系列](https://www.dji.com/cn/matrice-30?site=brandsite&from=nav)
 * [经纬 M300 RTK](https://www.dji.com/cn/matrice-300?site=brandsite&from=nav)
 * [Matrice 350 RTK](https://enterprise.dji.com/cn/matrice-350-rtk)
+* [DJI Mavic 3TA]()
 
 ## 工程目录介绍
 
@@ -92,7 +94,7 @@ Sample模块：
 
 ## AAR说明
 
-> **注意：** sdkVersion = 5.15.0
+> **注意：** sdkVersion = 5.16.0
 
 | SDK包| 说明| 使用方式|
 | :---------------: | :-----------------:  | :---------------: |
