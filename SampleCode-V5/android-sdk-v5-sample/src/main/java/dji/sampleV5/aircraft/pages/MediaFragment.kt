@@ -2,6 +2,7 @@ package dji.sampleV5.aircraft.pages
 
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,6 +35,7 @@ class MediaFragment : DJIFragment() {
     private val mediaVM: MediaVM by activityViewModels()
     var adapter: MediaListAdapter? = null
     private var binding: FragMediaPageBinding? = null
+    private var takeNum: Int = 0
 
     private var isload = false
     override fun onCreateView(
@@ -67,9 +69,12 @@ class MediaFragment : DJIFragment() {
 
         mediaVM.fileListState.observe(viewLifecycleOwner) {
             if (it == MediaFileListState.UPDATING) {
+                // 禁用按钮防止重复点击
+                binding?.btnTakePhoto?.isEnabled = false
                 binding?.fetchProgress?.visibility = View.VISIBLE
             } else {
                 binding?.fetchProgress?.visibility = View.GONE
+                binding?.btnTakePhoto?.isEnabled = true
             }
 
             binding?.tvGetListState?.text = "State:\n ${it.name}"
@@ -201,7 +206,6 @@ class MediaFragment : DJIFragment() {
                 override fun onSuccess() {
                     ToastUtils.showToast("take photo success")
                 }
-
                 override fun onFailure(error: IDJIError) {
                     ToastUtils.showToast("take photo failed $error")
                 }

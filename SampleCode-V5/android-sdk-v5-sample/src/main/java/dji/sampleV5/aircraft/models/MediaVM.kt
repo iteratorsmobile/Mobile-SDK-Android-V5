@@ -217,12 +217,12 @@ class MediaVM : DJIViewModel() {
         if (!dirs.exists()) {
             dirs.mkdirs()
         }
-        val filepath = DiskUtil.getExternalCacheDirPath(ContextUtil.getContext(), "/mediafile/" + mediaFile?.fileName)
+        val filepath = DiskUtil.getExternalCacheDirPath(ContextUtil.getContext(), "/mediafile/" + mediaFile.fileName)
         val file = File(filepath)
         var offset = 0L
         val outputStream = FileOutputStream(file, true)
         val bos = BufferedOutputStream(outputStream)
-        mediaFile?.pullOriginalMediaFileFromCamera(offset, object : MediaFileDownloadListener {
+        mediaFile.pullOriginalMediaFileFromCamera(offset, object : MediaFileDownloadListener {
             override fun onStart() {
                 LogUtils.i("MediaFile", "${mediaFile.fileIndex} start download")
             }

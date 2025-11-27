@@ -303,13 +303,13 @@ public class ShootPhotoWidgetModel extends WidgetModel implements ICameraIndex {
             CameraStorageInfo internalInfo = cameraStorageInfos.getCameraStorageInfoByLocation(CameraStorageLocation.INTERNAL);
             if (internalInfo != null) {
                 innerStorageState.onNext(internalInfo.getStorageState());
-                sdAvailableCaptureCount.onNext(internalInfo.getAvailablePhotoCount());
+                innerStorageAvailableCaptureCount.onNext(internalInfo.getAvailablePhotoCount());
             }
 
             CameraStorageInfo sdcardInfo = cameraStorageInfos.getCameraStorageInfoByLocation(CameraStorageLocation.SDCARD);
             if (sdcardInfo != null) {
                 sdCardState.onNext(sdcardInfo.getStorageState());
-                innerStorageAvailableCaptureCount.onNext(sdcardInfo.getAvailablePhotoCount());
+                sdAvailableCaptureCount.onNext(sdcardInfo.getAvailablePhotoCount());
             }
         });
         bindDataProcessor(KeyTools.createKey(CameraKey.KeySSDOperationState, cameraIndex), ssdState);

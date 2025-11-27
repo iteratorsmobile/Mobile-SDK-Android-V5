@@ -481,7 +481,7 @@ class IntelligentFlightFragment : DJIFragment() {
             val poiCircleStrokeOptions: DJICircleOptions = DJICircleOptions()
                 .center(poiLocation)
                 .radius(radius)
-                .strokeWidth(AndUtil.getDimension(R.dimen.uxsdk_2_dp) + AndUtil.getDimension(R.dimen.uxsdk_1_dp))
+                .strokeWidth(AndUtil.getDimension(dji.v5.ux.R.dimen.uxsdk_2_dp) + AndUtil.getDimension(dji.v5.ux.R.dimen.uxsdk_1_dp))
                 .strokeColor(AndUtil.getResColor(R.color.black_half))
             poiCircleStrokeMarker = binding?.mapWidget?.map?.addSingleCircle(poiCircleStrokeOptions)
         }
@@ -489,8 +489,8 @@ class IntelligentFlightFragment : DJIFragment() {
             val poiCircleOptions: DJICircleOptions = DJICircleOptions()
                 .center(poiLocation)
                 .radius(radius)
-                .strokeWidth(AndUtil.getDimension(R.dimen.uxsdk_2_dp))
-                .strokeColor(AndUtil.getResColor(R.color.uxsdk_green_in_dark))
+                .strokeWidth(AndUtil.getDimension(dji.v5.ux.R.dimen.uxsdk_2_dp))
+                .strokeColor(AndUtil.getResColor(dji.v5.ux.R.color.uxsdk_green_in_dark))
             poiCircleMarker = binding?.mapWidget?.map?.addSingleCircle(poiCircleOptions)
         }
     }
