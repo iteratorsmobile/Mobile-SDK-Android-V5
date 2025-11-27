@@ -43,7 +43,12 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
-) : ConstraintLayoutWidget<Boolean>(context, attrs, defStyleAttr), RtkSettingWatcher.OnEditTextEmptyChangedListener {
+) : ConstraintLayoutWidget<Boolean>(context, attrs, defStyleAttr),
+    RtkSettingWatcher.OnEditTextEmptyChangedListener {
+
+    var configListener: ConfigListener? = null
+
+    private val spinnerConfigs: DescSpinnerCell = findViewById(R.id.spinner_configs)
     private val rtkTypeCell: DescSpinnerCell = findViewById(R.id.cell_rtk_type)
     private val coordinateSystemCell: DescSpinnerCell = findViewById(R.id.cell_coordinate_system)
     private val edHost: TextView = findViewById(R.id.net_rtk_ntrip_host)
@@ -63,11 +68,26 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
     private var lastSelectedRTKTypeIndex: Int = INITIAL_INDEX
     private var lastSelectedCoordinateSystemIndex: Int = INITIAL_INDEX
 
+    private var configs = listOf<Pair<String, RTKCustomNetworkSetting>>()
+    private val configSpinnerSelectedListener: DescSpinnerCell.OnItemSelectedListener =
+        object : DescSpinnerCell.OnItemSelectedListener {
+            override fun onItemSelected(position: Int) {
+                if (position == 0) {
+                    clearInputs()
+                }
+
+                runCatching {
+                    configListener?.onSelected(if (position == 0) null else configs[position - 1].first)
+                }
+            }
+        }
+
     private val widgetModel by lazy {
         RTKTypeSwitchWidgetModel(
             DJISDKModel.getInstance(),
             ObservableInMemoryKeyedStore.getInstance(),
-            AreaCodeManager.getInstance(), RTKCenter.getInstance())
+            AreaCodeManager.getInstance(), RTKCenter.getInstance()
+        )
     }
 
     private val rtkTypeSelectListener = object : DescSpinnerCell.OnItemSelectedListener {
@@ -76,7 +96,10 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
                 return
             }
             // B控不可以打开网络RTK。
-            if (RTKStartServiceHelper.isChannelB() && RTKStartServiceHelper.isNetworkRTK(rtkSourceList[position])) {
+            if (RTKStartServiceHelper.isChannelB() && RTKStartServiceHelper.isNetworkRTK(
+                    rtkSourceList[position]
+                )
+            ) {
                 //回滚之前的选择,并提示用户
                 rtkTypeCell.select(lastSelectedRTKTypeIndex)
                 Toast.makeText(getContext(), getTip(position), Toast.LENGTH_SHORT).show()
@@ -102,11 +125,13 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
             lastSelectedCoordinateSystemIndex = position
             val coordinate = coordinateSystemList[position]
             RTKUtil.saveRTKCoordinateSystem(currentRTKSource, coordinate)
-            LogUtils.i(TAG, "select:$coordinate, reStartRtkService now!(Thread.currentThread().name${Thread.currentThread().name})")
+            LogUtils.i(
+                TAG,
+                "select:$coordinate, reStartRtkService now!(Thread.currentThread().name${Thread.currentThread().name})"
+            )
             RTKStartServiceHelper.startRtkService(true)
         }
     }
-
 
     init {
         edHost.addTextChangedListener(textWatcher)
@@ -119,8 +144,12 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
                 saveRtkCustomUserInfo()
             }
         }
+        spinnerConfigs.setEntries(listOf("New Config"))
         //读取默认的配置，并启动RTK
-        LogUtils.i(TAG, "RTKTypeSwitchWidget init,startRtkService now!(Thread.currentThread().name=${Thread.currentThread().name})")
+        LogUtils.i(
+            TAG,
+            "RTKTypeSwitchWidget init,startRtkService now!(Thread.currentThread().name=${Thread.currentThread().name})"
+        )
         RTKStartServiceHelper.startRtkService()
     }
 
@@ -160,17 +189,18 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
             updateRTKView()
             initDefaultNetRtkUI()
         })
-        addReaction(widgetModel.supportReferenceStationList.observeOn(SchedulerProvider.ui()).subscribe {
-            //更新支持的RTK列表
-            if (it.isNotEmpty() && !rtkSourceList.containsAll(it)) {
-                LogUtils.i(TAG, "supportReferenceStationList=$it")
-                rtkSourceList = it
-                val referenceStationSourceNames = getReferenceStationSourceNames(it)
-                rtkTypeCell.setEntries(referenceStationSourceNames)
-                rtkTypeCell.addOnItemSelectedListener(rtkTypeSelectListener)
-                initDefaultNetRtkUI()
-            }
-        })
+        addReaction(
+            widgetModel.supportReferenceStationList.observeOn(SchedulerProvider.ui()).subscribe {
+                //更新支持的RTK列表
+                if (it.isNotEmpty() && !rtkSourceList.containsAll(it)) {
+                    LogUtils.i(TAG, "supportReferenceStationList=$it")
+                    rtkSourceList = it
+                    val referenceStationSourceNames = getReferenceStationSourceNames(it)
+                    rtkTypeCell.setEntries(referenceStationSourceNames)
+                    rtkTypeCell.addOnItemSelectedListener(rtkTypeSelectListener)
+                    initDefaultNetRtkUI()
+                }
+            })
 
         addReaction(widgetModel.coordinateSystemList.observeOn(SchedulerProvider.ui()).subscribe {
             LogUtils.i(TAG, "coordinateSystemList=$it")
@@ -185,13 +215,65 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
             }
         })
 
-        //进入App后初始化用户上次选择
-        initDefaultCustomSetting()
+//        //进入App后初始化用户上次选择
+//        initDefaultCustomSetting()
 
     }
 
     override fun getIdealDimensionRatioString(): String? {
         return getString(R.string.uxsdk_widget_rtk_keep_status_ratio)
+    }
+
+    fun assignConfigs(configs: List<Pair<String, RTKCustomNetworkSetting>>) {
+        this.configs = configs
+        val entries = listOf("New Config") + configs.map { it.second.getDisplayName() }
+        spinnerConfigs.setEntries(entries)
+        spinnerConfigs.addOnItemSelectedListener(configSpinnerSelectedListener)
+    }
+
+    fun updateSelectedConfig(id: String?) = runCatching {
+        spinnerConfigs.addOnItemSelectedListener(null)
+        if (id == null) {
+            spinnerConfigs.select(0)
+            return@runCatching
+        }
+        for ((index, config) in configs.withIndex()) {
+            if (config.first == id) {
+                spinnerConfigs.select(index + 1)
+                return@runCatching
+            }
+        }
+    }.also {
+        spinnerConfigs.addOnItemSelectedListener(configSpinnerSelectedListener)
+    }
+
+    fun updateInputs(rtkCustomNetworkSetting: RTKCustomNetworkSetting, id: String? = null) {
+        updateInputsWithoutWatcher {
+            with(rtkCustomNetworkSetting) {
+                edHost.text = serverAddress
+                edPort.text = port.toString()
+                edUser.text = userName
+                edPassword.text = password
+                edMountPoint.text = mountPoint
+            }
+        }
+        updateSelectedConfig(id)
+    }
+
+    fun clearInputs() {
+        updateInputsWithoutWatcher {
+            edHost.text = ""
+            edPort.text = ""
+            edUser.text = ""
+            edPassword.text = ""
+            edMountPoint.text = ""
+        }
+    }
+
+    interface ConfigListener {
+        fun onSelected(id: String?)
+        fun onUpdated(rtkSetting: RTKCustomNetworkSetting)
+        fun onInputChanged(draft: RTKCustomNetworkSetting?)
     }
 
     private fun setRTKType(position: Int) {
@@ -202,39 +284,44 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
         LogUtils.i(TAG, "selected $rtkSource")
         rtkTypeCell.isEnabled = false
 
-        RTKCenter.getInstance().setRTKReferenceStationSource(rtkSource, object : CommonCallbacks.CompletionCallback {
-            override fun onSuccess() {
-                lastSelectedRTKTypeIndex = position
-                rtkTypeCell.isEnabled = true
-                updateRTKView(rtkSource)
-            }
+        RTKCenter.getInstance().setRTKReferenceStationSource(
+            rtkSource,
+            object : CommonCallbacks.CompletionCallback {
+                override fun onSuccess() {
+                    lastSelectedRTKTypeIndex = position
+                    rtkTypeCell.isEnabled = true
+                    updateRTKView(rtkSource)
+                }
 
-            override fun onFailure(error: IDJIError) {
-                rtkTypeCell.isEnabled = true
-                //切换RTK服务类型失败，回滚到上次选择
-                for ((index, source) in rtkSourceList.withIndex()) {
-                    if (source == currentRTKSource) {
-                        rtkTypeCell.select(index)
+                override fun onFailure(error: IDJIError) {
+                    rtkTypeCell.isEnabled = true
+                    //切换RTK服务类型失败，回滚到上次选择
+                    for ((index, source) in rtkSourceList.withIndex()) {
+                        if (source == currentRTKSource) {
+                            rtkTypeCell.select(index)
+                        }
                     }
                 }
-            }
 
-        })
+            })
     }
 
 
     private fun updateRTKView(selected: RTKReferenceStationSource? = null) {
-        val rtkSwitchDec = StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_switch_des_info)
+        val rtkSwitchDec =
+            StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_switch_des_info)
         var rtkSwitchDecDetail = ""
         when (if (currentRTKSource != RTKReferenceStationSource.UNKNOWN) currentRTKSource else selected) {
             RTKReferenceStationSource.BASE_STATION -> {
                 customSetting.hide()
                 coordinateSystemCell.hide()
-                rtkSwitchDecDetail = StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_base_gps_input_desc)
+                rtkSwitchDecDetail =
+                    StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_base_gps_input_desc)
             }
+
             RTKReferenceStationSource.QX_NETWORK_SERVICE,
             RTKReferenceStationSource.NTRIP_NETWORK_SERVICE,
-            -> {
+                -> {
                 if (!RTKStartServiceHelper.isChannelB()) {
                     customSetting.hide()
                     coordinateSystemCell.show()
@@ -242,8 +329,10 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
                     customSetting.hide()
                     coordinateSystemCell.hide()
                 }
-                rtkSwitchDecDetail = StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_station_net_rtk_desc)
+                rtkSwitchDecDetail =
+                    StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_station_net_rtk_desc)
             }
+
             RTKReferenceStationSource.CUSTOM_NETWORK_SERVICE -> {
                 if (!RTKStartServiceHelper.isChannelB()) {
                     customSetting.show()
@@ -252,8 +341,10 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
                     customSetting.hide()
                     coordinateSystemCell.hide()
                 }
-                rtkSwitchDecDetail = StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_station_net_rtk_desc)
+                rtkSwitchDecDetail =
+                    StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_station_net_rtk_desc)
             }
+
             else -> {
                 customSetting.hide()
                 coordinateSystemCell.hide()
@@ -271,12 +362,16 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
             val res = when (it) {
                 RTKReferenceStationSource.BASE_STATION ->
                     R.string.uxsdk_rtk_setting_menu_type_rtk_station
+
                 RTKReferenceStationSource.CUSTOM_NETWORK_SERVICE ->
                     R.string.uxsdk_rtk_setting_menu_type_custom_rtk
+
                 RTKReferenceStationSource.QX_NETWORK_SERVICE ->
                     R.string.uxsdk_rtk_setting_menu_type_qx_rtk
+
                 RTKReferenceStationSource.NTRIP_NETWORK_SERVICE ->
                     R.string.uxsdk_rtk_setting_menu_type_cmcc_rtk
+
                 else ->
                     R.string.uxsdk_rtk_setting_menu_type_rtk_none
             }
@@ -290,8 +385,10 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
             val coordinateName: String = when (it) {
                 CoordinateSystem.CGCS2000 ->
                     CoordinateSystem.CGCS2000.name
+
                 CoordinateSystem.WGS84 ->
                     CoordinateSystem.WGS84.name
+
                 else -> {
                     LogUtils.e(TAG, "UnSupport CoordinateSystem:$it")
                     CoordinateSystem.UNKNOWN.name
@@ -307,6 +404,18 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
         } else {
             StringUtils.getResStr(R.string.uxsdk_rtk_channel_b_not_support_net_custom_rtk)
         }
+    }
+
+    override fun afterTextChanged(s: String) {
+        configListener?.onInputChanged(
+            RTKCustomNetworkSetting().apply {
+                serverAddress = edHost.text.toString()
+                port = if (TextUtils.isEmpty(edPort.text)) 0 else edPort.text.toString().toInt()
+                userName = edUser.text.toString()
+                password = edPassword.text.toString()
+                mountPoint = edMountPoint.text.toString()
+            }
+        )
     }
 
     override fun isTextEmptyChanged() {
@@ -346,6 +455,7 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
         var isPwdValid = true
         var isMountPointValid = true
         val host: String = edHost.text.toString()
+
         if (TextUtils.isEmpty(host)) {
             isHostValid = false
         }
@@ -387,38 +497,37 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
         val isParamsValid = (isHostValid && isMountPointValid
                 && isPortValid && isUserValid && isPwdValid)
         if (!isParamsValid) {
-            ViewUtil.showToast(context, R.string.uxsdk_rtk_setting_menu_customer_rtk_save_failed_tips, Toast.LENGTH_SHORT)
+            ViewUtil.showToast(
+                context,
+                R.string.uxsdk_rtk_setting_menu_customer_rtk_save_failed_tips,
+                Toast.LENGTH_SHORT
+            )
             return
         }
         startRtkCustomNetwork(host, port, user, pw, mountPint)
 
     }
 
-    private fun startRtkCustomNetwork(host: String, port: Int, user: String, pw: String, mountPint: String) {
+    private fun startRtkCustomNetwork(
+        host: String,
+        port: Int,
+        user: String,
+        pw: String,
+        mountPint: String
+    ) {
         val rtkSetting = RTKCustomNetworkSetting()
         rtkSetting.serverAddress = host
         rtkSetting.port = port
         rtkSetting.userName = user
         rtkSetting.password = pw
         rtkSetting.mountPoint = mountPint
+        configListener?.onUpdated(rtkSetting)
         RTKUtil.saveRtkCustomNetworkSetting(rtkSetting)
-        LogUtils.i(TAG, "rtkSetting=$rtkSetting,startRtkCustomNetwork now!(Thread.currentThread().name${Thread.currentThread().name})")
+        LogUtils.i(
+            TAG,
+            "rtkSetting=$rtkSetting,startRtkCustomNetwork now!(Thread.currentThread().name${Thread.currentThread().name})"
+        )
         RTKStartServiceHelper.startRtkService(true)
-    }
-
-    /**
-     * 初始化用户设置的自定义网络RTK设置的信息
-     */
-    private fun initDefaultCustomSetting() {
-        RTKUtil.getRtkCustomNetworkSetting()?.run {
-            LogUtils.i(TAG, "getRtkCustomNetworkSetting=$this")
-            edMountPoint.text = mountPoint
-            edHost.text = serverAddress
-            edPassword.text = password
-            edUser.text = userName
-            edPort.text = port.toString()
-        }
-        isTextEmptyChanged()
     }
 
     private fun initDefaultNetRtkUI() {
@@ -444,6 +553,28 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
 
     }
 
+    private fun initTextWatcher() {
+        edHost.addTextChangedListener(textWatcher)
+        edUser.addTextChangedListener(textWatcher)
+        edMountPoint.addTextChangedListener(textWatcher)
+        edPort.addTextChangedListener(textWatcher)
+        edPassword.addTextChangedListener(textWatcher)
+    }
 
+    private fun removeTextWatcher() {
+        edHost.removeTextChangedListener(textWatcher)
+        edUser.removeTextChangedListener(textWatcher)
+        edMountPoint.removeTextChangedListener(textWatcher)
+        edPort.removeTextChangedListener(textWatcher)
+        edPassword.removeTextChangedListener(textWatcher)
+    }
+
+    private fun updateInputsWithoutWatcher(block: () -> Unit) {
+        removeTextWatcher()
+        block()
+        initTextWatcher()
+    }
+
+    private fun RTKCustomNetworkSetting.getDisplayName() = "$serverAddress:$mountPoint"
 }
 
