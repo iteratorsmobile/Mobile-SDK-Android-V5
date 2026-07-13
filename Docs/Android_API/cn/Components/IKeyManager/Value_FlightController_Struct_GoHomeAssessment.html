@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -686,85 +686,93 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>LowBatteryRTHInfo</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LowBatteryRTHInfo</span> <span class="keyword">implements</span> <span class="title">DJIValue</span>, <span class="title">JNIProguardKeepTag</span>, <span class="title">ByteStream</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>LowBatteryRTHInfo</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LowBatteryRTHInfo</span> <span class="keyword">implements</span> <span class="title class_">DJIValue</span>, JNIProguardKeepTag, ByteStream</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">智能低电量返航信息。</font></p>
+<p><font color="#666">智能低电量返航信息。</p>
 <h5 id="类成员">类成员:</h5>
-<h4 id="members">Members</h4>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getremainingflighttime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getremainingflighttime_inline">getRemainingFlightTime</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getremainingflighttime_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getRemainingFlightTime</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">getRemainingFlightTime</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v2">描述：</h5>
-<p><font color="#666"><b>参数: </b>Integer<br><br> 获取预估剩余飞行时间，单位：秒。预估剩余飞行时间是飞行器在剩余10%的电池电量的情况下返航所需的时间，其中包括飞行器降落着陆的时间。如果飞行器正在使用模拟器，则该值将为0。</font></p>
+<h4 id="Members">Members</h4>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getremainingflighttime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getremainingflighttime_inline">getRemainingFlightTime</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getremainingflighttime_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getRemainingFlightTime</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer <span class="title function_">getRemainingFlightTime</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-2">描述：</h5>
+<p><font color="#666"><b>参数: </b>Integer<br><br> 获取预估剩余飞行时间，单位：秒。预估剩余飞行时间是飞行器在剩余10%的电池电量的情况下返航所需的时间，其中包括飞行器降落着陆的时间。如果飞行器正在使用模拟器，则该值将为0。</p>
 <h5 id="返回值：">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</font></td><td><font color="#666"><i>返回预估剩余飞行时间。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtogohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_gettimeneededtogohome_inline">getTimeNeededToGoHome</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtogohome_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getTimeNeededToGoHome</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">getTimeNeededToGoHome</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v3">描述：</h5>
-<p><font color="#666"><b>参数: </b>Integer<br><br> 获取完成智能低电量返航需要的时间，单位：秒。飞行器从当前位置返回返航点所需的估计时间。</font></p>
-<h5 id="返回值：-v2">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</font></td><td><font color="#666"><i>返回完成智能低电量返航需要的时间。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtoland"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_gettimeneededtoland_inline">getTimeNeededToLand</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtoland_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getTimeNeededToLand</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">getTimeNeededToLand</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v4">描述：</h5>
-<p><font color="#666"><b>参数: </b>Integer<br><br> 获取完成降落着陆需要的时间，单位：秒。飞行器从当前位置降落并着陆所需的估计时间。</font></p>
-<h5 id="返回值：-v3">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</font></td><td><font color="#666"><i>返回完成降落着陆需要的时间。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtogohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtogohome_inline">getBatteryPercentNeededToGoHome</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtogohome_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getBatteryPercentNeededToGoHome</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">getBatteryPercentNeededToGoHome</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v5">描述：</h5>
-<p><font color="#666"><b>参数: </b>Integer<br><br> 获取飞行器需要智能低电量返航时的电池剩余电量的百分比。当电池剩余电量百分比小于这个数值的时候，会提示低电量返航。</font></p>
-<h5 id="返回值：-v4">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</font></td><td><font color="#666"><i>返回飞行器需要返航时的电池剩余电量百分比。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtoland"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtoland_inline">getBatteryPercentNeededToLand</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtoland_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getBatteryPercentNeededToLand</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">getBatteryPercentNeededToLand</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v6">描述：</h5>
-<p><font color="#666"><b>参数: </b>Integer<br><br> 获取飞行器需要低电量降落时的电池剩余电量的百分比。当电池剩余电量百分比小于这个数值的时候，会提示进行低电量降落。</font></p>
-<h5 id="返回值：-v5">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</font></td><td><font color="#666"><i>返回飞行器需要降落时的电池剩余电量百分比。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getmaxradiuscanflyandgohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getmaxradiuscanflyandgohome_inline">getMaxRadiusCanFlyAndGoHome</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getmaxradiuscanflyandgohome_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getMaxRadiusCanFlyAndGoHome</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Double <span class="title">getMaxRadiusCanFlyAndGoHome</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v7">描述：</h5>
-<p><font color="#666">获取以返航点为圆心的最大安全飞行半径，单位：米。飞行器可以安全返回返航点的最大飞行半径，该值是通过飞行器的高度、跟返航点的距离、电池剩余电量等信息综合计算得出。如果飞行器飞行的距离超过这个半径，飞行器将可能在返航途中降落着陆。如果飞行器正在使用模拟器，则该值将为0。</font></p>
-<h5 id="返回值：-v6">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Double</font></td><td><font color="#666"><i>返回以返航点为圆心的最大安全飞行半径。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getsmartrthcountdown"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getsmartrthcountdown_inline">getSmartRTHCountdown</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getsmartrthcountdown_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getSmartRTHCountdown</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Integer <span class="title">getSmartRTHCountdown</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v8">描述：</h5>
-<p><font color="#666">获取智能低电量返航时用户确认倒计时，单位：秒。一旦倒计时为0，飞行器将自动执行返航行为。仅当 <code><a href="../../Components/IKeyManager/Value_FlightController_Struct_GoHomeAssessment.html#value_flightcontroller_struct_gohomeassessment_getsmartrthstate">getLowBatteryRTHStatus</a></code>为<code><a href="../../Components/IKeyManager/DJIValue.html#value_flightcontroller_enum_smartrthstate_counting_down">COUNTING_DOWN</a></code>时才有效。</font></p>
-<h5 id="返回值：-v7">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</font></td><td><font color="#666"><i>返回低电量返航时用户确认倒计时。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getsmartrthstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getsmartrthstate_inline">getLowBatteryRTHStatus</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getsmartrthstate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLowBatteryRTHStatus</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LowBatteryRTHState <span class="title">getLowBatteryRTHStatus</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.flightcontroller</font></td></tr></table></html>
-<h5 id="描述：-v9">描述：</h5>
-<p><font color="#666">获取智能低电量返航状态。</font></p>
-<h5 id="返回值：-v8">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/DJIValue.html#value_flightcontroller_enum_smartrthstate">LowBatteryRTHState</a></font></td><td><font color="#666"><i>返回低电量返航状态。</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</td><td><font color="#666"><i>返回预估剩余飞行时间。</i></td></tr></table></html></div>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtogohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_gettimeneededtogohome_inline">getTimeNeededToGoHome</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtogohome_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getTimeNeededToGoHome</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer <span class="title function_">getTimeNeededToGoHome</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-3">描述：</h5>
+<p><font color="#666"><b>参数: </b>Integer<br><br> 获取完成智能低电量返航需要的时间，单位：秒。飞行器从当前位置返回返航点所需的估计时间。</p>
+<h5 id="返回值：-2">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</td><td><font color="#666"><i>返回完成智能低电量返航需要的时间。</i></td></tr></table></html></div>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtoland"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_gettimeneededtoland_inline">getTimeNeededToLand</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_gettimeneededtoland_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getTimeNeededToLand</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer <span class="title function_">getTimeNeededToLand</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-4">描述：</h5>
+<p><font color="#666"><b>参数: </b>Integer<br><br> 获取完成降落着陆需要的时间，单位：秒。飞行器从当前位置降落并着陆所需的估计时间。</p>
+<h5 id="返回值：-3">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</td><td><font color="#666"><i>返回完成降落着陆需要的时间。</i></td></tr></table></html></div>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtogohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtogohome_inline">getBatteryPercentNeededToGoHome</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtogohome_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getBatteryPercentNeededToGoHome</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer <span class="title function_">getBatteryPercentNeededToGoHome</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-5">描述：</h5>
+<p><font color="#666"><b>参数: </b>Integer<br><br> 获取飞行器需要智能低电量返航时的电池剩余电量的百分比。当电池剩余电量百分比小于这个数值的时候，会提示低电量返航。</p>
+<h5 id="返回值：-4">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</td><td><font color="#666"><i>返回飞行器需要返航时的电池剩余电量百分比。</i></td></tr></table></html></div>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtoland"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtoland_inline">getBatteryPercentNeededToLand</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getbatterypercentneededtoland_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getBatteryPercentNeededToLand</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer <span class="title function_">getBatteryPercentNeededToLand</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-6">描述：</h5>
+<p><font color="#666"><b>参数: </b>Integer<br><br> 获取飞行器需要低电量降落时的电池剩余电量的百分比。当电池剩余电量百分比小于这个数值的时候，会提示进行低电量降落。</p>
+<h5 id="返回值：-5">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</td><td><font color="#666"><i>返回飞行器需要降落时的电池剩余电量百分比。</i></td></tr></table></html></div>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getmaxradiuscanflyandgohome"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getmaxradiuscanflyandgohome_inline">getMaxRadiusCanFlyAndGoHome</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getmaxradiuscanflyandgohome_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getMaxRadiusCanFlyAndGoHome</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Double <span class="title function_">getMaxRadiusCanFlyAndGoHome</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-7">描述：</h5>
+<p><font color="#666">获取以返航点为圆心的最大安全飞行半径，单位：米。飞行器可以安全返回返航点的最大飞行半径，该值是通过飞行器的高度、跟返航点的距离、电池剩余电量等信息综合计算得出。如果飞行器飞行的距离超过这个半径，飞行器将可能在返航途中降落着陆。如果飞行器正在使用模拟器，则该值将为0。</p>
+<h5 id="返回值：-6">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Double</td><td><font color="#666"><i>返回以返航点为圆心的最大安全飞行半径。</i></td></tr></table></html></div>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getsmartrthcountdown"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getsmartrthcountdown_inline">getSmartRTHCountdown</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getsmartrthcountdown_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getSmartRTHCountdown</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer <span class="title function_">getSmartRTHCountdown</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-8">描述：</h5>
+<p><font color="#666">获取智能低电量返航时用户确认倒计时，单位：秒。一旦倒计时为0，飞行器将自动执行返航行为。仅当 <code><a href="../../Components/IKeyManager/Value_FlightController_Struct_GoHomeAssessment.html#value_flightcontroller_struct_gohomeassessment_getsmartrthstate">getLowBatteryRTHStatus</a></code>为<code><a href="../../Components/IKeyManager/DJIValue.html#value_flightcontroller_enum_smartrthstate_counting_down">COUNTING_DOWN</a></code>时才有效。</p>
+<h5 id="返回值：-7">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Integer</td><td><font color="#666"><i>返回低电量返航时用户确认倒计时。</i></td></tr></table></html></div>
+<div class="api-row" id="value_flightcontroller_struct_gohomeassessment_getsmartrthstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_flightcontroller_struct_gohomeassessment_getsmartrthstate_inline">getLowBatteryRTHStatus</a></div></div><div class="inline-doc" id="value_flightcontroller_struct_gohomeassessment_getsmartrthstate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLowBatteryRTHStatus</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LowBatteryRTHState <span class="title function_">getLowBatteryRTHStatus</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.flightcontroller</td></tr></table></html>
+<h5 id="描述：-9">描述：</h5>
+<p><font color="#666">获取智能低电量返航状态。</p>
+<h5 id="返回值：-8">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/DJIValue.html#value_flightcontroller_enum_smartrthstate">LowBatteryRTHState</a></td><td><font color="#666"><i>返回低电量返航状态。</i></td></tr></table></html></div>
 
         </div>
       </div>

@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,49 +688,53 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>LaserMeasureInformation</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LaserMeasureInformation</span> <span class="keyword">implements</span> <span class="title">DJIValue</span>, <span class="title">JNIProguardKeepTag</span>, <span class="title">ByteStream</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.camera</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">Laser measure information.</font></p>
-<h5 id="class-members">Class Members:</h5>
-<h4 id="members">Members</h4>
-<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_getlocation3d"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_getlocation3d_inline">getLocation3D</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_getlocation3d_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLocation3D</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LocationCoordinate3D <span class="title">getLocation3D</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.camera</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Gets the location of the target point, including longitude, latitude and altitude.</font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate3D.html#value_common_struct_locationcoordinate3d">LocationCoordinate3D</a></font></td><td><font color="#666"><i>Returns the location of the target point.</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_getdistance"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_getdistance_inline">getDistance</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_getdistance_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getDistance</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Double <span class="title">getDistance</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.camera</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Gets the distance of the target point from the laser sensor. The target point must be at least 3m away from The laser sensor.</font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Double</font></td><td><font color="#666"><i>Returns the distance of the target point from the laser sensor.</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_gettargetpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_gettargetpoint_inline">getTargetPoint</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_gettargetpoint_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getTargetPoint</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">DoublePoint2D <span class="title">getTargetPoint</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.camera</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Gets the position of the target point on the camera screen. Range of x and y: [0,100]. [0,0] represents the upper left corner of the camera screen, [100,100] represents the lower right corner of the camera screen.</font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_DoublePoint2D.html#value_common_struct_doublepoint2d">DoublePoint2D</a></font></td><td><font color="#666"><i>Returns the position of the target point on the camera screen.</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_geterrorstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_geterrorstate_inline">getLaserMeasureState</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_geterrorstate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLaserMeasureState</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LaserMeasureState <span class="title">getLaserMeasureState</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.camera</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">Gets the laser measure status.</font></p>
-<h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/DJIValue.html#value_camera_enum_lasermeasureerrorstatus">LaserMeasureState</a></font></td><td><font color="#666"><i>Returns the laser measure status.</i></font></td></tr></table></html></div>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>LaserMeasureInformation</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LaserMeasureInformation</span> <span class="keyword">implements</span> <span class="title class_">DJIValue</span>, JNIProguardKeepTag, ByteStream</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.camera</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">Laser measure information.</p>
+<h5 id="Class-Members">Class Members:</h5>
+<h4 id="Members">Members</h4>
+<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_getlocation3d"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_getlocation3d_inline">getLocation3D</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_getlocation3d_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLocation3D</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocationCoordinate3D <span class="title function_">getLocation3D</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.camera</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Gets the location of the target point, including longitude, latitude and altitude.</p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate3D.html#value_common_struct_locationcoordinate3d">LocationCoordinate3D</a></td><td><font color="#666"><i>Returns the location of the target point.</i></td></tr></table></html></div>
+<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_getdistance"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_getdistance_inline">getDistance</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_getdistance_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getDistance</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Double <span class="title function_">getDistance</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.camera</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Gets the distance of the target point from the laser sensor. The target point must be at least 3m away from The laser sensor.</p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Double</td><td><font color="#666"><i>Returns the distance of the target point from the laser sensor.</i></td></tr></table></html></div>
+<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_gettargetpoint"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_gettargetpoint_inline">getTargetPoint</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_gettargetpoint_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getTargetPoint</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">DoublePoint2D <span class="title function_">getTargetPoint</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.camera</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Gets the position of the target point on the camera screen. Range of x and y: [0,100]. [0,0] represents the upper left corner of the camera screen, [100,100] represents the lower right corner of the camera screen.</p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_DoublePoint2D.html#value_common_struct_doublepoint2d">DoublePoint2D</a></td><td><font color="#666"><i>Returns the position of the target point on the camera screen.</i></td></tr></table></html></div>
+<div class="api-row" id="value_camera_struct_lasermeasureinformationmsg_geterrorstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_camera_struct_lasermeasureinformationmsg_geterrorstate_inline">getLaserMeasureState</a></div></div><div class="inline-doc" id="value_camera_struct_lasermeasureinformationmsg_geterrorstate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLaserMeasureState</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LaserMeasureState <span class="title function_">getLaserMeasureState</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.camera</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">Gets the laser measure status.</p>
+<h5 id="Return-4">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/DJIValue.html#value_camera_enum_lasermeasureerrorstatus">LaserMeasureState</a></td><td><font color="#666"><i>Returns the laser measure status.</i></td></tr></table></html></div>
 
         </div>
       </div>

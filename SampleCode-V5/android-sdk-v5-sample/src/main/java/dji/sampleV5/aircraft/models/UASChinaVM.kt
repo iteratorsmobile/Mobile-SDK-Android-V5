@@ -3,7 +3,7 @@ package dji.sampleV5.moduleaircraft.models
 import androidx.lifecycle.MutableLiveData
 import dji.sampleV5.aircraft.data.DJIToastResult
 import dji.sampleV5.aircraft.models.DJIViewModel
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 
 import dji.sdk.keyvalue.value.flightcontroller.RealNameRegistrationState
 import dji.v5.common.callback.CommonCallbacks
@@ -64,6 +64,30 @@ class UASChinaVM: DJIViewModel() {
             override fun onFailure(error: IDJIError) {
                 toastResult?.postValue(DJIToastResult.failed(error.toString()))
 
+            }
+        })
+    }
+
+    fun setRealNameTag(tag: String) {
+        uasRemoteIDManager.setRealNameTag(tag, object : CommonCallbacks.CompletionCallback {
+            override fun onSuccess() {
+                toastResult?.postValue(DJIToastResult.success("setRealNameTag success"))
+            }
+
+            override fun onFailure(error: IDJIError) {
+                toastResult?.postValue(DJIToastResult.failed(error.toString()))
+            }
+        })
+    }
+
+    fun getRealNameTag() {
+        uasRemoteIDManager.getRealNameTag(object : CommonCallbacks.CompletionCallbackWithParam<String> {
+            override fun onSuccess(tag: String?) {
+                toastResult?.postValue(DJIToastResult.success("getRealNameTag: $tag"))
+            }
+
+            override fun onFailure(error: IDJIError) {
+                toastResult?.postValue(DJIToastResult.failed(error.toString()))
             }
         })
     }

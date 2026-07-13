@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,110 +688,120 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>FlyZoneInformation</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">FlyZoneInformation</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">Restricted fl  zone information class. Including restricted-fly zone ID, restricted fly zone name, type of restricted fly zone, restricted fly zone shape, restricted fly zone strategy, etc. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<h4 id="basic-information">Basic Information</h4>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getflyzoneid"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getflyzoneid_inline">getFlyZoneID</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getflyzoneid_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getFlyZoneID</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getFlyZoneID</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Gets the fly zone's ID. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>Returns the fly zone's ID.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getname"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getname_inline">getName</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getname_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getName</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getName</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Gets the name of the fly zone. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>Returns the name of the fly zone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getflyzonetype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getflyzonetype_inline">getFlyZoneType</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getflyzonetype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getFlyZoneType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">FlyZoneType <span class="title">getFlyZoneType</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Gets the type fly zone. Includes airports, parks, schools, stadium, etc. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_flyzonetype">FlyZoneType</a></font></td><td><font color="#666"><i>Returns the type fly zone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getcategory"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getcategory_inline">getCategory</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getcategory_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getCategory</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">FlyZoneCategory <span class="title">getCategory</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">Gets the category of the fly zone. Includes restricted zone, authorization zone, warning zone and enhanced warning zone, etc.
-<br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_flyzonecategory">FlyZoneCategory</a></font></td><td><font color="#666"><i>Returns the category of the fly zone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getshape"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getshape_inline">getShape</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getshape_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getShape</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">FlyZoneShape <span class="title">getShape</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
-<p><font color="#666">Gets the shape of the fly zone. Includes circles and polygons. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v5">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_flyzoneshape">FlyZoneShape</a></font></td><td><font color="#666"><i>Returns the shape of the fly zone.</i></font></td></tr></table></html></div>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>FlyZoneInformation</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">FlyZoneInformation</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">Restricted fl  zone information class. Including restricted-fly zone ID, restricted fly zone name, type of restricted fly zone, restricted fly zone shape, restricted fly zone strategy, etc. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<h4 id="Basic-Information">Basic Information</h4>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getflyzoneid"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getflyzoneid_inline">getFlyZoneID</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getflyzoneid_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getFlyZoneID</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">getFlyZoneID</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Gets the fly zone’s ID. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</td><td><font color="#666"><i>Returns the fly zone's ID.</i></td></tr></table></html></div>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getname"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getname_inline">getName</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getname_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getName</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getName</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Gets the name of the fly zone. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>Returns the name of the fly zone.</i></td></tr></table></html></div>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getflyzonetype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getflyzonetype_inline">getFlyZoneType</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getflyzonetype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getFlyZoneType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">FlyZoneType <span class="title function_">getFlyZoneType</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Gets the type fly zone. Includes airports, parks, schools, stadium, etc. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_flyzonetype">FlyZoneType</a></td><td><font color="#666"><i>Returns the type fly zone.</i></td></tr></table></html></div>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getcategory"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getcategory_inline">getCategory</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getcategory_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getCategory</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">FlyZoneCategory <span class="title function_">getCategory</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">Gets the category of the fly zone. Includes restricted zone, authorization zone, warning zone and enhanced warning zone, etc.<br>
+<br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-4">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_flyzonecategory">FlyZoneCategory</a></td><td><font color="#666"><i>Returns the category of the fly zone.</i></td></tr></table></html></div>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getshape"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getshape_inline">getShape</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getshape_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getShape</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">FlyZoneShape <span class="title function_">getShape</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-6">Description:</h5>
+<p><font color="#666">Gets the shape of the fly zone. Includes circles and polygons. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-5">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IFlyZoneManager/IFlyZoneManager.html#iflyzonemanager_flyzoneshape">FlyZoneShape</a></td><td><font color="#666"><i>Returns the shape of the fly zone.</i></td></tr></table></html></div>
 <html><p><br></p></html>
-<h4 id="geozone-data">GeoZone Data</h4>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getlowerlimit"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getlowerlimit_inline">getLowerLimit</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getlowerlimit_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLowerLimit</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getLowerLimit</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">Gets the lower limit of GeoZone data, currently only supports EU GeoZone data. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v6">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</font></td><td><font color="#666"><i>Returns the lower limit of GeoZone data.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getupperlimit"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getupperlimit_inline">getUpperLimit</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getupperlimit_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getUpperLimit</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getUpperLimit</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v8">Description:</h5>
-<p><font color="#666">Gets the upper limit of GeoZone data, currently only supports EU GeoZone data. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v7">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</font></td><td><font color="#666"><i>Returns the upper limit of GeoZone data.</i></font></td></tr></table></html></div>
+<h4 id="GeoZone-Data">GeoZone Data</h4>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getlowerlimit"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getlowerlimit_inline">getLowerLimit</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getlowerlimit_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLowerLimit</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">getLowerLimit</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-7">Description:</h5>
+<p><font color="#666">Gets the lower limit of GeoZone data, currently only supports EU GeoZone data. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-6">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</td><td><font color="#666"><i>Returns the lower limit of GeoZone data.</i></td></tr></table></html></div>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getupperlimit"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getupperlimit_inline">getUpperLimit</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getupperlimit_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getUpperLimit</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">getUpperLimit</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-8">Description:</h5>
+<p><font color="#666">Gets the upper limit of GeoZone data, currently only supports EU GeoZone data. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-7">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</td><td><font color="#666"><i>Returns the upper limit of GeoZone data.</i></td></tr></table></html></div>
 <html><p><br></p></html>
-<h4 id="circular-restricted-fly-zone-information">Circular Restricted Fly Zone Information</h4>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getcirclecenter"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getcirclecenter_inline">getCircleCenter</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getcirclecenter_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getCircleCenter</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LocationCoordinate2D <span class="title">getCircleCenter</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v9">Description:</h5>
-<p><font color="#666">Gets the coordinates of the center of the circular restricted-fly zone. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v8">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate2D.html#value_common_struct_locationcoordinate2d">LocationCoordinate2D</a></font></td><td><font color="#666"><i>Returns the coordinates of the center of the circular restricted-fly zone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getcircleradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getcircleradius_inline">getCircleRadius</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getcircleradius_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getCircleRadius</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getCircleRadius</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v10">Description:</h5>
-<p><font color="#666">Gets the radius of the circular restricted fly zone. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v9">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</font></td><td><font color="#666"><i>Returns the radius of the circular restricted fly zone.</i></font></td></tr></table></html></div>
+<h4 id="Circular-Restricted-Fly-Zone-Information">Circular Restricted Fly Zone Information</h4>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getcirclecenter"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getcirclecenter_inline">getCircleCenter</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getcirclecenter_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getCircleCenter</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LocationCoordinate2D <span class="title function_">getCircleCenter</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-9">Description:</h5>
+<p><font color="#666">Gets the coordinates of the center of the circular restricted-fly zone. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-8">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate2D.html#value_common_struct_locationcoordinate2d">LocationCoordinate2D</a></td><td><font color="#666"><i>Returns the coordinates of the center of the circular restricted-fly zone.</i></td></tr></table></html></div>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getcircleradius"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getcircleradius_inline">getCircleRadius</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getcircleradius_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getCircleRadius</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> <span class="title function_">getCircleRadius</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-10">Description:</h5>
+<p><font color="#666">Gets the radius of the circular restricted fly zone. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-9">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">double</td><td><font color="#666"><i>Returns the radius of the circular restricted fly zone.</i></td></tr></table></html></div>
 <html><p><br></p></html>
-<h4 id="polygon-restricted-fly-zone-information">Polygon Restricted Fly Zone Information</h4>
-<div class="api-row" id="iflyzonemanager_flyzoneinformation_getmultipolygonflyzoneinformation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getmultipolygonflyzoneinformation_inline">getMultiPolygonFlyZoneInformation</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getmultipolygonflyzoneinformation_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getMultiPolygonFlyZoneInformation</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">List&lt;MultiPolygonFlyZoneInformation&gt; <span class="title">getMultiPolygonFlyZoneInformation</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.flysafe.info</font></td></tr></table></html>
-<h5 id="description-v11">Description:</h5>
-<p><font color="#666">Gets the polygon restricted fly zone information. Contains cylindrical and polygonal no-fly zone information. <br><br><code><i>Supported since MSDK 5.3.0</i></code></font></p>
-<h5 id="return-v10">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">List&lt;<a href="../../Components/IFlyZoneManager/IFlyZoneManager_MultiPolygonFlyZoneInformation.html#iflyzonemanager_multipolygonflyzoneinformation">MultiPolygonFlyZoneInformation</a>&gt;</font></td><td><font color="#666"><i>Returns information about the restricted fly zone for the polygon.</i></font></td></tr></table></html></div>
+<h4 id="Polygon-Restricted-Fly-Zone-Information">Polygon Restricted Fly Zone Information</h4>
+<div class="api-row" id="iflyzonemanager_flyzoneinformation_getmultipolygonflyzoneinformation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflyzonemanager_flyzoneinformation_getmultipolygonflyzoneinformation_inline">getMultiPolygonFlyZoneInformation</a></div></div><div class="inline-doc" id="iflyzonemanager_flyzoneinformation_getmultipolygonflyzoneinformation_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getMultiPolygonFlyZoneInformation</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;MultiPolygonFlyZoneInformation&gt; <span class="title function_">getMultiPolygonFlyZoneInformation</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.flysafe.info</td></tr></table></html>
+<h5 id="Description-11">Description:</h5>
+<p><font color="#666">Gets the polygon restricted fly zone information. Contains cylindrical and polygonal no-fly zone information. <br><br><code><i>Supported since MSDK 5.3.0</i></code></p>
+<h5 id="Return-10">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">List&lt;<a href="../../Components/IFlyZoneManager/IFlyZoneManager_MultiPolygonFlyZoneInformation.html#iflyzonemanager_multipolygonflyzoneinformation">MultiPolygonFlyZoneInformation</a>&gt;</td><td><font color="#666"><i>Returns information about the restricted fly zone for the polygon.</i></td></tr></table></html></div>
 
         </div>
       </div>

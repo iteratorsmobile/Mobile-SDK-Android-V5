@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dji.sampleV5.aircraft.R
 import dji.sampleV5.aircraft.models.MultiVideoChannelVM
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 
 
 class MultiVideoChannelFragment : DJIFragment(), View.OnClickListener {

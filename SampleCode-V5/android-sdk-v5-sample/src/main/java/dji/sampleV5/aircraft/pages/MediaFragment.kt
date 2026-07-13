@@ -17,7 +17,7 @@ import dji.sampleV5.aircraft.R
 import dji.sampleV5.aircraft.data.MEDIA_FILE_DETAILS_STR
 import dji.sampleV5.aircraft.databinding.FragMediaPageBinding
 import dji.sampleV5.aircraft.models.MediaVM
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sdk.keyvalue.value.camera.CameraStorageLocation
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.v5.common.callback.CommonCallbacks

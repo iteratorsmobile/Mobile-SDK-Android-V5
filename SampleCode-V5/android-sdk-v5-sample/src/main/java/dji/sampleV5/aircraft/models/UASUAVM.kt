@@ -6,7 +6,7 @@ import dji.v5.manager.aircraft.uas.AreaStrategy
 import dji.v5.manager.aircraft.uas.UASRemoteIDManager
 import dji.v5.manager.aircraft.uas.UASRemoteIDStatus
 import dji.v5.manager.aircraft.uas.UASRemoteIDStatusListener
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sdk.keyvalue.key.BatteryKey
 import dji.sdk.keyvalue.key.ProductKey
 import dji.sdk.keyvalue.utils.ProductUtil

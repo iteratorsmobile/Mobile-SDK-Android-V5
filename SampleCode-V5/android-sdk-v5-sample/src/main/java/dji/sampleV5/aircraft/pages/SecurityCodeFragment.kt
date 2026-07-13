@@ -13,7 +13,7 @@ import dji.sampleV5.aircraft.databinding.FragAppSilentlyUpgradePageBinding
 import dji.sampleV5.aircraft.databinding.FragSecurityCodePageBinding
 import dji.sampleV5.aircraft.models.SecurityCodeVM
 import dji.sampleV5.aircraft.util.Helper
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sdk.keyvalue.value.flightcontroller.AccessLockerDeviceType
 import dji.v5.utils.common.JsonUtil
 import dji.v5.utils.common.StringUtils

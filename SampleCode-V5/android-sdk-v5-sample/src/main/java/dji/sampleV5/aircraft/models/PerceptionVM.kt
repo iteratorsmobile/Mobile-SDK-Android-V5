@@ -71,6 +71,13 @@ class PerceptionVM : DJIViewModel() {
         perceptionManager.setObstacleAvoidanceEnabled(isEnabled, direction, callback)
     }
 
+    fun getObstacleAvoidanceEnabled(
+        direction: PerceptionDirection,
+        callback: CommonCallbacks.CompletionCallbackWithParam<Boolean>
+    ) {
+        perceptionManager.getObstacleAvoidanceEnabled(direction, callback)
+    }
+
     fun setRadarObstacleAvoidanceEnabled(
         isEnabled: Boolean,
         direction: PerceptionDirection,

@@ -35,6 +35,7 @@ import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
 import dji.v5.ux.core.extension.getString
 import dji.v5.ux.core.extension.hide
 import dji.v5.ux.core.extension.show
+import dji.v5.ux.core.util.ToastUtils
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.disposables.Disposable
 import java.util.concurrent.TimeUnit
@@ -235,7 +236,7 @@ class RTKStationConnectWidget @JvmOverloads constructor(
                 stationScanningView.show()
                 searchIv.setImageResource(R.drawable.uxsdk_ic_refresh)
                 searchBt.show()
-                Toast.makeText(context, "Station has disconnected", Toast.LENGTH_SHORT).show()
+                ToastUtils.showShortToast("Station has disconnected")
             }
 
             RTKStationConnetState.SCANNING -> {
@@ -324,11 +325,7 @@ class RTKStationConnectWidget @JvmOverloads constructor(
                     }, {
                         //连接失败，恢复未连接状态
                         selectedRTKStationConnectInfo.refresh(RTKStationConnetState.IDLE)
-                        Toast.makeText(
-                            context,
-                            StringUtils.getResStr(R.string.uxsdk_rtk_base_station_connect_fail),
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        ToastUtils.showShortToast(StringUtils.getResStr(R.string.uxsdk_rtk_base_station_connect_fail))
                         LogUtils.e(
                             TAG,
                             "${selectedRTKStationConnectInfo.rtkStationName}connect fail！！！"
@@ -353,13 +350,7 @@ class RTKStationConnectWidget @JvmOverloads constructor(
             }, {
                 stationHasNotFoundView.show()
                 stationScanningView.hide()
-                Toast.makeText(
-                    context,
-                    StringUtils.getResStr(R.string.uxsdk_rtk_base_station_search_false_and_try_again),
-                    Toast.LENGTH_SHORT
-                ).show()
                 LogUtils.e(TAG, "startSearchStationRTK fail:${it.localizedMessage}")
-
             })
         )
         //某些情况下不会返回状态，需要手动更新状态

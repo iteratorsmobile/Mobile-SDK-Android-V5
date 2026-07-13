@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -686,57 +686,62 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IRadarManager</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IRadarManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IRadarManager</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IRadarManager</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">此类是雷达管理类，用于开启、关闭雷达避障开关，获取障碍物测距数据。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></font></p>
+<p><font color="#666">此类是雷达管理类，用于开启、关闭雷达避障开关，获取障碍物测距数据。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></p>
 <h5 id="类成员">类成员:</h5>
-<div class="api-row" id="iradarmanager_setobstacleavoidanceenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_setobstacleavoidanceenabled_inline">setObstacleAvoidanceEnabled</a></div></div><div class="inline-doc" id="iradarmanager_setobstacleavoidanceenabled_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>setObstacleAvoidanceEnabled</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setObstacleAvoidanceEnabled</span><span class="params">(<span class="keyword">boolean</span> isEnabled, @NonNull</span></span></span><br><span class="line"><span class="function"><span class="params">        PerceptionDirection direction, CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v2">描述：</h5>
-<p><font color="#666">开启或者关闭雷达避障子开关。只有当总开关<code><a href="../../Components/IPerceptionManager/IPerceptionManager.html#iperceptionmanager_setoverallobstacleavoidanceenabled">setOverallObstacleAvoidanceEnabled</a></code>开启后，子开关才能被开启。毫米波雷达不支持下视避障。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></font></p>
+<div class="api-row" id="iradarmanager_setobstacleavoidanceenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_setobstacleavoidanceenabled_inline">setObstacleAvoidanceEnabled</a></div></div><div class="inline-doc" id="iradarmanager_setobstacleavoidanceenabled_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>setObstacleAvoidanceEnabled</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setObstacleAvoidanceEnabled</span><span class="params">(<span class="type">boolean</span> isEnabled, <span class="meta">@NonNull</span></span></span><br><span class="line"><span class="params">        PerceptionDirection direction, CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-2">描述：</h5>
+<p><font color="#666">开启或者关闭雷达避障子开关。只有当总开关<code><a href="../../Components/IPerceptionManager/IPerceptionManager.html#iperceptionmanager_setoverallobstacleavoidanceenabled">setOverallObstacleAvoidanceEnabled</a></code>开启后，子开关才能被开启。毫米波雷达不支持下视避障。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></p>
 <h5 id="输入参数：">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">isEnabled</font></font></td><td><font color="#666"><i><code>true</code>表示开启雷达避障子开关。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull             <a href="../../Components/IPerceptionManager/IPerceptionManager.html#iperceptionmanager_perceptiondirection">PerceptionDirection</a> <font color="#000">direction</font></font></td><td><font color="#666"><i>雷达避障子开关的方向。</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>返回执行结果的回调。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iradarmanager_getobstacleavoidanceenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_getobstacleavoidanceenabled_inline">getObstacleAvoidanceEnabled</a></div></div><div class="inline-doc" id="iradarmanager_getobstacleavoidanceenabled_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getObstacleAvoidanceEnabled</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getObstacleAvoidanceEnabled</span><span class="params">(@NonNull PerceptionDirection direction, @NonNull CommonCallbacks.CompletionCallbackWithParam&lt;Boolean&gt; callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v3">描述：</h5>
-<p><font color="#666">返回是否开启雷达避障子开关。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v2">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IPerceptionManager/IPerceptionManager.html#iperceptionmanager_perceptiondirection">PerceptionDirection</a> <font color="#000">direction</font></font></td><td><font color="#666"><i>雷达避障子开关的方向。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWithParam&lt;Boolean&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>返回执行结果的回调。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iradarmanager_addradarinformationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_addradarinformationlistener_inline">addRadarInformationListener</a></div></div><div class="inline-doc" id="iradarmanager_addradarinformationlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addRadarInformationListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addRadarInformationListener</span><span class="params">(RadarInformationListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v4">描述：</h5>
-<p><font color="#666">设置雷达信息的监听器。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v3">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPerceptionManager/IRadarManager_RadarInformationListener.html#iradarmanager_radarinformationlistener">RadarInformationListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>雷达信息的监听器</i></font></td></tr></table></html></div>
-<div class="api-row" id="iradarmanager_removeradarinformationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_removeradarinformationlistener_inline">removeRadarInformationListener</a></div></div><div class="inline-doc" id="iradarmanager_removeradarinformationlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeRadarInformationListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeRadarInformationListener</span><span class="params">(RadarInformationListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v5">描述：</h5>
-<p><font color="#666">移除雷达信息的监听器。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v4">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPerceptionManager/IRadarManager_RadarInformationListener.html#iradarmanager_radarinformationlistener">RadarInformationListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>雷达信息的监听器</i></font></td></tr></table></html></div>
-<div class="api-row" id="iradarmanager_clearallradarinformationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_clearallradarinformationlistener_inline">clearAllRadarInformationListener</a></div></div><div class="inline-doc" id="iradarmanager_clearallradarinformationlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllRadarInformationListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllRadarInformationListener</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v6">描述：</h5>
-<p><font color="#666">移除所有雷达信息的监听器。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></font></p>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">isEnabled</td><td><font color="#666"><i><code>true</code>表示开启雷达避障子开关。</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull             <a href="../../Components/IPerceptionManager/IPerceptionManager.html#iperceptionmanager_perceptiondirection">PerceptionDirection</a> <font color="#000">direction</td><td><font color="#666"><i>雷达避障子开关的方向。</i></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>返回执行结果的回调。</i></td></tr></table></html></div>
+<div class="api-row" id="iradarmanager_getobstacleavoidanceenabled"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_getobstacleavoidanceenabled_inline">getObstacleAvoidanceEnabled</a></div></div><div class="inline-doc" id="iradarmanager_getobstacleavoidanceenabled_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getObstacleAvoidanceEnabled</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">getObstacleAvoidanceEnabled</span><span class="params">(<span class="meta">@NonNull</span> PerceptionDirection direction, <span class="meta">@NonNull</span> CommonCallbacks.CompletionCallbackWithParam&lt;Boolean&gt; callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-3">描述：</h5>
+<p><font color="#666">返回是否开启雷达避障子开关。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></p>
+<h5 id="输入参数：-2">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IPerceptionManager/IPerceptionManager.html#iperceptionmanager_perceptiondirection">PerceptionDirection</a> <font color="#000">direction</td><td><font color="#666"><i>雷达避障子开关的方向。</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWithParam&lt;Boolean&gt; <font color="#000">callback</td><td><font color="#666"><i>返回执行结果的回调。</i></td></tr></table></html></div>
+<div class="api-row" id="iradarmanager_addradarinformationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_addradarinformationlistener_inline">addRadarInformationListener</a></div></div><div class="inline-doc" id="iradarmanager_addradarinformationlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addRadarInformationListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addRadarInformationListener</span><span class="params">(RadarInformationListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-4">描述：</h5>
+<p><font color="#666">设置雷达信息的监听器。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></p>
+<h5 id="输入参数：-3">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPerceptionManager/IRadarManager_RadarInformationListener.html#iradarmanager_radarinformationlistener">RadarInformationListener</a> <font color="#000">listener</td><td><font color="#666"><i>雷达信息的监听器</i></td></tr></table></html></div>
+<div class="api-row" id="iradarmanager_removeradarinformationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_removeradarinformationlistener_inline">removeRadarInformationListener</a></div></div><div class="inline-doc" id="iradarmanager_removeradarinformationlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeRadarInformationListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeRadarInformationListener</span><span class="params">(RadarInformationListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-5">描述：</h5>
+<p><font color="#666">移除雷达信息的监听器。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></p>
+<h5 id="输入参数：-4">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPerceptionManager/IRadarManager_RadarInformationListener.html#iradarmanager_radarinformationlistener">RadarInformationListener</a> <font color="#000">listener</td><td><font color="#666"><i>雷达信息的监听器</i></td></tr></table></html></div>
+<div class="api-row" id="iradarmanager_clearallradarinformationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iradarmanager_clearallradarinformationlistener_inline">clearAllRadarInformationListener</a></div></div><div class="inline-doc" id="iradarmanager_clearallradarinformationlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllRadarInformationListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllRadarInformationListener</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-6">描述：</h5>
+<p><font color="#666">移除所有雷达信息的监听器。 <br><br><code><i>MSDK 5.1.0开始支持</i></code></p>
 </div>
-<h5 id="related">Related:</h5>
+<h5 id="Related">Related:</h5>
 <div class="api-row" id="iradarmanager_radarinformation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IPerceptionManager/IRadarManager_RadarInformation.html">RadarInformation</a></div></div><div class="api-row" id="iradarmanager_radarinformationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IPerceptionManager/IRadarManager_RadarInformationListener.html">RadarInformationListener</a></div></div>
 
         </div>

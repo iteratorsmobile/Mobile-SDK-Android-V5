@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,67 +688,73 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>LTEAuthenticationInfo</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Keep</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">LTEAuthenticationInfo</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">LTE authentication information. Including whether authenticated, the authenticated mobile phone number, the last authentication time and the remaining time of authentication.
-<br><br><code><i>Supported since MSDK 5.2.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="iltemanager_lteauthenticationinfo_islteauthenticationavailable"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_islteauthenticationavailable_inline">isLTEAuthenticationAvailable</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_islteauthenticationavailable_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>isLTEAuthenticationAvailable</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isLTEAuthenticationAvailable</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Gets whether the LTE authentication function is available.</font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i><code>true</code> indicates that the LTE authentication feature is available.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_lteauthenticationinfo_islteauthenticated"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_islteauthenticated_inline">isLTEAuthenticated</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_islteauthenticated_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>isLTEAuthenticated</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">isLTEAuthenticated</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Gets whether the drone is LTE authenticated.</font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i><code>true</code> means the drone is LTE authenticated.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphoneareacode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getlteauthenticatedphoneareacode_inline">getLTEAuthenticatedPhoneAreaCode</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphoneareacode_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLTEAuthenticatedPhoneAreaCode</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getLTEAuthenticatedPhoneAreaCode</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Gets the area code of the mobile phone number for this drone's LTE authentication.</font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>Returns the area code of the mobile phone number for this drone's LTE authentication.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphonenumber"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getlteauthenticatedphonenumber_inline">getLTEAuthenticatedPhoneNumber</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphonenumber_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLTEAuthenticatedPhoneNumber</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getLTEAuthenticatedPhoneNumber</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">Gets the mobile phone number for LTE authentication of this drone.</font></p>
-<h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>Returns the mobile phone number for LTE authentication of this drone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_lteauthenticationinfo_getltelastauthenticatedtime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getltelastauthenticatedtime_inline">getLTELastAuthenticatedTime</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getltelastauthenticatedtime_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLTELastAuthenticatedTime</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">getLTELastAuthenticatedTime</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
-<p><font color="#666">Gets the UTC timestamp of the last LTE authentication for this drone.</font></p>
-<h5 id="return-v5">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">long</font></td><td><font color="#666"><i>Returns the UTC timestamp of the last LTE authentication for this drone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_lteauthenticationinfo_getlteauthenticatedremainingtime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getlteauthenticatedremainingtime_inline">getLTEAuthenticatedRemainingTime</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getlteauthenticatedremainingtime_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLTEAuthenticatedRemainingTime</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">getLTEAuthenticatedRemainingTime</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">Get the remaining UTC timestamp of this drone's LTE authentication. LTE authentication is valid for 30 days by default.</font></p>
-<h5 id="return-v6">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">long</font></td><td><font color="#666"><i>Returns the remaining UTC timestamp of this drone's LTE authentication.</i></font></td></tr></table></html></div>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>LTEAuthenticationInfo</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Keep</span></span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">LTEAuthenticationInfo</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">LTE authentication information. Including whether authenticated, the authenticated mobile phone number, the last authentication time and the remaining time of authentication.<br>
+<br><br><code><i>Supported since MSDK 5.2.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="iltemanager_lteauthenticationinfo_islteauthenticationavailable"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_islteauthenticationavailable_inline">isLTEAuthenticationAvailable</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_islteauthenticationavailable_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>isLTEAuthenticationAvailable</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">isLTEAuthenticationAvailable</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Gets whether the LTE authentication function is available.</p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i><code>true</code> indicates that the LTE authentication feature is available.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_lteauthenticationinfo_islteauthenticated"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_islteauthenticated_inline">isLTEAuthenticated</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_islteauthenticated_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>isLTEAuthenticated</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">isLTEAuthenticated</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Gets whether the drone is LTE authenticated.</p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i><code>true</code> means the drone is LTE authenticated.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphoneareacode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getlteauthenticatedphoneareacode_inline">getLTEAuthenticatedPhoneAreaCode</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphoneareacode_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLTEAuthenticatedPhoneAreaCode</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getLTEAuthenticatedPhoneAreaCode</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Gets the area code of the mobile phone number for this drone’s LTE authentication.</p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>Returns the area code of the mobile phone number for this drone's LTE authentication.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphonenumber"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getlteauthenticatedphonenumber_inline">getLTEAuthenticatedPhoneNumber</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getlteauthenticatedphonenumber_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLTEAuthenticatedPhoneNumber</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getLTEAuthenticatedPhoneNumber</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">Gets the mobile phone number for LTE authentication of this drone.</p>
+<h5 id="Return-4">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>Returns the mobile phone number for LTE authentication of this drone.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_lteauthenticationinfo_getltelastauthenticatedtime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getltelastauthenticatedtime_inline">getLTELastAuthenticatedTime</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getltelastauthenticatedtime_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLTELastAuthenticatedTime</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">getLTELastAuthenticatedTime</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-6">Description:</h5>
+<p><font color="#666">Gets the UTC timestamp of the last LTE authentication for this drone.</p>
+<h5 id="Return-5">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">long</td><td><font color="#666"><i>Returns the UTC timestamp of the last LTE authentication for this drone.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_lteauthenticationinfo_getlteauthenticatedremainingtime"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_lteauthenticationinfo_getlteauthenticatedremainingtime_inline">getLTEAuthenticatedRemainingTime</a></div></div><div class="inline-doc" id="iltemanager_lteauthenticationinfo_getlteauthenticatedremainingtime_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLTEAuthenticatedRemainingTime</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="title function_">getLTEAuthenticatedRemainingTime</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-7">Description:</h5>
+<p><font color="#666">Get the remaining UTC timestamp of this drone’s LTE authentication. LTE authentication is valid for 30 days by default.</p>
+<h5 id="Return-6">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">long</td><td><font color="#666"><i>Returns the remaining UTC timestamp of this drone's LTE authentication.</i></td></tr></table></html></div>
 
         </div>
       </div>

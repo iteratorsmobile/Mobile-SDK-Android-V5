@@ -346,7 +346,7 @@ public class DefaultLayoutActivity extends AppCompatActivity {
         } else if (cameraList.contains(ComponentIndexType.PORT_2)) {
             return ComponentIndexType.PORT_2;
         } else if (cameraList.contains(ComponentIndexType.PORT_3)) {
-            return ComponentIndexType.PORT_4;
+            return ComponentIndexType.PORT_3;
         } else if (cameraList.contains(ComponentIndexType.PORT_4)) {
             return ComponentIndexType.PORT_4;
         } else if (cameraList.contains(ComponentIndexType.VISION_ASSIST)) {

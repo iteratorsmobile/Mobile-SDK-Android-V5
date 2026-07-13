@@ -125,7 +125,7 @@ public final class ViewUtil {
         if (context == null) {
             return;
         }
-        Runnable runnable = () -> Toast.makeText(context, message, duration).show();
+        Runnable runnable = () -> ToastUtils.INSTANCE.showToast(message, duration);
         if (UI_Handler.getLooper().isCurrentThread()) {
             runnable.run();
         } else {

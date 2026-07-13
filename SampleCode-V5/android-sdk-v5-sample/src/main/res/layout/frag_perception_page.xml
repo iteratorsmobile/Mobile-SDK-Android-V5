@@ -64,6 +64,17 @@
                     android:textOff=""
                     android:textOn="" />
 
+                <TextView
+                    android:id="@+id/tv_read_upward"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_obstacle_avoidance_up_switch"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/dark_gray"
+                    android:gravity="center"
+                    android:textSize="9sp"
+                    android:text="read upward"/>
+
             </RelativeLayout>
 
             <RelativeLayout
@@ -92,6 +103,17 @@
                     android:background="@drawable/toggle_selector"
                     android:textOff=""
                     android:textOn="" />
+
+                <TextView
+                    android:id="@+id/tv_read_down"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_obstacle_avoidance_down_switch"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/dark_gray"
+                    android:gravity="center"
+                    android:textSize="9sp"
+                    android:text="read down"/>
 
             </RelativeLayout>
 
@@ -122,6 +144,17 @@
                     android:background="@drawable/toggle_selector"
                     android:textOff=""
                     android:textOn="" />
+
+                <TextView
+                    android:id="@+id/tv_read_horizontal"
+                    android:layout_width="42dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_obstacle_avoidance_horizontal_switch"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/dark_gray"
+                    android:gravity="center"
+                    android:textSize="9sp"
+                    android:text="read\nhorizontal"/>
 
             </RelativeLayout>
 

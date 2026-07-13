@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
 import androidx.cardview.widget.CardView
-import com.dji.industry.pandora.pilot2.uikit.popover.TintedBitmapDrawable
 import dji.v5.ux.R
 
 

@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -686,102 +686,111 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IPipelineManager</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IPipelineManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IPipelineManager</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IPipelineManager</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">SDK互联互通管理类。可通过此类建立MSDK和PSDK设备之间连接的管道，用于MSDK和PSDK设备之间传输数据。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
+<p><font color="#666">SDK互联互通管理类。可通过此类建立MSDK和PSDK设备之间连接的管道，用于MSDK和PSDK设备之间传输数据。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
 <h5 id="类成员">类成员:</h5>
-<div class="api-row" id="ipipelinemanager_addpipelineconnectionlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_addpipelineconnectionlistener_inline">addPipelineConnectionListener</a></div></div><div class="inline-doc" id="ipipelinemanager_addpipelineconnectionlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addPipelineConnectionListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addPipelineConnectionListener</span><span class="params">(PipelineConnectionListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v2">描述：</h5>
-<p><font color="#666">设置SDK互联互通连接监听器。你需要调用<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_connectpipeline">connectPipeline</a></code>连接管道。当管道连接成功以后，可以通过此监听器获取连接事件。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
+<div class="api-row" id="ipipelinemanager_addpipelineconnectionlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_addpipelineconnectionlistener_inline">addPipelineConnectionListener</a></div></div><div class="inline-doc" id="ipipelinemanager_addpipelineconnectionlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addPipelineConnectionListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addPipelineConnectionListener</span><span class="params">(PipelineConnectionListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-2">描述：</h5>
+<p><font color="#666">设置SDK互联互通连接监听器。你需要调用<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_connectpipeline">connectPipeline</a></code>连接管道。当管道连接成功以后，可以通过此监听器获取连接事件。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
 <h5 id="输入参数：">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager_PipelineConnectionListener.html#ipipelinemanager_pipelineconnectionlistener">PipelineConnectionListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>SDK互联互通连接监听器。</i></font></td></tr></table></html></div>
-<div class="api-row" id="ipipelinemanager_removepipelineconnectionlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_removepipelineconnectionlistener_inline">removePipelineConnectionListener</a></div></div><div class="inline-doc" id="ipipelinemanager_removepipelineconnectionlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removePipelineConnectionListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removePipelineConnectionListener</span><span class="params">(PipelineConnectionListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v3">描述：</h5>
-<p><font color="#666">移除SDK互联互通连接监听器。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v2">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager_PipelineConnectionListener.html#ipipelinemanager_pipelineconnectionlistener">PipelineConnectionListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>SDK互联互通连接监听器。</i></font></td></tr></table></html></div>
-<div class="api-row" id="ipipelinemanager_clearallpipelineconnectionlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_clearallpipelineconnectionlistener_inline">clearAllPipelineConnectionListener</a></div></div><div class="inline-doc" id="ipipelinemanager_clearallpipelineconnectionlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllPipelineConnectionListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllPipelineConnectionListener</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v4">描述：</h5>
-<p><font color="#666">移除所有SDK互联互通连接监听器。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager_PipelineConnectionListener.html#ipipelinemanager_pipelineconnectionlistener">PipelineConnectionListener</a> <font color="#000">listener</td><td><font color="#666"><i>SDK互联互通连接监听器。</i></td></tr></table></html></div>
+<div class="api-row" id="ipipelinemanager_removepipelineconnectionlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_removepipelineconnectionlistener_inline">removePipelineConnectionListener</a></div></div><div class="inline-doc" id="ipipelinemanager_removepipelineconnectionlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removePipelineConnectionListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removePipelineConnectionListener</span><span class="params">(PipelineConnectionListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-3">描述：</h5>
+<p><font color="#666">移除SDK互联互通连接监听器。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="输入参数：-2">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager_PipelineConnectionListener.html#ipipelinemanager_pipelineconnectionlistener">PipelineConnectionListener</a> <font color="#000">listener</td><td><font color="#666"><i>SDK互联互通连接监听器。</i></td></tr></table></html></div>
+<div class="api-row" id="ipipelinemanager_clearallpipelineconnectionlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_clearallpipelineconnectionlistener_inline">clearAllPipelineConnectionListener</a></div></div><div class="inline-doc" id="ipipelinemanager_clearallpipelineconnectionlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllPipelineConnectionListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllPipelineConnectionListener</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-4">描述：</h5>
+<p><font color="#666">移除所有SDK互联互通连接监听器。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
 </div>
-<div class="api-row" id="ipipelinemanager_getpipelines"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_getpipelines_inline">getPipelines</a></div></div><div class="inline-doc" id="ipipelinemanager_getpipelines_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getPipelines</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Map&lt;Integer, Pipeline&gt; <span class="title">getPipelines</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v5">描述：</h5>
-<p><font color="#666">获取所有已连接的管道实例映射表。映射表中的键是已连接的PSDK设备的管道ID，映射表中的值是管道实例对象。成功建立管道连接后，将创建一个管道对象并将其放置在映射表中。当调用<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_disconnectpipeline">disconnectPipeline</a></code>时，过期的管道将从映射表中删除。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
+<div class="api-row" id="ipipelinemanager_getpipelines"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_getpipelines_inline">getPipelines</a></div></div><div class="inline-doc" id="ipipelinemanager_getpipelines_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getPipelines</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, Pipeline&gt; <span class="title function_">getPipelines</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-5">描述：</h5>
+<p><font color="#666">获取所有已连接的管道实例映射表。映射表中的键是已连接的PSDK设备的管道ID，映射表中的值是管道实例对象。成功建立管道连接后，将创建一个管道对象并将其放置在映射表中。当调用<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_disconnectpipeline">disconnectPipeline</a></code>时，过期的管道将从映射表中删除。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
 <h5 id="返回值：">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Map&lt;Integer, <a href="../../Components/IPipelineManager/IPipelineManager_Pipeline.html#ipipelinemanager_pipeline">Pipeline</a>&gt;</font></td><td><font color="#666"><i>返回所有已连接的管道实例映射表。</i></font></td></tr></table></html></div>
-<div class="api-row" id="ipipelinemanager_connectpipeline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_connectpipeline_inline">connectPipeline</a></div></div><div class="inline-doc" id="ipipelinemanager_connectpipeline_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>connectPipeline</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">IDJIError <span class="title">connectPipeline</span><span class="params">(<span class="keyword">int</span> pipelineId, PipelineDeviceType deviceType, TransmissionControlType transmissionControlType)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v6">描述：</h5>
-<p><font color="#666">使用管道ID建立管道连接。成功连接后可通过添加<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_addpipelineconnectionlistener">addPipelineConnectionListener</a></code>监听器获取管道实例。你也可以调用<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_getpipelines">getPipelines</a></code>同步获取所有已连接的管道列表。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v3">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">pipelineId</font></font></td><td><font color="#666"><i>管道ID，此ID需要跟PSDK负载开发者进行协商。</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_pipelinedevicetype">PipelineDeviceType</a> <font color="#000">deviceType</font></font></td><td><font color="#666"><i>设备类型，可设置ONBOARD或者PAYLOAD类型。</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_transmissioncontroltype">TransmissionControlType</a> <font color="#000">transmissionControlType</font></font></td><td><font color="#666"><i>传输控制类型，可设置可靠传输类型或者非可靠传输类型。</i></font></td></tr></table></html>
-<h5 id="返回值：-v2">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/DJIError/DJIError.html#djierror">IDJIError</a></font></td><td><font color="#666"><i>如果连接管道成功返回NULL，如果连接管道失败则会返回相应的错误码。</i></font></td></tr></table></html></div>
-<div class="api-row" id="ipipelinemanager_disconnectpipeline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_disconnectpipeline_inline">disconnectPipeline</a></div></div><div class="inline-doc" id="ipipelinemanager_disconnectpipeline_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>disconnectPipeline</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">IDJIError <span class="title">disconnectPipeline</span><span class="params">(<span class="keyword">int</span> pipelineId, PipelineDeviceType deviceType, TransmissionControlType transmissionControlType)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v7">描述：</h5>
-<p><font color="#666">断开与PSDK设备的管道连接。如果成功断开连接，则管道实例将从管道映射表中删除，否则将返回错误信息。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v4">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">pipelineId</font></font></td><td><font color="#666"><i>管道ID，从已连接的管道实例中获取。</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_pipelinedevicetype">PipelineDeviceType</a> <font color="#000">deviceType</font></font></td><td><font color="#666"><i>设备类型，从已连接的管道实例中获取。</i></font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_transmissioncontroltype">TransmissionControlType</a> <font color="#000">transmissionControlType</font></font></td><td><font color="#666"><i>传输控制类型，从已连接的管道实例中获取。</i></font></td></tr></table></html>
-<h5 id="返回值：-v3">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/DJIError/DJIError.html#djierror">IDJIError</a></font></td><td><font color="#666"><i>如果断开管道成功返回NULL，如果断开管道失败则会返回相应的错误码。</i></font></td></tr></table></html></div>
-<h5 id="related">Related:</h5>
-<div class="api-row" id="ipipelinemanager_pipeline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IPipelineManager/IPipelineManager_Pipeline.html">Pipeline</a></div></div><div class="api-row" id="ipipelinemanager_dataresult"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IPipelineManager/IPipelineManager_DataResult.html">DataResult</a></div></div><div class="api-row" id="value_mop_enum_pipelinestate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_mop_enum_pipelinestate_inline">PipelineState</a></div></div><div class="inline-doc" id="value_mop_enum_pipelinestate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>PipelineState</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> PipelineState implements JNIProguardKeepTag</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.mop</font></td></tr></table></html>
-<h5 id="描述：-v8">描述：</h5>
-<p><font color="#666">管道连接状态。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinestate_connected_inline"></a>CONNECTED</font></td><td><font color="#666">管道已连接。</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinestate_disconnected_inline"></a>DISCONNECTED</font></td><td><font color="#666">管道已断开。</font></td></tr></table></html>
-<h5 id="class-members">Class Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Map&lt;Integer, <a href="../../Components/IPipelineManager/IPipelineManager_Pipeline.html#ipipelinemanager_pipeline">Pipeline</a>&gt;</td><td><font color="#666"><i>返回所有已连接的管道实例映射表。</i></td></tr></table></html></div>
+<div class="api-row" id="ipipelinemanager_connectpipeline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_connectpipeline_inline">connectPipeline</a></div></div><div class="inline-doc" id="ipipelinemanager_connectpipeline_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>connectPipeline</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IDJIError <span class="title function_">connectPipeline</span><span class="params">(<span class="type">int</span> pipelineId, PipelineDeviceType deviceType, TransmissionControlType transmissionControlType)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-6">描述：</h5>
+<p><font color="#666">使用管道ID建立管道连接。成功连接后可通过添加<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_addpipelineconnectionlistener">addPipelineConnectionListener</a></code>监听器获取管道实例。你也可以调用<code><a href="../../Components/IPipelineManager/IPipelineManager.html#ipipelinemanager_getpipelines">getPipelines</a></code>同步获取所有已连接的管道列表。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="输入参数：-3">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">pipelineId</td><td><font color="#666"><i>管道ID，此ID需要跟PSDK负载开发者进行协商。</i></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_pipelinedevicetype">PipelineDeviceType</a> <font color="#000">deviceType</td><td><font color="#666"><i>设备类型，可设置ONBOARD或者PAYLOAD类型。</i></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_transmissioncontroltype">TransmissionControlType</a> <font color="#000">transmissionControlType</td><td><font color="#666"><i>传输控制类型，可设置可靠传输类型或者非可靠传输类型。</i></td></tr></table></html>
+<h5 id="返回值：-2">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/DJIError/DJIError.html#djierror">IDJIError</a></td><td><font color="#666"><i>如果连接管道成功返回NULL，如果连接管道失败则会返回相应的错误码。</i></td></tr></table></html></div>
+<div class="api-row" id="ipipelinemanager_disconnectpipeline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ipipelinemanager_disconnectpipeline_inline">disconnectPipeline</a></div></div><div class="inline-doc" id="ipipelinemanager_disconnectpipeline_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>disconnectPipeline</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">IDJIError <span class="title function_">disconnectPipeline</span><span class="params">(<span class="type">int</span> pipelineId, PipelineDeviceType deviceType, TransmissionControlType transmissionControlType)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-7">描述：</h5>
+<p><font color="#666">断开与PSDK设备的管道连接。如果成功断开连接，则管道实例将从管道映射表中删除，否则将返回错误信息。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="输入参数：-4">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">pipelineId</td><td><font color="#666"><i>管道ID，从已连接的管道实例中获取。</i></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_pipelinedevicetype">PipelineDeviceType</a> <font color="#000">deviceType</td><td><font color="#666"><i>设备类型，从已连接的管道实例中获取。</i></td></tr><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IPipelineManager/IPipelineManager.html#value_mop_enum_transmissioncontroltype">TransmissionControlType</a> <font color="#000">transmissionControlType</td><td><font color="#666"><i>传输控制类型，从已连接的管道实例中获取。</i></td></tr></table></html>
+<h5 id="返回值：-3">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/DJIError/DJIError.html#djierror">IDJIError</a></td><td><font color="#666"><i>如果断开管道成功返回NULL，如果断开管道失败则会返回相应的错误码。</i></td></tr></table></html></div>
+<h5 id="Related">Related:</h5>
+<div class="api-row" id="ipipelinemanager_pipeline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IPipelineManager/IPipelineManager_Pipeline.html">Pipeline</a></div></div><div class="api-row" id="ipipelinemanager_dataresult"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IPipelineManager/IPipelineManager_DataResult.html">DataResult</a></div></div><div class="api-row" id="value_mop_enum_pipelinestate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_mop_enum_pipelinestate_inline">PipelineState</a></div></div><div class="inline-doc" id="value_mop_enum_pipelinestate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>PipelineState</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">PipelineState</span> <span class="keyword">implements</span> <span class="title class_">JNIProguardKeepTag</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.mop</td></tr></table></html>
+<h5 id="描述：-8">描述：</h5>
+<p><font color="#666">管道连接状态。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="Enum-Members">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinestate_connected_inline"></a>CONNECTED</td><td><font color="#666">管道已连接。</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinestate_disconnected_inline"></a>DISCONNECTED</td><td><font color="#666">管道已断开。</td></tr></table></html>
+<h5 id="Class-Members">Class Members:</h5>
 </div>
-<div class="api-row" id="value_mop_enum_pipelinedevicetype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_mop_enum_pipelinedevicetype_inline">PipelineDeviceType</a></div></div><div class="inline-doc" id="value_mop_enum_pipelinedevicetype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>PipelineDeviceType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> PipelineDeviceType implements JNIProguardKeepTag</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.mop</font></td></tr></table></html>
-<h5 id="描述：-v9">描述：</h5>
-<p><font color="#666">管道设备类型。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="enum-members-v2">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinedevicetype_onboard_inline"></a>ONBOARD</font></td><td><font color="#666">Onboard类型。</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinedevicetype_payload_inline"></a>PAYLOAD</font></td><td><font color="#666">Payload类型。</font></td></tr></table></html>
-<h5 id="class-members-v2">Class Members:</h5>
+<div class="api-row" id="value_mop_enum_pipelinedevicetype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_mop_enum_pipelinedevicetype_inline">PipelineDeviceType</a></div></div><div class="inline-doc" id="value_mop_enum_pipelinedevicetype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>PipelineDeviceType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">PipelineDeviceType</span> <span class="keyword">implements</span> <span class="title class_">JNIProguardKeepTag</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.mop</td></tr></table></html>
+<h5 id="描述：-9">描述：</h5>
+<p><font color="#666">管道设备类型。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="Enum-Members-2">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinedevicetype_onboard_inline"></a>ONBOARD</td><td><font color="#666">Onboard类型。</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_pipelinedevicetype_payload_inline"></a>PAYLOAD</td><td><font color="#666">Payload类型。</td></tr></table></html>
+<h5 id="Class-Members-2">Class Members:</h5>
 </div>
-<div class="api-row" id="value_mop_enum_transmissioncontroltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_mop_enum_transmissioncontroltype_inline">TransmissionControlType</a></div></div><div class="inline-doc" id="value_mop_enum_transmissioncontroltype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>TransmissionControlType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> TransmissionControlType implements JNIProguardKeepTag</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.mop</font></td></tr></table></html>
-<h5 id="描述：-v10">描述：</h5>
-<p><font color="#666">管道传输控制类型。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="enum-members-v3">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_transmissioncontroltype_stable_inline"></a>STABLE</font></td><td><font color="#666">可靠传输类型。数据包将按照发送顺序进行传输，类似于TCP传输协议。</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_transmissioncontroltype_unreliable_inline"></a>UNRELIABLE</font></td><td><font color="#666">非可靠传输类型。数据包可能在传输中损坏或丢失，类似于UDP传输协议。</font></td></tr></table></html>
-<h5 id="class-members-v3">Class Members:</h5>
+<div class="api-row" id="value_mop_enum_transmissioncontroltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_mop_enum_transmissioncontroltype_inline">TransmissionControlType</a></div></div><div class="inline-doc" id="value_mop_enum_transmissioncontroltype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>TransmissionControlType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">TransmissionControlType</span> <span class="keyword">implements</span> <span class="title class_">JNIProguardKeepTag</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.mop</td></tr></table></html>
+<h5 id="描述：-10">描述：</h5>
+<p><font color="#666">管道传输控制类型。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="Enum-Members-3">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_transmissioncontroltype_stable_inline"></a>STABLE</td><td><font color="#666">可靠传输类型。数据包将按照发送顺序进行传输，类似于TCP传输协议。</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_mop_enum_transmissioncontroltype_unreliable_inline"></a>UNRELIABLE</td><td><font color="#666">非可靠传输类型。数据包可能在传输中损坏或丢失，类似于UDP传输协议。</td></tr></table></html>
+<h5 id="Class-Members-3">Class Members:</h5>
 </div>
 <div class="api-row" id="ipipelinemanager_pipelineconnectionlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IPipelineManager/IPipelineManager_PipelineConnectionListener.html">PipelineConnectionListener</a></div></div>
 

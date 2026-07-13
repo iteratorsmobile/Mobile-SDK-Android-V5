@@ -20,7 +20,7 @@ import dji.sampleV5.aircraft.databinding.VideoChannelPageBinding
 import dji.sampleV5.aircraft.models.MultiVideoChannelVM
 import dji.sampleV5.aircraft.models.VideoChannelVM
 import dji.sampleV5.aircraft.models.VideoChannelVMFactory
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.v5.common.callback.CommonCallbacks
 import dji.v5.common.error.IDJIError
 import dji.v5.common.video.channel.VideoChannelState

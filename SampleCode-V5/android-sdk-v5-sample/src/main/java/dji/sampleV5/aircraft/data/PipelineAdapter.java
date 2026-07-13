@@ -37,6 +37,7 @@ import dji.v5.manager.mop.PipelineManager;
 import dji.v5.utils.common.BytesUtil;
 import dji.v5.utils.common.DiskUtil;
 import dji.v5.utils.common.LogUtils;
+import dji.v5.ux.core.util.ToastUtils;
 
 public class PipelineAdapter extends RecyclerView.Adapter<PipelineAdapter.ViewHolder> {
     private final List<Pair<ComponentIndexType, Pipeline>> data;
@@ -467,7 +468,7 @@ public class PipelineAdapter extends RecyclerView.Adapter<PipelineAdapter.ViewHo
         }
 
         private void toast(String text) {
-            itemView.post(() -> Toast.makeText(itemView.getContext(), text, Toast.LENGTH_SHORT).show());
+            itemView.post(() -> ToastUtils.INSTANCE.showShortToast(text));
         }
 
         public void handlerTipEvent(MOPCmdHelper.TipEvent event) {

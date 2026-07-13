@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,159 +688,175 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IVideoChannel</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="class"><span class="keyword">interface</span> <span class="title">IVideoChannel</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">This class represents the video channels, it is used to manage video source. Every video channel can set a video source. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="ivideostreammanager_ivideochannel_getvideochanneltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getvideochanneltype_inline">getVideoChannelType</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getvideochanneltype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getVideoChannelType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    <span class="function">VideoChannelType <span class="title">getVideoChannelType</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Get the type of video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a></font></td><td><font color="#666"><i>Return the type of video channel</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_startchannel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_startchannel_inline">startChannel</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_startchannel_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>startChannel</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startChannel</span><span class="params">(@NonNull StreamSource source, @Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Set the video source and enable it. The channel will start receiving video data after you call this method. You can call<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_addstreamdatalistener">addStreamDataListener</a></code> to recive the video data. After receiving the video data, you can decode it and render it. You can use DJI decoder<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder">IVideoDecoder</a></code>to decode the video stream, it supports YUV output mode and SURFACE output mode. <br><li>You can call<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_addvideochannelstatechangelistener">addVideoChannelStateChangeListener</a></code> to recive the video data. After enabling it, the channel state will change to<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochannelstate_on">ON</a></code>.</li> <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a> <font color="#000">source</font></font></td><td><font color="#666"><i>An instance of video source.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>A callback that returns the execution result.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_closechannel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_closechannel_inline">closeChannel</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_closechannel_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>closeChannel</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">closeChannel</span><span class="params">(@Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Disable the video channel. After disabling the video channel, the<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_streamdatalistener">androidx.annotation.NonNull</a></code>will stop receiving video data. After disabling the channel successfully, The channel state will change to<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochannelstate_close">CLOSE</a></code>. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>A callback which returns the execution result.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_addstreamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_addstreamdatalistener_inline">addStreamDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_addstreamdatalistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addStreamDataListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addStreamDataListener</span><span class="params">(@Nullable StreamDataListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">Add the video data listener. You can use this listener to receive the video data on video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable StreamDataListener <font color="#000">listener</font></font></td><td><font color="#666"><i>Video data listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_removestreamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_removestreamdatalistener_inline">removeStreamDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_removestreamdatalistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeStreamDataListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeStreamDataListener</span><span class="params">(@Nullable StreamDataListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
-<p><font color="#666">Remove the video data listener. After removing this listener, it will not receive any video data on video stream channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable StreamDataListener <font color="#000">listener</font></font></td><td><font color="#666"><i>Video data listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_clearallstreamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_clearallstreamdatalistener_inline">clearAllStreamDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_clearallstreamdatalistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllStreamDataListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllStreamDataListener</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">Clear all video data listeners on this channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IVideoChannel</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">interface</span> <span class="title class_">IVideoChannel</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">This class represents the video channels, it is used to manage video source. Every video channel can set a video source. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="ivideostreammanager_ivideochannel_getvideochanneltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getvideochanneltype_inline">getVideoChannelType</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getvideochanneltype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getVideoChannelType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    VideoChannelType <span class="title function_">getVideoChannelType</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Get the type of video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a></td><td><font color="#666"><i>Return the type of video channel</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_startchannel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_startchannel_inline">startChannel</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_startchannel_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>startChannel</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">startChannel</span><span class="params">(<span class="meta">@NonNull</span> StreamSource source, <span class="meta">@Nullable</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Set the video source and enable it. The channel will start receiving video data after you call this method. You can call<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_addstreamdatalistener">addStreamDataListener</a></code> to recive the video data. After receiving the video data, you can decode it and render it. You can use DJI decoder<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder">IVideoDecoder</a></code>to decode the video stream, it supports YUV output mode and SURFACE output mode. <br><li>You can call<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_addvideochannelstatechangelistener">addVideoChannelStateChangeListener</a></code> to recive the video data. After enabling it, the channel state will change to<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochannelstate_on">ON</a></code>.</li> <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a> <font color="#000">source</td><td><font color="#666"><i>An instance of video source.</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>A callback that returns the execution result.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_closechannel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_closechannel_inline">closeChannel</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_closechannel_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>closeChannel</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">closeChannel</span><span class="params">(<span class="meta">@Nullable</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Disable the video channel. After disabling the video channel, the<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_streamdatalistener">androidx.annotation.NonNull</a></code>will stop receiving video data. After disabling the channel successfully, The channel state will change to<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochannelstate_close">CLOSE</a></code>. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-2">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>A callback which returns the execution result.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_addstreamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_addstreamdatalistener_inline">addStreamDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_addstreamdatalistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addStreamDataListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addStreamDataListener</span><span class="params">(<span class="meta">@Nullable</span> StreamDataListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">Add the video data listener. You can use this listener to receive the video data on video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-3">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable StreamDataListener <font color="#000">listener</td><td><font color="#666"><i>Video data listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_removestreamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_removestreamdatalistener_inline">removeStreamDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_removestreamdatalistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeStreamDataListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeStreamDataListener</span><span class="params">(<span class="meta">@Nullable</span> StreamDataListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-6">Description:</h5>
+<p><font color="#666">Remove the video data listener. After removing this listener, it will not receive any video data on video stream channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-4">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable StreamDataListener <font color="#000">listener</td><td><font color="#666"><i>Video data listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_clearallstreamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_clearallstreamdatalistener_inline">clearAllStreamDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_clearallstreamdatalistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllStreamDataListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllStreamDataListener</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-7">Description:</h5>
+<p><font color="#666">Clear all video data listeners on this channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_addvideochannelstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_addvideochannelstatechangelistener_inline">addVideoChannelStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_addvideochannelstatechangelistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addVideoChannelStateChangeListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addVideoChannelStateChangeListener</span><span class="params">(@Nullable VideoChannelStateChangeListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v8">Description:</h5>
-<p><font color="#666">Add a video state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v5">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel_VideoChannelStateChangeListener.html#ivideostreammanager_ivideochannel_videochannelstatechangelistener">VideoChannelStateChangeListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>Video state listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_removevideochannelstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_removevideochannelstatechangelistener_inline">removeVideoChannelStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_removevideochannelstatechangelistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeVideoChannelStateChangeListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeVideoChannelStateChangeListener</span><span class="params">(@Nullable VideoChannelStateChangeListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v9">Description:</h5>
-<p><font color="#666">Remove a video state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v6">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel_VideoChannelStateChangeListener.html#ivideostreammanager_ivideochannel_videochannelstatechangelistener">VideoChannelStateChangeListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>Video state listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_clearallvideochannelstatechangelisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_clearallvideochannelstatechangelisteners_inline">clearAllVideoChannelStateChangeListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_clearallvideochannelstatechangelisteners_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllVideoChannelStateChangeListeners</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllVideoChannelStateChangeListeners</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v10">Description:</h5>
-<p><font color="#666">Clear all video state listeners on this channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+<div class="api-row" id="ivideostreammanager_ivideochannel_addvideochannelstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_addvideochannelstatechangelistener_inline">addVideoChannelStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_addvideochannelstatechangelistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addVideoChannelStateChangeListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addVideoChannelStateChangeListener</span><span class="params">(<span class="meta">@Nullable</span> VideoChannelStateChangeListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-8">Description:</h5>
+<p><font color="#666">Add a video state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-5">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel_VideoChannelStateChangeListener.html#ivideostreammanager_ivideochannel_videochannelstatechangelistener">VideoChannelStateChangeListener</a> <font color="#000">listener</td><td><font color="#666"><i>Video state listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_removevideochannelstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_removevideochannelstatechangelistener_inline">removeVideoChannelStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_removevideochannelstatechangelistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeVideoChannelStateChangeListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeVideoChannelStateChangeListener</span><span class="params">(<span class="meta">@Nullable</span> VideoChannelStateChangeListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-9">Description:</h5>
+<p><font color="#666">Remove a video state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-6">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel_VideoChannelStateChangeListener.html#ivideostreammanager_ivideochannel_videochannelstatechangelistener">VideoChannelStateChangeListener</a> <font color="#000">listener</td><td><font color="#666"><i>Video state listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_clearallvideochannelstatechangelisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_clearallvideochannelstatechangelisteners_inline">clearAllVideoChannelStateChangeListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_clearallvideochannelstatechangelisteners_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllVideoChannelStateChangeListeners</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllVideoChannelStateChangeListeners</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-10">Description:</h5>
+<p><font color="#666">Clear all video state listeners on this channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_getvideochannelstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getvideochannelstatus_inline">getVideoChannelStatus</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getvideochannelstatus_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getVideoChannelStatus</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    <span class="function">VideoChannelState <span class="title">getVideoChannelStatus</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v11">Description:</h5>
-<p><font color="#666">Get the status of video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochannelstate">VideoChannelState</a></font></td><td><font color="#666"><i>Return the status of video channel.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_getstreamsource"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getstreamsource_inline">getStreamSource</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getstreamsource_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getStreamSource</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">StreamSource <span class="title">getStreamSource</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v12">Description:</h5>
-<p><font color="#666">Get the video source on this video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></font></td><td><font color="#666"><i>Return the video source on this video channel.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_getvideostreamformat"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getvideostreamformat_inline">getVideoStreamFormat</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getvideostreamformat_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getVideoStreamFormat</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    <span class="function">VideoStreamFormat <span class="title">getVideoStreamFormat</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v13">Description:</h5>
-<p><font color="#666">Get the video stream format on this video channel. <br><br><code><i>Supported since MSDK 5.1.0</i></code></font></p>
-<h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_videostreamformat">VideoStreamFormat</a></font></td><td><font color="#666"><i>Return the video stream format on this video channel.</i></font></td></tr></table></html></div>
-<h5 id="related">Related:</h5>
-<div class="api-row" id="ivideostreammanager_ivideochannel_videochanneltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_videochanneltype_inline">VideoChannelType</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_videochanneltype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>VideoChannelType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> VideoChannelType</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.channel</font></td></tr></table></html>
-<h5 id="description-v14">Description:</h5>
-<p><font color="#666">The type of video channel. Every video channel has an unique video channel type. The main video channel has the highest priority. When the transmitting bandwidth is narrow, we will ensure the main video channel is working properly first. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochanneltype_primarystreamchannel_inline"></a>PRIMARY_STREAM_CHANNEL</font></td><td><font color="#666">Primary video channel, highest priority, we will make sure this channel is working properly when the transmitting bandwidth is narrow.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochanneltype_secondarystreamchannel_inline"></a>SECONDARY_STREAM_CHANNEL</font></td><td><font color="#666">Deputy video channel, lower priority than the primary video channel.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochanneltype_extendedstreamchannel_inline"></a>EXTENDED_STREAM_CHANNEL</font></td><td><font color="#666">Extended video channel, lowest priority. It will lose data packet when the transmitting bandwidth is narrow.</font></td></tr></table></html>
-<h5 id="class-members-v2">Class Members:</h5>
+<div class="api-row" id="ivideostreammanager_ivideochannel_getvideochannelstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getvideochannelstatus_inline">getVideoChannelStatus</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getvideochannelstatus_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getVideoChannelStatus</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    VideoChannelState <span class="title function_">getVideoChannelStatus</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-11">Description:</h5>
+<p><font color="#666">Get the status of video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochannelstate">VideoChannelState</a></td><td><font color="#666"><i>Return the status of video channel.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_getstreamsource"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getstreamsource_inline">getStreamSource</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getstreamsource_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getStreamSource</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">StreamSource <span class="title function_">getStreamSource</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-12">Description:</h5>
+<p><font color="#666">Get the video source on this video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></td><td><font color="#666"><i>Return the video source on this video channel.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideochannel_getvideostreamformat"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_getvideostreamformat_inline">getVideoStreamFormat</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_getvideostreamformat_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getVideoStreamFormat</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    VideoStreamFormat <span class="title function_">getVideoStreamFormat</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-13">Description:</h5>
+<p><font color="#666">Get the video stream format on this video channel. <br><br><code><i>Supported since MSDK 5.1.0</i></code></p>
+<h5 id="Return-4">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_videostreamformat">VideoStreamFormat</a></td><td><font color="#666"><i>Return the video stream format on this video channel.</i></td></tr></table></html></div>
+<h5 id="Related">Related:</h5>
+<div class="api-row" id="ivideostreammanager_ivideochannel_videochanneltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_videochanneltype_inline">VideoChannelType</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_videochanneltype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>VideoChannelType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> <span class="title class_">VideoChannelType</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.channel</td></tr></table></html>
+<h5 id="Description-14">Description:</h5>
+<p><font color="#666">The type of video channel. Every video channel has an unique video channel type. The main video channel has the highest priority. When the transmitting bandwidth is narrow, we will ensure the main video channel is working properly first. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Enum-Members">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochanneltype_primarystreamchannel_inline"></a>PRIMARY_STREAM_CHANNEL</td><td><font color="#666">Primary video channel, highest priority, we will make sure this channel is working properly when the transmitting bandwidth is narrow.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochanneltype_secondarystreamchannel_inline"></a>SECONDARY_STREAM_CHANNEL</td><td><font color="#666">Deputy video channel, lower priority than the primary video channel.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochanneltype_extendedstreamchannel_inline"></a>EXTENDED_STREAM_CHANNEL</td><td><font color="#666">Extended video channel, lowest priority. It will lose data packet when the transmitting bandwidth is narrow.</td></tr></table></html>
+<h5 id="Class-Members-2">Class Members:</h5>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_videochannelstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_videochannelstate_inline">VideoChannelState</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_videochannelstate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>VideoChannelState</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> VideoChannelState</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.channel</font></td></tr></table></html>
-<h5 id="description-v15">Description:</h5>
-<p><font color="#666">The state of video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="enum-members-v2">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochannelstate_close_inline"></a>CLOSE</font></td><td><font color="#666">Current video channel is disabled.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochannelstate_on_inline"></a>ON</font></td><td><font color="#666">Current video channel is enabled.</font></td></tr></table></html>
-<h5 id="class-members-v3">Class Members:</h5>
+<div class="api-row" id="ivideostreammanager_ivideochannel_videochannelstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_videochannelstate_inline">VideoChannelState</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_videochannelstate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>VideoChannelState</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> <span class="title class_">VideoChannelState</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.channel</td></tr></table></html>
+<h5 id="Description-15">Description:</h5>
+<p><font color="#666">The state of video channel. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Enum-Members-2">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochannelstate_close_inline"></a>CLOSE</td><td><font color="#666">Current video channel is disabled.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideochannel_videochannelstate_on_inline"></a>ON</td><td><font color="#666">Current video channel is enabled.</td></tr></table></html>
+<h5 id="Class-Members-3">Class Members:</h5>
 </div>
-<div class="api-row" id="ivideostreammanager_videostreamformat"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_videostreamformat_inline">VideoStreamFormat</a></div></div><div class="inline-doc" id="ivideostreammanager_videostreamformat_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>VideoStreamFormat</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> VideoStreamFormat</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.stream</font></td></tr></table></html>
-<h5 id="description-v16">Description:</h5>
-<p><font color="#666">Video Stream format. <br><br><code><i>Supported since MSDK 5.1.0</i></code></font></p>
-<h5 id="enum-members-v3">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_videostreamformat_h264_inline"></a>H264</font></td><td><font color="#666">H264.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_videostreamformat_h265_inline"></a>H265</font></td><td><font color="#666">H265.</font></td></tr></table></html>
-<h5 id="class-members-v4">Class Members:</h5>
+<div class="api-row" id="ivideostreammanager_videostreamformat"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_videostreamformat_inline">VideoStreamFormat</a></div></div><div class="inline-doc" id="ivideostreammanager_videostreamformat_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>VideoStreamFormat</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">VideoStreamFormat</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.stream</td></tr></table></html>
+<h5 id="Description-16">Description:</h5>
+<p><font color="#666">Video Stream format. <br><br><code><i>Supported since MSDK 5.1.0</i></code></p>
+<h5 id="Enum-Members-3">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_videostreamformat_h264_inline"></a>H264</td><td><font color="#666">H264.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_videostreamformat_h265_inline"></a>H265</td><td><font color="#666">H265.</td></tr></table></html>
+<h5 id="Class-Members-4">Class Members:</h5>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideochannel_streamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_streamdatalistener_inline">androidx.annotation.NonNull</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_streamdatalistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">property </font>androidx.annotation.NonNull</h6></div>
-
+<div class="api-row" id="ivideostreammanager_ivideochannel_streamdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">property</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideochannel_streamdatalistener_inline">androidx.annotation.NonNull</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideochannel_streamdatalistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">property </font>androidx.annotation.NonNull</h6></div>
+</blockquote>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> androidx.annotation.NonNull</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v17">Description:</h5>
-<p><font color="#666">Video data listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-17">Description:</h5>
+<p><font color="#666">Video data listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
 <div class="api-row" id="ivideostreammanager_ivideochannel_videochannelstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel_VideoChannelStateChangeListener.html">VideoChannelStateChangeListener</a></div></div>
 

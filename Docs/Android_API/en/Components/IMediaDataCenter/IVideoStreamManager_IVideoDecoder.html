@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,174 +688,192 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IVideoDecoder</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="class"><span class="keyword">interface</span> <span class="title">IVideoDecoder</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">DJI decoder class. It supports YUV output mode and SURFACE output mode. You can set the output mode<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode">DecoderOutputMode</a></code>through its constructor. You can set<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a></code>to bind the decoder with channel<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel">IVideoChannel</a></code>. <br><b>Note： If you want to set the width and height of decoder through constructor, you have to make sure the width and height are multple of 16.</b> <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_getdecoderoutputmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getdecoderoutputmode_inline">getDecoderOutputMode</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getdecoderoutputmode_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getDecoderOutputMode</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    <span class="function">DecoderOutputMode <span class="title">getDecoderOutputMode</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Get the output mode of decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode">DecoderOutputMode</a></font></td><td><font color="#666"><i>Return the output mode of decoder.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_getvideochanneltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getvideochanneltype_inline">getVideoChannelType</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getvideochanneltype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getVideoChannelType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">VideoChannelType <span class="title">getVideoChannelType</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Get the video channel type of decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a></font></td><td><font color="#666"><i>Return the video channel type of decoder.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_setmediafile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_setmediafile_inline">setMediaFile</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_setmediafile_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>setMediaFile</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setMediaFile</span><span class="params">(MediaFile mediaFile)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Sets the media file that need to be decoded. Before <code><a href="../../Components/IMediaDataCenter/IMediaManager.html#imediamanager_playvideo">playVideo</a></code>, you need to call this interface to set the media file to be decoded into the decoder. <br><br><code><i>Supported since MSDK 5.1.0</i></code></font></p>
-<h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IMediaManager_MediaFile.html#imediamanager_mediafile">MediaFile</a> <font color="#000">mediaFile</font></font></td><td><font color="#666"><i>Media file that needs to be decoded.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_getmediafile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getmediafile_inline">getMediaFile</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getmediafile_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getMediaFile</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">MediaFile <span class="title">getMediaFile</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">Gets the media file that needs to be decoded. <br><br><code><i>Supported since MSDK 5.1.0</i></code></font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IMediaManager_MediaFile.html#imediamanager_mediafile">MediaFile</a></font></td><td><font color="#666"><i>Returns the media file that needs to be decoded.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_queueinframe"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_queueinframe_inline">queueInFrame</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_queueinframe_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>queueInFrame</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">queueInFrame</span><span class="params">(@NonNull IVideoFrame videoFrame)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
-<p><font color="#666">Send the video frame data to the queue for decoding. There is no need to call this interface for the use of <code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager">IVideoStreamManager</a></code>, because MSDK will automatically send the data to the corresponding decoder for decoding and display. This interface can be used to decode the video frame data from <code><a href="../../Components/IMediaDataCenter/IMediaManager.html#imediamanager_playvideo">playVideo</a></code>. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoFrame.html#ivideostreammanager_ivideoframe">IVideoFrame</a> <font color="#000">videoFrame</font></font></td><td><font color="#666"><i>Video frame data</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_getvideowidth"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getvideowidth_inline">getVideoWidth</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getvideowidth_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getVideoWidth</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getVideoWidth</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">Get the video width after decoding. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>Return the video width after decoding.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_getvideoheight"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getvideoheight_inline">getVideoHeight</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getvideoheight_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getVideoHeight</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getVideoHeight</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v8">Description:</h5>
-<p><font color="#666">Get the video height after decoding. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v5">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>Return the video height after decoding.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_addyuvdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_addyuvdatalistener_inline">addYuvDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_addyuvdatalistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addYuvDataListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addYuvDataListener</span><span class="params">(@NonNull YuvDataListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v9">Description:</h5>
-<p><font color="#666">Add the YUV data listener. After setting<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode">DecoderOutputMode</a></code>as<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode_yuv_mode">YUV_MODE</a></code>, you can get YUV data through this listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_YuvDataListener.html#ivideostreammanager_ivideodecoder_yuvdatalistener">YuvDataListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>YUV data listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_removeyuvdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_removeyuvdatalistener_inline">removeYuvDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_removeyuvdatalistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeYuvDataListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeYuvDataListener</span><span class="params">(@NonNull YuvDataListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v10">Description:</h5>
-<p><font color="#666">Remove YUV data listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_YuvDataListener.html#ivideostreammanager_ivideodecoder_yuvdatalistener">YuvDataListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>YUV data listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_clearallyuvdatalisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_clearallyuvdatalisteners_inline">clearAllYuvDataListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_clearallyuvdatalisteners_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllYuvDataListeners</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllYuvDataListeners</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v11">Description:</h5>
-<p><font color="#666">Clear all YUV data listeners. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IVideoDecoder</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">interface</span> <span class="title class_">IVideoDecoder</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">DJI decoder class. It supports YUV output mode and SURFACE output mode. You can set the output mode<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode">DecoderOutputMode</a></code>through its constructor. You can set<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a></code>to bind the decoder with channel<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel">IVideoChannel</a></code>. <br><b>Note： If you want to set the width and height of decoder through constructor, you have to make sure the width and height are multple of 16.</b> <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_getdecoderoutputmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getdecoderoutputmode_inline">getDecoderOutputMode</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getdecoderoutputmode_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getDecoderOutputMode</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    DecoderOutputMode <span class="title function_">getDecoderOutputMode</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Get the output mode of decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode">DecoderOutputMode</a></td><td><font color="#666"><i>Return the output mode of decoder.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_getvideochanneltype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getvideochanneltype_inline">getVideoChannelType</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getvideochanneltype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getVideoChannelType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">VideoChannelType <span class="title function_">getVideoChannelType</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Get the video channel type of decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a></td><td><font color="#666"><i>Return the video channel type of decoder.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_setmediafile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_setmediafile_inline">setMediaFile</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_setmediafile_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>setMediaFile</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setMediaFile</span><span class="params">(MediaFile mediaFile)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Sets the media file that need to be decoded. Before <code><a href="../../Components/IMediaDataCenter/IMediaManager.html#imediamanager_playvideo">playVideo</a></code>, you need to call this interface to set the media file to be decoded into the decoder. <br><br><code><i>Supported since MSDK 5.1.0</i></code></p>
+<h5 id="Input-Parameters">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IMediaManager_MediaFile.html#imediamanager_mediafile">MediaFile</a> <font color="#000">mediaFile</td><td><font color="#666"><i>Media file that needs to be decoded.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_getmediafile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getmediafile_inline">getMediaFile</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getmediafile_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getMediaFile</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">MediaFile <span class="title function_">getMediaFile</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">Gets the media file that needs to be decoded. <br><br><code><i>Supported since MSDK 5.1.0</i></code></p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IMediaManager_MediaFile.html#imediamanager_mediafile">MediaFile</a></td><td><font color="#666"><i>Returns the media file that needs to be decoded.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_queueinframe"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_queueinframe_inline">queueInFrame</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_queueinframe_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>queueInFrame</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">queueInFrame</span><span class="params">(<span class="meta">@NonNull</span> IVideoFrame videoFrame)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-6">Description:</h5>
+<p><font color="#666">Send the video frame data to the queue for decoding. There is no need to call this interface for the use of <code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager">IVideoStreamManager</a></code>, because MSDK will automatically send the data to the corresponding decoder for decoding and display. This interface can be used to decode the video frame data from <code><a href="../../Components/IMediaDataCenter/IMediaManager.html#imediamanager_playvideo">playVideo</a></code>. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-2">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoFrame.html#ivideostreammanager_ivideoframe">IVideoFrame</a> <font color="#000">videoFrame</td><td><font color="#666"><i>Video frame data</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_getvideowidth"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getvideowidth_inline">getVideoWidth</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getvideowidth_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getVideoWidth</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">getVideoWidth</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-7">Description:</h5>
+<p><font color="#666">Get the video width after decoding. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-4">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</td><td><font color="#666"><i>Return the video width after decoding.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_getvideoheight"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getvideoheight_inline">getVideoHeight</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getvideoheight_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getVideoHeight</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">getVideoHeight</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-8">Description:</h5>
+<p><font color="#666">Get the video height after decoding. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-5">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</td><td><font color="#666"><i>Return the video height after decoding.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_addyuvdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_addyuvdatalistener_inline">addYuvDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_addyuvdatalistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addYuvDataListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addYuvDataListener</span><span class="params">(<span class="meta">@NonNull</span> YuvDataListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-9">Description:</h5>
+<p><font color="#666">Add the YUV data listener. After setting<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode">DecoderOutputMode</a></code>as<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderoutputmode_yuv_mode">YUV_MODE</a></code>, you can get YUV data through this listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-3">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_YuvDataListener.html#ivideostreammanager_ivideodecoder_yuvdatalistener">YuvDataListener</a> <font color="#000">listener</td><td><font color="#666"><i>YUV data listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_removeyuvdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_removeyuvdatalistener_inline">removeYuvDataListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_removeyuvdatalistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeYuvDataListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeYuvDataListener</span><span class="params">(<span class="meta">@NonNull</span> YuvDataListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-10">Description:</h5>
+<p><font color="#666">Remove YUV data listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-4">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_YuvDataListener.html#ivideostreammanager_ivideodecoder_yuvdatalistener">YuvDataListener</a> <font color="#000">listener</td><td><font color="#666"><i>YUV data listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_clearallyuvdatalisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_clearallyuvdatalisteners_inline">clearAllYuvDataListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_clearallyuvdatalisteners_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllYuvDataListeners</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllYuvDataListeners</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-11">Description:</h5>
+<p><font color="#666">Clear all YUV data listeners. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_adddecoderstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_adddecoderstatechangelistener_inline">addDecoderStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_adddecoderstatechangelistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addDecoderStateChangeListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addDecoderStateChangeListener</span><span class="params">(@NonNull DecoderStateChangeListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v12">Description:</h5>
-<p><font color="#666">Add decoder state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v5">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_DecoderStateChangeListener.html#ivideostreammanager_ivideodecoder_decoderstatechangelistener">DecoderStateChangeListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>Decoder state listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_removedecoderstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_removedecoderstatechangelistener_inline">removeDecoderStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_removedecoderstatechangelistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeDecoderStateChangeListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeDecoderStateChangeListener</span><span class="params">(@NonNull DecoderStateChangeListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v13">Description:</h5>
-<p><font color="#666">Remove decoder state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v6">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_DecoderStateChangeListener.html#ivideostreammanager_ivideodecoder_decoderstatechangelistener">DecoderStateChangeListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>Decoder state listener</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_clearalldecoderstatechangelisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_clearalldecoderstatechangelisteners_inline">clearAllDecoderStateChangeListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_clearalldecoderstatechangelisteners_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllDecoderStateChangeListeners</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllDecoderStateChangeListeners</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v14">Description:</h5>
-<p><font color="#666">Clear all decoder state listeners. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_adddecoderstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_adddecoderstatechangelistener_inline">addDecoderStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_adddecoderstatechangelistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addDecoderStateChangeListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addDecoderStateChangeListener</span><span class="params">(<span class="meta">@NonNull</span> DecoderStateChangeListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-12">Description:</h5>
+<p><font color="#666">Add decoder state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-5">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_DecoderStateChangeListener.html#ivideostreammanager_ivideodecoder_decoderstatechangelistener">DecoderStateChangeListener</a> <font color="#000">listener</td><td><font color="#666"><i>Decoder state listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_removedecoderstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_removedecoderstatechangelistener_inline">removeDecoderStateChangeListener</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_removedecoderstatechangelistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeDecoderStateChangeListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeDecoderStateChangeListener</span><span class="params">(<span class="meta">@NonNull</span> DecoderStateChangeListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-13">Description:</h5>
+<p><font color="#666">Remove decoder state listener. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-6">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_DecoderStateChangeListener.html#ivideostreammanager_ivideodecoder_decoderstatechangelistener">DecoderStateChangeListener</a> <font color="#000">listener</td><td><font color="#666"><i>Decoder state listener</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_clearalldecoderstatechangelisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_clearalldecoderstatechangelisteners_inline">clearAllDecoderStateChangeListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_clearalldecoderstatechangelisteners_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllDecoderStateChangeListeners</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllDecoderStateChangeListeners</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-14">Description:</h5>
+<p><font color="#666">Clear all decoder state listeners. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_getdecoderstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getdecoderstatus_inline">getDecoderStatus</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getdecoderstatus_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getDecoderStatus</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    <span class="function">DecoderState <span class="title">getDecoderStatus</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v15">Description:</h5>
-<p><font color="#666">Get decoder status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v6">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderstate">DecoderState</a></font></td><td><font color="#666"><i>Return decoder status.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_onpause"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_onpause_inline">onPause</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_onpause_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>onPause</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v16">Description:</h5>
-<p><font color="#666">Pause the decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_getdecoderstatus"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_getdecoderstatus_inline">getDecoderStatus</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_getdecoderstatus_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getDecoderStatus</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    DecoderState <span class="title function_">getDecoderStatus</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-15">Description:</h5>
+<p><font color="#666">Get decoder status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-6">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder_decoderstate">DecoderState</a></td><td><font color="#666"><i>Return decoder status.</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_onpause"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_onpause_inline">onPause</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_onpause_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>onPause</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">onPause</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-16">Description:</h5>
+<p><font color="#666">Pause the decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_onresume"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_onresume_inline">onResume</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_onresume_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>onResume</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.interfaces</font></td></tr></table></html>
-<h5 id="description-v17">Description:</h5>
-<p><font color="#666">Resume the decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_onresume"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_onresume_inline">onResume</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_onresume_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>onResume</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">onResume</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.interfaces</td></tr></table></html>
+<h5 id="Description-17">Description:</h5>
+<p><font color="#666">Resume the decoder. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<h5 id="related">Related:</h5>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_decoderoutputmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_decoderoutputmode_inline">DecoderOutputMode</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_decoderoutputmode_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>DecoderOutputMode</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> DecoderOutputMode</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.decoder</font></td></tr></table></html>
-<h5 id="description-v18">Description:</h5>
-<p><font color="#666">Decoder output mode. Support YUV output mode and SURFACE output mode. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderoutputmode_yuv_mode_inline"></a>YUV_MODE</font></td><td><font color="#666">YUV output mode.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderoutputmode_surface_mode_inline"></a>SURFACE_MODE</font></td><td><font color="#666">SURFACE output mode.</font></td></tr></table></html>
-<h5 id="class-members-v2">Class Members:</h5>
+<h5 id="Related">Related:</h5>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_decoderoutputmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_decoderoutputmode_inline">DecoderOutputMode</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_decoderoutputmode_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>DecoderOutputMode</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> <span class="title class_">DecoderOutputMode</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.decoder</td></tr></table></html>
+<h5 id="Description-18">Description:</h5>
+<p><font color="#666">Decoder output mode. Support YUV output mode and SURFACE output mode. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Enum-Members">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderoutputmode_yuv_mode_inline"></a>YUV_MODE</td><td><font color="#666">YUV output mode.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderoutputmode_surface_mode_inline"></a>SURFACE_MODE</td><td><font color="#666">SURFACE output mode.</td></tr></table></html>
+<h5 id="Class-Members-2">Class Members:</h5>
 </div>
-<div class="api-row" id="ivideostreammanager_ivideodecoder_decoderstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_decoderstate_inline">DecoderState</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_decoderstate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>DecoderState</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> DecoderState</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.common.video.decoder</font></td></tr></table></html>
-<h5 id="description-v19">Description:</h5>
-<p><font color="#666">Decoder State. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="enum-members-v2">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_initialized_inline"></a>INITIALIZED</font></td><td><font color="#666">Initialization of decoder is completed.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_videoframeinput_inline"></a>VIDEO_FRAME_INPUT</font></td><td><font color="#666">Decoder is in a state of waiting for video frame input.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_decoding_inline"></a>DECODING</font></td><td><font color="#666">Decoder is in decoding state.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_paused_inline"></a>PAUSED</font></td><td><font color="#666">Decoder is in pause state.</font></td></tr></table></html>
-<h5 id="class-members-v3">Class Members:</h5>
+<div class="api-row" id="ivideostreammanager_ivideodecoder_decoderstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_ivideodecoder_decoderstate_inline">DecoderState</a></div></div><div class="inline-doc" id="ivideostreammanager_ivideodecoder_decoderstate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>DecoderState</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">enum</span> <span class="title class_">DecoderState</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.common.video.decoder</td></tr></table></html>
+<h5 id="Description-19">Description:</h5>
+<p><font color="#666">Decoder State. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Enum-Members-2">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_initialized_inline"></a>INITIALIZED</td><td><font color="#666">Initialization of decoder is completed.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_videoframeinput_inline"></a>VIDEO_FRAME_INPUT</td><td><font color="#666">Decoder is in a state of waiting for video frame input.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_decoding_inline"></a>DECODING</td><td><font color="#666">Decoder is in decoding state.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#ivideostreammanager_ivideodecoder_decoderstate_paused_inline"></a>PAUSED</td><td><font color="#666">Decoder is in pause state.</td></tr></table></html>
+<h5 id="Class-Members-3">Class Members:</h5>
 </div>
 <div class="api-row" id="ivideostreammanager_ivideodecoder_yuvdatalistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_YuvDataListener.html">YuvDataListener</a></div></div><div class="api-row" id="ivideostreammanager_ivideodecoder_decoderstatechangelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder_DecoderStateChangeListener.html">DecoderStateChangeListener</a></div></div>
 

@@ -21,6 +21,7 @@ import dji.v5.ux.core.base.DJISDKModel
 import dji.v5.ux.core.base.SchedulerProvider
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
+import dji.v5.ux.core.util.ToastUtils
 import dji.v5.ux.core.util.ViewUtil
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.CompletableObserver
@@ -267,7 +268,7 @@ class AvoidanceShortcutWidget @JvmOverloads constructor(
 
     private fun showToast(msg: String) {
         AndroidSchedulers.mainThread().scheduleDirect {
-            Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
+            ToastUtils.showShortToast(msg)
         }
     }
 

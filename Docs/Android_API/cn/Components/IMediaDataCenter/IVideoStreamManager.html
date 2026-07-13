@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -686,68 +686,74 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IVideoStreamManager</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="class"><span class="keyword">interface</span> <span class="title">IVideoStreamManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IVideoStreamManager</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Deprecated</span></span><br><span class="line"> <span class="keyword">interface</span> <span class="title class_">IVideoStreamManager</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">码流管理类。用于管理码流通道设置和码流数据获取和渲染等功能。以下是接口使用流程： <br><li>1. 调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablestreamsources">getAvailableStreamSources</a></code>获取可用的码流源。</li> <li>2. 调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannels">getAvailableVideoChannels</a></code>获取可用的码流通道。</li> <li>3. 调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannels">getAvailableVideoChannels</a></code>中的<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_startchannel">startChannel</a></code>设置步骤1获取到的<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></code>把码流源和码流通道进行绑定，并且开启当前码流通道。</li> <li>4. 如果你希望自己实现解码功能，你通过添加调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_addstreamdatalistener">addStreamDataListener</a></code>添加码流数据监听器来接收码流数据。</li> <li>5. 如果你不希望自己实现解码功能，你也可以使用DJI提供的解码器<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder">IVideoDecoder</a></code>来进行解码。</li> <br><b>注意：<br> 该接口从MSDK 5.8.0版本开始废弃。请使用<code><a href="../../Components/IMediaDataCenter/ICameraStreamManager.html#icamerastreammanager">ICameraStreamManager</a></code>来实现码流管理相关功能。</b> <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<p><font color="#666">码流管理类。用于管理码流通道设置和码流数据获取和渲染等功能。以下是接口使用流程： <br><li>1. 调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablestreamsources">getAvailableStreamSources</a></code>获取可用的码流源。</li> <li>2. 调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannels">getAvailableVideoChannels</a></code>获取可用的码流通道。</li> <li>3. 调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannels">getAvailableVideoChannels</a></code>中的<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_startchannel">startChannel</a></code>设置步骤1获取到的<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></code>把码流源和码流通道进行绑定，并且开启当前码流通道。</li> <li>4. 如果你希望自己实现解码功能，你通过添加调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_addstreamdatalistener">addStreamDataListener</a></code>添加码流数据监听器来接收码流数据。</li> <li>5. 如果你不希望自己实现解码功能，你也可以使用DJI提供的解码器<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html#ivideostreammanager_ivideodecoder">IVideoDecoder</a></code>来进行解码。</li> <br><b>注意：<br> 该接口从MSDK 5.8.0版本开始废弃。请使用<code><a href="../../Components/IMediaDataCenter/ICameraStreamManager.html#icamerastreammanager">ICameraStreamManager</a></code>来实现码流管理相关功能。</b> <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 <h5 id="类成员">类成员:</h5>
-<div class="api-row" id="ivideostreammanager_getavailablestreamsources"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_getavailablestreamsources_inline">getAvailableStreamSources</a></div></div><div class="inline-doc" id="ivideostreammanager_getavailablestreamsources_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getAvailableStreamSources</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">    <span class="function">List&lt;StreamSource&gt; <span class="title">getAvailableStreamSources</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v2">描述：</h5>
-<p><font color="#666">获取当前所有可用的码流源<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></code>列表。 获取到码流源后，你可以通过<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannels">getAvailableVideoChannels</a></code>获取到可用的码流通道，并且把码流源设置到相应的码流通道中。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<div class="api-row" id="ivideostreammanager_getavailablestreamsources"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_getavailablestreamsources_inline">getAvailableStreamSources</a></div></div><div class="inline-doc" id="ivideostreammanager_getavailablestreamsources_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getAvailableStreamSources</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">    List&lt;StreamSource&gt; <span class="title function_">getAvailableStreamSources</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-2">描述：</h5>
+<p><font color="#666">获取当前所有可用的码流源<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></code>列表。 获取到码流源后，你可以通过<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannels">getAvailableVideoChannels</a></code>获取到可用的码流通道，并且把码流源设置到相应的码流通道中。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 <h5 id="返回值：">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">List&lt;<a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a>&gt;</font></td><td><font color="#666"><i>返回当前所有可用的码流源列表。</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_addstreamsourceslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_addstreamsourceslistener_inline">addStreamSourcesListener</a></div></div><div class="inline-doc" id="ivideostreammanager_addstreamsourceslistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addStreamSourcesListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addStreamSourcesListener</span><span class="params">(StreamSourceListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v3">描述：</h5>
-<p><font color="#666">设置码流源监听器。通过此监听器可以监听获取新增的码流源。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">List&lt;<a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a>&gt;</td><td><font color="#666"><i>返回当前所有可用的码流源列表。</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_addstreamsourceslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_addstreamsourceslistener_inline">addStreamSourcesListener</a></div></div><div class="inline-doc" id="ivideostreammanager_addstreamsourceslistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addStreamSourcesListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addStreamSourcesListener</span><span class="params">(StreamSourceListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-3">描述：</h5>
+<p><font color="#666">设置码流源监听器。通过此监听器可以监听获取新增的码流源。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 <h5 id="输入参数：">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSourceListener.html#ivideostreammanager_streamsourcelistener">StreamSourceListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>码流源监听器</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_removestreamsourceslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_removestreamsourceslistener_inline">removeStreamSourcesListener</a></div></div><div class="inline-doc" id="ivideostreammanager_removestreamsourceslistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeStreamSourcesListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeStreamSourcesListener</span><span class="params">(StreamSourceListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v4">描述：</h5>
-<p><font color="#666">删除码流源监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v2">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSourceListener.html#ivideostreammanager_streamsourcelistener">StreamSourceListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>码流源监听器</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_clearallstreamsourceslisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_clearallstreamsourceslisteners_inline">clearAllStreamSourcesListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_clearallstreamsourceslisteners_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllStreamSourcesListeners</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllStreamSourcesListeners</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v5">描述：</h5>
-<p><font color="#666">删除所有码流源监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSourceListener.html#ivideostreammanager_streamsourcelistener">StreamSourceListener</a> <font color="#000">listener</td><td><font color="#666"><i>码流源监听器</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_removestreamsourceslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_removestreamsourceslistener_inline">removeStreamSourcesListener</a></div></div><div class="inline-doc" id="ivideostreammanager_removestreamsourceslistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeStreamSourcesListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeStreamSourcesListener</span><span class="params">(StreamSourceListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-4">描述：</h5>
+<p><font color="#666">删除码流源监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
+<h5 id="输入参数：-2">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSourceListener.html#ivideostreammanager_streamsourcelistener">StreamSourceListener</a> <font color="#000">listener</td><td><font color="#666"><i>码流源监听器</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_clearallstreamsourceslisteners"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_clearallstreamsourceslisteners_inline">clearAllStreamSourcesListeners</a></div></div><div class="inline-doc" id="ivideostreammanager_clearallstreamsourceslisteners_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllStreamSourcesListeners</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllStreamSourcesListeners</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-5">描述：</h5>
+<p><font color="#666">删除所有码流源监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 </div>
-<div class="api-row" id="ivideostreammanager_getavailablevideochannels"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_getavailablevideochannels_inline">getAvailableVideoChannels</a></div></div><div class="inline-doc" id="ivideostreammanager_getavailablevideochannels_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getAvailableVideoChannels</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">    <span class="function">List&lt;IVideoChannel&gt; <span class="title">getAvailableVideoChannels</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v6">描述：</h5>
-<p><font color="#666">获取当前所有可用的码流通道，获取到可用的码流通道后，可以调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_startchannel">startChannel</a></code>为相应的码流通道设置<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></code>并且开启码流传输。除此之外，你也可以使用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannel">getAvailableVideoChannel</a></code>通过设置视频通道类型来获取码流通道。 <br><b>注意： <br>第一个码流通道是主码流通道<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype_primarystreamchannel">PRIMARY_STREAM_CHANNEL</a></code>。 <br>第二个码流通道（如果有）是副码流通道<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype_secondarystreamchannel">SECONDARY_STREAM_CHANNEL</a></code>。 <br>第三个码流通道（如果有）是扩展码流通道<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype_extendedstreamchannel">EXTENDED_STREAM_CHANNEL</a></code>。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></b></font></p>
-<h5 id="返回值：-v2">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">List&lt;<a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel">IVideoChannel</a>&gt;</font></td><td><font color="#666"><i>返回码流通道列表。</i></font></td></tr></table></html></div>
-<div class="api-row" id="ivideostreammanager_getavailablevideochannel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_getavailablevideochannel_inline">getAvailableVideoChannel</a></div></div><div class="inline-doc" id="ivideostreammanager_getavailablevideochannel_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getAvailableVideoChannel</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">    <span class="function">IVideoChannel <span class="title">getAvailableVideoChannel</span><span class="params">(@NonNull VideoChannelType type)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v7">描述：</h5>
-<p><font color="#666">设置视频通道类型来获取码流通道。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v3">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a> <font color="#000">type</font></font></td><td><font color="#666"><i>视频通道类型。</i></font></td></tr></table></html>
-<h5 id="返回值：-v3">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel">IVideoChannel</a></font></td><td><font color="#666"><i>返回视频通道。</i></font></td></tr></table></html></div>
-<h5 id="related">Related:</h5>
+<div class="api-row" id="ivideostreammanager_getavailablevideochannels"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_getavailablevideochannels_inline">getAvailableVideoChannels</a></div></div><div class="inline-doc" id="ivideostreammanager_getavailablevideochannels_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getAvailableVideoChannels</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">    List&lt;IVideoChannel&gt; <span class="title function_">getAvailableVideoChannels</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-6">描述：</h5>
+<p><font color="#666">获取当前所有可用的码流通道，获取到可用的码流通道后，可以调用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_startchannel">startChannel</a></code>为相应的码流通道设置<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html#ivideostreammanager_streamsource">StreamSource</a></code>并且开启码流传输。除此之外，你也可以使用<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager.html#ivideostreammanager_getavailablevideochannel">getAvailableVideoChannel</a></code>通过设置视频通道类型来获取码流通道。 <br><b>注意： <br>第一个码流通道是主码流通道<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype_primarystreamchannel">PRIMARY_STREAM_CHANNEL</a></code>。 <br>第二个码流通道（如果有）是副码流通道<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype_secondarystreamchannel">SECONDARY_STREAM_CHANNEL</a></code>。 <br>第三个码流通道（如果有）是扩展码流通道<code><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype_extendedstreamchannel">EXTENDED_STREAM_CHANNEL</a></code>。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
+<h5 id="返回值：-2">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">List&lt;<a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel">IVideoChannel</a>&gt;</td><td><font color="#666"><i>返回码流通道列表。</i></td></tr></table></html></div>
+<div class="api-row" id="ivideostreammanager_getavailablevideochannel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ivideostreammanager_getavailablevideochannel_inline">getAvailableVideoChannel</a></div></div><div class="inline-doc" id="ivideostreammanager_getavailablevideochannel_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getAvailableVideoChannel</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Nullable</span></span><br><span class="line">    IVideoChannel <span class="title function_">getAvailableVideoChannel</span><span class="params">(<span class="meta">@NonNull</span> VideoChannelType type)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-7">描述：</h5>
+<p><font color="#666">设置视频通道类型来获取码流通道。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
+<h5 id="输入参数：-3">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel_videochanneltype">VideoChannelType</a> <font color="#000">type</td><td><font color="#666"><i>视频通道类型。</i></td></tr></table></html>
+<h5 id="返回值：-3">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html#ivideostreammanager_ivideochannel">IVideoChannel</a></td><td><font color="#666"><i>返回视频通道。</i></td></tr></table></html></div>
+<h5 id="Related">Related:</h5>
 <div class="api-row" id="ivideostreammanager_streamsource"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSource.html">StreamSource</a></div></div><div class="api-row" id="ivideostreammanager_ivideochannel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoChannel.html">IVideoChannel</a></div></div><div class="api-row" id="ivideostreammanager_ivideoframe"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoFrame.html">IVideoFrame</a></div></div><div class="api-row" id="ivideostreammanager_ivideodecoder"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_IVideoDecoder.html">IVideoDecoder</a></div></div><div class="api-row" id="ivideostreammanager_streamsourcelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/IVideoStreamManager_StreamSourceListener.html">StreamSourceListener</a></div></div>
 
         </div>

@@ -1,16 +1,16 @@
 ext {
     deps = [:]
     //DJI MSDK V5包
-    deps.aircraft = "com.dji:dji-sdk-v5-aircraft:5.17.0"
-    deps.aircraftProvided = "com.dji:dji-sdk-v5-aircraft-provided:5.17.0"
-    deps.networkImp = "com.dji:dji-sdk-v5-networkImp:5.17.0"
+    deps.aircraft = "com.dji:dji-sdk-v5-aircraft:5.18.0"
+    deps.aircraftProvided = "com.dji:dji-sdk-v5-aircraft-provided:5.18.0"
+    deps.networkImp = "com.dji:dji-sdk-v5-networkImp:5.18.0"
 
     //三方依赖库
     deps.gson = 'com.google.code.gson:gson:2.9.1'
     deps.okio = 'com.squareup.okio:okio:1.17.2'
     deps.rx3Android = 'io.reactivex.rxjava3:rxandroid:3.0.0'
     deps.rx3Kt = 'io.reactivex.rxjava3:rxkotlin:3.0.0'
-    deps.sqlcipher = 'net.zetetic:android-database-sqlcipher:4.5.0'
+    deps.sqlcipher = 'net.zetetic:sqlcipher-android:4.11.0'
     deps.wire = 'com.squareup.wire:wire-runtime:2.2.0'
 
     deps.okhttp3 = 'com.squareup.okhttp3:okhttp:3.14.9'
@@ -18,7 +18,7 @@ ext {
     deps.xcrash = 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
     deps.rx2Java = 'io.reactivex.rxjava2:rxjava:2.2.4' // 目前在CSDK升级模块中使用rxjava2
     deps.maplibreTurf = 'org.maplibre.gl:android-sdk-turf:5.9.1'
-    deps.maplibreSdk = 'org.maplibre.gl:android-sdk:10.3.1'
+    deps.maplibreSdk = 'org.maplibre.gl:android-sdk:10.3.5'
     deps.lottie = 'com.airbnb.android:lottie:3.3.1'//RTK扫描页中使用，用于实现动画效果
     deps.cardview = 'androidx.cardview:cardview:1.0.0'//PopoverView中使用
     deps.material = 'com.google.android.material:material:1.0.0'//AvoidanceShortcutWidget使用
@@ -76,7 +76,7 @@ ext {
 
     //wpmz 航线文件解析
     //本地依赖验证时将该aar放到主工程目录sdklib 并将sdk中aircraft 的gradle添加为本地依赖方式 api (name:"djisdkwpmz", ext:'aar')
-    deps.wpmzSdk = 'com.dji:wpmzsdk:1.0.4.0'
+    deps.wpmzSdk = 'com.dji:wpmzsdk:1.0.5.1'
     //sample 扩展EditText
     deps.expandedit = "com.github.thomhurst:ExpandableHintText:1.0.7"
 

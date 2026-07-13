@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,44 +688,47 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>RtspSettings</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RtspSettings</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.datacenter.livestream.settings</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">It is used to build and get the RTSP live stream settings.
-<br><br>Please refer to the following example to obtain the live broadcast address.
-<br><br>RTSP setting parameters are as follows:<br> Username: 123456<br> Password: 123<br> Port number: 8554<br> The ip address of the MSDK App installation device: 192.168.2.13<br></font></p>
-<p><br>The live stream address is as follows:<br>
-rtsp://123456:123@192.168.2.13:8554/streaming/live/1
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>RtspSettings</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RtspSettings</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.datacenter.livestream.settings</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">It is used to build and get the RTSP live stream settings.<br>
+<br><br>Please refer to the following example to obtain the live broadcast address.<br>
+<br><br>RTSP setting parameters are as follows:<br> Username: 123456<br> Password: 123<br> Port number: 8554<br> The ip address of the MSDK App installation device: 192.168.2.13<br></p>
+<p><br>The live stream address is as follows:<br><br>
+rtsp://123456:123@192.168.2.13:8554/streaming/live/1<br>
 <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_builder"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/ILiveStreamManager_LiveStreamSettings_RtspSettings_Builder.html">Builder</a></div></div><div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_getusername"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ilivestreammanager_livestreamsettings_rtspsettings_getusername_inline">getUserName</a></div></div><div class="inline-doc" id="ilivestreammanager_livestreamsettings_rtspsettings_getusername_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getUserName</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getUserName</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.datacenter.livestream.settings</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Get user name. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>Return user name.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_getpassword"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ilivestreammanager_livestreamsettings_rtspsettings_getpassword_inline">getPassword</a></div></div><div class="inline-doc" id="ilivestreammanager_livestreamsettings_rtspsettings_getpassword_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getPassword</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getPassword</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.datacenter.livestream.settings</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Get password. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>Return password.</i></font></td></tr></table></html></div>
-<div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_getport"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ilivestreammanager_livestreamsettings_rtspsettings_getport_inline">getPort</a></div></div><div class="inline-doc" id="ilivestreammanager_livestreamsettings_rtspsettings_getport_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getPort</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getPort</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.datacenter.livestream.settings</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Get port. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</font></td><td><font color="#666"><i>Return port.</i></font></td></tr></table></html></div>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_builder"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IMediaDataCenter/ILiveStreamManager_LiveStreamSettings_RtspSettings_Builder.html">Builder</a></div></div><div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_getusername"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ilivestreammanager_livestreamsettings_rtspsettings_getusername_inline">getUserName</a></div></div><div class="inline-doc" id="ilivestreammanager_livestreamsettings_rtspsettings_getusername_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getUserName</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getUserName</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.datacenter.livestream.settings</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Get user name. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>Return user name.</i></td></tr></table></html></div>
+<div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_getpassword"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ilivestreammanager_livestreamsettings_rtspsettings_getpassword_inline">getPassword</a></div></div><div class="inline-doc" id="ilivestreammanager_livestreamsettings_rtspsettings_getpassword_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getPassword</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getPassword</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.datacenter.livestream.settings</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Get password. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>Return password.</i></td></tr></table></html></div>
+<div class="api-row" id="ilivestreammanager_livestreamsettings_rtspsettings_getport"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#ilivestreammanager_livestreamsettings_rtspsettings_getport_inline">getPort</a></div></div><div class="inline-doc" id="ilivestreammanager_livestreamsettings_rtspsettings_getport_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getPort</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">getPort</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.datacenter.livestream.settings</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Get port. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int</td><td><font color="#666"><i>Return port.</i></td></tr></table></html></div>
 
         </div>
       </div>

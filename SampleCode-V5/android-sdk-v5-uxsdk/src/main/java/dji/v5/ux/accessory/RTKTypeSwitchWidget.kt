@@ -26,6 +26,7 @@ import dji.v5.ux.core.extension.getString
 import dji.v5.ux.core.extension.hide
 import dji.v5.ux.core.extension.isFastClick
 import dji.v5.ux.core.extension.show
+import dji.v5.ux.core.util.ToastUtils
 import dji.v5.ux.core.util.ViewUtil
 import dji.v5.ux.util.RtkSettingWatcher
 
@@ -102,14 +103,14 @@ open class RTKTypeSwitchWidget @JvmOverloads constructor(
             ) {
                 //回滚之前的选择,并提示用户
                 rtkTypeCell.select(lastSelectedRTKTypeIndex)
-                Toast.makeText(getContext(), getTip(position), Toast.LENGTH_SHORT).show()
+                ToastUtils.showShortToast(getTip(position))
                 return
             }
             //电机起转后,并且选择过服务类型，则不允许再次切换RTK类型
             if (isMotorsOn && lastSelectedRTKTypeIndex != -1) {
                 rtkTypeCell.select(lastSelectedRTKTypeIndex)
                 val tip = StringUtils.getResStr(R.string.uxsdk_rtk_setting_menu_esc_beeping_tip)
-                Toast.makeText(getContext(), tip, Toast.LENGTH_SHORT).show()
+                ToastUtils.showShortToast(tip)
                 return
             }
             setRTKType(position)

@@ -55,6 +55,7 @@ import dji.v5.ux.core.ui.HorizontalSeekBar
 import dji.v5.ux.core.util.EditTextNumberInputFilter
 import dji.v5.ux.core.util.UxErrorHandle
 import dji.v5.ux.R
+import dji.v5.ux.core.util.ToastUtils
 import dji.v5.ux.training.util.SimulatorPresetUtils
 import dji.v5.ux.training.simulatorcontrol.SimulatorControlWidget.ModelState
 import dji.v5.ux.training.simulatorcontrol.SimulatorControlWidget.ModelState.*
@@ -968,11 +969,7 @@ open class SimulatorControlWidget @JvmOverloads constructor(
                 })
         } else {
             setSimulatorStatus(false)
-            Toast.makeText(
-                context,
-                getString(R.string.uxsdk_simulator_input_val_error),
-                Toast.LENGTH_SHORT
-            ).show()
+            ToastUtils.showShortToast(getString(R.string.uxsdk_simulator_input_val_error))
         }
     }
 

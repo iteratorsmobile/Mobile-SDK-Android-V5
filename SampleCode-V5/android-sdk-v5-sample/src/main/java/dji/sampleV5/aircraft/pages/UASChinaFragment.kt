@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import dji.sampleV5.aircraft.R
 import dji.sampleV5.aircraft.databinding.FragAppSilentlyUpgradePageBinding
 import dji.sampleV5.aircraft.databinding.FragUasChinaPageBinding
+import dji.sampleV5.aircraft.keyvalue.KeyValueDialogUtil
 import dji.sampleV5.aircraft.pages.DJIFragment
 import dji.sampleV5.moduleaircraft.models.UASChinaVM
 import dji.sdk.keyvalue.value.flightcontroller.RealNameRegistrationState
@@ -43,6 +44,16 @@ class UASChinaFragment : DJIFragment() {
         }
         binding?.btUpdateRealNameState?.setOnClickListener {
             uasChinaVM.updateRealNameRegistrationStateFromUOM()
+        }
+        binding?.btSetRealNameTag?.setOnClickListener {
+            KeyValueDialogUtil.showInputDialog(
+                activity, "setRealNameTag", "", "input tag", true
+            ) { tag ->
+                tag?.let { uasChinaVM.setRealNameTag(it) }
+            }
+        }
+        binding?.btGetRealNameTag?.setOnClickListener {
+            uasChinaVM.getRealNameTag()
         }
     }
 

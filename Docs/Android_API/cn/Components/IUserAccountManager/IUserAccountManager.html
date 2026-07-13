@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -686,95 +686,104 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IUserAccountManager</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IUserAccountManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IUserAccountManager</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IUserAccountManager</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">此类是用户账号登陆管理类，用于登陆和登出DJI账号。在使用千寻网络RTK的时候需要调用此接口登陆DJI账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<p><font color="#666">此类是用户账号登陆管理类，用于登陆和登出DJI账号。在使用千寻网络RTK的时候需要调用此接口登陆DJI账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 <h5 id="类成员">类成员:</h5>
-<div class="api-row" id="iuseraccountmanager_getlogininfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_getlogininfo_inline">getLoginInfo</a></div></div><div class="inline-doc" id="iuseraccountmanager_getlogininfo_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLoginInfo</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    <span class="function">LoginInfo <span class="title">getLoginInfo</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v2">描述：</h5>
-<p><font color="#666">获取当前的登陆信息，包括登陆状态和登陆账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<div class="api-row" id="iuseraccountmanager_getlogininfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_getlogininfo_inline">getLoginInfo</a></div></div><div class="inline-doc" id="iuseraccountmanager_getlogininfo_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLoginInfo</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@NonNull</span></span><br><span class="line">    LoginInfo <span class="title function_">getLoginInfo</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-2">描述：</h5>
+<p><font color="#666">获取当前的登陆信息，包括登陆状态和登陆账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 <h5 id="返回值：">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfo.html#iuseraccountmanager_logininfo">LoginInfo</a></font></td><td><font color="#666"><i>返回当前的登陆信息。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iuseraccountmanager_logindjiuseraccount"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_logindjiuseraccount_inline">logInDJIUserAccount</a></div></div><div class="inline-doc" id="iuseraccountmanager_logindjiuseraccount_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>logInDJIUserAccount</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">logInDJIUserAccount</span><span class="params">(FragmentActivity fragmentActivity, <span class="keyword">boolean</span> isFullScreen, @Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v3">描述：</h5>
-<p><font color="#666">通过调出登陆界面登陆DJI账号。<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate">LoginState</a></code>为<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_not_logged_in">NOT_LOGGED_IN</a></code>或者<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_token_out_of_date">TOKEN_OUT_OF_DATE</a></code>时需要调用此接口进行登陆账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfo.html#iuseraccountmanager_logininfo">LoginInfo</a></td><td><font color="#666"><i>返回当前的登陆信息。</i></td></tr></table></html></div>
+<div class="api-row" id="iuseraccountmanager_logindjiuseraccount"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_logindjiuseraccount_inline">logInDJIUserAccount</a></div></div><div class="inline-doc" id="iuseraccountmanager_logindjiuseraccount_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>logInDJIUserAccount</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">logInDJIUserAccount</span><span class="params">(FragmentActivity fragmentActivity, <span class="type">boolean</span> isFullScreen, <span class="meta">@Nullable</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-3">描述：</h5>
+<p><font color="#666">通过调出登陆界面登陆DJI账号。<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate">LoginState</a></code>为<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_not_logged_in">NOT_LOGGED_IN</a></code>或者<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_token_out_of_date">TOKEN_OUT_OF_DATE</a></code>时需要调用此接口进行登陆账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 <h5 id="输入参数：">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">FragmentActivity <font color="#000">fragmentActivity</font></font></td><td><font color="#666"><i>fragmentActivity</i></font></td></tr><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">isFullScreen</font></font></td><td><font color="#666"><i><code>true</code>表示全屏显示登陆框</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>返回执行结果的回调。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iuseraccountmanager_logindjiuseraccountwithinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_logindjiuseraccountwithinterface_inline">logInDJIUserAccount</a></div></div><div class="inline-doc" id="iuseraccountmanager_logindjiuseraccountwithinterface_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>logInDJIUserAccount</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">logInDJIUserAccount</span><span class="params">(@NonNull String userName, @NonNull String password, @Nullable String verificationCode,</span></span></span><br><span class="line"><span class="function"><span class="params">                                  @Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v4">描述：</h5>
-<p><font color="#666">通过接口方式登陆DJI账号。此接口可用于无人化场景，比如机场应用。 <code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate">LoginState</a></code>为<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_not_logged_in">NOT_LOGGED_IN</a></code>或者<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_token_out_of_date">TOKEN_OUT_OF_DATE</a></code>时需要调用此接口进行登陆账号。 <br><b>注意：<br> 登陆失败后，如果此接口的回调中返回<code>Login</code>的错误，则表示需要输入验证码后才能进行再次登陆，请调用<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_getverificationcodeimageurl">getVerificationCodeImageURL</a></code>获取图片验证码。</b> <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v2">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">userName</font></font></td><td><font color="#666"><i>用户名</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">password</font></font></td><td><font color="#666"><i>用户名</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable String <font color="#000">verificationCode</font></font></td><td><font color="#666"><i>验证码</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>返回执行结果的回调。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iuseraccountmanager_getverificationcodeimageurl"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_getverificationcodeimageurl_inline">getVerificationCodeImageURL</a></div></div><div class="inline-doc" id="iuseraccountmanager_getverificationcodeimageurl_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getVerificationCodeImageURL</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getVerificationCodeImageURL</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v5">描述：</h5>
-<p><font color="#666">获取图片验证码的网页链接，可访问这个链接获取图片验证码。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></font></p>
-<h5 id="返回值：-v2">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>返回获取验证码的网页链接。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iuseraccountmanager_logoutdjiuseraccount"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_logoutdjiuseraccount_inline">logOutDJIUserAccount</a></div></div><div class="inline-doc" id="iuseraccountmanager_logoutdjiuseraccount_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>logOutDJIUserAccount</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">logOutDJIUserAccount</span><span class="params">(@Nullable CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v6">描述：</h5>
-<p><font color="#666">登出DJI账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v3">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>返回执行结果的回调。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iuseraccountmanager_addlogininfoupdatelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_addlogininfoupdatelistener_inline">addLoginInfoUpdateListener</a></div></div><div class="inline-doc" id="iuseraccountmanager_addlogininfoupdatelistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addLoginInfoUpdateListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addLoginInfoUpdateListener</span><span class="params">(@NonNull LoginInfoUpdateListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v7">描述：</h5>
-<p><font color="#666">添加登陆信息的监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v4">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfoUpdateListener.html#iuseraccountmanager_logininfoupdatelistener">LoginInfoUpdateListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>登陆信息的监听器</i></font></td></tr></table></html></div>
-<div class="api-row" id="iuseraccountmanager_removelogininfoupdatelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_removelogininfoupdatelistener_inline">removeLoginInfoUpdateListener</a></div></div><div class="inline-doc" id="iuseraccountmanager_removelogininfoupdatelistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeLoginInfoUpdateListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeLoginInfoUpdateListener</span><span class="params">(@NonNull LoginInfoUpdateListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v8">描述：</h5>
-<p><font color="#666">移除登陆信息的监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
-<h5 id="输入参数：-v5">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfoUpdateListener.html#iuseraccountmanager_logininfoupdatelistener">LoginInfoUpdateListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>登陆信息的监听器</i></font></td></tr></table></html></div>
-<div class="api-row" id="iuseraccountmanager_clearalllogininfoupdatelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_clearalllogininfoupdatelistener_inline">clearAllLoginInfoUpdateListener</a></div></div><div class="inline-doc" id="iuseraccountmanager_clearalllogininfoupdatelistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllLoginInfoUpdateListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllLoginInfoUpdateListener</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v9">描述：</h5>
-<p><font color="#666">移除所有登陆信息的监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">FragmentActivity <font color="#000">fragmentActivity</td><td><font color="#666"><i>fragmentActivity</i></td></tr><tr valign="top"><td><font color="#70BF41">boolean <font color="#000">isFullScreen</td><td><font color="#666"><i><code>true</code>表示全屏显示登陆框</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>返回执行结果的回调。</i></td></tr></table></html></div>
+<div class="api-row" id="iuseraccountmanager_logindjiuseraccountwithinterface"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_logindjiuseraccountwithinterface_inline">logInDJIUserAccount</a></div></div><div class="inline-doc" id="iuseraccountmanager_logindjiuseraccountwithinterface_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>logInDJIUserAccount</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">logInDJIUserAccount</span><span class="params">(<span class="meta">@NonNull</span> String userName, <span class="meta">@NonNull</span> String password, <span class="meta">@Nullable</span> String verificationCode,</span></span><br><span class="line"><span class="params">                                  <span class="meta">@Nullable</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-4">描述：</h5>
+<p><font color="#666">通过接口方式登陆DJI账号。此接口可用于无人化场景，比如机场应用。 <code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate">LoginState</a></code>为<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_not_logged_in">NOT_LOGGED_IN</a></code>或者<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_loginstate_token_out_of_date">TOKEN_OUT_OF_DATE</a></code>时需要调用此接口进行登陆账号。 <br><b>注意：<br> 登陆失败后，如果此接口的回调中返回<code>Login</code>的错误，则表示需要输入验证码后才能进行再次登陆，请调用<code><a href="../../Components/IUserAccountManager/IUserAccountManager.html#iuseraccountmanager_getverificationcodeimageurl">getVerificationCodeImageURL</a></code>获取图片验证码。</b> <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="输入参数：-2">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">userName</td><td><font color="#666"><i>用户名</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull String <font color="#000">password</td><td><font color="#666"><i>用户名</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable String <font color="#000">verificationCode</td><td><font color="#666"><i>验证码</i></td></tr><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>返回执行结果的回调。</i></td></tr></table></html></div>
+<div class="api-row" id="iuseraccountmanager_getverificationcodeimageurl"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_getverificationcodeimageurl_inline">getVerificationCodeImageURL</a></div></div><div class="inline-doc" id="iuseraccountmanager_getverificationcodeimageurl_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getVerificationCodeImageURL</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getVerificationCodeImageURL</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-5">描述：</h5>
+<p><font color="#666">获取图片验证码的网页链接，可访问这个链接获取图片验证码。 <br><br><code><i>MSDK 5.3.0开始支持</i></code></p>
+<h5 id="返回值：-2">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>返回获取验证码的网页链接。</i></td></tr></table></html></div>
+<div class="api-row" id="iuseraccountmanager_logoutdjiuseraccount"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_logoutdjiuseraccount_inline">logOutDJIUserAccount</a></div></div><div class="inline-doc" id="iuseraccountmanager_logoutdjiuseraccount_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>logOutDJIUserAccount</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">logOutDJIUserAccount</span><span class="params">(<span class="meta">@Nullable</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-6">描述：</h5>
+<p><font color="#666">登出DJI账号。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
+<h5 id="输入参数：-3">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@Nullable <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>返回执行结果的回调。</i></td></tr></table></html></div>
+<div class="api-row" id="iuseraccountmanager_addlogininfoupdatelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_addlogininfoupdatelistener_inline">addLoginInfoUpdateListener</a></div></div><div class="inline-doc" id="iuseraccountmanager_addlogininfoupdatelistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addLoginInfoUpdateListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addLoginInfoUpdateListener</span><span class="params">(<span class="meta">@NonNull</span> LoginInfoUpdateListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-7">描述：</h5>
+<p><font color="#666">添加登陆信息的监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
+<h5 id="输入参数：-4">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfoUpdateListener.html#iuseraccountmanager_logininfoupdatelistener">LoginInfoUpdateListener</a> <font color="#000">listener</td><td><font color="#666"><i>登陆信息的监听器</i></td></tr></table></html></div>
+<div class="api-row" id="iuseraccountmanager_removelogininfoupdatelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_removelogininfoupdatelistener_inline">removeLoginInfoUpdateListener</a></div></div><div class="inline-doc" id="iuseraccountmanager_removelogininfoupdatelistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeLoginInfoUpdateListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeLoginInfoUpdateListener</span><span class="params">(<span class="meta">@NonNull</span> LoginInfoUpdateListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-8">描述：</h5>
+<p><font color="#666">移除登陆信息的监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
+<h5 id="输入参数：-5">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfoUpdateListener.html#iuseraccountmanager_logininfoupdatelistener">LoginInfoUpdateListener</a> <font color="#000">listener</td><td><font color="#666"><i>登陆信息的监听器</i></td></tr></table></html></div>
+<div class="api-row" id="iuseraccountmanager_clearalllogininfoupdatelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_clearalllogininfoupdatelistener_inline">clearAllLoginInfoUpdateListener</a></div></div><div class="inline-doc" id="iuseraccountmanager_clearalllogininfoupdatelistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllLoginInfoUpdateListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllLoginInfoUpdateListener</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="描述：-9">描述：</h5>
+<p><font color="#666">移除所有登陆信息的监听器。 <br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
 </div>
-<h5 id="related">Related:</h5>
-<div class="api-row" id="iuseraccountmanager_logininfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfo.html">LoginInfo</a></div></div><div class="api-row" id="iuseraccountmanager_loginstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_loginstate_inline">LoginState</a></div></div><div class="inline-doc" id="iuseraccountmanager_loginstate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>LoginState</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> LoginState</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.v5.manager.account</font></td></tr></table></html>
-<h5 id="描述：-v10">描述：</h5>
-<p><font color="#666">登陆状态。
-<br><br><code><i>MSDK 5.0.0开始支持</i></code></font></p>
-<h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iuseraccountmanager_loginstate_not_logged_in_inline"></a>NOT_LOGGED_IN</font></td><td><font color="#666">未登陆。</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iuseraccountmanager_loginstate_logged_in_inline"></a>LOGGED_IN</font></td><td><font color="#666">已登陆。</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iuseraccountmanager_loginstate_token_out_of_date_inline"></a>TOKEN_OUT_OF_DATE</font></td><td><font color="#666">登陆过期。</font></td></tr></table></html>
-<h5 id="class-members">Class Members:</h5>
+<h5 id="Related">Related:</h5>
+<div class="api-row" id="iuseraccountmanager_logininfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfo.html">LoginInfo</a></div></div><div class="api-row" id="iuseraccountmanager_loginstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#iuseraccountmanager_loginstate_inline">LoginState</a></div></div><div class="inline-doc" id="iuseraccountmanager_loginstate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>LoginState</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">LoginState</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.v5.manager.account</td></tr></table></html>
+<h5 id="描述：-10">描述：</h5>
+<p><font color="#666">登陆状态。<br>
+<br><br><code><i>MSDK 5.0.0开始支持</i></code></p>
+<h5 id="Enum-Members">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#iuseraccountmanager_loginstate_not_logged_in_inline"></a>NOT_LOGGED_IN</td><td><font color="#666">未登陆。</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iuseraccountmanager_loginstate_logged_in_inline"></a>LOGGED_IN</td><td><font color="#666">已登陆。</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#iuseraccountmanager_loginstate_token_out_of_date_inline"></a>TOKEN_OUT_OF_DATE</td><td><font color="#666">登陆过期。</td></tr></table></html>
+<h5 id="Class-Members">Class Members:</h5>
 </div>
 <div class="api-row" id="iuseraccountmanager_logininfoupdatelistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IUserAccountManager/IUserAccountManager_LoginInfoUpdateListener.html">LoginInfoUpdateListener</a></div></div>
 

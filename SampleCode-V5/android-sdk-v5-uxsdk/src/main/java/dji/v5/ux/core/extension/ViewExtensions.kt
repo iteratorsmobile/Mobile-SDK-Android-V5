@@ -43,6 +43,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat.ThemeCompat
 import androidx.recyclerview.widget.RecyclerView
 import dji.v5.ux.R
+import dji.v5.ux.core.util.ToastUtils
 import dji.v5.ux.core.util.UnitConversionUtil.UnitType
 
 
@@ -96,48 +97,28 @@ fun View.toggleVisibility() {
  * Show a short length toast with the given [messageResId].
  */
 fun View.showShortToast(@StringRes messageResId: Int) {
-    Toast.makeText(
-        context,
-        messageResId,
-        Toast.LENGTH_SHORT
-    )
-        .show()
+    ToastUtils.showShortToast(messageResId)
 }
 
 /**
  * Show a long length toast with the given [messageResId].
  */
 fun View.showLongToast(@StringRes messageResId: Int) {
-    Toast.makeText(
-        context,
-        messageResId,
-        Toast.LENGTH_LONG
-    )
-        .show()
+    ToastUtils.showLongToast(messageResId)
 }
 
 /**
  * Show a short length toast with the given [String].
  */
 fun View.showShortToast(message: String?) {
-    Toast.makeText(
-        context,
-        message,
-        Toast.LENGTH_SHORT
-    )
-        .show()
+    ToastUtils.showShortToast(message!!)
 }
 
 /**
  * Show a long length toast with the given [String].
  */
 fun View.showLongToast(message: String?) {
-    Toast.makeText(
-        context,
-        message,
-        Toast.LENGTH_LONG
-    )
-        .show()
+    ToastUtils.showLongToast(message!!)
 }
 
 /**

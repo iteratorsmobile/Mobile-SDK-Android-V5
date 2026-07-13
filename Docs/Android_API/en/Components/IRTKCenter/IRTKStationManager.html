@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,183 +688,202 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IRTKStationManager</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IRTKStationManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">A class that manages the RTK base station, which is used to connect and configure the RTK base station.
-<br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="irtkstationmanager_startsearchrtkstation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_startsearchrtkstation_inline">startSearchRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_startsearchrtkstation_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>startSearchRTKStation</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startSearchRTKStation</span><span class="params">(@NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Start searching the RTK base station. You can use<code><a href="../../Components/IRTKCenter/IRTKStationManager.html#irtkstationmanager_addsearchrtkstationlistener">addSearchRTKStationListener</a></code>to add a listener to monitor this process. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_stopsearchrtkstation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_stopsearchrtkstation_inline">stopSearchRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_stopsearchrtkstation_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>stopSearchRTKStation</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">stopSearchRTKStation</span><span class="params">(@NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Stop searching the RTK base station. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_startconnecttortkstation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_startconnecttortkstation_inline">startConnectToRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_startconnecttortkstation_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>startConnectToRTKStation</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">startConnectToRTKStation</span><span class="params">(<span class="keyword">int</span> stationId, @NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Connect to the RTK station through base station id. You can get base station id from<code><a href="../../Components/IRTKCenter/Value_RtkBaseStation_Struct_RTKBaseStationConnectInfo.html#value_rtkbasestation_struct_rtkbasestationconnectinfo">RTKStationInfo</a></code>by calling <code><a href="../../Components/IRTKCenter/IRTKStationManager_SearchStationListener.html#irtkstationmanager_searchstationlistener">SearchRTKStationListener</a></code>. After connecting to the RTk base station, you can monitor the connection status by calling<code><a href="../../Components/IRTKCenter/IRTKStationManager.html#irtkstationmanager_addrtkstationconnectstatuslistener">addRTKStationConnectStatusListener</a></code> and monitor the base station information by calling<code><a href="../../Components/IRTKCenter/IRTKStationManager.html#irtkstationmanager_addconnectedrtkstationinfolistener">addConnectedRTKStationInfoListener</a></code>. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">stationId</font></font></td><td><font color="#666"><i>RTK bse station id.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_addsearchrtkstationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_addsearchrtkstationlistener_inline">addSearchRTKStationListener</a></div></div><div class="inline-doc" id="irtkstationmanager_addsearchrtkstationlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addSearchRTKStationListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addSearchRTKStationListener</span><span class="params">(@NonNull SearchRTKStationListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">Add the listener of RTK base station search result. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v4">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_SearchStationListener.html#irtkstationmanager_searchstationlistener">SearchRTKStationListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>The listener of RTK base station search result.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_removesearchrtkstationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_removesearchrtkstationlistener_inline">removeSearchRTKStationListener</a></div></div><div class="inline-doc" id="irtkstationmanager_removesearchrtkstationlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeSearchRTKStationListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeSearchRTKStationListener</span><span class="params">(@NonNull SearchRTKStationListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
-<p><font color="#666">Remove the listener of the RTK base station search result. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v5">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_SearchStationListener.html#irtkstationmanager_searchstationlistener">SearchRTKStationListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>The listener of RTK base station search result.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_clearallsearchrtkstationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_clearallsearchrtkstationlistener_inline">clearAllSearchRTKStationListener</a></div></div><div class="inline-doc" id="irtkstationmanager_clearallsearchrtkstationlistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllSearchRTKStationListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllSearchRTKStationListener</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">Remove all listeners of RTK base station search results. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IRTKStationManager</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IRTKStationManager</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">A class that manages the RTK base station, which is used to connect and configure the RTK base station.<br>
+<br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="irtkstationmanager_startsearchrtkstation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_startsearchrtkstation_inline">startSearchRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_startsearchrtkstation_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>startSearchRTKStation</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">startSearchRTKStation</span><span class="params">(<span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Start searching the RTK base station. You can use<code><a href="../../Components/IRTKCenter/IRTKStationManager.html#irtkstationmanager_addsearchrtkstationlistener">addSearchRTKStationListener</a></code>to add a listener to monitor this process. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_stopsearchrtkstation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_stopsearchrtkstation_inline">stopSearchRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_stopsearchrtkstation_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>stopSearchRTKStation</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">stopSearchRTKStation</span><span class="params">(<span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Stop searching the RTK base station. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-2">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_startconnecttortkstation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_startconnecttortkstation_inline">startConnectToRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_startconnecttortkstation_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>startConnectToRTKStation</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">startConnectToRTKStation</span><span class="params">(<span class="type">int</span> stationId, <span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Connect to the RTK station through base station id. You can get base station id from<code><a href="../../Components/IRTKCenter/Value_RtkBaseStation_Struct_RTKBaseStationConnectInfo.html#value_rtkbasestation_struct_rtkbasestationconnectinfo">RTKStationInfo</a></code>by calling <code><a href="../../Components/IRTKCenter/IRTKStationManager_SearchStationListener.html#irtkstationmanager_searchstationlistener">SearchRTKStationListener</a></code>. After connecting to the RTk base station, you can monitor the connection status by calling<code><a href="../../Components/IRTKCenter/IRTKStationManager.html#irtkstationmanager_addrtkstationconnectstatuslistener">addRTKStationConnectStatusListener</a></code> and monitor the base station information by calling<code><a href="../../Components/IRTKCenter/IRTKStationManager.html#irtkstationmanager_addconnectedrtkstationinfolistener">addConnectedRTKStationInfoListener</a></code>. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-3">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">int <font color="#000">stationId</td><td><font color="#666"><i>RTK bse station id.</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_addsearchrtkstationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_addsearchrtkstationlistener_inline">addSearchRTKStationListener</a></div></div><div class="inline-doc" id="irtkstationmanager_addsearchrtkstationlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addSearchRTKStationListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addSearchRTKStationListener</span><span class="params">(<span class="meta">@NonNull</span> SearchRTKStationListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">Add the listener of RTK base station search result. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-4">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_SearchStationListener.html#irtkstationmanager_searchstationlistener">SearchRTKStationListener</a> <font color="#000">listener</td><td><font color="#666"><i>The listener of RTK base station search result.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_removesearchrtkstationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_removesearchrtkstationlistener_inline">removeSearchRTKStationListener</a></div></div><div class="inline-doc" id="irtkstationmanager_removesearchrtkstationlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeSearchRTKStationListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeSearchRTKStationListener</span><span class="params">(<span class="meta">@NonNull</span> SearchRTKStationListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-6">Description:</h5>
+<p><font color="#666">Remove the listener of the RTK base station search result. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-5">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_SearchStationListener.html#irtkstationmanager_searchstationlistener">SearchRTKStationListener</a> <font color="#000">listener</td><td><font color="#666"><i>The listener of RTK base station search result.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_clearallsearchrtkstationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_clearallsearchrtkstationlistener_inline">clearAllSearchRTKStationListener</a></div></div><div class="inline-doc" id="irtkstationmanager_clearallsearchrtkstationlistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllSearchRTKStationListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllSearchRTKStationListener</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-7">Description:</h5>
+<p><font color="#666">Remove all listeners of RTK base station search results. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="irtkstationmanager_addrtkstationconnectstatuslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_addrtkstationconnectstatuslistener_inline">addRTKStationConnectStatusListener</a></div></div><div class="inline-doc" id="irtkstationmanager_addrtkstationconnectstatuslistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addRTKStationConnectStatusListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addRTKStationConnectStatusListener</span><span class="params">(@NonNull RTKStationConnectStatusListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v8">Description:</h5>
-<p><font color="#666">Add the listener of RTK base station connection status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v6">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_RTKStationConnectStatusListener.html#irtkstationmanager_rtkstationconnectstatuslistener">RTKStationConnectStatusListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>The listener of RTK base station connection status.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_removertkstationconnectstatuslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_removertkstationconnectstatuslistener_inline">removeRTKStationConnectStatusListener</a></div></div><div class="inline-doc" id="irtkstationmanager_removertkstationconnectstatuslistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeRTKStationConnectStatusListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeRTKStationConnectStatusListener</span><span class="params">(@NonNull RTKStationConnectStatusListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v9">Description:</h5>
-<p><font color="#666">Remove the listener of RTK base station connection status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v7">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_RTKStationConnectStatusListener.html#irtkstationmanager_rtkstationconnectstatuslistener">RTKStationConnectStatusListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>The listener of RTK base station connection status.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_clearallrtkstationconnectstatuslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_clearallrtkstationconnectstatuslistener_inline">clearAllRTKStationConnectStatusListener</a></div></div><div class="inline-doc" id="irtkstationmanager_clearallrtkstationconnectstatuslistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllRTKStationConnectStatusListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllRTKStationConnectStatusListener</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v10">Description:</h5>
-<p><font color="#666">Remove all listeners of RTK base station connection status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+<div class="api-row" id="irtkstationmanager_addrtkstationconnectstatuslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_addrtkstationconnectstatuslistener_inline">addRTKStationConnectStatusListener</a></div></div><div class="inline-doc" id="irtkstationmanager_addrtkstationconnectstatuslistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addRTKStationConnectStatusListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addRTKStationConnectStatusListener</span><span class="params">(<span class="meta">@NonNull</span> RTKStationConnectStatusListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-8">Description:</h5>
+<p><font color="#666">Add the listener of RTK base station connection status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-6">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_RTKStationConnectStatusListener.html#irtkstationmanager_rtkstationconnectstatuslistener">RTKStationConnectStatusListener</a> <font color="#000">listener</td><td><font color="#666"><i>The listener of RTK base station connection status.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_removertkstationconnectstatuslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_removertkstationconnectstatuslistener_inline">removeRTKStationConnectStatusListener</a></div></div><div class="inline-doc" id="irtkstationmanager_removertkstationconnectstatuslistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeRTKStationConnectStatusListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeRTKStationConnectStatusListener</span><span class="params">(<span class="meta">@NonNull</span> RTKStationConnectStatusListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-9">Description:</h5>
+<p><font color="#666">Remove the listener of RTK base station connection status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-7">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_RTKStationConnectStatusListener.html#irtkstationmanager_rtkstationconnectstatuslistener">RTKStationConnectStatusListener</a> <font color="#000">listener</td><td><font color="#666"><i>The listener of RTK base station connection status.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_clearallrtkstationconnectstatuslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_clearallrtkstationconnectstatuslistener_inline">clearAllRTKStationConnectStatusListener</a></div></div><div class="inline-doc" id="irtkstationmanager_clearallrtkstationconnectstatuslistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllRTKStationConnectStatusListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllRTKStationConnectStatusListener</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-10">Description:</h5>
+<p><font color="#666">Remove all listeners of RTK base station connection status. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="irtkstationmanager_addconnectedrtkstationinfolistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_addconnectedrtkstationinfolistener_inline">addConnectedRTKStationInfoListener</a></div></div><div class="inline-doc" id="irtkstationmanager_addconnectedrtkstationinfolistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>addConnectedRTKStationInfoListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addConnectedRTKStationInfoListener</span><span class="params">(@NonNull ConnectedRTKStationInfoListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v11">Description:</h5>
-<p><font color="#666">Add the listener of RTK base station information. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v8">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_ConnectedRTKStationInfoListener.html#irtkstationmanager_connectedrtkstationinfolistener">ConnectedRTKStationInfoListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>The listener of RTK base station information.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_removeconnectedrtkstationinfolistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_removeconnectedrtkstationinfolistener_inline">removeConnectedRTKStationInfoListener</a></div></div><div class="inline-doc" id="irtkstationmanager_removeconnectedrtkstationinfolistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>removeConnectedRTKStationInfoListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">removeConnectedRTKStationInfoListener</span><span class="params">(@NonNull ConnectedRTKStationInfoListener listener)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v12">Description:</h5>
-<p><font color="#666">Remove the listener of RTK base station information. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v9">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_ConnectedRTKStationInfoListener.html#irtkstationmanager_connectedrtkstationinfolistener">ConnectedRTKStationInfoListener</a> <font color="#000">listener</font></font></td><td><font color="#666"><i>The listener of RTK base station information.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_clearallconnectedrtkstationinfolistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_clearallconnectedrtkstationinfolistener_inline">clearAllConnectedRTKStationInfoListener</a></div></div><div class="inline-doc" id="irtkstationmanager_clearallconnectedrtkstationinfolistener_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>clearAllConnectedRTKStationInfoListener</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clearAllConnectedRTKStationInfoListener</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v13">Description:</h5>
-<p><font color="#666">Remove all listeners of RTK base station information. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
+<div class="api-row" id="irtkstationmanager_addconnectedrtkstationinfolistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_addconnectedrtkstationinfolistener_inline">addConnectedRTKStationInfoListener</a></div></div><div class="inline-doc" id="irtkstationmanager_addconnectedrtkstationinfolistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>addConnectedRTKStationInfoListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">addConnectedRTKStationInfoListener</span><span class="params">(<span class="meta">@NonNull</span> ConnectedRTKStationInfoListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-11">Description:</h5>
+<p><font color="#666">Add the listener of RTK base station information. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-8">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_ConnectedRTKStationInfoListener.html#irtkstationmanager_connectedrtkstationinfolistener">ConnectedRTKStationInfoListener</a> <font color="#000">listener</td><td><font color="#666"><i>The listener of RTK base station information.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_removeconnectedrtkstationinfolistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_removeconnectedrtkstationinfolistener_inline">removeConnectedRTKStationInfoListener</a></div></div><div class="inline-doc" id="irtkstationmanager_removeconnectedrtkstationinfolistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>removeConnectedRTKStationInfoListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">removeConnectedRTKStationInfoListener</span><span class="params">(<span class="meta">@NonNull</span> ConnectedRTKStationInfoListener listener)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-12">Description:</h5>
+<p><font color="#666">Remove the listener of RTK base station information. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-9">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/IRTKCenter/IRTKStationManager_ConnectedRTKStationInfoListener.html#irtkstationmanager_connectedrtkstationinfolistener">ConnectedRTKStationInfoListener</a> <font color="#000">listener</td><td><font color="#666"><i>The listener of RTK base station information.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_clearallconnectedrtkstationinfolistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_clearallconnectedrtkstationinfolistener_inline">clearAllConnectedRTKStationInfoListener</a></div></div><div class="inline-doc" id="irtkstationmanager_clearallconnectedrtkstationinfolistener_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>clearAllConnectedRTKStationInfoListener</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">clearAllConnectedRTKStationInfoListener</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-13">Description:</h5>
+<p><font color="#666">Remove all listeners of RTK base station information. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
 </div>
-<div class="api-row" id="irtkstationmanager_loginrtkstation"><div class="api-col left">Advanced settings</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_loginrtkstation_inline">loginRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_loginrtkstation_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>loginRTKStation</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loginRTKStation</span><span class="params">(String password, @NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v14">Description:</h5>
-<p><font color="#666">Login to the RTK base station. You can configure the advanced settings of the RTK base station after successful login. The password has to be starting from 0 to 9 with 6 digits. The default password is &quot;123456&quot;. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v10">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">password</font></font></td><td><font color="#666"><i>login password.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_setrtkstationreferenceposition"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_setrtkstationreferenceposition_inline">setRTKStationReferencePosition</a></div></div><div class="inline-doc" id="irtkstationmanager_setrtkstationreferenceposition_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>setRTKStationReferencePosition</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setRTKStationReferencePosition</span><span class="params">(LocationCoordinate3D locationCoordinate3D, @NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v15">Description:</h5>
-<p><font color="#666">Set the RTK base station reference position, when a user can get a more accurate location of the base station by using extrnal tools, the accurate location can be set to the base station to imporve the accuracy of the aircraft locaiton. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v11">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate3D.html#value_common_struct_locationcoordinate3d">LocationCoordinate3D</a> <font color="#000">locationCoordinate3D</font></font></td><td><font color="#666"><i>RTK base station reference position.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_getrtkstationreferenceposition"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_getrtkstationreferenceposition_inline">getRTKStationReferencePosition</a></div></div><div class="inline-doc" id="irtkstationmanager_getrtkstationreferenceposition_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getRTKStationReferencePosition</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getRTKStationReferencePosition</span><span class="params">(@NonNull CommonCallbacks.CompletionCallbackWithParam&lt;LocationCoordinate3D&gt; callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v16">Description:</h5>
-<p><font color="#666">Get the RTK base station reference position. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v12">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWithParam&lt;<a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate3D.html#value_common_struct_locationcoordinate3d">LocationCoordinate3D</a>&gt; <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_resetrtkstationreferenceposition"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_resetrtkstationreferenceposition_inline">resetRTKStationReferencePosition</a></div></div><div class="inline-doc" id="irtkstationmanager_resetrtkstationreferenceposition_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>resetRTKStationReferencePosition</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resetRTKStationReferencePosition</span><span class="params">(@NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v17">Description:</h5>
-<p><font color="#666">Reset the RTK base station reference position to {1,1,1}. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v13">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_resetrtkstationpassword"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_resetrtkstationpassword_inline">resetRTKStationPassword</a></div></div><div class="inline-doc" id="irtkstationmanager_resetrtkstationpassword_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>resetRTKStationPassword</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resetRTKStationPassword</span><span class="params">(RTKBaseStationResetPasswordInfo passwordInfo, @NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v18">Description:</h5>
-<p><font color="#666">Reset the password of the RTK base station. Note: The password has to be starting from 0 to 9 with 6 digits. The default password is &quot;123456&quot;. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v14">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">RTKBaseStationResetPasswordInfo <font color="#000">passwordInfo</font></font></td><td><font color="#666"><i>The password of the RTK base station.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<div class="api-row" id="irtkstationmanager_setrtkstationname"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_setrtkstationname_inline">setRTKStationName</a></div></div><div class="inline-doc" id="irtkstationmanager_setrtkstationname_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>setRTKStationName</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setRTKStationName</span><span class="params">(String name, @NonNull CommonCallbacks.CompletionCallback callback)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v19">Description:</h5>
-<p><font color="#666">Set the name of the RTK base station. Tye name of the RTK base station is encoded by UTF-8, 4 characters in total. If you set the name as &quot;abcdef&quot;, it will be saved as &quot;abcd&quot;. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="input-parameters-v15">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">name</font></font></td><td><font color="#666"><i>The name of the RTK base station.</i></font></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</font></font></td><td><font color="#666"><i>Return a result of the execution.</i></font></td></tr></table></html></div>
-<h5 id="related">Related:</h5>
-<div class="api-row" id="value_rtkbasestation_struct_rtkbasestationconnectinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IRTKCenter/Value_RtkBaseStation_Struct_RTKBaseStationConnectInfo.html">RTKStationInfo</a></div></div><div class="api-row" id="value_rtkbasestation_enum_rtkbasestationconnectstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_rtkbasestation_enum_rtkbasestationconnectstate_inline">RTKStationConnetState</a></div></div><div class="inline-doc" id="value_rtkbasestation_enum_rtkbasestationconnectstate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">enum </font>RTKStationConnetState</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> RTKStationConnetState implements JNIProguardKeepTag</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.rtkbasestation</font></td></tr></table></html>
-<h5 id="description-v20">Description:</h5>
-<p><font color="#666">The connection state of RTK base station. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="enum-members">Enum Members:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_idle_inline"></a>IDLE</font></td><td><font color="#666">Idle.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_scanning_inline"></a>SCANNING</font></td><td><font color="#666">Scanning.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_connecting_inline"></a>CONNECTING</font></td><td><font color="#666">Connecting.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_connected_inline"></a>CONNECTED</font></td><td><font color="#666">Connected.</font></td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_disconnected_inline"></a>DISCONNECTED</font></td><td><font color="#666">Disconnected.</font></td></tr></table></html>
-<h5 id="class-members-v2">Class Members:</h5>
+<div class="api-row" id="irtkstationmanager_loginrtkstation"><div class="api-col left">Advanced settings</div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_loginrtkstation_inline">loginRTKStation</a></div></div><div class="inline-doc" id="irtkstationmanager_loginrtkstation_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>loginRTKStation</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">loginRTKStation</span><span class="params">(String password, <span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-14">Description:</h5>
+<p><font color="#666">Login to the RTK base station. You can configure the advanced settings of the RTK base station after successful login. The password has to be starting from 0 to 9 with 6 digits. The default password is “123456”. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-10">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">password</td><td><font color="#666"><i>login password.</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_setrtkstationreferenceposition"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_setrtkstationreferenceposition_inline">setRTKStationReferencePosition</a></div></div><div class="inline-doc" id="irtkstationmanager_setrtkstationreferenceposition_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>setRTKStationReferencePosition</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setRTKStationReferencePosition</span><span class="params">(LocationCoordinate3D locationCoordinate3D, <span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-15">Description:</h5>
+<p><font color="#666">Set the RTK base station reference position, when a user can get a more accurate location of the base station by using extrnal tools, the accurate location can be set to the base station to imporve the accuracy of the aircraft locaiton. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-11">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate3D.html#value_common_struct_locationcoordinate3d">LocationCoordinate3D</a> <font color="#000">locationCoordinate3D</td><td><font color="#666"><i>RTK base station reference position.</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_getrtkstationreferenceposition"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_getrtkstationreferenceposition_inline">getRTKStationReferencePosition</a></div></div><div class="inline-doc" id="irtkstationmanager_getrtkstationreferenceposition_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getRTKStationReferencePosition</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">getRTKStationReferencePosition</span><span class="params">(<span class="meta">@NonNull</span> CommonCallbacks.CompletionCallbackWithParam&lt;LocationCoordinate3D&gt; callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-16">Description:</h5>
+<p><font color="#666">Get the RTK base station reference position. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-12">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.CompletionCallbackWithParam&lt;<a href="../../Components/IKeyManager/Value_Common_Struct_LocationCoordinate3D.html#value_common_struct_locationcoordinate3d">LocationCoordinate3D</a>&gt; <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_resetrtkstationreferenceposition"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_resetrtkstationreferenceposition_inline">resetRTKStationReferencePosition</a></div></div><div class="inline-doc" id="irtkstationmanager_resetrtkstationreferenceposition_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>resetRTKStationReferencePosition</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">resetRTKStationReferencePosition</span><span class="params">(<span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-17">Description:</h5>
+<p><font color="#666">Reset the RTK base station reference position to {1,1,1}. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-13">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_resetrtkstationpassword"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_resetrtkstationpassword_inline">resetRTKStationPassword</a></div></div><div class="inline-doc" id="irtkstationmanager_resetrtkstationpassword_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>resetRTKStationPassword</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">resetRTKStationPassword</span><span class="params">(RTKBaseStationResetPasswordInfo passwordInfo, <span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-18">Description:</h5>
+<p><font color="#666">Reset the password of the RTK base station. Note: The password has to be starting from 0 to 9 with 6 digits. The default password is “123456”. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-14">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">RTKBaseStationResetPasswordInfo <font color="#000">passwordInfo</td><td><font color="#666"><i>The password of the RTK base station.</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<div class="api-row" id="irtkstationmanager_setrtkstationname"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#irtkstationmanager_setrtkstationname_inline">setRTKStationName</a></div></div><div class="inline-doc" id="irtkstationmanager_setrtkstationname_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>setRTKStationName</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setRTKStationName</span><span class="params">(String name, <span class="meta">@NonNull</span> CommonCallbacks.CompletionCallback callback)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-19">Description:</h5>
+<p><font color="#666">Set the name of the RTK base station. Tye name of the RTK base station is encoded by UTF-8, 4 characters in total. If you set the name as “abcdef”, it will be saved as “abcd”. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Input-Parameters-15">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">name</td><td><font color="#666"><i>The name of the RTK base station.</i></td></tr><tr valign="top"><td><font color="#70BF41">@NonNull <a href="../../Components/DJICommonCallbacks/DJICommonCallbacks.html#djicommoncallbacks">CommonCallbacks</a>.<a href="../../Components/DJICommonCallbacks/DJICommonCallbacks_CompletionCallback.html#djicommoncallbacks_completioncallback">CompletionCallback</a> <font color="#000">callback</td><td><font color="#666"><i>Return a result of the execution.</i></td></tr></table></html></div>
+<h5 id="Related">Related:</h5>
+<div class="api-row" id="value_rtkbasestation_struct_rtkbasestationconnectinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IRTKCenter/Value_RtkBaseStation_Struct_RTKBaseStationConnectInfo.html">RTKStationInfo</a></div></div><div class="api-row" id="value_rtkbasestation_enum_rtkbasestationconnectstate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">enum</div><div class="api-col right"><a class="trigger" href="#value_rtkbasestation_enum_rtkbasestationconnectstate_inline">RTKStationConnetState</a></div></div><div class="inline-doc" id="value_rtkbasestation_enum_rtkbasestationconnectstate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">enum </font>RTKStationConnetState</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">RTKStationConnetState</span> <span class="keyword">implements</span> <span class="title class_">JNIProguardKeepTag</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.rtkbasestation</td></tr></table></html>
+<h5 id="Description-20">Description:</h5>
+<p><font color="#666">The connection state of RTK base station. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Enum-Members">Enum Members:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_idle_inline"></a>IDLE</td><td><font color="#666">Idle.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_scanning_inline"></a>SCANNING</td><td><font color="#666">Scanning.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_connecting_inline"></a>CONNECTING</td><td><font color="#666">Connecting.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_connected_inline"></a>CONNECTED</td><td><font color="#666">Connected.</td></tr><tr valign="top"><td><font color="#70BF41"><a href="#value_rtkbasestation_enum_rtkbasestationconnectstate_disconnected_inline"></a>DISCONNECTED</td><td><font color="#666">Disconnected.</td></tr></table></html>
+<h5 id="Class-Members-2">Class Members:</h5>
 </div>
 <div class="api-row" id="irtkstationmanager_connectedtkstationinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IRTKCenter/IRTKStationManager_ConnectedTKStationInfo.html">ConnectedRTKStationInfo</a></div></div><div class="api-row" id="irtkstationmanager_searchstationlistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IRTKCenter/IRTKStationManager_SearchStationListener.html">SearchRTKStationListener</a></div></div><div class="api-row" id="irtkstationmanager_rtkstationconnectstatuslistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IRTKCenter/IRTKStationManager_RTKStationConnectStatusListener.html">RTKStationConnectStatusListener</a></div></div><div class="api-row" id="irtkstationmanager_connectedrtkstationinfolistener"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">class</div><div class="api-col right"><a href="../../Components/IRTKCenter/IRTKStationManager_ConnectedRTKStationInfoListener.html">ConnectedRTKStationInfoListener</a></div></div>
 

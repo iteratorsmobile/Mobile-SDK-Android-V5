@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,49 +688,53 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>LTELinkInfo</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Keep</span></span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">LTELinkInfo</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">LTE link information, including link type and link quality level.
-<br><br><code><i>Supported since MSDK 5.2.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="iltemanager_ltelinkinfo_getltelinktype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getltelinktype_inline">getLTELinkType</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getltelinktype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLTELinkType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LTELinkType <span class="title">getLTELinkType</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Getss the LTE link type.</font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/ILTEManager/ILTEManager.html#iltemanager_ltelinktype">LTELinkType</a></font></td><td><font color="#666"><i>Returns the LTE link type.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_ltelinkinfo_getlinkqualitylevel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getlinkqualitylevel_inline">getLinkQualityLevel</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getlinkqualitylevel_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getLinkQualityLevel</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">WlmLinkQualityLevelInfo <span class="title">getLinkQualityLevel</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Gets the LTE link quality level.</font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Airlink_Struct_WlmLinkQualityMsg.html#value_airlink_struct_wlmlinkqualitymsg">WlmLinkQualityLevelInfo</a></font></td><td><font color="#666"><i>Returns the LTE link quality level.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_ltelinkinfo_getaircraftprivatizationserverinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getaircraftprivatizationserverinfo_inline">getAircraftPrivatizationServerInfo</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getaircraftprivatizationserverinfo_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getAircraftPrivatizationServerInfo</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LTEPrivatizationServerInfo <span class="title">getAircraftPrivatizationServerInfo</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">Gets the address of the aircraft LTE privatization server that has been set. If the set IP address is empty, you can call <code><a href="../../Components/ILTEManager/ILTEManager.html#iltemanager_setlteaircraftprivatizationserverinfo">setLTEAircraftPrivatizationServerInfo</a></code> to set it.</font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/ILTEManager/ILTEManager_LTEPrivatizationServerInfo.html#iltemanager_lteprivatizationserverinfo">LTEPrivatizationServerInfo</a></font></td><td><font color="#666"><i>Returns the address of the aircraft LTE privatization server that has been set.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iltemanager_ltelinkinfo_getremotecontrollerprivatizationserverinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getremotecontrollerprivatizationserverinfo_inline">getRemoteControllerPrivatizationServerInfo</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getremotecontrollerprivatizationserverinfo_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getRemoteControllerPrivatizationServerInfo</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">LTEPrivatizationServerInfo <span class="title">getRemoteControllerPrivatizationServerInfo</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.lte</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">Gets the address of the remote controller LTE privatization server that has been set. If the set IP address is empty, you can call <code><a href="../../Components/ILTEManager/ILTEManager.html#iltemanager_setlteremotecontrollerprivatizationserverinfo">setLTERemoteControllerPrivatizationServerInfo</a></code> to set it.</font></p>
-<h5 id="return-v4">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/ILTEManager/ILTEManager_LTEPrivatizationServerInfo.html#iltemanager_lteprivatizationserverinfo">LTEPrivatizationServerInfo</a></font></td><td><font color="#666"><i>Returns the address of the remote controller LTE privatization server that has been set.</i></font></td></tr></table></html></div>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>LTELinkInfo</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Keep</span></span><br><span class="line"> <span class="keyword">class</span> <span class="title class_">LTELinkInfo</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">LTE link information, including link type and link quality level.<br>
+<br><br><code><i>Supported since MSDK 5.2.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="iltemanager_ltelinkinfo_getltelinktype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getltelinktype_inline">getLTELinkType</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getltelinktype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLTELinkType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LTELinkType <span class="title function_">getLTELinkType</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Getss the LTE link type.</p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/ILTEManager/ILTEManager.html#iltemanager_ltelinktype">LTELinkType</a></td><td><font color="#666"><i>Returns the LTE link type.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_ltelinkinfo_getlinkqualitylevel"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getlinkqualitylevel_inline">getLinkQualityLevel</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getlinkqualitylevel_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getLinkQualityLevel</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">WlmLinkQualityLevelInfo <span class="title function_">getLinkQualityLevel</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Gets the LTE link quality level.</p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IKeyManager/Value_Airlink_Struct_WlmLinkQualityMsg.html#value_airlink_struct_wlmlinkqualitymsg">WlmLinkQualityLevelInfo</a></td><td><font color="#666"><i>Returns the LTE link quality level.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_ltelinkinfo_getaircraftprivatizationserverinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getaircraftprivatizationserverinfo_inline">getAircraftPrivatizationServerInfo</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getaircraftprivatizationserverinfo_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getAircraftPrivatizationServerInfo</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LTEPrivatizationServerInfo <span class="title function_">getAircraftPrivatizationServerInfo</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">Gets the address of the aircraft LTE privatization server that has been set. If the set IP address is empty, you can call <code><a href="../../Components/ILTEManager/ILTEManager.html#iltemanager_setlteaircraftprivatizationserverinfo">setLTEAircraftPrivatizationServerInfo</a></code> to set it.</p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/ILTEManager/ILTEManager_LTEPrivatizationServerInfo.html#iltemanager_lteprivatizationserverinfo">LTEPrivatizationServerInfo</a></td><td><font color="#666"><i>Returns the address of the aircraft LTE privatization server that has been set.</i></td></tr></table></html></div>
+<div class="api-row" id="iltemanager_ltelinkinfo_getremotecontrollerprivatizationserverinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iltemanager_ltelinkinfo_getremotecontrollerprivatizationserverinfo_inline">getRemoteControllerPrivatizationServerInfo</a></div></div><div class="inline-doc" id="iltemanager_ltelinkinfo_getremotecontrollerprivatizationserverinfo_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getRemoteControllerPrivatizationServerInfo</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">LTEPrivatizationServerInfo <span class="title function_">getRemoteControllerPrivatizationServerInfo</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.lte</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">Gets the address of the remote controller LTE privatization server that has been set. If the set IP address is empty, you can call <code><a href="../../Components/ILTEManager/ILTEManager.html#iltemanager_setlteremotecontrollerprivatizationserverinfo">setLTERemoteControllerPrivatizationServerInfo</a></code> to set it.</p>
+<h5 id="Return-4">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/ILTEManager/ILTEManager_LTEPrivatizationServerInfo.html#iltemanager_lteprivatizationserverinfo">LTEPrivatizationServerInfo</a></td><td><font color="#666"><i>Returns the address of the remote controller LTE privatization server that has been set.</i></td></tr></table></html></div>
 
         </div>
       </div>

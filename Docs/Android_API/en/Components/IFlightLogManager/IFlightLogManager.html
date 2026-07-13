@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,31 +688,33 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IFlightLogManager</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IFlightLogManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">Class that is used to manage flight logs. User is able to get the file path of flight logs and flight controller compact logs through this class. The flight log is defined by MSDK and saved on mobile device. The flight control compact logs is defined by the aircraft firmware and save on mobile device.<br> MSDK will not write to these logs. They are provided for MSDK App developers and users. The users can use these logs in DJI user center when they want to use them for after-sales services. Only MSDK app developers and users are able to access them. The logs will override themselves after running of time. Thus, MSDK app developers and users can copy them out for backups periodicly. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="iflightlogmanager_getflightrecordpath"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflightlogmanager_getflightrecordpath_inline">getFlightRecordPath</a></div></div><div class="inline-doc" id="iflightlogmanager_getflightrecordpath_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getFlightRecordPath</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getFlightRecordPath</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">Get the local directory of flight record. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>Return the local directory of flight record.</i></font></td></tr></table></html></div>
-<div class="api-row" id="iflightlogmanager_getflyclogpath"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflightlogmanager_getflyclogpath_inline">getFlyClogPath</a></div></div><div class="inline-doc" id="iflightlogmanager_getflyclogpath_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getFlyClogPath</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">String <span class="title">getFlyClogPath</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.interfaces</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">Get the local directory of flight Controller compact logs. <br><b>Note：<br> If the remote controller is replaced or the app is reinstalled during use, the aircraft needs to be reboot to generate the flight Controller compact logs.</b>
-<br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</font></td><td><font color="#666"><i>Return the local directory of flight Controller compact logs.</i></font></td></tr></table></html></div>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IFlightLogManager</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IFlightLogManager</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">Class that is used to manage flight logs. User is able to get the file path of flight logs and flight controller compact logs through this class. The flight log is defined by MSDK and saved on mobile device. The flight control compact logs is defined by the aircraft firmware and save on mobile device.<br> MSDK will not write to these logs. They are provided for MSDK App developers and users. The users can use these logs in DJI user center when they want to use them for after-sales services. Only MSDK app developers and users are able to access them. The logs will override themselves after running of time. Thus, MSDK app developers and users can copy them out for backups periodicly. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="iflightlogmanager_getflightrecordpath"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflightlogmanager_getflightrecordpath_inline">getFlightRecordPath</a></div></div><div class="inline-doc" id="iflightlogmanager_getflightrecordpath_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getFlightRecordPath</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getFlightRecordPath</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">Get the local directory of flight record. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>Return the local directory of flight record.</i></td></tr></table></html></div>
+<div class="api-row" id="iflightlogmanager_getflyclogpath"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iflightlogmanager_getflyclogpath_inline">getFlyClogPath</a></div></div><div class="inline-doc" id="iflightlogmanager_getflyclogpath_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getFlyClogPath</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">String <span class="title function_">getFlyClogPath</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.interfaces</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">Get the local directory of flight Controller compact logs. <br><b>Note：<br> If the remote controller is replaced or the app is reinstalled during use, the aircraft needs to be reboot to generate the flight Controller compact logs.</b><br>
+<br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String</td><td><font color="#666"><i>Return the local directory of flight Controller compact logs.</i></td></tr></table></html></div>
 
         </div>
       </div>

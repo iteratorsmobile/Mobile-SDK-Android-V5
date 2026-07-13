@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dji.sampleV5.aircraft.R
 import dji.sampleV5.aircraft.databinding.FragmentKeyListBinding
 import dji.sampleV5.aircraft.keyvalue.KeyItemHelper.processSubListLogic
-import dji.sampleV5.aircraft.util.ToastUtils.showToast
+import dji.v5.ux.core.util.ToastUtils.showToast
 import dji.sampleV5.aircraft.util.Util
 import dji.sdk.keyvalue.converter.EmptyValueConverter
 import dji.sdk.keyvalue.key.CameraKey
@@ -898,6 +898,7 @@ class KeyValueFragment : DJIFragment(), View.OnClickListener {
         releaseKeyInfo(remoteControllerKeyList)
         releaseKeyInfo(radarKeyList)
         releaseKeyInfo(appKeyList)
+        releaseKeyInfo(intelligentBoxList)
     }
 
     override fun onDestroy() {

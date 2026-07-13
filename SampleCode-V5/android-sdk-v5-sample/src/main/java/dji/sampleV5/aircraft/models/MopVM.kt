@@ -1,7 +1,7 @@
 package dji.sampleV5.aircraft.models
 
 import androidx.lifecycle.MutableLiveData
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sdk.keyvalue.value.common.ComponentIndexType
 import dji.sdk.keyvalue.value.mop.PipelineDeviceType
 import dji.sdk.keyvalue.value.mop.TransmissionControlType
@@ -42,6 +42,11 @@ class MopVM : DJIViewModel() {
             LogUtils.i(logTag, it.values)
             pipelineMapLivData.postValue(it)
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        PipelineManager.getInstance().clearAllPipelineConnectionListener()
     }
 
     fun connect(index: ComponentIndexType, id: Int, deviceType: PipelineDeviceType, transmissionControlType: TransmissionControlType, isUseForDown: Boolean = false) {

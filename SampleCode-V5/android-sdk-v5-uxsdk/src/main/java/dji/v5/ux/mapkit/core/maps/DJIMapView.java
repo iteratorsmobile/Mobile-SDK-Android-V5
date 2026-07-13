@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 
 import dji.v5.utils.common.LogUtils;
 import dji.v5.ux.R;
+import dji.v5.ux.core.util.ToastUtils;
 import dji.v5.ux.mapkit.core.Mapkit;
 import dji.v5.ux.mapkit.core.MapkitOptions;
 
@@ -97,7 +98,7 @@ public class DJIMapView extends FrameLayout {
             addView((View) internalMapView);
         } else {
             internalMapView = new DJIEmptyMapView();
-            Toast.makeText(getContext(), getContext().getString(R.string.uxsdk_map_provider_init_failed), Toast.LENGTH_LONG).show();
+            ToastUtils.INSTANCE.showLongToast(getContext().getString(R.string.uxsdk_map_provider_init_failed));
         }
     }
 

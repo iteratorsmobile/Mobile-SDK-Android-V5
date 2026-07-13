@@ -17,7 +17,7 @@ import dji.v5.manager.aircraft.payload.PayloadIndexType
 import dji.v5.manager.aircraft.payload.data.PayloadWidgetInfo
 import dji.v5.manager.aircraft.payload.widget.PayloadWidget
 import dji.v5.utils.common.LogUtils
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 
 /**
  * Description :

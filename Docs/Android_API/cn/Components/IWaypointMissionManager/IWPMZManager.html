@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -686,74 +686,80 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>IWPMZManager</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IWPMZManager</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>IWPMZManager</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">IWPMZManager</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">com.dji.wpmzsdk.interfaces</td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">此类是航线任务编辑类，用于航线任务文件的加载，航线字段的编辑和航线任务文件生成。航线字段的含义请参考代码注释和<a href="https://developer.dji.com/doc/cloud-api-tutorial/cn/api-reference/dji-wpml/overview.html" target="_blank" rel="noopener">航线文件格式</a>。接口调用流程请参阅：<a href="https://developer.dji.com/doc/mobile-sdk-tutorial/cn/tutorials/waypoint.html" target="_blank" rel="noopener">航线教程</a>。 <br><br><code><i>MSDK 5.6.0开始支持</i></code></font></p>
+<p><font color="#666">此类是航线任务编辑类，用于航线任务文件的加载，航线字段的编辑和航线任务文件生成。航线字段的含义请参考代码注释和<a target="_blank" rel="noopener" href="https://developer.dji.com/doc/cloud-api-tutorial/cn/api-reference/dji-wpml/overview.html">航线文件格式</a>。接口调用流程请参阅：<a target="_blank" rel="noopener" href="https://developer.dji.com/doc/mobile-sdk-tutorial/cn/tutorials/waypoint.html">航线教程</a>。 <br><br><code><i>MSDK 5.6.0开始支持</i></code></p>
 <h5 id="类成员">类成员:</h5>
-<div class="api-row" id="iwpmzmanager_getkmzinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_getkmzinfo_inline">getKMZInfo</a></div></div><div class="inline-doc" id="iwpmzmanager_getkmzinfo_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getKMZInfo</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">KMZInfo <span class="title">getKMZInfo</span><span class="params">(String kmzPath)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v2">描述：</h5>
-<p><font color="#666">加载 KMZ 文件，获取 KMZ 文件中的航线任务信息。</font></p>
+<div class="api-row" id="iwpmzmanager_getkmzinfo"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_getkmzinfo_inline">getKMZInfo</a></div></div><div class="inline-doc" id="iwpmzmanager_getkmzinfo_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getKMZInfo</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">KMZInfo <span class="title function_">getKMZInfo</span><span class="params">(String kmzPath)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">com.dji.wpmzsdk.interfaces</td></tr></table></html>
+<h5 id="描述：-2">描述：</h5>
+<p><font color="#666">加载 KMZ 文件，获取 KMZ 文件中的航线任务信息。</p>
 <h5 id="输入参数：">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</font></font></td><td><font color="#666"><i>KMZ 文件存储路径。</i></font></td></tr></table></html>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</td><td><font color="#666"><i>KMZ 文件存储路径。</i></td></tr></table></html>
 <h5 id="返回值：">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">KMZInfo</font></td><td><font color="#666"><i>返回 KMZ 文件中的航线任务信息。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iwpmzmanager_generatekmzfiletemplate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_generatekmzfiletemplate_inline">generateKMZFile</a></div></div><div class="inline-doc" id="iwpmzmanager_generatekmzfiletemplate_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>generateKMZFile</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">generateKMZFile</span><span class="params">(String kmzPath , WaylineMission waylineMission , WaylineMissionConfig config , Template waylineTemplate  )</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v3">描述：</h5>
-<p><font color="#666">通过设置航线任务信息生成航线 KMZ 文件，生成的 KMZ 文件将会存储在 kmzPath 路径下。此接口生成的KMZ文件包含 Template 文件，可与 DJI Pilot 兼容使用。</font></p>
-<h5 id="输入参数：-v2">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</font></font></td><td><font color="#666"><i>KMZ 文件存储路径。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMission <font color="#000">waylineMission</font></font></td><td><font color="#666"><i>航线文件信息。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMissionConfig <font color="#000">config</font></font></td><td><font color="#666"><i>航线任务全局信息。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">Template <font color="#000">waylineTemplate</font></font></td><td><font color="#666"><i>航线任务信息模版类。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iwpmzmanager_generatekmzfilewayline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_generatekmzfilewayline_inline">generateKMZFile</a></div></div><div class="inline-doc" id="iwpmzmanager_generatekmzfilewayline_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>generateKMZFile</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">generateKMZFile</span><span class="params">(String kmzPath , WaylineMission waylineMission , WaylineMissionConfig config , Wayline wayline)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v4">描述：</h5>
-<p><font color="#666">通过设置航线任务信息生成航线 KMZ 文件，生成的 KMZ 文件将会存储在 kmzPath 路径下。此接口生成的 KMZ 文件不包含 Template 文件，不可与 DJI Pilot 兼容使用。</font></p>
-<h5 id="输入参数：-v3">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</font></font></td><td><font color="#666"><i>KMZ 文件存储路径。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMission <font color="#000">waylineMission</font></font></td><td><font color="#666"><i>航线文件信息。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMissionConfig <font color="#000">config</font></font></td><td><font color="#666"><i>航线任务全局信息。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">Wayline <font color="#000">wayline</font></font></td><td><font color="#666"><i>航线任务信息。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iwpmzmanager_checkvalidation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_checkvalidation_inline">checkValidation</a></div></div><div class="inline-doc" id="iwpmzmanager_checkvalidation_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>checkValidation</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">WaylineCheckErrorMsg <span class="title">checkValidation</span><span class="params">(String kmzPath)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v5">描述：</h5>
-<p><font color="#666">对 KMZ 文件中的部分字段进行检查。</font></p>
-<h5 id="输入参数：-v4">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</font></font></td><td><font color="#666"><i>KMZ 文件存储路径。</i></font></td></tr></table></html>
-<h5 id="返回值：-v2">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">WaylineCheckErrorMsg</font></td><td><font color="#666"><i>返回 KMZ 文件中的错误信息。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iwpmzmanager_transkmltokmz"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_transkmltokmz_inline">transKMLtoKMZ</a></div></div><div class="inline-doc" id="iwpmzmanager_transkmltokmz_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>transKMLtoKMZ</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">transKMLtoKMZ</span><span class="params">(String kmlImportPath , String kmzOutPath)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v6">描述：</h5>
-<p><font color="#666">将 KML 文件转换为 KMZ 文件。可以把 DJI App 产生的历史 KML 文件转换成KMZ 文件。</font></p>
-<h5 id="输入参数：-v5">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmlImportPath</font></font></td><td><font color="#666"><i>需要转换的 KML 文件路径。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzOutPath</font></font></td><td><font color="#666"><i>转换后存储的 KMZ 文件路径。</i></font></td></tr></table></html>
-<h5 id="返回值：-v3">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i><code>true</code>表示转换成功。</i></font></td></tr></table></html></div>
-<div class="api-row" id="iwpmzmanager_transkmltokmzheightmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_transkmltokmzheightmode_inline">transKMLtoKMZ</a></div></div><div class="inline-doc" id="iwpmzmanager_transkmltokmzheightmode_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>transKMLtoKMZ</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">transKMLtoKMZ</span><span class="params">(String kmlImportPath , String kmzOutPath , HeightMode transParams)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">com.dji.wpmzsdk.interfaces</font></td></tr></table></html>
-<h5 id="描述：-v7">描述：</h5>
-<p><font color="#666">将 KML 文件转换为 KMZ 文件。针对非 DJI 渠道生成的KML文件转换为 KMZ 文件时，需要提供高度模式。支持的高度模式有 WGS84、EGM96、RELATIVE，RELATIVE 模式仅用于DJI Pilot 显示，开发者可以忽略。</font></p>
-<h5 id="输入参数：-v6">输入参数：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmlImportPath</font></font></td><td><font color="#666"><i>需要转换的 KML 文件路径。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzOutPath</font></font></td><td><font color="#666"><i>转换后存储的 KMZ 文件路径。</i></font></td></tr><tr valign="top"><td><font color="#70BF41">HeightMode <font color="#000">transParams</font></font></td><td><font color="#666"><i>高度模式。</i></font></td></tr></table></html>
-<h5 id="返回值：-v4">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</font></td><td><font color="#666"><i><code>true</code>表示转换成功。</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">KMZInfo</td><td><font color="#666"><i>返回 KMZ 文件中的航线任务信息。</i></td></tr></table></html></div>
+<div class="api-row" id="iwpmzmanager_generatekmzfiletemplate"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_generatekmzfiletemplate_inline">generateKMZFile</a></div></div><div class="inline-doc" id="iwpmzmanager_generatekmzfiletemplate_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>generateKMZFile</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">generateKMZFile</span><span class="params">(String kmzPath , WaylineMission waylineMission , WaylineMissionConfig config , Template waylineTemplate  )</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">com.dji.wpmzsdk.interfaces</td></tr></table></html>
+<h5 id="描述：-3">描述：</h5>
+<p><font color="#666">通过设置航线任务信息生成航线 KMZ 文件，生成的 KMZ 文件将会存储在 kmzPath 路径下。此接口生成的KMZ文件包含 Template 文件，可与 DJI Pilot 兼容使用。</p>
+<h5 id="输入参数：-2">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</td><td><font color="#666"><i>KMZ 文件存储路径。</i></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMission <font color="#000">waylineMission</td><td><font color="#666"><i>航线文件信息。</i></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMissionConfig <font color="#000">config</td><td><font color="#666"><i>航线任务全局信息。</i></td></tr><tr valign="top"><td><font color="#70BF41">Template <font color="#000">waylineTemplate</td><td><font color="#666"><i>航线任务信息模版类。</i></td></tr></table></html></div>
+<div class="api-row" id="iwpmzmanager_generatekmzfilewayline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_generatekmzfilewayline_inline">generateKMZFile</a></div></div><div class="inline-doc" id="iwpmzmanager_generatekmzfilewayline_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>generateKMZFile</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">generateKMZFile</span><span class="params">(String kmzPath , WaylineMission waylineMission , WaylineMissionConfig config , Wayline wayline)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">com.dji.wpmzsdk.interfaces</td></tr></table></html>
+<h5 id="描述：-4">描述：</h5>
+<p><font color="#666">通过设置航线任务信息生成航线 KMZ 文件，生成的 KMZ 文件将会存储在 kmzPath 路径下。此接口生成的 KMZ 文件不包含 Template 文件，不可与 DJI Pilot 兼容使用。</p>
+<h5 id="输入参数：-3">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</td><td><font color="#666"><i>KMZ 文件存储路径。</i></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMission <font color="#000">waylineMission</td><td><font color="#666"><i>航线文件信息。</i></td></tr><tr valign="top"><td><font color="#70BF41">WaylineMissionConfig <font color="#000">config</td><td><font color="#666"><i>航线任务全局信息。</i></td></tr><tr valign="top"><td><font color="#70BF41">Wayline <font color="#000">wayline</td><td><font color="#666"><i>航线任务信息。</i></td></tr></table></html></div>
+<div class="api-row" id="iwpmzmanager_checkvalidation"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_checkvalidation_inline">checkValidation</a></div></div><div class="inline-doc" id="iwpmzmanager_checkvalidation_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>checkValidation</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">WaylineCheckErrorMsg <span class="title function_">checkValidation</span><span class="params">(String kmzPath)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">com.dji.wpmzsdk.interfaces</td></tr></table></html>
+<h5 id="描述：-5">描述：</h5>
+<p><font color="#666">对 KMZ 文件中的部分字段进行检查。</p>
+<h5 id="输入参数：-4">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzPath</td><td><font color="#666"><i>KMZ 文件存储路径。</i></td></tr></table></html>
+<h5 id="返回值：-2">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">WaylineCheckErrorMsg</td><td><font color="#666"><i>返回 KMZ 文件中的错误信息。</i></td></tr></table></html></div>
+<div class="api-row" id="iwpmzmanager_transkmltokmz"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_transkmltokmz_inline">transKMLtoKMZ</a></div></div><div class="inline-doc" id="iwpmzmanager_transkmltokmz_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>transKMLtoKMZ</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">transKMLtoKMZ</span><span class="params">(String kmlImportPath , String kmzOutPath)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">com.dji.wpmzsdk.interfaces</td></tr></table></html>
+<h5 id="描述：-6">描述：</h5>
+<p><font color="#666">将 KML 文件转换为 KMZ 文件。可以把 DJI App 产生的历史 KML 文件转换成KMZ 文件。</p>
+<h5 id="输入参数：-5">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmlImportPath</td><td><font color="#666"><i>需要转换的 KML 文件路径。</i></td></tr><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzOutPath</td><td><font color="#666"><i>转换后存储的 KMZ 文件路径。</i></td></tr></table></html>
+<h5 id="返回值：-3">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i><code>true</code>表示转换成功。</i></td></tr></table></html></div>
+<div class="api-row" id="iwpmzmanager_transkmltokmzheightmode"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#iwpmzmanager_transkmltokmzheightmode_inline">transKMLtoKMZ</a></div></div><div class="inline-doc" id="iwpmzmanager_transkmltokmzheightmode_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>transKMLtoKMZ</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="title function_">transKMLtoKMZ</span><span class="params">(String kmlImportPath , String kmzOutPath , HeightMode transParams)</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">com.dji.wpmzsdk.interfaces</td></tr></table></html>
+<h5 id="描述：-7">描述：</h5>
+<p><font color="#666">将 KML 文件转换为 KMZ 文件。针对非 DJI 渠道生成的KML文件转换为 KMZ 文件时，需要提供高度模式。支持的高度模式有 WGS84、EGM96、RELATIVE，RELATIVE 模式仅用于DJI Pilot 显示，开发者可以忽略。</p>
+<h5 id="输入参数：-6">输入参数：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmlImportPath</td><td><font color="#666"><i>需要转换的 KML 文件路径。</i></td></tr><tr valign="top"><td><font color="#70BF41">String <font color="#000">kmzOutPath</td><td><font color="#666"><i>转换后存储的 KMZ 文件路径。</i></td></tr><tr valign="top"><td><font color="#70BF41">HeightMode <font color="#000">transParams</td><td><font color="#666"><i>高度模式。</i></td></tr></table></html>
+<h5 id="返回值：-4">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">boolean</td><td><font color="#666"><i><code>true</code>表示转换成功。</i></td></tr></table></html></div>
 
         </div>
       </div>

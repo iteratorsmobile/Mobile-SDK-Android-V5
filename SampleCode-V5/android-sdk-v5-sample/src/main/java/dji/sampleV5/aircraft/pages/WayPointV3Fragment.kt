@@ -37,7 +37,7 @@ import dji.sampleV5.aircraft.databinding.FragWaypointv3PageBinding
 import dji.sampleV5.aircraft.models.MissionGlobalModel
 import dji.sampleV5.aircraft.models.WayPointV3VM
 import dji.sampleV5.aircraft.util.DialogUtil
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sampleV5.aircraft.utils.KMZTestUtil
 import dji.sampleV5.aircraft.utils.KMZTestUtil.createWaylineMission
 import dji.sampleV5.aircraft.utils.wpml.WaypointInfoModel
@@ -487,8 +487,7 @@ class WayPointV3Fragment : DJIFragment() {
 
             override fun onWaylineExecutingInterruptReasonUpdate(error: IDJIError?) {
                 if (error != null) {
-                    val originStr = binding?.missionExecuteStateTv?.text.toString()
-                    binding?.waylineExecuteStateTv?.text = "$originStr\n InterruptReason:${error.errorCode()}"
+                    binding?.waylineExecuteStateTv?.text = "Wayline Execute Interrupt Reason:${error.errorCode()}"
                     LogUtils.e(LogPath.SAMPLE, "interrupt error:${error.errorCode()}")
                 }
             }

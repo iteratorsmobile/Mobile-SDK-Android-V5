@@ -35,6 +35,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import dji.v5.ux.R
+import dji.v5.ux.core.util.ToastUtils
 import dji.v5.ux.training.util.SimulatorPresetUtils
 import dji.v5.ux.training.simulatorcontrol.SimulatorControlWidget
 
@@ -160,9 +161,7 @@ class PresetListDialog @JvmOverloads constructor(
                     satelliteCount,
                     frequency))
         } else {
-            Toast.makeText(context,
-                    context.resources.getString(R.string.uxsdk_simulator_preset_error),
-                    Toast.LENGTH_SHORT).show()
+            ToastUtils.showShortToast(context.resources.getString(R.string.uxsdk_simulator_preset_error))
         }
         dismiss()
     }

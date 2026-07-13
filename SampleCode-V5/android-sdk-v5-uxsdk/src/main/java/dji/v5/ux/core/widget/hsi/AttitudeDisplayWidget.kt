@@ -62,6 +62,7 @@ open class AttitudeDisplayWidget @JvmOverloads constructor(context: Context?, at
 
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
+        mCompositeDisposable.clear()
         if (!isInEditMode) {
             widgetModel.cleanup()
         }

@@ -1,4 +1,4 @@
-package com.dji.industry.pandora.pilot2.uikit.popover
+package dji.v5.ux.core.popover
 
 import android.content.res.Resources
 import android.graphics.*

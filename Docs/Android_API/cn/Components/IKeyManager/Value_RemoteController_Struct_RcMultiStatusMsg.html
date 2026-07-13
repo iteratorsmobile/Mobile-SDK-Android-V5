@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -686,48 +686,52 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>MultiControlStatusInfo</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MultiControlStatusInfo</span> <span class="keyword">implements</span> <span class="title">DJIValue</span>, <span class="title">JNIProguardKeepTag</span>, <span class="title">ByteStream</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.remotecontroller</font></td></tr></table></html>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>MultiControlStatusInfo</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MultiControlStatusInfo</span> <span class="keyword">implements</span> <span class="title class_">DJIValue</span>, JNIProguardKeepTag, ByteStream</span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.remotecontroller</td></tr></table></html>
 <h5 id="描述：">描述：</h5>
-<p><font color="#666">遥控器双控状态。</font></p>
+<p><font color="#666">遥控器双控状态。</p>
 <h5 id="类成员">类成员:</h5>
-<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaonline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcaonline_inline">getRcAOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaonline_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getRcAOnline</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Boolean <span class="title">getRcAOnline</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.remotecontroller</font></td></tr></table></html>
-<h5 id="描述：-v2">描述：</h5>
-<p><font color="#666">返回A控连接状态。如果返回<code>false</code>则表示A控断开连接，可能原因是A控关机或者跟飞行器失联。</font></p>
+<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaonline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcaonline_inline">getRcAOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaonline_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getRcAOnline</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean <span class="title function_">getRcAOnline</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.remotecontroller</td></tr></table></html>
+<h5 id="描述：-2">描述：</h5>
+<p><font color="#666">返回A控连接状态。如果返回<code>false</code>则表示A控断开连接，可能原因是A控关机或者跟飞行器失联。</p>
 <h5 id="返回值：">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</font></td><td><font color="#666"><i><code>true</code>表示A控正常连接。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaapponline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcaapponline_inline">getRcAAppOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaapponline_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getRcAAppOnline</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Boolean <span class="title">getRcAAppOnline</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.remotecontroller</font></td></tr></table></html>
-<h5 id="描述：-v3">描述：</h5>
-<p><font color="#666">返回A控中的App连接状态。如果返回<code>false</code>则表示A控中的App断开连接，可能原因是A控中的App退出了，请在A控中重新打开App。</font></p>
-<h5 id="返回值：-v2">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</font></td><td><font color="#666"><i><code>true</code>表示A控中的App正常连接。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbonline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcbonline_inline">getRcBOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbonline_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getRcBOnline</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Boolean <span class="title">getRcBOnline</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.remotecontroller</font></td></tr></table></html>
-<h5 id="描述：-v4">描述：</h5>
-<p><font color="#666">返回B控连接状态。如果返回<code>false</code>则表示B控断开连接，可能原因是B控没有对频，关机或者跟飞行器失联。</font></p>
-<h5 id="返回值：-v3">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</font></td><td><font color="#666"><i><code>true</code>表示B控正常连接。</i></font></td></tr></table></html></div>
-<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbapponline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcbapponline_inline">getRcBAppOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbapponline_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getRcBAppOnline</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">Boolean <span class="title">getRcBAppOnline</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>包：</i></font></td><td width="85%"><font color="#999">dji.sdk.keyvalue.value.remotecontroller</font></td></tr></table></html>
-<h5 id="描述：-v5">描述：</h5>
-<p><font color="#666">返回B控中的App连接状态。如果返回<code>false</code>则表示B控中的App断开连接，可能原因是B控中的App退出了，请在B控中重新打开App。</font></p>
-<h5 id="返回值：-v4">返回值：</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</font></td><td><font color="#666"><i><code>true</code>表示B控中的App正常连接。</i></font></td></tr></table></html></div>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</td><td><font color="#666"><i><code>true</code>表示A控正常连接。</i></td></tr></table></html></div>
+<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaapponline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcaapponline_inline">getRcAAppOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcaapponline_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getRcAAppOnline</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean <span class="title function_">getRcAAppOnline</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.remotecontroller</td></tr></table></html>
+<h5 id="描述：-3">描述：</h5>
+<p><font color="#666">返回A控中的App连接状态。如果返回<code>false</code>则表示A控中的App断开连接，可能原因是A控中的App退出了，请在A控中重新打开App。</p>
+<h5 id="返回值：-2">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</td><td><font color="#666"><i><code>true</code>表示A控中的App正常连接。</i></td></tr></table></html></div>
+<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbonline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcbonline_inline">getRcBOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbonline_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getRcBOnline</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean <span class="title function_">getRcBOnline</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.remotecontroller</td></tr></table></html>
+<h5 id="描述：-4">描述：</h5>
+<p><font color="#666">返回B控连接状态。如果返回<code>false</code>则表示B控断开连接，可能原因是B控没有对频，关机或者跟飞行器失联。</p>
+<h5 id="返回值：-3">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</td><td><font color="#666"><i><code>true</code>表示B控正常连接。</i></td></tr></table></html></div>
+<div class="api-row" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbapponline"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#value_remotecontroller_struct_rcmultistatusmsg_getrcbapponline_inline">getRcBAppOnline</a></div></div><div class="inline-doc" id="value_remotecontroller_struct_rcmultistatusmsg_getrcbapponline_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getRcBAppOnline</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Boolean <span class="title function_">getRcBAppOnline</span><span class="params">()</span></span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>包：</i></td><td width=85%><font color="#999">dji.sdk.keyvalue.value.remotecontroller</td></tr></table></html>
+<h5 id="描述：-5">描述：</h5>
+<p><font color="#666">返回B控中的App连接状态。如果返回<code>false</code>则表示B控中的App断开连接，可能原因是B控中的App退出了，请在B控中重新打开App。</p>
+<h5 id="返回值：-4">返回值：</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">Boolean</td><td><font color="#666"><i><code>true</code>表示B控中的App正常连接。</i></td></tr></table></html></div>
 
         </div>
       </div>

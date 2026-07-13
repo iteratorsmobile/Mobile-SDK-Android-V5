@@ -7,7 +7,9 @@ import dji.v5.common.error.IDJIError
 import dji.v5.common.register.DJISDKInitEvent
 import dji.v5.manager.SDKManager
 import dji.v5.manager.interfaces.SDKManagerCallback
+import dji.v5.manager.ldm.LDMManager
 import dji.v5.network.DJINetworkManager
+import dji.v5.utils.common.ContextUtil
 
 class MSDKManagerVM : ViewModel() {
     // The data is held in livedata mode, but you can also save the results of the sdk callbacks any way you like.
@@ -54,6 +56,8 @@ class MSDKManagerVM : ViewModel() {
                 lvDBDownloadProgress.postValue(Pair(current, total))
             }
         })
+
+//        LDMManager.getInstance().enableLDM(ContextUtil.getContext(),null)
 
         DJINetworkManager.getInstance().addNetworkStatusListener { isAvailable ->
             if (isInit && isAvailable && !SDKManager.getInstance().isRegistered) {

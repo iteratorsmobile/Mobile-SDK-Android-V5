@@ -3,7 +3,7 @@ package dji.sampleV5.aircraft.models
 import android.view.Surface
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sdk.keyvalue.key.CameraKey
 import dji.sdk.keyvalue.key.FlightControllerKey
 import dji.sdk.keyvalue.value.camera.CameraMode

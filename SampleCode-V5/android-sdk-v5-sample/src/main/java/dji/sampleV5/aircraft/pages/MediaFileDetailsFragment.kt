@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import dji.sampleV5.aircraft.R
 import dji.sampleV5.aircraft.data.MEDIA_FILE_DETAILS_STR
 import dji.sampleV5.aircraft.databinding.FragMediafileDetailsBinding
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sdk.keyvalue.value.camera.MediaFileType
 import dji.v5.common.callback.CommonCallbacks
 import dji.v5.common.error.IDJIError

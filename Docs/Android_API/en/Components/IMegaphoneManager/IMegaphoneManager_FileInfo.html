@@ -1,4 +1,4 @@
-<script>window.pathPrefix="../../";</script><!DOCTYPE html>
+<script>window.pathPrefix="../../";</script><script>window.pathPrefix="../../";</script><!DOCTYPE html>
 <html lang="en" style="padding-bottom:0px" class="local"></html>
 <head>
   <meta charset="utf-8">
@@ -688,66 +688,72 @@
         </div>
       </div>
       <div class="site-main">
-        <div class="article"><div class="article"><h1><font color="#AAA">class </font>FileInfo</h1></div>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FileInfo</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.megaphone</font></td></tr></table></html>
-<h5 id="description">Description:</h5>
-<p><font color="#666">The file information class for the file transfer method, including the types, data and files that need to be transferred. <br><br><code><i>Supported since MSDK 5.0.0</i></code></font></p>
-<h5 id="class-members">Class Members:</h5>
-<div class="api-row" id="imegaphonemanager_fileinfo_setuploadtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_setuploadtype_inline">setUploadType</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_setuploadtype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>setUploadType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setUploadType</span><span class="params">(UploadType uploadType)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.megaphone</font></td></tr></table></html>
-<h5 id="description-v2">Description:</h5>
-<p><font color="#666">To set the file type transferred, including local audio file data type and TTS binary data type. When the type is local audio file data, you need to call <code><a href="../../Components/IMegaphoneManager/IMegaphoneManager_FileInfo.html#imegaphonemanager_fileinfo_setfile">setFile</a></code> to set the local audio file path. When the type is TTS binary data, you need to call <code><a href="../../Components/IMegaphoneManager/IMegaphoneManager_FileInfo.html#imegaphonemanager_fileinfo_setdata">setData</a></code> to set the TTS binary data.</font></p>
-<h5 id="input-parameters">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMegaphoneManager/IMegaphoneManager.html#imegaphonemanager_uploadtype">UploadType</a> <font color="#000">uploadType</font></font></td><td><font color="#666"><i>File type transferred.</i></font></td></tr></table></html></div>
-<div class="api-row" id="imegaphonemanager_fileinfo_getuploadtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_getuploadtype_inline">getUploadType</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_getuploadtype_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getUploadType</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">UploadType <span class="title">getUploadType</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.megaphone</font></td></tr></table></html>
-<h5 id="description-v3">Description:</h5>
-<p><font color="#666">To get the file type transferred.</font></p>
-<h5 id="return">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMegaphoneManager/IMegaphoneManager.html#imegaphonemanager_uploadtype">UploadType</a></font></td><td><font color="#666"><i>Return the file type transferred.</i></font></td></tr></table></html></div>
-<div class="api-row" id="imegaphonemanager_fileinfo_setfile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_setfile_inline">setFile</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_setfile_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>setFile</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setFile</span><span class="params">(File file)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.megaphone</font></td></tr></table></html>
-<h5 id="description-v4">Description:</h5>
-<p><font color="#666">To set the path of the audio file that needs to be transferred to the megaphone.</font></p>
-<h5 id="input-parameters-v2">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">File <font color="#000">file</font></font></td><td><font color="#666"><i>The path of the audio file that needs to be transferred to the megaphone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="imegaphonemanager_fileinfo_getfile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_getfile_inline">getFile</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_getfile_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getFile</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function">File <span class="title">getFile</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.megaphone</font></td></tr></table></html>
-<h5 id="description-v5">Description:</h5>
-<p><font color="#666">To get the path of the audio file that needs to be transferred to the megaphone.</font></p>
-<h5 id="return-v2">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">File</font></td><td><font color="#666"><i>Return the path of the audio file that needs to be transferred to the megaphone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="imegaphonemanager_fileinfo_setdata"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_setdata_inline">setData</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_setdata_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>setData</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setData</span><span class="params">(<span class="keyword">byte</span>[] data)</span></span></span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.megaphone</font></td></tr></table></html>
-<h5 id="description-v6">Description:</h5>
-<p><font color="#666">To set the TTS binary data that needs to be transmitted to the megaphone.</font></p>
-<h5 id="input-parameters-v3">Input Parameters:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">byte[] <font color="#000">data</font></font></td><td><font color="#666"><i>The TTS binary data that needs to be transmitted to the megaphone.</i></font></td></tr></table></html></div>
-<div class="api-row" id="imegaphonemanager_fileinfo_getdata"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_getdata_inline">getData</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_getdata_inline" <blockquote>
-<div class="article"><h6><font color="#AAA">method </font>getData</h6></div>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">byte</span>[] getData()</span><br></pre></td></tr></table></figure>
-<html><table class="table-supportedby"><tr valign="top"><td width="15%"><font color="#999"><i>Package:</i></font></td><td width="85%"><font color="#999">dji.v5.manager.aircraft.megaphone</font></td></tr></table></html>
-<h5 id="description-v7">Description:</h5>
-<p><font color="#666">To get the TTS binary data that needs to be transmitted to the megaphone.</font></p>
-<h5 id="return-v3">Return:</h5>
-<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">byte[]</font></td><td><font color="#666"><i>Return the TTS binary data that needs to be transmitted to the megaphone.</i></font></td></tr></table></html></div>
+        <div class="article"><div class="article"><h1 ><font color="#AAA">class </font>FileInfo</h1></div>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">FileInfo</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.megaphone</td></tr></table></html>
+<h5 id="Description">Description:</h5>
+<p><font color="#666">The file information class for the file transfer method, including the types, data and files that need to be transferred. <br><br><code><i>Supported since MSDK 5.0.0</i></code></p>
+<h5 id="Class-Members">Class Members:</h5>
+<div class="api-row" id="imegaphonemanager_fileinfo_setuploadtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_setuploadtype_inline">setUploadType</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_setuploadtype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>setUploadType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setUploadType</span><span class="params">(UploadType uploadType)</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.megaphone</td></tr></table></html>
+<h5 id="Description-2">Description:</h5>
+<p><font color="#666">To set the file type transferred, including local audio file data type and TTS binary data type. When the type is local audio file data, you need to call <code><a href="../../Components/IMegaphoneManager/IMegaphoneManager_FileInfo.html#imegaphonemanager_fileinfo_setfile">setFile</a></code> to set the local audio file path. When the type is TTS binary data, you need to call <code><a href="../../Components/IMegaphoneManager/IMegaphoneManager_FileInfo.html#imegaphonemanager_fileinfo_setdata">setData</a></code> to set the TTS binary data.</p>
+<h5 id="Input-Parameters">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMegaphoneManager/IMegaphoneManager.html#imegaphonemanager_uploadtype">UploadType</a> <font color="#000">uploadType</td><td><font color="#666"><i>File type transferred.</i></td></tr></table></html></div>
+<div class="api-row" id="imegaphonemanager_fileinfo_getuploadtype"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_getuploadtype_inline">getUploadType</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_getuploadtype_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getUploadType</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">UploadType <span class="title function_">getUploadType</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.megaphone</td></tr></table></html>
+<h5 id="Description-3">Description:</h5>
+<p><font color="#666">To get the file type transferred.</p>
+<h5 id="Return">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41"><a href="../../Components/IMegaphoneManager/IMegaphoneManager.html#imegaphonemanager_uploadtype">UploadType</a></td><td><font color="#666"><i>Return the file type transferred.</i></td></tr></table></html></div>
+<div class="api-row" id="imegaphonemanager_fileinfo_setfile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_setfile_inline">setFile</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_setfile_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>setFile</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setFile</span><span class="params">(File file)</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.megaphone</td></tr></table></html>
+<h5 id="Description-4">Description:</h5>
+<p><font color="#666">To set the path of the audio file that needs to be transferred to the megaphone.</p>
+<h5 id="Input-Parameters-2">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">File <font color="#000">file</td><td><font color="#666"><i>The path of the audio file that needs to be transferred to the megaphone.</i></td></tr></table></html></div>
+<div class="api-row" id="imegaphonemanager_fileinfo_getfile"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_getfile_inline">getFile</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_getfile_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getFile</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">File <span class="title function_">getFile</span><span class="params">()</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.megaphone</td></tr></table></html>
+<h5 id="Description-5">Description:</h5>
+<p><font color="#666">To get the path of the audio file that needs to be transferred to the megaphone.</p>
+<h5 id="Return-2">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">File</td><td><font color="#666"><i>Return the path of the audio file that needs to be transferred to the megaphone.</i></td></tr></table></html></div>
+<div class="api-row" id="imegaphonemanager_fileinfo_setdata"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_setdata_inline">setData</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_setdata_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>setData</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">setData</span><span class="params">(<span class="type">byte</span>[] data)</span> </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.megaphone</td></tr></table></html>
+<h5 id="Description-6">Description:</h5>
+<p><font color="#666">To set the TTS binary data that needs to be transmitted to the megaphone.</p>
+<h5 id="Input-Parameters-3">Input Parameters:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">byte[] <font color="#000">data</td><td><font color="#666"><i>The TTS binary data that needs to be transmitted to the megaphone.</i></td></tr></table></html></div>
+<div class="api-row" id="imegaphonemanager_fileinfo_getdata"><div class="api-col left"></div><div class="api-col middle" style="color:#AAA">method</div><div class="api-col right"><a class="trigger" href="#imegaphonemanager_fileinfo_getdata_inline">getData</a></div></div><div class="inline-doc" id="imegaphonemanager_fileinfo_getdata_inline"
+<blockquote>
+<div class="article"><h6 ><font color="#AAA">method </font>getData</h6></div>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">byte</span>[] getData() </span><br></pre></td></tr></table></figure>
+<html><table class="table-supportedby"><tr valign="top"><td width=15%><font color="#999"><i>Package:</i></td><td width=85%><font color="#999">dji.v5.manager.aircraft.megaphone</td></tr></table></html>
+<h5 id="Description-7">Description:</h5>
+<p><font color="#666">To get the TTS binary data that needs to be transmitted to the megaphone.</p>
+<h5 id="Return-3">Return:</h5>
+<html><table class="table-inline-parameters"><tr valign="top"><td><font color="#70BF41">byte[]</td><td><font color="#666"><i>Return the TTS binary data that needs to be transmitted to the megaphone.</i></td></tr></table></html></div>
 
         </div>
       </div>

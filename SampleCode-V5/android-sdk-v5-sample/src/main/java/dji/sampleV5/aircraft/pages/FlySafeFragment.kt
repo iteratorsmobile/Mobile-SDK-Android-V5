@@ -12,7 +12,7 @@ import dji.sampleV5.aircraft.databinding.FragFlySafePageBinding
 import dji.sampleV5.aircraft.keyvalue.KeyValueDialogUtil
 import dji.sampleV5.aircraft.models.FlySafeVM
 import dji.sampleV5.aircraft.util.Helper
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.sdk.keyvalue.value.common.LocationCoordinate2D
 import dji.v5.manager.aircraft.flysafe.FlySafeDatabaseComponent
 import dji.v5.manager.aircraft.flysafe.FlySafeDatabaseUpgradeMode

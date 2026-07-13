@@ -13,7 +13,7 @@ import dji.sampleV5.aircraft.data.MEDIA_FILE_DETAILS_STR
 import dji.sampleV5.aircraft.databinding.FragAppSilentlyUpgradePageBinding
 import dji.sampleV5.aircraft.databinding.VideoPlayPageBinding
 import dji.sampleV5.aircraft.models.VideoPlayVM
-import dji.sampleV5.aircraft.util.ToastUtils
+import dji.v5.ux.core.util.ToastUtils
 import dji.v5.common.callback.CommonCallbacks
 import dji.v5.common.error.IDJIError
 import dji.v5.common.video.channel.VideoChannelType

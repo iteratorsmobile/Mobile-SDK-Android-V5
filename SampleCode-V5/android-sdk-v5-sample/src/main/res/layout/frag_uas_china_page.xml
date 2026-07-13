@@ -12,6 +12,21 @@
         android:layout_marginTop="10dp"
         android:text="update RealName Registration State" />
 
+    <Button
+        android:id="@+id/bt_set_real_name_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_update_real_name_state"
+        android:layout_marginTop="10dp"
+        android:text="setRealNameTag" />
+
+    <Button
+        android:id="@+id/bt_get_real_name_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_set_real_name_tag"
+        android:layout_marginTop="10dp"
+        android:text="getRealNameTag" />
 
     <HorizontalScrollView
         android:layout_width="wrap_content"
