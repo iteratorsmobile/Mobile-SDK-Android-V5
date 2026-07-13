@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import dji.sdk.keyvalue.value.rtkbasestation.RTKStationConnetState
@@ -132,7 +133,7 @@ class RTKStationConnectWidget @JvmOverloads constructor(
         )
         //设置可点击部分的字体颜色
         val foregroundColorSpan =
-            ForegroundColorSpan(resources.getColor(R.color.uxsdk_blue_highlight))
+            ForegroundColorSpan(ContextCompat.getColor(context, R.color.uxsdk_blue_highlight))
         spannableStringBuilder.setSpan(
             foregroundColorSpan,
             reason.length + 1,
@@ -156,7 +157,7 @@ class RTKStationConnectWidget @JvmOverloads constructor(
         when (v?.id) {
             R.id.iv_rtk_signal_search_iv,
             R.id.bt_rtk_signal_search_again,
-            -> startScanning()
+                -> startScanning()
         }
     }
 
@@ -177,7 +178,7 @@ class RTKStationConnectWidget @JvmOverloads constructor(
 
     }
 
-    override fun getIdealDimensionRatioString(): String? {
+    override fun getIdealDimensionRatioString(): String {
         return getString(R.string.uxsdk_widget_rtk_keep_status_ratio)
     }
 
@@ -214,7 +215,7 @@ class RTKStationConnectWidget @JvmOverloads constructor(
         when (rtkBaseStationConnectState) {
             RTKStationConnetState.IDLE,
             RTKStationConnetState.UNKNOWN,
-            -> {
+                -> {
                 if (firstEnter) {
                     LogUtils.i(TAG, "first enter，startScanning auto")
                     firstEnter = false

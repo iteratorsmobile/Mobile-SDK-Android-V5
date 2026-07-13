@@ -19,13 +19,18 @@ import io.reactivex.rxjava3.core.Flowable
 import dji.v5.common.utils.UnitUtils
 import android.graphics.Color
 import android.util.AttributeSet
+import androidx.core.content.ContextCompat
 import dji.sdk.keyvalue.value.common.Attitude
 import dji.sdk.keyvalue.value.flightcontroller.WindDirection
 import dji.sdk.keyvalue.value.flightcontroller.WindWarning
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import java.util.*
 
-open class SpeedDisplayWidget @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
+open class SpeedDisplayWidget @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) :
     ConstraintLayoutWidget<Boolean>(context, attrs, defStyleAttr) {
     @ExportedProperty(category = "dji", formatToHexString = true)
     private val mWindTextColor: Int
@@ -34,7 +39,9 @@ open class SpeedDisplayWidget @JvmOverloads constructor(context: Context, attrs:
     var mSpeedDashBoard: SpeedDashBoard? = null
     private val mCompositeDisposable = CompositeDisposable()
     private var mListener: FlashTimer.Listener? = null
-    private val widgetModel = SpeedDisplayModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+    private val widgetModel =
+        SpeedDisplayModel(DJISDKModel.getInstance(), ObservableInMemoryKeyedStore.getInstance())
+
     override fun initView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) {
         loadLayout(context)
         mSpeedDashBoard = findViewById(R.id.pfd_speed_dash_board)
@@ -104,18 +111,42 @@ open class SpeedDisplayWidget @JvmOverloads constructor(context: Context, attrs:
         mTvWsValue?.post { mTvWsValue?.visibility = visible }
     }
 
-    private fun updateWindStatus(windSpeed: Float, fcWindDirectionStatus: WindDirection, fcWindWarning: WindWarning, aircraftDegree: Float) {
+    private fun updateWindStatus(
+        windSpeed: Float,
+        fcWindDirectionStatus: WindDirection,
+        fcWindWarning: WindWarning,
+        aircraftDegree: Float
+    ) {
         val value = UnitUtils.transFormSpeedIntoDifferentUnit(windSpeed)
-        val textStr = String.format(Locale.ENGLISH, "WS %04.1f %s", value, getWindDirectionText(fcWindDirectionStatus, aircraftDegree))
+        val textStr = String.format(
+            Locale.ENGLISH,
+            "WS %04.1f %s",
+            value,
+            getWindDirectionText(fcWindDirectionStatus, aircraftDegree)
+        )
         if (textStr != mTvWsValue?.text.toString()) {
             mTvWsValue!!.text = textStr
         }
-        if (fcWindWarning == WindWarning.LEVEL_2) {
-            mTvWsValue!!.setTextColor(resources.getColor(R.color.uxsdk_pfd_barrier_color))
-        } else if (fcWindWarning == WindWarning.LEVEL_1) {
-            mTvWsValue?.setTextColor(resources.getColor(R.color.uxsdk_pfd_avoidance_color))
-        } else {
-            mTvWsValue?.setTextColor(mWindTextColor)
+        when (fcWindWarning) {
+            WindWarning.LEVEL_2 -> {
+                mTvWsValue!!.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.uxsdk_pfd_barrier_color
+                    )
+                )
+            }
+            WindWarning.LEVEL_1 -> {
+                mTvWsValue?.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.uxsdk_pfd_avoidance_color
+                    )
+                )
+            }
+            else -> {
+                mTvWsValue?.setTextColor(mWindTextColor)
+            }
         }
         val shouldBlink = fcWindWarning == WindWarning.LEVEL_2
         // 红色需要持续闪烁
@@ -130,7 +161,10 @@ open class SpeedDisplayWidget @JvmOverloads constructor(context: Context, attrs:
         }
     }
 
-    private fun getWindDirectionText(fcWindDirectionStatus: WindDirection, aircraftDegree: Float): String {
+    private fun getWindDirectionText(
+        fcWindDirectionStatus: WindDirection,
+        aircraftDegree: Float
+    ): String {
         if (fcWindDirectionStatus == WindDirection.WINDLESS) {
             return " "
         }
@@ -189,7 +223,8 @@ open class SpeedDisplayWidget @JvmOverloads constructor(context: Context, attrs:
 
     init {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.SpeedDisplayWidget)
-        mWindTextColor = typedArray.getColor(R.styleable.SpeedDisplayWidget_android_textColor, Color.WHITE)
+        mWindTextColor =
+            typedArray.getColor(R.styleable.SpeedDisplayWidget_android_textColor, Color.WHITE)
         typedArray.recycle()
     }
 }

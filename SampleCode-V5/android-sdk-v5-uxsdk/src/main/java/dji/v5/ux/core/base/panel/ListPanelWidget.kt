@@ -74,9 +74,7 @@ abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
         set(value) {
             field = value
             field?.setListPanelWidgetHolder(listPanelWidgetBaseModel)
-            if (ViewCompat.isAttachedToWindow(this)) {
-                field?.setUp()
-            }
+            field?.setUp()
             if (field != null) {
                 onSmartListModelCreated()
             }
@@ -128,9 +126,10 @@ abstract class ListPanelWidget<T : Any> @JvmOverloads constructor(
         if (!isInEditMode) {
             smartListModel?.setUp()
 
-            addDisposable(listPanelWidgetBaseModel.widgetList
-                .observeOn(SchedulerProvider.ui())
-                .subscribe { updateUI() })
+            addDisposable(
+                listPanelWidgetBaseModel.widgetList
+                    .observeOn(SchedulerProvider.ui())
+                    .subscribe { updateUI() })
         }
     }
 

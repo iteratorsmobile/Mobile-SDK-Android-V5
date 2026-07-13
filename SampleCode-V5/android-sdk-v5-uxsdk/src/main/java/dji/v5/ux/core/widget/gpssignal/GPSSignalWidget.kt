@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import dji.v5.manager.aircraft.rtk.RTKCenter
 import dji.v5.utils.common.LogUtils
 import dji.v5.ux.R
@@ -12,9 +13,7 @@ import dji.v5.ux.accessory.RTKEnabledWidgetModel
 import dji.v5.ux.core.base.DJISDKModel
 import dji.v5.ux.core.base.SchedulerProvider
 import dji.v5.ux.core.base.widget.ConstraintLayoutWidget
-import dji.v5.ux.core.base.widget.FrameLayoutWidget
 import dji.v5.ux.core.communication.ObservableInMemoryKeyedStore
-import dji.v5.ux.core.extension.getString
 import dji.v5.ux.core.popover.PopoverHelper
 
 /**
@@ -87,23 +86,26 @@ class GpsSignalWidget @JvmOverloads constructor(
             updateRtkIcon(it)
         })
 
-        addReaction(gpsSignalWidgetModel.gpsSatelliteCount.observeOn(SchedulerProvider.ui()).subscribe {
-            if (!rtkOverView.rtkHealthy) {
-                LogUtils.d(logTag, "rtk is  not healthy,use gpsSatelliteCount")
-                tvSatelliteCount.text = it.toString()
-            }
-        })
+        addReaction(
+            gpsSignalWidgetModel.gpsSatelliteCount.observeOn(SchedulerProvider.ui()).subscribe {
+                if (!rtkOverView.rtkHealthy) {
+                    LogUtils.d(logTag, "rtk is  not healthy,use gpsSatelliteCount")
+                    tvSatelliteCount.text = it.toString()
+                }
+            })
 
-        addReaction(gpsSignalWidgetModel.rtkSatelliteCount.observeOn(SchedulerProvider.ui()).subscribe {
-            if (rtkOverView.rtkHealthy) {
-                LogUtils.d(logTag, "rtk is healthy,use rtkSatelliteCount")
-                tvSatelliteCount.text = it.toString()
-            }
-        })
-        addReaction(gpsSignalWidgetModel.gpsSignalLevel.observeOn(SchedulerProvider.ui()).subscribe {
-            ivSatelliteIcon.setColorFilter(getTintColor(it))
-            tvSatelliteCount.setTextColor(getTintColor(it))
-        })
+        addReaction(
+            gpsSignalWidgetModel.rtkSatelliteCount.observeOn(SchedulerProvider.ui()).subscribe {
+                if (rtkOverView.rtkHealthy) {
+                    LogUtils.d(logTag, "rtk is healthy,use rtkSatelliteCount")
+                    tvSatelliteCount.text = it.toString()
+                }
+            })
+        addReaction(
+            gpsSignalWidgetModel.gpsSignalLevel.observeOn(SchedulerProvider.ui()).subscribe {
+                ivSatelliteIcon.setColorFilter(getTintColor(it))
+                tvSatelliteCount.setTextColor(getTintColor(it))
+            })
     }
 
     private fun updateRtkIcon(overview: GpsSignalWidgetModel.RtkOverview) {
@@ -114,9 +116,11 @@ class GpsSignalWidget @JvmOverloads constructor(
                 overview.rtkKeepingStatus -> {
                     ivRtkIcon.setImageResource(R.drawable.uxsdk_ic_fpv_topbar_rtk_caution)
                 }
+
                 overview.rtkHealthy -> {
                     ivRtkIcon.setImageResource(R.drawable.uxsdk_ic_fpv_topbar_rtk_normal)
                 }
+
                 else -> {
                     ivRtkIcon.setImageResource(R.drawable.uxsdk_ic_fpv_topbar_rtk_danger)
                 }
@@ -129,11 +133,13 @@ class GpsSignalWidget @JvmOverloads constructor(
     private fun getTintColor(level: GpsSignalWidgetModel.SignalLevel): Int {
         return when (level) {
             GpsSignalWidgetModel.SignalLevel.LEVEL_1 ->
-                resources.getColor(R.color.uxsdk_tips_danger_in_dark)
+                ContextCompat.getColor(context, R.color.uxsdk_tips_danger_in_dark)
+
             GpsSignalWidgetModel.SignalLevel.LEVEL_2 ->
-                resources.getColor(R.color.uxsdk_tips_caution_in_dark)
+                ContextCompat.getColor(context, R.color.uxsdk_tips_caution_in_dark)
+
             GpsSignalWidgetModel.SignalLevel.LEVEL_3 ->
-                resources.getColor(R.color.uxsdk_tips_normal_in_dark)
+                ContextCompat.getColor(context, R.color.uxsdk_tips_normal_in_dark)
         }
     }
 }
